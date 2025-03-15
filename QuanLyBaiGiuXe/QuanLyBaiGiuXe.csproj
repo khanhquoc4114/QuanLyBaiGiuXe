@@ -52,10 +52,49 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\Connector.cs" />
+    <Compile Include="DataAccess\LoginManager.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VeThangDoiTheForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeThangDoiTheForm.Designer.cs">
+      <DependentUpon>VeThangDoiTheForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeThangSuaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeThangSuaForm.Designer.cs">
+      <DependentUpon>VeThangSuaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeThangThemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeThangThemForm.Designer.cs">
+      <DependentUpon>VeThangThemForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +105,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VeThangDoiTheForm.resx">
+      <DependentUpon>VeThangDoiTheForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VeThangSuaForm.resx">
+      <DependentUpon>VeThangSuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VeThangThemForm.resx">
+      <DependentUpon>VeThangThemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,5 +127,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
