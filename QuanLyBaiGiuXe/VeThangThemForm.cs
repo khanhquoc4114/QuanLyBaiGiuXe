@@ -41,7 +41,18 @@ namespace QuanLyBaiGiuXe
                         {
                             if (result.Read())
                             {
+                                cbNhom.Text = result["Nhom"].ToString();
+                                tbChuXe.Text = result["ChuXe"].ToString();
+                                tbDiaChi.Text = result["DiaChi"].ToString();
+                                tbDienThoai.Text = result["DienThoai"].ToString();
                                 tbEmail.Text = result["Email"].ToString();
+                                dataPickerNgayKichHoat.Text = result["NgayKichHoat"].ToString();
+                                datePickerNgayHetHan.Text = result["NgayHetHan"].ToString();
+                                tbBienSo.Text = result["Email"].ToString();
+                                tbNhanHieu.Text = result["Email"].ToString();
+                                cbLoaiXe.Text = result["Email"].ToString();
+                                updGiaVe.Text = result["Email"].ToString();
+                                rtbGhiChu.Text = result["Email"].ToString();
                             }
                             else
                             {
