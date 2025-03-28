@@ -11,7 +11,7 @@ namespace QuanLyBaiGiuXe.DataAccess
 {
     public class Connector : IDisposable
     {
-        private readonly string connectionString = "Data Source= localhost;Initial Catalog=testDoXe;Integrated Security=True";
+        private readonly string connectionString = "Data Source= localhost;Initial Catalog=testdoxe;Integrated Security=True";
         private SqlConnection connection;
 
         public Connector()
@@ -21,12 +21,12 @@ namespace QuanLyBaiGiuXe.DataAccess
 
         public SqlConnection GetConnection()
         {
-            return new SqlConnection(connectionString);
+            return connection;
         }
 
         public void OpenConnection()
         {
-            if (connection.State == ConnectionState.Closed)
+            if (connection.State == ConnectionState.Closed || connection.State == ConnectionState.Broken)
             {
                 connection.Open();
             }

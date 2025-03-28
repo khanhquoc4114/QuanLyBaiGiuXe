@@ -33,20 +33,26 @@
             this.dtgVeThang = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnKhoiPhucVeThang = new System.Windows.Forms.Button();
+            this.btnGiaHanVeThang = new System.Windows.Forms.Button();
+            this.btnSuaVeThang = new System.Windows.Forms.Button();
+            this.btnXoaVeThang = new System.Windows.Forms.Button();
+            this.btnThemVeThang = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtgNhom = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSuaNhom = new System.Windows.Forms.Button();
+            this.btnXoaNhom = new System.Windows.Forms.Button();
+            this.btnThemNhom = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVeThang)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhom)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,23 +77,30 @@
             // 
             // dtgVeThang
             // 
+            this.dtgVeThang.AllowUserToAddRows = false;
+            this.dtgVeThang.AllowUserToDeleteRows = false;
+            this.dtgVeThang.AllowUserToResizeRows = false;
             this.dtgVeThang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgVeThang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgVeThang.Location = new System.Drawing.Point(0, 100);
+            this.dtgVeThang.MultiSelect = false;
             this.dtgVeThang.Name = "dtgVeThang";
+            this.dtgVeThang.ReadOnly = true;
+            this.dtgVeThang.RowHeadersVisible = false;
+            this.dtgVeThang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgVeThang.Size = new System.Drawing.Size(770, 518);
             this.dtgVeThang.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.button7);
-            this.panel5.Controls.Add(this.button6);
-            this.panel5.Controls.Add(this.button5);
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button2);
-            this.panel5.Controls.Add(this.btnThem);
+            this.panel5.Controls.Add(this.btnXuatExcel);
+            this.panel5.Controls.Add(this.btnTimKiem);
+            this.panel5.Controls.Add(this.btnKhoiPhucVeThang);
+            this.panel5.Controls.Add(this.btnGiaHanVeThang);
+            this.panel5.Controls.Add(this.btnSuaVeThang);
+            this.panel5.Controls.Add(this.btnXoaVeThang);
+            this.panel5.Controls.Add(this.btnThemVeThang);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
@@ -101,71 +114,76 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 5;
             // 
-            // button7
+            // btnXuatExcel
             // 
-            this.button7.Location = new System.Drawing.Point(529, 42);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "Xuất excel";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Location = new System.Drawing.Point(610, 16);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Text = "Xuất excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
-            // button6
+            // btnTimKiem
             // 
-            this.button6.Location = new System.Drawing.Point(529, 13);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Tìm kiếm";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Location = new System.Drawing.Point(529, 16);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.TabIndex = 4;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnKhoiPhucVeThang
             // 
-            this.button5.Location = new System.Drawing.Point(18, 42);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Khôi phục";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnKhoiPhucVeThang.Location = new System.Drawing.Point(18, 42);
+            this.btnKhoiPhucVeThang.Name = "btnKhoiPhucVeThang";
+            this.btnKhoiPhucVeThang.Size = new System.Drawing.Size(75, 23);
+            this.btnKhoiPhucVeThang.TabIndex = 4;
+            this.btnKhoiPhucVeThang.Text = "Khôi phục";
+            this.btnKhoiPhucVeThang.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnGiaHanVeThang
             // 
-            this.button4.Location = new System.Drawing.Point(264, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Gia hạn";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnGiaHanVeThang.Location = new System.Drawing.Point(264, 13);
+            this.btnGiaHanVeThang.Name = "btnGiaHanVeThang";
+            this.btnGiaHanVeThang.Size = new System.Drawing.Size(75, 23);
+            this.btnGiaHanVeThang.TabIndex = 3;
+            this.btnGiaHanVeThang.Text = "Gia hạn";
+            this.btnGiaHanVeThang.UseVisualStyleBackColor = true;
+            this.btnGiaHanVeThang.Click += new System.EventHandler(this.btnGiaHanVeThang_Click);
             // 
-            // button3
+            // btnSuaVeThang
             // 
-            this.button3.Location = new System.Drawing.Point(182, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSuaVeThang.Location = new System.Drawing.Point(182, 12);
+            this.btnSuaVeThang.Name = "btnSuaVeThang";
+            this.btnSuaVeThang.Size = new System.Drawing.Size(75, 23);
+            this.btnSuaVeThang.TabIndex = 2;
+            this.btnSuaVeThang.Text = "Sửa";
+            this.btnSuaVeThang.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnXoaVeThang
             // 
-            this.button2.Location = new System.Drawing.Point(100, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Xoá";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnXoaVeThang.Location = new System.Drawing.Point(100, 12);
+            this.btnXoaVeThang.Name = "btnXoaVeThang";
+            this.btnXoaVeThang.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaVeThang.TabIndex = 1;
+            this.btnXoaVeThang.Text = "Xoá";
+            this.btnXoaVeThang.UseVisualStyleBackColor = true;
+            this.btnXoaVeThang.Click += new System.EventHandler(this.btnXoaVeThang_Click);
             // 
-            // btnThem
+            // btnThemVeThang
             // 
-            this.btnThem.Location = new System.Drawing.Point(18, 13);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThemVeThang.Location = new System.Drawing.Point(18, 13);
+            this.btnThemVeThang.Name = "btnThemVeThang";
+            this.btnThemVeThang.Size = new System.Drawing.Size(75, 23);
+            this.btnThemVeThang.TabIndex = 0;
+            this.btnThemVeThang.Text = "Thêm";
+            this.btnThemVeThang.UseVisualStyleBackColor = true;
+            this.btnThemVeThang.Click += new System.EventHandler(this.btnThemVeThang_Click);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dtgNhom);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -173,13 +191,62 @@
             this.panel2.Size = new System.Drawing.Size(208, 618);
             this.panel2.TabIndex = 0;
             // 
+            // dtgNhom
+            // 
+            this.dtgNhom.AllowUserToAddRows = false;
+            this.dtgNhom.AllowUserToDeleteRows = false;
+            this.dtgNhom.AllowUserToResizeRows = false;
+            this.dtgNhom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgNhom.ColumnHeadersVisible = false;
+            this.dtgNhom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgNhom.Location = new System.Drawing.Point(0, 100);
+            this.dtgNhom.Name = "dtgNhom";
+            this.dtgNhom.ReadOnly = true;
+            this.dtgNhom.RowHeadersVisible = false;
+            this.dtgNhom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgNhom.Size = new System.Drawing.Size(208, 518);
+            this.dtgNhom.TabIndex = 1;
+            // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnSuaNhom);
+            this.panel4.Controls.Add(this.btnXoaNhom);
+            this.panel4.Controls.Add(this.btnThemNhom);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(208, 100);
             this.panel4.TabIndex = 0;
+            // 
+            // btnSuaNhom
+            // 
+            this.btnSuaNhom.Location = new System.Drawing.Point(102, 42);
+            this.btnSuaNhom.Name = "btnSuaNhom";
+            this.btnSuaNhom.Size = new System.Drawing.Size(75, 23);
+            this.btnSuaNhom.TabIndex = 0;
+            this.btnSuaNhom.Text = "Sửa nhóm";
+            this.btnSuaNhom.UseVisualStyleBackColor = true;
+            this.btnSuaNhom.Click += new System.EventHandler(this.btnSuaNhom_Click);
+            // 
+            // btnXoaNhom
+            // 
+            this.btnXoaNhom.Location = new System.Drawing.Point(12, 42);
+            this.btnXoaNhom.Name = "btnXoaNhom";
+            this.btnXoaNhom.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaNhom.TabIndex = 0;
+            this.btnXoaNhom.Text = "Xoá nhóm";
+            this.btnXoaNhom.UseVisualStyleBackColor = true;
+            this.btnXoaNhom.Click += new System.EventHandler(this.btnXoaNhom_Click);
+            // 
+            // btnThemNhom
+            // 
+            this.btnThemNhom.Location = new System.Drawing.Point(12, 16);
+            this.btnThemNhom.Name = "btnThemNhom";
+            this.btnThemNhom.Size = new System.Drawing.Size(75, 23);
+            this.btnThemNhom.TabIndex = 0;
+            this.btnThemNhom.Text = "Thêm nhóm";
+            this.btnThemNhom.UseVisualStyleBackColor = true;
+            this.btnThemNhom.Click += new System.EventHandler(this.btnThemNhom_Click);
             // 
             // VeThangMainForm
             // 
@@ -196,6 +263,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhom)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -208,13 +277,17 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnGiaHanVeThang;
+        private System.Windows.Forms.Button btnSuaVeThang;
+        private System.Windows.Forms.Button btnXoaVeThang;
+        private System.Windows.Forms.Button btnThemVeThang;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnXuatExcel;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnKhoiPhucVeThang;
+        private System.Windows.Forms.DataGridView dtgNhom;
+        private System.Windows.Forms.Button btnSuaNhom;
+        private System.Windows.Forms.Button btnXoaNhom;
+        private System.Windows.Forms.Button btnThemNhom;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBaiGiuXe
 {
-    partial class VeThangThemForm
+    partial class VeThangThemSuaForm
     {
         /// <summary>
         /// Required designer variable.

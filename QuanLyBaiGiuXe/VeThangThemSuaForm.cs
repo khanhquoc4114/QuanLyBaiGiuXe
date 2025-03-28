@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class VeThangThemForm: Form
+    public partial class VeThangThemSuaForm: Form
     {
-        public VeThangThemForm()
+        public VeThangThemSuaForm()
         {
             InitializeComponent();
         }

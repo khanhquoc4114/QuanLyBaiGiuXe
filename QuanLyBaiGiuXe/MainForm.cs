@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using AForge;
-using AForge.Imaging;
 using AForge.Imaging.Filters;
-using AForge.Math.Geometry;
-using System.Linq;
-using Tesseract;
 using TGMT;
 
 namespace QuanLyBaiGiuXe
@@ -18,20 +12,7 @@ namespace QuanLyBaiGiuXe
         public MainForm()
         {
             InitializeComponent();
-            //pbVao1.SizeMode = PictureBoxSizeMode.Zoom;
-            //pbVao2.SizeMode = PictureBoxSizeMode.Zoom;
-            //originalImage = new Bitmap(@"D:\UIT\Year3\semester2\DACN\AA_Main\archive\biensoxemayhon100bien\anh\0000_02187_b.jpg");
-            //pbVao1.Image = originalImage; // Display in a PictureBox
-
-            //// Perform some basic pre-processing (example)
-            //Bitmap processedImage = PreProcessImage(originalImage);
-            //pbVao2.Image = processedImage; // Display processed image
-
-            //// You would then call your LPR functions here, passing in the processedImage
-            //string licensePlateText = DetectLicensePlate(processedImage);
-            //tbResult.Text = licensePlateText;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -55,6 +36,7 @@ namespace QuanLyBaiGiuXe
             }
         }
 
+        //Handle process for image
         private Bitmap PreProcessImage(Bitmap image)
         {
             // 1. Convert to Grayscale
@@ -75,5 +57,6 @@ namespace QuanLyBaiGiuXe
 
             return grayscaleImage;
         }
+
     }
 }

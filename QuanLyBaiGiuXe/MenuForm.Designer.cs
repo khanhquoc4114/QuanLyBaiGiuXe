@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.btnThe = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnVeThang = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnVeLuot = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -55,14 +55,15 @@
             this.btnThe.Text = "Thẻ";
             this.btnThe.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnVeThang
             // 
-            this.button2.Location = new System.Drawing.Point(12, 130);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 72);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Vé tháng";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnVeThang.Location = new System.Drawing.Point(12, 130);
+            this.btnVeThang.Name = "btnVeThang";
+            this.btnVeThang.Size = new System.Drawing.Size(129, 72);
+            this.btnVeThang.TabIndex = 0;
+            this.btnVeThang.Text = "Vé tháng";
+            this.btnVeThang.UseVisualStyleBackColor = true;
+            this.btnVeThang.Click += new System.EventHandler(this.btnVeThang_Click);
             // 
             // button3
             // 
@@ -73,14 +74,14 @@
             this.button3.Text = "Tra cứu xe vào, ra";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnVeLuot
             // 
-            this.button4.Location = new System.Drawing.Point(12, 248);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 72);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Vé lượt";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnVeLuot.Location = new System.Drawing.Point(12, 248);
+            this.btnVeLuot.Name = "btnVeLuot";
+            this.btnVeLuot.Size = new System.Drawing.Size(129, 72);
+            this.btnVeLuot.TabIndex = 0;
+            this.btnVeLuot.Text = "Vé lượt";
+            this.btnVeLuot.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -207,9 +208,9 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnVeLuot);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnVeThang);
             this.Controls.Add(this.btnThe);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
@@ -220,9 +221,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnThe;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnVeThang;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnVeLuot;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;

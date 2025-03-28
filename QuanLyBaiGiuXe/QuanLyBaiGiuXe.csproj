@@ -70,6 +70,15 @@
     <Reference Include="Emgu.CV, Version=4.10.0.5680, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
       <HintPath>packages\Emgu.CV.4.10.0.5680\lib\netstandard2.0\Emgu.CV.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=7.7.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.7.0\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=7.7.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.7.7.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=7.7.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.7.7.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.23.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.23.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -130,6 +139,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.Primitives.6.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
     <Reference Include="NetTopologySuite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
       <HintPath>packages\NetTopologySuite.2.6.0\lib\netstandard2.0\NetTopologySuite.dll</HintPath>
     </Reference>
@@ -139,11 +151,12 @@
     <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
-      <HintPath>packages\SixLabors.ImageSharp.2.1.9\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+      <HintPath>packages\SixLabors.ImageSharp.2.1.10\lib\net472\SixLabors.ImageSharp.dll</HintPath>
     </Reference>
     <Reference Include="SixLabors.ImageSharp.Drawing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>packages\SixLabors.ImageSharp.Drawing.1.0.0\lib\net472\SixLabors.ImageSharp.Drawing.dll</HintPath>
@@ -152,7 +165,11 @@
     <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Configuration.ConfigurationManager.6.0.2\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -175,6 +192,7 @@
     <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Pipelines.9.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
     </Reference>
@@ -267,6 +285,12 @@
     </Compile>
     <Compile Include="DataAccess\Connector.cs" />
     <Compile Include="DataAccess\LoginManager.cs" />
+    <Compile Include="FormInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInputDialog.Designer.cs">
+      <DependentUpon>FormInputDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +306,24 @@
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheMainForm.Designer.cs">
+      <DependentUpon>TheMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TinhTienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TinhTienForm.Designer.cs">
+      <DependentUpon>TinhTienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeLuotMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeLuotMainForm.Designer.cs">
+      <DependentUpon>VeLuotMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VeThangDoiTheForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,20 +336,23 @@
     <Compile Include="VeThangMainForm.Designer.cs">
       <DependentUpon>VeThangMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangSuaForm.cs">
+    <Compile Include="VeThangThemSuaNhom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangSuaForm.Designer.cs">
-      <DependentUpon>VeThangSuaForm.cs</DependentUpon>
+    <Compile Include="VeThangThemSuaNhom.Designer.cs">
+      <DependentUpon>VeThangThemSuaNhom.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangThemForm.cs">
+    <Compile Include="VeThangThemSuaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangThemForm.Designer.cs">
-      <DependentUpon>VeThangThemForm.cs</DependentUpon>
+    <Compile Include="VeThangThemSuaForm.Designer.cs">
+      <DependentUpon>VeThangThemSuaForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInputDialog.resx">
+      <DependentUpon>FormInputDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -324,17 +369,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TheMainForm.resx">
+      <DependentUpon>TheMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TinhTienForm.resx">
+      <DependentUpon>TinhTienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VeLuotMainForm.resx">
+      <DependentUpon>VeLuotMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VeThangDoiTheForm.resx">
       <DependentUpon>VeThangDoiTheForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VeThangMainForm.resx">
       <DependentUpon>VeThangMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangSuaForm.resx">
-      <DependentUpon>VeThangSuaForm.cs</DependentUpon>
+    <EmbeddedResource Include="VeThangThemSuaNhom.resx">
+      <DependentUpon>VeThangThemSuaNhom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangThemForm.resx">
-      <DependentUpon>VeThangThemForm.cs</DependentUpon>
+    <EmbeddedResource Include="VeThangThemSuaForm.resx">
+      <DependentUpon>VeThangThemSuaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
