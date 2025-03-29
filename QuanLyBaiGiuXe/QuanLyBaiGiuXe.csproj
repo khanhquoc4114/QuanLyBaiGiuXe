@@ -285,12 +285,6 @@
     </Compile>
     <Compile Include="DataAccess\Connector.cs" />
     <Compile Include="DataAccess\LoginManager.cs" />
-    <Compile Include="FormInputDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInputDialog.Designer.cs">
-      <DependentUpon>FormInputDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,11 +318,17 @@
     <Compile Include="VeLuotMainForm.Designer.cs">
       <DependentUpon>VeLuotMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangDoiTheForm.cs">
+    <Compile Include="VeThangDoiTheThang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangDoiTheForm.Designer.cs">
-      <DependentUpon>VeThangDoiTheForm.cs</DependentUpon>
+    <Compile Include="VeThangDoiTheThang.Designer.cs">
+      <DependentUpon>VeThangDoiTheThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeThangGiaHanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeThangGiaHanForm.Designer.cs">
+      <DependentUpon>VeThangGiaHanForm.cs</DependentUpon>
     </Compile>
     <Compile Include="VeThangMainForm.cs">
       <SubType>Form</SubType>
@@ -350,9 +350,6 @@
     </Compile>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormInputDialog.resx">
-      <DependentUpon>FormInputDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -378,8 +375,11 @@
     <EmbeddedResource Include="VeLuotMainForm.resx">
       <DependentUpon>VeLuotMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangDoiTheForm.resx">
-      <DependentUpon>VeThangDoiTheForm.cs</DependentUpon>
+    <EmbeddedResource Include="VeThangDoiTheThang.resx">
+      <DependentUpon>VeThangDoiTheThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VeThangGiaHanForm.resx">
+      <DependentUpon>VeThangGiaHanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VeThangMainForm.resx">
       <DependentUpon>VeThangMainForm.cs</DependentUpon>

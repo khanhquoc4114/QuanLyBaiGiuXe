@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe.Models
@@ -14,16 +11,233 @@ namespace QuanLyBaiGiuXe.Models
     {
         Connector db = new Connector();
         public Manager() { }
+
+        #region Vé Tháng
         public DataTable GetAllVeThang()
         {
+            DataTable dtbVeThang = new DataTable();
+
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(@"
+                    SELECT 
+                        vt.MaThe, 
+                        vt.BienSo, 
+                        vt.ChuXe, 
+                        n.TenNhom, 
+                        t.LoaiThe AS LoaiVe, 
+                        vt.NgayKichHoat, 
+                        vt.NgayHetHan, 
+                        vt.GiaVe
+                    FROM VeThang vt
+                    JOIN Nhom n ON vt.MaNhom = n.MaNhom
+                    JOIN The t ON vt.MaThe = t.MaThe;", db.GetConnection()))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtbVeThang);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách vé tháng: " + ex.Message);
+            }
+            return dtbVeThang;
+        }
+        public int GetMaVeThangByBienSo(string BienSo)
+        {
+            int maVeThang = -1; 
+
+            try
+            {
+                db.OpenConnection(); // Mở kết nối CSDL
+
+                using (SqlCommand cmd = new SqlCommand("SELECT MaVeThang FROM VeThang WHERE BienSo = @BienSo", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@BienSo", BienSo);
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        maVeThang = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy MaVeThang: " + ex.Message);
+            }
+
+            return maVeThang;
+        }
+        public int GetMaNhomByTenNhom(string TenNhom)
+        {
+            int maNhom = -1;
+            try
+            {
+                db.OpenConnection(); // Mở kết nối CSDL
+                using (SqlCommand cmd = new SqlCommand("SELECT MaNhom FROM Nhom WHERE TenNhom = @TenNhom", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@TenNhom", TenNhom);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        maNhom = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy MaNhom: " + ex.Message);
+            }
+            return maNhom;
+        }
+        public bool SuaVeThang(int MaVeThang, string tenNhom, string maThe, string chuXe, string dienThoai,
+                          string diaChi, string email, DateTime ngayKichHoat,
+                          DateTime ngayHetHan, string bienSo, string nhanHieu,
+                          string loaiXe, decimal giaVe, string ghiChu)
+        {
+            try
+            {
+                db.OpenConnection();
+
+                // Lấy MaNhom từ TenNhom
+                int maNhom = GetMaNhomByTenNhom(tenNhom);
+
+                using (SqlCommand updateCmd = new SqlCommand(@"
+                    UPDATE VeThang 
+                    SET MaNhom = @MaNhom, ChuXe = @ChuXe, DienThoai = @DienThoai, 
+                        DiaChi = @DiaChi, Email = @Email, NgayKichHoat = @NgayKichHoat, 
+                        NgayHetHan = @NgayHetHan, BienSo = @BienSo, NhanHieu = @NhanHieu, 
+                        LoaiXe = @LoaiXe, GiaVe = @GiaVe, GhiChu = @GhiChu
+                    WHERE MaVeThang = @MaVeThang", db.GetConnection()))
+                {
+                    updateCmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                    updateCmd.Parameters.AddWithValue("@ChuXe", chuXe);
+                    updateCmd.Parameters.AddWithValue("@DienThoai", dienThoai);
+                    updateCmd.Parameters.AddWithValue("@DiaChi", diaChi);
+                    updateCmd.Parameters.AddWithValue("@Email", email);
+                    updateCmd.Parameters.AddWithValue("@NgayKichHoat", ngayKichHoat);
+                    updateCmd.Parameters.AddWithValue("@NgayHetHan", ngayHetHan);
+                    updateCmd.Parameters.AddWithValue("@BienSo", bienSo);
+                    updateCmd.Parameters.AddWithValue("@NhanHieu", nhanHieu);
+                    updateCmd.Parameters.AddWithValue("@LoaiXe", loaiXe);
+                    updateCmd.Parameters.AddWithValue("@GiaVe", giaVe);
+                    updateCmd.Parameters.AddWithValue("@GhiChu", ghiChu);
+                    updateCmd.Parameters.AddWithValue("@MaVeThang", MaVeThang);
+
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi cập nhật Vé Tháng: " + ex.Message);
+                return false;
+            }
+        }
+        public bool ThemVeThang(string tenNhom, string maThe, string chuXe, string dienThoai,
+                          string diaChi, string email, DateTime ngayKichHoat,
+                          DateTime ngayHetHan, string bienSo, string nhanHieu,
+                          string loaiXe, decimal giaVe, string ghiChu)
+        {
+            int DaTonTai = GetMaVeThangByBienSo(bienSo);
+            if (DaTonTai != -1)
+            {
+                MessageBox.Show("Biển số đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            try
+            {
+                db.OpenConnection();
+
+                // Lấy MaNhom từ TenNhom
+                int maNhom = GetMaNhomByTenNhom(tenNhom);
+                if (maNhom == -1)
+                {
+                    MessageBox.Show("Nhóm không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                using (SqlCommand insertCmd = new SqlCommand(@"
+            INSERT INTO VeThang (MaNhom, MaThe, ChuXe, DienThoai, DiaChi, Email, 
+                                 NgayKichHoat, NgayHetHan, BienSo, NhanHieu, 
+                                 LoaiXe, GiaVe, GhiChu)
+            VALUES (@MaNhom, @MaThe, @ChuXe, @DienThoai, @DiaChi, @Email, 
+                    @NgayKichHoat, @NgayHetHan, @BienSo, @NhanHieu, 
+                    @LoaiXe, @GiaVe, @GhiChu)", db.GetConnection()))
+                {
+                    insertCmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                    insertCmd.Parameters.AddWithValue("@MaThe", maThe);
+                    insertCmd.Parameters.AddWithValue("@ChuXe", chuXe);
+                    insertCmd.Parameters.AddWithValue("@DienThoai", dienThoai);
+                    insertCmd.Parameters.AddWithValue("@DiaChi", diaChi);
+                    insertCmd.Parameters.AddWithValue("@Email", email);
+                    insertCmd.Parameters.AddWithValue("@NgayKichHoat", ngayKichHoat);
+                    insertCmd.Parameters.AddWithValue("@NgayHetHan", ngayHetHan);
+                    insertCmd.Parameters.AddWithValue("@BienSo", bienSo);
+                    insertCmd.Parameters.AddWithValue("@NhanHieu", nhanHieu);
+                    insertCmd.Parameters.AddWithValue("@LoaiXe", loaiXe);
+                    insertCmd.Parameters.AddWithValue("@GiaVe", giaVe);
+                    insertCmd.Parameters.AddWithValue("@GhiChu", ghiChu);
+
+                    int rowsInserted = insertCmd.ExecuteNonQuery();
+                    return rowsInserted > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi thêm vé tháng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public DataTable GetVeThangByMaVeThang(int MaVeThang)
+        {
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("select * from VeThang", db.GetConnection());
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dt);
+
+            try
+            {
+                db.OpenConnection(); // Mở kết nối CSDL
+
+                using (SqlCommand cmd = new SqlCommand(@"
+                    SELECT 
+                        n.TenNhom, 
+                        vt.MaThe, 
+                        vt.ChuXe,
+                        vt.DienThoai,
+                        vt.DiaChi,
+                        vt.Email,
+                        vt.NgayKichHoat, 
+                        vt.NgayHetHan, 
+                        vt.BienSo,
+                        vt.NhanHieu,
+                        vt.LoaiXe,
+                        vt.GiaVe,
+                        vt.GhiChu
+                    FROM VeThang vt
+                    JOIN Nhom n ON vt.MaNhom = n.MaNhom
+                    WHERE vt.MaVeThang = @MaVeThang", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@MaVeThang", MaVeThang);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy thông tin vé tháng: " + ex.Message);
+            }
+
             return dt;
         }
-
-        public List<string> LayDanhSachTenNhom()
+        public List<string> GetDanhSachNhom()
         {
             List<string> danhSachTenNhom = new List<string>();
 
@@ -48,6 +262,108 @@ namespace QuanLyBaiGiuXe.Models
 
             return danhSachTenNhom;
         }
+
+        public bool XoaVeThang(string BienSo)
+        {
+            int MaVeThang = -1;
+            MaVeThang = GetMaVeThangByBienSo(BienSo);
+            if (MaVeThang == -1)
+            {
+                MessageBox.Show("Không tìm thấy vé tháng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            db.OpenConnection();
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM VeThang WHERE MaVeThang = @mavethang", db.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("@mavethang", MaVeThang);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+        }
+        public bool GiaHanVeThang(int MaVeThang, DateTime NgayHetHan)
+        {
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand("UPDATE VeThang SET NgayHetHan = @NgayHetHan WHERE MaVeThang = @MaVeThang", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@NgayHetHan", NgayHetHan);
+                    cmd.Parameters.AddWithValue("@MaVeThang", MaVeThang);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi gia hạn vé tháng: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool DoiTheThang(int MaVeThang, string MaThe)
+        {
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand("UPDATE VeThang SET MaThe = @MaThe WHERE MaVeThang = @MaVeThang", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@MaThe", MaThe);
+                    cmd.Parameters.AddWithValue("@MaVeThang", MaVeThang);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi gia hạn vé tháng: " + ex.Message);
+                return false;
+            }
+        }
+
+        public DataTable TimKiemVeThang(string content)
+        {
+            DataTable dtbVeThang = new DataTable();
+
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(@"
+            SELECT 
+                vt.MaThe, 
+                vt.BienSo, 
+                vt.ChuXe, 
+                n.TenNhom,  
+                vt.NgayKichHoat, 
+                vt.NgayHetHan, 
+                vt.GiaVe
+            FROM VeThang vt
+            JOIN Nhom n ON vt.MaNhom = n.MaNhom
+            WHERE MaThe LIKE @content
+                OR ChuXe LIKE @content
+                OR BienSo LIKE @content
+                OR DienThoai LIKE @content
+                OR DiaChi LIKE @content
+                OR Email LIKE @content
+                OR NhanHieu LIKE @content
+                OR GhiChu LIKE @content", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@content", "%" + content + "%");
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtbVeThang);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách vé tháng: " + ex.Message);
+            }
+
+            return dtbVeThang;
+        }
+
+        #endregion
 
         #region Nhóm
         public DataTable GetAllNhom()
@@ -134,7 +450,7 @@ namespace QuanLyBaiGiuXe.Models
         }
         #endregion
 
-        #region The
+        #region Thẻ
         public DataTable GetAllThe()
         {
             DataTable dt = new DataTable();
@@ -185,6 +501,28 @@ namespace QuanLyBaiGiuXe.Models
                 return rowsAffected > 0;
             }
         }
+
+        public bool KiemTraThe(string maThe)
+        {
+            try
+            {
+                db.OpenConnection(); // Mở kết nối CSDL
+
+                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM The WHERE MaThe = @MaThe", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@MaThe", maThe);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0; // Trả về true nếu mã thẻ tồn tại, ngược lại false
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra thẻ: " + ex.Message);
+                return false;
+            }
+        }
+
 
         #endregion
     }

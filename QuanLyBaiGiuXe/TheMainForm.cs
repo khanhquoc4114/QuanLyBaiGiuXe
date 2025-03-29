@@ -27,7 +27,6 @@ namespace QuanLyBaiGiuXe
         {
             if (dtgThe.SelectedRows.Count > 0)
             {
-                //int selectedId = Convert.ToInt32(dtgThe.SelectedRows[0].Cells["Id"].Value);
                 int r = dtgThe.CurrentCell.RowIndex;
                 string MaThe = dtgThe.Rows[r].Cells[0].Value.ToString();
 
@@ -111,7 +110,6 @@ namespace QuanLyBaiGiuXe
                 tbMaThe.Clear();
             }
         }
-
         private void cbSoThe_CheckedChanged(object sender, EventArgs e)
         {
             if (cbSoThe.Checked)

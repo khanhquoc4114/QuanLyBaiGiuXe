@@ -26,6 +26,8 @@ namespace QuanLyBaiGiuXe
             {
                 this.dtgVeThang.DataSource = manager.GetAllVeThang();
                 this.dtgNhom.DataSource = manager.GetAllNhom();
+                dtgNhom.Columns["TenNhom"].HeaderText = "Tên nhóm";
+                dtgNhom.Columns["ThongTinKhac"].HeaderText = "Thông Tin Khác";
             }
             catch
             {
@@ -90,36 +92,64 @@ namespace QuanLyBaiGiuXe
 
         private void btnThemVeThang_Click(object sender, EventArgs e)
         {
-            VeThangThemSuaForm veThangThemForm = new VeThangThemSuaForm();
+            VeThangThemSuaForm veThangThemForm = new VeThangThemSuaForm("Thêm");
             veThangThemForm.ShowDialog();
+            if (veThangThemForm.ThemSuaThanhCong) LoadData();
+        }
+
+        private void btnSuaVeThang_Click(object sender, EventArgs e)
+        {
+            string option = "Sửa";
+            if (dtgVeThang.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dtgVeThang.SelectedRows[0];
+
+                string bienSo = row.Cells["BienSo"].Value.ToString();
+
+                VeThangThemSuaForm frmChinhSua = new VeThangThemSuaForm(option, bienSo);
+                frmChinhSua.ShowDialog();
+                if (frmChinhSua.ThemSuaThanhCong) LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một vé tháng để chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnXoaVeThang_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "Xoá vé tháng?",
-                "Xác vé tháng?",
-                MessageBoxButtons.YesNoCancel,
-                MessageBoxIcon.Warning
-            );
+            if (dtgVeThang.SelectedRows.Count > 0)
+            {
+                int r = dtgVeThang.CurrentCell.RowIndex;
+                string BienSo = dtgVeThang.Rows[r].Cells["BienSo"].Value.ToString();
 
-            if (result == DialogResult.Yes)
-            {
-                // Xóa nhóm
-            }
-            else if (result == DialogResult.No)
-            {
-                // Không làm gì cả
+                var result = MessageBox.Show($"Bạn có chắc chắn muốn xoá vé này chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    bool isDeleted = manager.XoaVeThang(BienSo);
+
+                    if (isDeleted)
+                    {
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
-                // Đóng dialog
+                MessageBox.Show("Vui lòng chọn một hàng để xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnGiaHanVeThang_Click(object sender, EventArgs e)
         {
-
+            VeThangGiaHanForm veThangGiaHanForm = new VeThangGiaHanForm(dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["BienSo"].Value.ToString());
+            veThangGiaHanForm.ShowDialog();
+            if (veThangGiaHanForm.GiaHanThanhCong) LoadData();
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -127,7 +157,8 @@ namespace QuanLyBaiGiuXe
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
                 sfd.Filter = "Excel files (*.xlsx)|*.xlsx";
-                sfd.FileName = "DataGridView_Export.xlsx";
+                DateTime now = DateTime.Now;
+                sfd.FileName = $"DuLieuVeThang_{now:ddMMyyyy}.xlsx";
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -158,7 +189,25 @@ namespace QuanLyBaiGiuXe
             }
         }
 
+        private void btnDoiThe_Click(object sender, EventArgs e)
+        {
+            string BienSo = dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["BienSo"].Value.ToString();
+            VeThangDoiTheThang veThangDoiTheThang = new VeThangDoiTheThang(BienSo);
+            veThangDoiTheThang.ShowDialog();
+            if (veThangDoiTheThang.DoiTheThanhCong) LoadData();
+        }
         #endregion
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string content = tbContent.Text.Trim();
+            if (!string.IsNullOrEmpty(content))
+            {
+                dtgVeThang.DataSource = manager.TimKiemVeThang(content);
+            } else
+            {
+                LoadData();
+            }
+        }
     }
 }

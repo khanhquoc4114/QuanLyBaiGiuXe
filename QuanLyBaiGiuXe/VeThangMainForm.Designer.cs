@@ -32,9 +32,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgVeThang = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbContent = new System.Windows.Forms.TextBox();
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnDoiThe = new System.Windows.Forms.Button();
             this.btnKhoiPhucVeThang = new System.Windows.Forms.Button();
             this.btnGiaHanVeThang = new System.Windows.Forms.Button();
             this.btnSuaVeThang = new System.Windows.Forms.Button();
@@ -93,9 +94,10 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.tbContent);
             this.panel5.Controls.Add(this.btnXuatExcel);
             this.panel5.Controls.Add(this.btnTimKiem);
+            this.panel5.Controls.Add(this.btnDoiThe);
             this.panel5.Controls.Add(this.btnKhoiPhucVeThang);
             this.panel5.Controls.Add(this.btnGiaHanVeThang);
             this.panel5.Controls.Add(this.btnSuaVeThang);
@@ -107,12 +109,13 @@
             this.panel5.Size = new System.Drawing.Size(770, 100);
             this.panel5.TabIndex = 0;
             // 
-            // textBox1
+            // tbContent
             // 
-            this.textBox1.Location = new System.Drawing.Point(423, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.tbContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbContent.Location = new System.Drawing.Point(423, 16);
+            this.tbContent.Name = "tbContent";
+            this.tbContent.Size = new System.Drawing.Size(100, 20);
+            this.tbContent.TabIndex = 5;
             // 
             // btnXuatExcel
             // 
@@ -132,6 +135,17 @@
             this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnDoiThe
+            // 
+            this.btnDoiThe.Location = new System.Drawing.Point(100, 42);
+            this.btnDoiThe.Name = "btnDoiThe";
+            this.btnDoiThe.Size = new System.Drawing.Size(75, 23);
+            this.btnDoiThe.TabIndex = 4;
+            this.btnDoiThe.Text = "Đổi thẻ";
+            this.btnDoiThe.UseVisualStyleBackColor = true;
+            this.btnDoiThe.Click += new System.EventHandler(this.btnDoiThe_Click);
             // 
             // btnKhoiPhucVeThang
             // 
@@ -160,6 +174,7 @@
             this.btnSuaVeThang.TabIndex = 2;
             this.btnSuaVeThang.Text = "Sửa";
             this.btnSuaVeThang.UseVisualStyleBackColor = true;
+            this.btnSuaVeThang.Click += new System.EventHandler(this.btnSuaVeThang_Click);
             // 
             // btnXoaVeThang
             // 
@@ -197,9 +212,9 @@
             this.dtgNhom.AllowUserToDeleteRows = false;
             this.dtgNhom.AllowUserToResizeRows = false;
             this.dtgNhom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgNhom.ColumnHeadersVisible = false;
             this.dtgNhom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgNhom.Location = new System.Drawing.Point(0, 100);
+            this.dtgNhom.MultiSelect = false;
             this.dtgNhom.Name = "dtgNhom";
             this.dtgNhom.ReadOnly = true;
             this.dtgNhom.RowHeadersVisible = false;
@@ -281,7 +296,7 @@
         private System.Windows.Forms.Button btnSuaVeThang;
         private System.Windows.Forms.Button btnXoaVeThang;
         private System.Windows.Forms.Button btnThemVeThang;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbContent;
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnKhoiPhucVeThang;
@@ -289,5 +304,6 @@
         private System.Windows.Forms.Button btnSuaNhom;
         private System.Windows.Forms.Button btnXoaNhom;
         private System.Windows.Forms.Button btnThemNhom;
+        private System.Windows.Forms.Button btnDoiThe;
     }
 }
