@@ -16,7 +16,7 @@ namespace QuanLyBaiGiuXe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VeThangThemForm());
+            Application.Run(new VeLuotMainForm());
         }
     }
 }

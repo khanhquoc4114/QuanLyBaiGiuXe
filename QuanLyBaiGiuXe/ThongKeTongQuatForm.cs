@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class VeThangSuaForm: Form
+    public partial class ThongKeTongQuatForm: Form
     {
-        public VeThangSuaForm()
+        public ThongKeTongQuatForm()
         {
             InitializeComponent();
         }

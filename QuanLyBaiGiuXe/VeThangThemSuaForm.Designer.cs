@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBaiGiuXe
 {
-    partial class VeThangThemForm
+    partial class VeThangThemSuaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -109,44 +109,47 @@
             this.btnDong.Location = new System.Drawing.Point(515, 468);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 32);
-            this.btnDong.TabIndex = 6;
+            this.btnDong.TabIndex = 11;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
-            this.btnDong.Click += new System.EventHandler(this.button4_Click);
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(415, 468);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 32);
-            this.btnHuy.TabIndex = 6;
+            this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Huỷ";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnDongYTiepTuc
             // 
             this.btnDongYTiepTuc.Location = new System.Drawing.Point(268, 468);
             this.btnDongYTiepTuc.Name = "btnDongYTiepTuc";
             this.btnDongYTiepTuc.Size = new System.Drawing.Size(122, 32);
-            this.btnDongYTiepTuc.TabIndex = 6;
+            this.btnDongYTiepTuc.TabIndex = 10;
             this.btnDongYTiepTuc.Text = "Đồng ý & Tiếp tục";
             this.btnDongYTiepTuc.UseVisualStyleBackColor = true;
+            this.btnDongYTiepTuc.Click += new System.EventHandler(this.btnDongYTiepTuc_Click);
             // 
             // btnDongYDong
             // 
             this.btnDongYDong.Location = new System.Drawing.Point(132, 468);
             this.btnDongYDong.Name = "btnDongYDong";
             this.btnDongYDong.Size = new System.Drawing.Size(111, 32);
-            this.btnDongYDong.TabIndex = 6;
+            this.btnDongYDong.TabIndex = 10;
             this.btnDongYDong.Text = "Đồng ý & Đóng";
             this.btnDongYDong.UseVisualStyleBackColor = true;
+            this.btnDongYDong.Click += new System.EventHandler(this.btnDongYDong_Click);
             // 
             // updGiaVe
             // 
             this.updGiaVe.Location = new System.Drawing.Point(424, 266);
             this.updGiaVe.Name = "updGiaVe";
             this.updGiaVe.Size = new System.Drawing.Size(166, 23);
-            this.updGiaVe.TabIndex = 5;
+            this.updGiaVe.TabIndex = 8;
             // 
             // rtbGhiChu
             // 
@@ -154,7 +157,7 @@
             this.rtbGhiChu.Location = new System.Drawing.Point(87, 314);
             this.rtbGhiChu.Name = "rtbGhiChu";
             this.rtbGhiChu.Size = new System.Drawing.Size(503, 118);
-            this.rtbGhiChu.TabIndex = 4;
+            this.rtbGhiChu.TabIndex = 9;
             this.rtbGhiChu.Text = "";
             // 
             // tbMaThe
@@ -171,7 +174,7 @@
             this.tbDienThoai.Location = new System.Drawing.Point(424, 94);
             this.tbDienThoai.Name = "tbDienThoai";
             this.tbDienThoai.Size = new System.Drawing.Size(166, 23);
-            this.tbDienThoai.TabIndex = 3;
+            this.tbDienThoai.TabIndex = 4;
             // 
             // tbEmail
             // 
@@ -179,7 +182,7 @@
             this.tbEmail.Location = new System.Drawing.Point(424, 137);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(166, 23);
-            this.tbEmail.TabIndex = 3;
+            this.tbEmail.TabIndex = 5;
             // 
             // tbNhanHieu
             // 
@@ -187,7 +190,7 @@
             this.tbNhanHieu.Location = new System.Drawing.Point(424, 223);
             this.tbNhanHieu.Name = "tbNhanHieu";
             this.tbNhanHieu.Size = new System.Drawing.Size(166, 23);
-            this.tbNhanHieu.TabIndex = 3;
+            this.tbNhanHieu.TabIndex = 7;
             // 
             // tbBienSo
             // 
@@ -195,7 +198,7 @@
             this.tbBienSo.Location = new System.Drawing.Point(132, 223);
             this.tbBienSo.Name = "tbBienSo";
             this.tbBienSo.Size = new System.Drawing.Size(166, 23);
-            this.tbBienSo.TabIndex = 3;
+            this.tbBienSo.TabIndex = 6;
             // 
             // tbDiaChi
             // 
@@ -203,7 +206,7 @@
             this.tbDiaChi.Location = new System.Drawing.Point(132, 137);
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(166, 23);
-            this.tbDiaChi.TabIndex = 3;
+            this.tbDiaChi.TabIndex = 2;
             // 
             // tbChuXe
             // 
@@ -211,7 +214,7 @@
             this.tbChuXe.Location = new System.Drawing.Point(132, 94);
             this.tbChuXe.Name = "tbChuXe";
             this.tbChuXe.Size = new System.Drawing.Size(166, 23);
-            this.tbChuXe.TabIndex = 3;
+            this.tbChuXe.TabIndex = 1;
             // 
             // cbLoaiXe
             // 
@@ -219,7 +222,7 @@
             this.cbLoaiXe.Location = new System.Drawing.Point(132, 266);
             this.cbLoaiXe.Name = "cbLoaiXe";
             this.cbLoaiXe.Size = new System.Drawing.Size(166, 24);
-            this.cbLoaiXe.TabIndex = 2;
+            this.cbLoaiXe.TabIndex = 10;
             // 
             // cbNhom
             // 
@@ -227,7 +230,7 @@
             this.cbNhom.Location = new System.Drawing.Point(132, 50);
             this.cbNhom.Name = "cbNhom";
             this.cbNhom.Size = new System.Drawing.Size(166, 24);
-            this.cbNhom.TabIndex = 2;
+            this.cbNhom.TabIndex = 10;
             // 
             // datePickerNgayHetHan
             // 
@@ -235,7 +238,7 @@
             this.datePickerNgayHetHan.Location = new System.Drawing.Point(424, 180);
             this.datePickerNgayHetHan.Name = "datePickerNgayHetHan";
             this.datePickerNgayHetHan.Size = new System.Drawing.Size(166, 23);
-            this.datePickerNgayHetHan.TabIndex = 1;
+            this.datePickerNgayHetHan.TabIndex = 10;
             // 
             // dataPickerNgayKichHoat
             // 
@@ -243,7 +246,7 @@
             this.dataPickerNgayKichHoat.Location = new System.Drawing.Point(132, 180);
             this.dataPickerNgayKichHoat.Name = "dataPickerNgayKichHoat";
             this.dataPickerNgayKichHoat.Size = new System.Drawing.Size(166, 23);
-            this.dataPickerNgayKichHoat.TabIndex = 1;
+            this.dataPickerNgayKichHoat.TabIndex = 10;
             // 
             // label12
             // 
@@ -375,7 +378,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nhóm:";
             // 
-            // VeThangThemForm
+            // VeThangThemSuaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -383,8 +386,9 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "VeThangThemForm";
+            this.Name = "VeThangThemSuaForm";
             this.Text = "ThemVeThangForm";
+            this.Load += new System.EventHandler(this.VeThangThemSuaForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updGiaVe)).EndInit();

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class VeThangDoiTheForm: Form
+    public partial class ThongKeTheoKhoangThoiGianForm: Form
     {
-        public VeThangDoiTheForm()
+        public ThongKeTheoKhoangThoiGianForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

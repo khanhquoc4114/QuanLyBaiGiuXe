@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class MenuForm: Form
+    public partial class NhatKyVeLuotForm: Form
     {
-        public MenuForm()
+        public NhatKyVeLuotForm()
         {
             InitializeComponent();
-        }
-
-        private void btnVeThang_Click(object sender, EventArgs e)
-        {
-            VeThangMainForm veThangMainForm = new VeThangMainForm();
-            veThangMainForm.Show();
         }
     }
 }
