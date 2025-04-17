@@ -17,9 +17,29 @@ namespace QuanLyBaiGiuXe
             InitializeComponent();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void trbTu_Scroll(object sender, EventArgs e)
         {
+            tbTu.Text = trbTu.Value.ToString();
+        }
 
+        private void trbDen_Scroll(object sender, EventArgs e)
+        {
+            tbDen.Text = trbDen.Value.ToString();
+        }
+
+        private void trbKhoangGiao_Scroll(object sender, EventArgs e)
+        {
+            tbKhoangGiao.Text = trbKhoangGiao.Value.ToString();
+        }
+
+        private void trbPhuThuTu_Scroll(object sender, EventArgs e)
+        {
+            tbPhuThuTu.Text = trbPhuThuTu.Value.ToString();
+        }
+
+        private void trbPhuThuDen_Scroll(object sender, EventArgs e)
+        {
+            tbPhuThuDen.Text = trbPhuThuDen.Value.ToString();
         }
     }
 }

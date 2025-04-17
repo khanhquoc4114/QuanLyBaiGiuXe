@@ -12,6 +12,29 @@ namespace QuanLyBaiGiuXe.Models
         Connector db = new Connector();
         public Manager() { }
 
+        #region Vé Lượt
+        public DataTable GetAllVeLuot()
+        {
+            DataTable dtbVeLuot = new DataTable();
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(@"SELECT * FROM VeLuot", db.GetConnection()))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtbVeLuot);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách vé lượt: " + ex.Message);
+            }
+            return dtbVeLuot;
+        }
+        #endregion
+
         #region Vé Tháng
         public DataTable GetAllVeThang()
         {

@@ -196,7 +196,6 @@ namespace QuanLyBaiGiuXe
             veThangDoiTheThang.ShowDialog();
             if (veThangDoiTheThang.DoiTheThanhCong) LoadData();
         }
-        #endregion
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
@@ -209,5 +208,6 @@ namespace QuanLyBaiGiuXe
                 LoadData();
             }
         }
+        #endregion
     }
 }

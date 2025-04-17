@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbResult = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -59,8 +61,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pbVao1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbResult = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -86,6 +86,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1251, 76);
             this.panel1.TabIndex = 0;
+            // 
+            // tbResult
+            // 
+            this.tbResult.Location = new System.Drawing.Point(200, 24);
+            this.tbResult.Name = "tbResult";
+            this.tbResult.Size = new System.Drawing.Size(274, 25);
+            this.tbResult.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(77, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 34);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -117,7 +134,7 @@
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(55, 29);
+            this.textBox8.Size = new System.Drawing.Size(55, 25);
             this.textBox8.TabIndex = 0;
             this.textBox8.Text = "F8";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -129,7 +146,7 @@
             this.textBox15.Margin = new System.Windows.Forms.Padding(4);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(55, 29);
+            this.textBox15.Size = new System.Drawing.Size(55, 25);
             this.textBox15.TabIndex = 0;
             this.textBox15.Text = "F12";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -141,7 +158,7 @@
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(55, 29);
+            this.textBox4.Size = new System.Drawing.Size(55, 25);
             this.textBox4.TabIndex = 0;
             this.textBox4.Text = "F4";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -153,7 +170,7 @@
             this.textBox14.Margin = new System.Windows.Forms.Padding(4);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(55, 29);
+            this.textBox14.Size = new System.Drawing.Size(55, 25);
             this.textBox14.TabIndex = 0;
             this.textBox14.Text = "END";
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -165,7 +182,7 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(55, 29);
+            this.textBox7.Size = new System.Drawing.Size(55, 25);
             this.textBox7.TabIndex = 0;
             this.textBox7.Text = "F6";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -177,7 +194,7 @@
             this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(55, 29);
+            this.textBox13.Size = new System.Drawing.Size(55, 25);
             this.textBox13.TabIndex = 0;
             this.textBox13.Text = "F10";
             this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -189,7 +206,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(55, 29);
+            this.textBox2.Size = new System.Drawing.Size(55, 25);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "F2";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -201,7 +218,7 @@
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(55, 29);
+            this.textBox6.Size = new System.Drawing.Size(55, 25);
             this.textBox6.TabIndex = 0;
             this.textBox6.Text = "F7";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -213,7 +230,7 @@
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(55, 29);
+            this.textBox11.Size = new System.Drawing.Size(55, 25);
             this.textBox11.TabIndex = 0;
             this.textBox11.Text = "DEL";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -225,7 +242,7 @@
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(55, 29);
+            this.textBox5.Size = new System.Drawing.Size(55, 25);
             this.textBox5.TabIndex = 0;
             this.textBox5.Text = "F5";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -237,7 +254,7 @@
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(55, 29);
+            this.textBox10.Size = new System.Drawing.Size(55, 25);
             this.textBox10.TabIndex = 0;
             this.textBox10.Text = "F11";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -249,7 +266,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(55, 29);
+            this.textBox3.Size = new System.Drawing.Size(55, 25);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "F3";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -261,7 +278,7 @@
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(55, 29);
+            this.textBox9.Size = new System.Drawing.Size(55, 25);
             this.textBox9.TabIndex = 0;
             this.textBox9.Text = "F9";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -273,7 +290,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(55, 29);
+            this.textBox1.Size = new System.Drawing.Size(55, 25);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "F1";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -431,26 +448,9 @@
             this.pbVao1.TabIndex = 0;
             this.pbVao1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(77, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // tbResult
-            // 
-            this.tbResult.Location = new System.Drawing.Point(200, 24);
-            this.tbResult.Name = "tbResult";
-            this.tbResult.Size = new System.Drawing.Size(274, 29);
-            this.tbResult.TabIndex = 1;
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1251, 914);
             this.Controls.Add(this.panel3);
