@@ -2,13 +2,11 @@
 using System.Drawing;
 using System.Windows.Forms;
 using AForge.Imaging.Filters;
-using TGMT;
 
 namespace QuanLyBaiGiuXe
 {
     public partial class MainForm : Form
     {
-        PlateReader reader;
         public MainForm()
         {
             InitializeComponent();
