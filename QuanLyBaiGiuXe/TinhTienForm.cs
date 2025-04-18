@@ -41,5 +41,25 @@ namespace QuanLyBaiGiuXe
         {
             tbPhuThuDen.Text = trbPhuThuDen.Value.ToString();
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trbMoc1_Scroll(object sender, EventArgs e)
+        {
+            tbMoc1.Text = trbMoc1.Value.ToString();
+        }
+
+        private void trbMoc2_Scroll(object sender, EventArgs e)
+        {
+            tbMoc2.Text = trbMoc2.Value.ToString();
+        }
+
+        private void trbChuKy_Scroll(object sender, EventArgs e)
+        {
+            tbChuKy.Text = trbChuKy.Value.ToString();
+        }
     }
 }

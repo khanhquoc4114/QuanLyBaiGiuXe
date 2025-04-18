@@ -27,6 +27,9 @@ namespace QuanLyBaiGiuXe
             try
             {
                 this.dtgVeLuot.DataSource = manager.GetAllVeLuot();
+                this.dtgTong.DataSource = manager.GetTong();
+                dtgTong.Columns["SoLuong"].HeaderText = "Số lượng";
+                dtgTong.Columns["TongTien"].HeaderText = "Tổng tiền (VNĐ)";
             }
             catch
             {
@@ -47,6 +50,7 @@ namespace QuanLyBaiGiuXe
                 DateTime now = DateTime.Now;
                 sfd.FileName = $"DuLieuVeLuot_{now:ddMMyyyy}.xlsx";
 
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     using (ExcelPackage package = new ExcelPackage())

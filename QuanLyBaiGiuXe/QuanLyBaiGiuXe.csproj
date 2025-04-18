@@ -309,6 +309,18 @@
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="NhanVienThemSuaNhanVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVienThemSuaNhanVienForm.Designer.cs">
+      <DependentUpon>NhanVienThemSuaNhanVienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVienThemSuaNhomNhanVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVienThemSuaNhomNhanVienForm.Designer.cs">
+      <DependentUpon>NhanVienThemSuaNhomNhanVienForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhatKyDangNhapForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +353,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NhanVienMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVienMainForm.Designer.cs">
+      <DependentUpon>NhanVienMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TheMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -437,6 +455,12 @@
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NhanVienThemSuaNhanVienForm.resx">
+      <DependentUpon>NhanVienThemSuaNhanVienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVienThemSuaNhomNhanVienForm.resx">
+      <DependentUpon>NhanVienThemSuaNhomNhanVienForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -446,6 +470,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="NhanVienMainForm.resx">
+      <DependentUpon>NhanVienMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TheMainForm.resx">
       <DependentUpon>TheMainForm.cs</DependentUpon>
     </EmbeddedResource>
