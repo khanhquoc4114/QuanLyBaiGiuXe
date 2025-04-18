@@ -39,8 +39,8 @@ CREATE TABLE VeThang (
     DienThoai VARCHAR(15),
     DiaChi NVARCHAR(200) COLLATE Vietnamese_CI_AI,
     Email VARCHAR(100),
-    NgayKichHoat DATETIME NOT NULL,
-    NgayHetHan DATETIME NOT NULL,
+    NgayKichHoat DATETIME DEFAULT GETDATE(),
+    NgayHetHan DATETIME DEFAULT GETDATE(),
     BienSo VARCHAR(20) NOT NULL,
 	NhanHieu VARCHAR(20) COLLATE Vietnamese_CI_AI,
     LoaiXe NVARCHAR(20) COLLATE Vietnamese_CI_AI CHECK (LoaiXe IN (N'Xe máy', N'Ô tô', N'Chung')) NOT NULL,
@@ -51,11 +51,13 @@ CREATE TABLE VeThang (
 );
 GO
 
+
+--Bảng Vé Lượt
 CREATE TABLE VeLuot(
 	MaVeLuot INT IDENTITY(1,1) PRIMARY KEY,
     MaThe VARCHAR(20) NOT NULL,
 	MaNhom INT NOT NULL,
-    ThoiGianXuLy DATETIME NOT NULL,
+    ThoiGianXuLy DATETIME DEFAULT GETDATE(),
     GiaVe DECIMAL(10,2) NOT NULL,
 	BienSo VARCHAR(20) NOT NULL,
     GhiChu NVARCHAR(255) COLLATE Vietnamese_CI_AI,
@@ -64,20 +66,91 @@ CREATE TABLE VeLuot(
 );
 GO
 
+--Bảng Nhóm Nhân Viên
+CREATE TABLE NhomNhanVien (
+    MaNhomNhanVien INT IDENTITY(1,1) PRIMARY KEY,
+    TenNhomNhanVien NVARCHAR(50) COLLATE Vietnamese_CI_AI NOT NULL,
+	SoLuongNhanVien INT NOT NULL,
+    ThongTinKhac NVARCHAR(255) COLLATE Vietnamese_CI_AI
+);
+GO
+
 -- Bảng Người Dùng
-CREATE TABLE NguoiDung (
-    MaNguoiDung VARCHAR(10) PRIMARY KEY,
-    TenNhom VARCHAR(50),
+CREATE TABLE NhanVien (
+    MaNhanVien VARCHAR(10) PRIMARY KEY,
     HoTen NVARCHAR(100) COLLATE Vietnamese_CI_AI NOT NULL,
-    TaiKhoan VARCHAR(20) UNIQUE NOT NULL,
+	TaiKhoan VARCHAR(20) UNIQUE NOT NULL,
     MatKhau VARCHAR(100) NOT NULL,
+    MaThe VARCHAR(20) NOT NULL,
+    MaNhomNhanVien INT NOT NULL,
     GhiChu NVARCHAR(500)
-	FOREIGN KEY (MaNhom) REFERENCES MaNhom(MaNhom),
+	FOREIGN KEY (MaNhomNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien),
     FOREIGN KEY (MaThe) REFERENCES The(MaThe)
 );
 GO
 
+CREATE TRIGGER trg_TangSoLuongNhanVien
+ON NhanVien
+AFTER INSERT
+AS
+BEGIN
+    UPDATE NhomNhanVien
+    SET SoLuongNhanVien = SoLuongNhanVien + 1
+    WHERE MaNhomNhanVien IN (SELECT MaNhomNhanVien FROM INSERTED);
+END;
 
+CREATE TRIGGER trg_GiamSoLuongNhanVien
+ON NhanVien
+AFTER DELETE
+AS
+BEGIN
+    UPDATE NhomNhanVien
+    SET SoLuongNhanVien = SoLuongNhanVien - 1
+    WHERE MaNhomNhanVien IN (SELECT MaNhomNhanVien FROM DELETED);
+END;
+
+CREATE TRIGGER trg_CapNhatSoLuongNhanVien
+ON NhanVien
+AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(MaNhomNhanVien)
+    BEGIN
+        UPDATE NhomNhanVien
+        SET SoLuongNhanVien = SoLuongNhanVien - 1
+        WHERE MaNhomNhanVien IN (SELECT MaNhomNhanVien FROM DELETED);
+
+        UPDATE NhomNhanVien
+        SET SoLuongNhanVien = SoLuongNhanVien + 1
+        WHERE MaNhomNhanVien IN (SELECT MaNhomNhanVien FROM INSERTED);
+    END
+END;
+
+--Bảng Nhật ký Vé Tháng
+CREATE TABLE NhatKyVeThang (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    HanhDong NVARCHAR(50) COLLATE Vietnamese_CI_AI,
+    MayTinhXuLy NVARCHAR(100),
+    MaThe VARCHAR(20),
+    ThoiGianXuLy DATETIME DEFAULT GETDATE(),
+    MaNhom INT,
+    ChuXe NVARCHAR(100) COLLATE Vietnamese_CI_AI,
+    NhanVienXuLy NVARCHAR(100) COLLATE Vietnamese_CI_AI,
+    NoiDungThayDoi NVARCHAR(MAX)
+    FOREIGN KEY (MaThe) REFERENCES The(MaThe)
+);
+
+CREATE TABLE NhanVien (
+    MaNhanVien INT IDENTITY(1,1) PRIMARY KEY,
+    MaNhomNhanVien INT NOT NULL,
+    HoTen NVARCHAR(100) COLLATE Vietnamese_CI_AI NOT NULL,
+    MaThe VARCHAR(20) NOT NULL,
+    TenDangNhap VARCHAR(50) UNIQUE NOT NULL,
+    MatKhau VARCHAR(255) NOT NULL,
+    GhiChu NVARCHAR(500) COLLATE Vietnamese_CI_AI,
+    FOREIGN KEY (MaNhomNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien),
+    FOREIGN KEY (MaThe) REFERENCES The(MaThe)
+);
 
 -- Một vài câu lệnh truy vấn
 Select * from VeThang;
@@ -85,11 +158,13 @@ DElete from VeLuot;
 DElete from VeThang;
 DElete from The;
 DElete from Nhom;
+drop table NhanVien;
 drop table VeThang;
 drop table VeLuot;
 drop table The;
 drop table Nhom;
 drop table ThongTinCaNhan;
+drop table NhomNhanVien;
 SELECT name FROM sys.databases;
 sp_help 'VeThang'
 
@@ -99,6 +174,10 @@ SELECT @sql = @sql + 'SELECT * FROM ' + TABLE_NAME + '; '
 FROM INFORMATION_SCHEMA.TABLES 
 WHERE TABLE_TYPE = 'BASE TABLE';
 EXEC sp_executesql @sql;
+
+select * from NhanVien where TenNhomNhanVien = N'bảo vệ'
+SELECT TOP 1 MaNhanVien FROM NhanVien WHERE TenDangNhap = 'tranvanc'
+SELECT MaNhomNhanVien FROM NhomNhanVien WHERE TenNhomNhanVien = N'Bảo vệ'
 
 -- Tạo mock data
 INSERT INTO Nhom (TenNhom, ThongTinKhac) VALUES
@@ -120,6 +199,25 @@ INSERT INTO VeThang (MaNhom, MaThe, ChuXe, DienThoai, DiaChi, Email, NgayKichHoa
 INSERT INTO VeLuot (MaThe, MaNhom, ThoiGianXuLy, GiaVe, BienSo, GhiChu) VALUES
 ('THE001', 1, '2024-03-01 10:15:00', 30000, '30A-12345', N'Ve vào bãi xe A'),
 ('THE002', 2, '2024-03-02 18:30:00', 10000, '59C1-67890', N'Ve vào bãi xe B');
+
+INSERT INTO NhomNhanVien (TenNhomNhanVien, SoLuongNhanVien, ThongTinKhac)
+VALUES 
+(N'Quản trị hệ thống', 5, N'Nhóm này có quyền cao nhất, có thể chỉnh sửa toàn bộ hệ thống.'),
+(N'Kế toán', 3, N'Chỉ được truy cập các chức năng liên quan đến hóa đơn và doanh thu.'),
+(N'Bảo vệ', 10, N'Chỉ có quyền xem và xử lý vé xe.');
+
+INSERT INTO NhanVien (MaNhomNhanVien, HoTen, MaThe, TenDangNhap, MatKhau, GhiChu) VALUES
+(1, N'Nguyễn Văn A', 'THE001', 'nguyenvana', '123456', N'Nhân viên quản lý xe máy'),
+(2, N'Lê Thị B', 'THE002', 'lethib', 'abcdef', N'Nhân viên quản lý ô tô'),
+(3, N'Trần Văn C', 'THE003', 'tranvanc', 'qwerty', N'Nhân viên mới vào làm');
+
+
+SELECT 
+    nv.*,
+    n.TenNhom
+FROM NhanVien nv
+JOIN Nhom n ON nv.MaNhom = n.MaNhom
+WHERE nv.MaNhanVien = 1;
 
 SELECT 
     vt.MaThe, 
@@ -159,7 +257,6 @@ SELECT
 FROM VeThang vt
 JOIN Nhom n ON vt.MaNhom = n.MaNhom
 JOIN The t ON vt.MaThe = t.MaThe;
-
 
 --  Toàn bộ khoá ngoại
 SELECT 

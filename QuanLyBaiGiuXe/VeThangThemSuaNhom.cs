@@ -41,7 +41,9 @@ namespace QuanLyBaiGiuXe
 
         private bool checkNull()
         {
-            if (!string.IsNullOrEmpty(tbTen.Text)) { return true; }
+            if (!string.IsNullOrEmpty(tbTen.Text)) { 
+                return true; 
+            }
             return false;
         }
         private void Clear()

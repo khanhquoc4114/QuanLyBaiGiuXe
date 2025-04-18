@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBaiGiuXe
 {
-    partial class VeThangThemSuaNhom
+    partial class NhanVienThemSuaNhomNhanVienForm
     {
         /// <summary>
         /// Required designer variable.
@@ -52,8 +52,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(689, 360);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(685, 327);
+            this.panel1.TabIndex = 1;
             // 
             // panel3
             // 
@@ -69,7 +69,7 @@
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.panel3.Location = new System.Drawing.Point(0, 42);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(689, 318);
+            this.panel3.Size = new System.Drawing.Size(685, 285);
             this.panel3.TabIndex = 1;
             // 
             // btnDong
@@ -154,7 +154,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(689, 42);
+            this.panel2.Size = new System.Drawing.Size(685, 42);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -163,19 +163,18 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 21);
+            this.label1.Size = new System.Drawing.Size(172, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tạo nhóm Vé Tháng";
+            this.label1.Text = "Tạo nhóm Nhân Viên";
             // 
-            // VeThangThemSuaNhom
+            // NhanVienThemSuaNhomNhanVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 360);
+            this.ClientSize = new System.Drawing.Size(685, 327);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.Name = "VeThangThemSuaNhom";
-            this.Text = "VeThangTaoNhom";
+            this.Name = "NhanVienThemSuaNhomNhanVienForm";
+            this.Text = "Thêm nhóm Nhân Viên";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -189,8 +188,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnDongYTiepTuc;
@@ -199,5 +196,7 @@
         private System.Windows.Forms.TextBox tbTen;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }

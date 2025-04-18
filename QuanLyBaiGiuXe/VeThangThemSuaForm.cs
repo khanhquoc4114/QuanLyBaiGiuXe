@@ -16,7 +16,6 @@ namespace QuanLyBaiGiuXe
         int MaVeThang = -1;
         public bool ThemSuaThanhCong = false;
 
-
         public VeThangThemSuaForm(string option, string BienSo=null)
         {
             InitializeComponent();
@@ -30,6 +29,53 @@ namespace QuanLyBaiGiuXe
                 btnDongYTiepTuc.Enabled = false;
             }
         }
+
+
+        #region UI
+        private void btnDongYDong_Click(object sender, EventArgs e)
+        {
+            if (!KiemTraThongTinNhap()) return;
+            bool result = false;
+            if (option == "Thêm")
+            {
+                result = ThemVeThang();
+                if (result)
+                {
+                    MessageBox.Show("Thêm vé tháng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ThemSuaThanhCong = true;
+                    this.Close();
+                }
+            }
+            else if (option == "Sửa")
+            {
+                result = SuaVeThang();
+                if (result)
+                {
+                    MessageBox.Show("Cập nhật vé tháng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ThemSuaThanhCong = true;
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnDongYTiepTuc_Click(object sender, EventArgs e)
+        {
+            if (!KiemTraThongTinNhap()) return;
+            if (option == "Sửa") return;
+            ThemVeThang();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
 
         private void VeThangThemSuaForm_Load(object sender, EventArgs e)
         {
@@ -122,38 +168,6 @@ namespace QuanLyBaiGiuXe
             }
         }
 
-        private void btnDongYDong_Click(object sender, EventArgs e)
-        {
-            if (!KiemTraThongTinNhap()) return;
-            bool result = false;
-            if (option == "Thêm")
-            {
-                result = ThemVeThang();
-                if (result)
-                {
-                    MessageBox.Show("Thêm vé tháng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ThemSuaThanhCong = true;
-                    this.Close();
-                }
-            }
-            else if (option == "Sửa")
-            {
-                result = SuaVeThang();
-                if (result)
-                {
-                    MessageBox.Show("Cập nhật vé tháng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ThemSuaThanhCong = true;
-                    this.Close();
-                }
-            }
-        }
-
-        private void btnDongYTiepTuc_Click(object sender, EventArgs e)
-        {
-            if (!KiemTraThongTinNhap()) return;
-            if (option == "Sửa") return;
-            ThemVeThang();
-        }
         private bool KiemTraThongTinNhap()
         {
             if (string.IsNullOrWhiteSpace(tbMaThe.Text))
@@ -210,11 +224,6 @@ namespace QuanLyBaiGiuXe
             return true;
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            Clear();
-        }
-
         private void Clear()
         {
             tbMaThe.Clear();
@@ -230,11 +239,6 @@ namespace QuanLyBaiGiuXe
             cbNhom.SelectedIndex = -1;
             updGiaVe.Value = updGiaVe.Minimum; // Đặt giá trị nhỏ nhất
             rtbGhiChu.Clear();
-        }
-
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

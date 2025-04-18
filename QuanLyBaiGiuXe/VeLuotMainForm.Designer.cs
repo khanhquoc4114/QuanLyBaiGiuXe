@@ -58,7 +58,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1043, 364);
+            this.panel1.Size = new System.Drawing.Size(1125, 364);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -69,7 +69,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(810, 364);
+            this.panel3.Size = new System.Drawing.Size(837, 364);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -79,18 +79,19 @@
             this.panel5.Location = new System.Drawing.Point(0, 62);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(810, 302);
+            this.panel5.Size = new System.Drawing.Size(837, 302);
             this.panel5.TabIndex = 1;
             // 
             // dtgVeLuot
             // 
+            this.dtgVeLuot.AllowUserToAddRows = false;
             this.dtgVeLuot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgVeLuot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgVeLuot.Location = new System.Drawing.Point(0, 0);
             this.dtgVeLuot.Margin = new System.Windows.Forms.Padding(4);
             this.dtgVeLuot.Name = "dtgVeLuot";
             this.dtgVeLuot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVeLuot.Size = new System.Drawing.Size(810, 302);
+            this.dtgVeLuot.Size = new System.Drawing.Size(837, 302);
             this.dtgVeLuot.TabIndex = 0;
             // 
             // panel4
@@ -105,7 +106,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(810, 62);
+            this.panel4.Size = new System.Drawing.Size(837, 62);
             this.panel4.TabIndex = 0;
             // 
             // btnXuatExcel
@@ -170,27 +171,29 @@
             // 
             this.panel2.Controls.Add(this.dtgTong);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(810, 0);
+            this.panel2.Location = new System.Drawing.Point(837, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 364);
+            this.panel2.Size = new System.Drawing.Size(288, 364);
             this.panel2.TabIndex = 0;
             // 
             // dtgTong
             // 
+            this.dtgTong.AllowUserToAddRows = false;
             this.dtgTong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgTong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgTong.Location = new System.Drawing.Point(0, 0);
             this.dtgTong.Margin = new System.Windows.Forms.Padding(4);
             this.dtgTong.Name = "dtgTong";
-            this.dtgTong.Size = new System.Drawing.Size(233, 364);
-            this.dtgTong.TabIndex = 0;
+            this.dtgTong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgTong.Size = new System.Drawing.Size(288, 364);
+            this.dtgTong.TabIndex = 1;
             // 
             // VeLuotMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 364);
+            this.ClientSize = new System.Drawing.Size(1125, 364);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -218,10 +221,10 @@
         private System.Windows.Forms.DateTimePicker dtpDen;
         private System.Windows.Forms.DateTimePicker dtpTu;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dtgTong;
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dtgTong;
     }
 }

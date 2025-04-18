@@ -33,6 +33,30 @@ namespace QuanLyBaiGiuXe.Models
             }
             return dtbVeLuot;
         }
+
+        public DataTable GetTong()
+        {
+            DataTable dtbTong = new DataTable();
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(@"SELECT 
+                            COUNT(*) AS SoLuong,
+                            SUM(GiaVe) AS TongTien
+                            FROM VeLuot;", db.GetConnection()))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtbTong);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách tổng: " + ex.Message);
+            }
+            return dtbTong;
+        }
         #endregion
 
         #region Vé Tháng
@@ -547,6 +571,322 @@ namespace QuanLyBaiGiuXe.Models
         }
 
 
+        #endregion
+
+        #region Nhóm Nhân Viên
+        public DataTable GetAllNhomNhanVien()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("select * from NhomNhanVien", db.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        public DataTable GetNhomNhanVienByID(string MaNhomNhanVien)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("select * from NhomNhanVien where MaNhomNhanVien = @manhom", db.GetConnection());
+            cmd.Parameters.AddWithValue("@manhom", MaNhomNhanVien);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        public bool ThemNhomNhanVien(string TenNhom, string ThongTinKhac)
+        {
+            db.OpenConnection();
+
+            using (SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM NhomNhanVien WHERE TenNhomNhanVien = @tennhom", db.GetConnection()))
+            {
+                checkCmd.Parameters.AddWithValue("@tennhom", TenNhom);
+                int count = (int)checkCmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Tên nhóm nhân viên đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO NhomNhanVien (TenNhomNhanVien, SoLuongNhanVien, ThongTinKhac) VALUES (@tennhom,0, @thongtinkhac)", db.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("@tennhom", TenNhom);
+                cmd.Parameters.AddWithValue("@thongtinkhac", ThongTinKhac);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+        }
+        public bool CapNhatNhomNhanVien(string MaNhomNhanVien, string TenNhomNhanVien, string ThongTinKhac)
+        {
+            db.OpenConnection();
+
+            using (SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM NhomNhanVien WHERE TenNhomNhanVien = @tennhom", db.GetConnection()))
+            {
+                checkCmd.Parameters.AddWithValue("@tennhom", TenNhomNhanVien);
+                int count = (int)checkCmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Tên nhóm nhân viên đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            using (SqlCommand updateCmd = new SqlCommand("UPDATE NhomNhanVien SET TenNhomNhanVien = @tennhomnhanvien, ThongTinKhac = @thongtinkhac WHERE MaNhomNhanVien = @MaNhomNhanVien", db.GetConnection()))
+            {
+                updateCmd.Parameters.AddWithValue("@MaNhomNhanVien", MaNhomNhanVien);
+                updateCmd.Parameters.AddWithValue("@tennhomnhanvien", TenNhomNhanVien);
+                updateCmd.Parameters.AddWithValue("@thongtinkhac", ThongTinKhac);
+
+                try
+                {
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật nhóm nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+        public bool XoaNhomNhanVien(string MaNhomNhanVien)
+        {
+            db.OpenConnection();
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM NhomNhanVien WHERE MaNhomNhanVien = @manhomnhanvien", db.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("@manhomnhanvien", MaNhomNhanVien);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+        }
+        public List<string> GetDanhSachNhomNhanVien()
+        {
+            List<string> danhSachTenNhomNhanVien = new List<string>();
+
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand("SELECT TenNhomNhanVien FROM NhomNhanVien", db.GetConnection()))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhSachTenNhomNhanVien.Add(reader["TenNhomNhanVien"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách nhóm: " + ex.Message);
+            }
+
+            return danhSachTenNhomNhanVien;
+        }
+        #endregion
+
+        #region Nhân Viên
+        public DataTable GetAllNhanVien()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(@"
+                                                SELECT 
+                                                    nv.*,
+                                                    n.TenNhomNhanVien
+                                                FROM NhanVien nv
+                                                JOIN NhomNhanVien n ON nv.MaNhomNhanVien = n.MaNhomNhanVien", db.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        public DataTable GetNhanVienByID(string MaNhanVien)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(@"
+                                                SELECT 
+                                                    nv.*,
+                                                    n.TenNhomNhanVien
+                                                FROM NhanVien nv
+                                                JOIN NhomNhanVien n ON nv.MaNhomNhanVien = n.MaNhomNhanVien
+                                                WHERE nv.MaNhanVien = @manhanvien", db.GetConnection());
+
+                cmd.Parameters.AddWithValue("@manhanvien", MaNhanVien);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy thông tin nhân viên: " + ex.Message);
+            }
+
+            return dt;
+        }
+        public bool XoaNhanVien(string MaNhanVien)
+        {
+            db.OpenConnection();
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM NhanVien WHERE MaNhanVien = @manhanvien", db.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("@manhanvien", MaNhanVien);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+        }
+        public int GetMaNhomNhanVienByTen(string tenNhomNhanVien)
+        {
+            int maNhom = -1;
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand("SELECT MaNhomNhanVien FROM NhomNhanVien WHERE TenNhomNhanVien = @TenNhom", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@TenNhom", tenNhomNhanVien);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                        maNhom = Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy mã nhóm nhân viên: " + ex.Message);
+            }
+
+            return maNhom;
+        }
+        public int GetMaNhanVienByTen(string tenDangNhap)
+        {
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 MaNhanVien FROM NhanVien WHERE TenDangNhap = @TenDangNhap", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public bool ThemNhanVien(string tenNhom, string hoTen, string maThe, string tenDangNhap, string matKhau, string ghiChu)
+        {
+            try
+            {
+                if (GetMaNhanVienByTen(tenDangNhap) != -1)
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại!");
+                    return false;
+                }
+
+                int maNhom = GetMaNhomNhanVienByTen(tenNhom);
+                if (maNhom == -1)
+                {
+                    MessageBox.Show("Không tìm thấy mã nhóm phù hợp!");
+                    return false;
+                }
+
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO NhanVien (MaNhomNhanVien, HoTen, MaThe, TenDangNhap, MatKhau, GhiChu) VALUES (@MaNhom, @HoTen, @MaThe, @TenDangNhap, @MatKhau, @GhiChu)", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                    cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                    cmd.Parameters.AddWithValue("@MaThe", maThe);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+                    cmd.Parameters.AddWithValue("@GhiChu", ghiChu);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm nhân viên: " + ex.Message);
+                return false;
+            }
+        }
+        public bool CapNhatNhanVien(string maNhanVien, string tenNhom, string hoTen, string maThe, string tenDangNhap, string matKhau, string ghiChu)
+        {
+            try
+            {
+                int maNhom = GetMaNhomNhanVienByTen(tenNhom);
+                if (maNhom == -1)
+                {
+                    MessageBox.Show("Không tìm thấy mã nhóm phù hợp!");
+                    return false;
+                }
+
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(@"
+                                                UPDATE NhanVien 
+                                                SET 
+                                                    MaNhomNhanVien = @MaNhom,
+                                                    HoTen = @HoTen,
+                                                    MaThe = @MaThe,
+                                                    TenDangNhap = @TenDangNhap,
+                                                    MatKhau = @MatKhau,
+                                                    GhiChu = @GhiChu
+                                                WHERE MaNhanVien = @MaNhanVien", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@MaNhom", maNhom);
+                    cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                    cmd.Parameters.AddWithValue("@MaThe", maThe);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+                    cmd.Parameters.AddWithValue("@GhiChu", ghiChu);
+                    cmd.Parameters.AddWithValue("@MaNhanVien", maNhanVien); // << bạn cần truyền thêm cái này
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm nhân viên: " + ex.Message);
+                return false;
+            }
+        }
+        public DataTable TimKiemNhanVien(string content)
+        {
+            DataTable dtbNhanVien = new DataTable();
+
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(@"
+                        SELECT 
+                            nv.*,
+                            n.TenNhomNhanVien
+                        FROM NhanVien nv
+                        JOIN NhomNhanVien n ON nv.MaNhomNhanVien = n.MaNhomNhanVien
+                        WHERE MaThe LIKE @content OR
+                            nv.HoTen LIKE @content OR 
+                            nv.TenDangNhap LIKE @content OR
+                            nv.GhiChu LIKE @content", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@content", "%" + content + "%");
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtbNhanVien);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách nhân viên: " + ex.Message);
+            }
+
+            return dtbNhanVien;
+        }
         #endregion
     }
 }

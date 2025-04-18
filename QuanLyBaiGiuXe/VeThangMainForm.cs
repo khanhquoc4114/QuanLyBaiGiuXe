@@ -34,6 +34,10 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Không lấy được nội dung trong table");
             }
         }
+        private void VeThangMainForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
 
         #region Nhóm
         private void btnThemNhom_Click(object sender, EventArgs e)
@@ -85,10 +89,7 @@ namespace QuanLyBaiGiuXe
         #endregion
 
         #region Vé Tháng
-        private void VeThangMainForm_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
+
 
         private void btnThemVeThang_Click(object sender, EventArgs e)
         {
@@ -160,6 +161,7 @@ namespace QuanLyBaiGiuXe
                 DateTime now = DateTime.Now;
                 sfd.FileName = $"DuLieuVeThang_{now:ddMMyyyy}.xlsx";
 
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     using (ExcelPackage package = new ExcelPackage())
