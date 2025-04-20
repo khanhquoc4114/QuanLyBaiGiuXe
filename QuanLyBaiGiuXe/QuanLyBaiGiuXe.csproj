@@ -296,6 +296,7 @@
     <Compile Include="CauHinhHeThongForm.Designer.cs">
       <DependentUpon>CauHinhHeThongForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Session.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,7 +309,7 @@
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Helper\Manager.cs" />
     <Compile Include="NhanVienThemSuaNhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -461,6 +462,12 @@
     <EmbeddedResource Include="NhanVienThemSuaNhomNhanVienForm.resx">
       <DependentUpon>NhanVienThemSuaNhomNhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NhatKyDangNhapForm.resx">
+      <DependentUpon>NhatKyDangNhapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhatKyXuLyTheThangForm.resx">
+      <DependentUpon>NhatKyXuLyTheThangForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -475,6 +482,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TheMainForm.resx">
       <DependentUpon>TheMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeTheoMayTinhForm.resx">
+      <DependentUpon>ThongKeTheoMayTinhForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TinhTienForm.resx">
       <DependentUpon>TinhTienForm.cs</DependentUpon>

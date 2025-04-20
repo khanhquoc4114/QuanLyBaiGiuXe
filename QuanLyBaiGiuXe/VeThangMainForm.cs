@@ -26,8 +26,7 @@ namespace QuanLyBaiGiuXe
             {
                 this.dtgVeThang.DataSource = manager.GetAllVeThang();
                 this.dtgNhom.DataSource = manager.GetAllNhom();
-                dtgNhom.Columns["TenNhom"].HeaderText = "Tên nhóm";
-                dtgNhom.Columns["ThongTinKhac"].HeaderText = "Thông Tin Khác";
+                dtgNhom.Columns["MaNhom"].Visible = false;
             }
             catch
             {
@@ -46,18 +45,18 @@ namespace QuanLyBaiGiuXe
             veThangThemForm.ShowDialog();
             if(veThangThemForm.ThemSuaThanhCong) LoadData();
         }
-
         private void btnXoaNhom_Click(object sender, EventArgs e)
         {
             if (dtgNhom.SelectedRows.Count > 0)
             {
                 int r = dtgNhom.CurrentCell.RowIndex;
-                string TenNhom = dtgNhom.Rows[r].Cells[0].Value.ToString();
+                string MaNhom = dtgNhom.Rows[r].Cells["MaNhom"].Value.ToString();
+                string TenNhom = dtgNhom.Rows[r].Cells["TenNhom"].Value.ToString();
 
                 var result = MessageBox.Show($"Bạn có chắc chắn muốn xoá nhóm {TenNhom} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    bool isDeleted = manager.XoaNhom(TenNhom);
+                    bool isDeleted = manager.XoaNhomByID(MaNhom);
 
                     if (isDeleted)
                     {
@@ -75,22 +74,17 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Vui lòng chọn một hàng để xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void btnSuaNhom_Click(object sender, EventArgs e)
         {
             int r = dtgNhom.CurrentCell.RowIndex;
-            string TenNhom = dtgNhom.Rows[r].Cells[0].Value.ToString();
-            string ThongTinKhac = dtgNhom.Rows[r].Cells[1].Value.ToString();
-            VeThangThemSuaNhom veThangThemForm = new VeThangThemSuaNhom(btnSuaNhom.Text,TenNhom);
+            string MaNhom = dtgNhom.Rows[r].Cells["MaNhom"].Value.ToString();
+            VeThangThemSuaNhom veThangThemForm = new VeThangThemSuaNhom(btnSuaNhom.Text,MaNhom);
             veThangThemForm.ShowDialog();
             if (veThangThemForm.ThemSuaThanhCong) LoadData();
         }
-
         #endregion
 
         #region Vé Tháng
-
-
         private void btnThemVeThang_Click(object sender, EventArgs e)
         {
             VeThangThemSuaForm veThangThemForm = new VeThangThemSuaForm("Thêm");
@@ -103,11 +97,9 @@ namespace QuanLyBaiGiuXe
             string option = "Sửa";
             if (dtgVeThang.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = dtgVeThang.SelectedRows[0];
+                string MaVeThang = dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["MaVeThang"].Value.ToString();
 
-                string bienSo = row.Cells["BienSo"].Value.ToString();
-
-                VeThangThemSuaForm frmChinhSua = new VeThangThemSuaForm(option, bienSo);
+                VeThangThemSuaForm frmChinhSua = new VeThangThemSuaForm(option, MaVeThang);
                 frmChinhSua.ShowDialog();
                 if (frmChinhSua.ThemSuaThanhCong) LoadData();
             }
@@ -121,13 +113,12 @@ namespace QuanLyBaiGiuXe
         {
             if (dtgVeThang.SelectedRows.Count > 0)
             {
-                int r = dtgVeThang.CurrentCell.RowIndex;
-                string BienSo = dtgVeThang.Rows[r].Cells["BienSo"].Value.ToString();
+                string MaVeThang = dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["MaVeThang"].Value.ToString();
 
                 var result = MessageBox.Show($"Bạn có chắc chắn muốn xoá vé này chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    bool isDeleted = manager.XoaVeThang(BienSo);
+                    bool isDeleted = manager.XoaVeThang(MaVeThang);
 
                     if (isDeleted)
                     {
@@ -148,7 +139,8 @@ namespace QuanLyBaiGiuXe
 
         private void btnGiaHanVeThang_Click(object sender, EventArgs e)
         {
-            VeThangGiaHanForm veThangGiaHanForm = new VeThangGiaHanForm(dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["BienSo"].Value.ToString());
+            string MaVeThang = dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["MaVeThang"].Value.ToString();
+            VeThangGiaHanForm veThangGiaHanForm = new VeThangGiaHanForm(MaVeThang);
             veThangGiaHanForm.ShowDialog();
             if (veThangGiaHanForm.GiaHanThanhCong) LoadData();
         }
@@ -193,8 +185,8 @@ namespace QuanLyBaiGiuXe
 
         private void btnDoiThe_Click(object sender, EventArgs e)
         {
-            string BienSo = dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["BienSo"].Value.ToString();
-            VeThangDoiTheThang veThangDoiTheThang = new VeThangDoiTheThang(BienSo);
+            string MaVeThang = dtgVeThang.Rows[dtgVeThang.CurrentCell.RowIndex].Cells["MaVeThang"].Value.ToString();
+            VeThangDoiTheThang veThangDoiTheThang = new VeThangDoiTheThang(MaVeThang);
             veThangDoiTheThang.ShowDialog();
             if (veThangDoiTheThang.DoiTheThanhCong) LoadData();
         }

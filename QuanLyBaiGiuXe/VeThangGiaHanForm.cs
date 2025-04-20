@@ -13,15 +13,15 @@ namespace QuanLyBaiGiuXe
 {
     public partial class VeThangGiaHanForm: Form
     {
-        int MaVeThang = -1;
+        string MaVeThang = null;
         Manager manager = new Manager();
         DateTime NgayHetHanCu = DateTime.Now;
         public bool GiaHanThanhCong = false;
 
-        public VeThangGiaHanForm(string BienSo)
+        public VeThangGiaHanForm(string MaVeThang)
         {
             InitializeComponent();
-            this.MaVeThang = manager.GetMaVeThangByBienSo(BienSo);
+            this.MaVeThang = MaVeThang;
             LoadData();
         }
 

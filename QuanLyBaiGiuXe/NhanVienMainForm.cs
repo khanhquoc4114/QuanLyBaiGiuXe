@@ -50,10 +50,7 @@ namespace QuanLyBaiGiuXe
             var maNhom = dtgNhomNhanVien.Rows[rowIndex].Cells["MaNhomNhanVien"].Value.ToString();
             NhanVienThemSuaNhomNhanVienForm nhanVienThemSuaNhomNhanVienForm = new NhanVienThemSuaNhomNhanVienForm("Sửa nhóm", maNhom);
             nhanVienThemSuaNhomNhanVienForm.ShowDialog();
-            if (nhanVienThemSuaNhomNhanVienForm.ThemSuaThanhCong)
-            {
-                LoadData();
-            }
+            if (nhanVienThemSuaNhomNhanVienForm.ThemSuaThanhCong) LoadData();
         }
 
         private void btnXoaNhom_Click(object sender, EventArgs e)
@@ -87,8 +84,6 @@ namespace QuanLyBaiGiuXe
         #endregion
 
         #region Nhân Viên
-        #endregion
-
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
             NhanVienThemSuaNhanVienForm nhanVienThemSuaForm = new NhanVienThemSuaNhanVienForm("Thêm");
@@ -158,5 +153,6 @@ namespace QuanLyBaiGiuXe
                 LoadData();
             }
         }
+        #endregion
     }
 }

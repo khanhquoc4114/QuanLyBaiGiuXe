@@ -30,18 +30,18 @@
         {
             this.btnThe = new System.Windows.Forms.Button();
             this.btnVeThang = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnTraCuuXeVaoRa = new System.Windows.Forms.Button();
             this.btnVeLuot = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.btnThongKe = new System.Windows.Forms.Button();
+            this.btnThongKeTheoKhoangThoiGian = new System.Windows.Forms.Button();
+            this.btnNguoiDung = new System.Windows.Forms.Button();
+            this.btnThongKeTheoMayTinh = new System.Windows.Forms.Button();
+            this.btnHeThong = new System.Windows.Forms.Button();
+            this.btnNhatKyDieuChinhGiaVe = new System.Windows.Forms.Button();
+            this.btnThongKeTheoNhanVien = new System.Windows.Forms.Button();
+            this.btnNhatKyDangNhap = new System.Windows.Forms.Button();
+            this.btnNhatKyXuLyVeThang = new System.Windows.Forms.Button();
+            this.btnThongKeChiTiet = new System.Windows.Forms.Button();
+            this.btnThongKeTongQuat = new System.Windows.Forms.Button();
             this.btnNhatKyMatThe = new System.Windows.Forms.Button();
             this.btnNhatKyVeLuot = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             this.btnThe.TabIndex = 0;
             this.btnThe.Text = "Thẻ";
             this.btnThe.UseVisualStyleBackColor = true;
+            this.btnThe.Click += new System.EventHandler(this.btnThe_Click);
             // 
             // btnVeThang
             // 
@@ -65,14 +66,14 @@
             this.btnVeThang.UseVisualStyleBackColor = true;
             this.btnVeThang.Click += new System.EventHandler(this.btnVeThang_Click);
             // 
-            // button3
+            // btnTraCuuXeVaoRa
             // 
-            this.button3.Location = new System.Drawing.Point(659, 130);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 72);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Tra cứu xe vào, ra";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(659, 130);
+            this.btnTraCuuXeVaoRa.Name = "btnTraCuuXeVaoRa";
+            this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(129, 72);
+            this.btnTraCuuXeVaoRa.TabIndex = 0;
+            this.btnTraCuuXeVaoRa.Text = "Tra cứu xe vào, ra";
+            this.btnTraCuuXeVaoRa.UseVisualStyleBackColor = true;
             // 
             // btnVeLuot
             // 
@@ -82,96 +83,99 @@
             this.btnVeLuot.TabIndex = 0;
             this.btnVeLuot.Text = "Vé lượt";
             this.btnVeLuot.UseVisualStyleBackColor = true;
+            this.btnVeLuot.Click += new System.EventHandler(this.btnVeLuot_Click);
             // 
-            // button5
+            // btnThongKeTheoKhoangThoiGian
             // 
-            this.button5.Location = new System.Drawing.Point(227, 248);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 72);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Thống kê theo khoảng thời gian";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(227, 248);
+            this.btnThongKeTheoKhoangThoiGian.Name = "btnThongKeTheoKhoangThoiGian";
+            this.btnThongKeTheoKhoangThoiGian.Size = new System.Drawing.Size(129, 72);
+            this.btnThongKeTheoKhoangThoiGian.TabIndex = 0;
+            this.btnThongKeTheoKhoangThoiGian.Text = "Thống kê theo khoảng thời gian";
+            this.btnThongKeTheoKhoangThoiGian.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnNguoiDung
             // 
-            this.button6.Location = new System.Drawing.Point(657, 366);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(129, 72);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Người dùng";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnNguoiDung.Location = new System.Drawing.Point(657, 366);
+            this.btnNguoiDung.Name = "btnNguoiDung";
+            this.btnNguoiDung.Size = new System.Drawing.Size(129, 72);
+            this.btnNguoiDung.TabIndex = 0;
+            this.btnNguoiDung.Text = "Người dùng";
+            this.btnNguoiDung.UseVisualStyleBackColor = true;
+            this.btnNguoiDung.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
-            // button7
+            // btnThongKeTheoMayTinh
             // 
-            this.button7.Location = new System.Drawing.Point(12, 366);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(129, 72);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Thống kê theo máy tính";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(12, 366);
+            this.btnThongKeTheoMayTinh.Name = "btnThongKeTheoMayTinh";
+            this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(129, 72);
+            this.btnThongKeTheoMayTinh.TabIndex = 0;
+            this.btnThongKeTheoMayTinh.Text = "Thống kê theo máy tính";
+            this.btnThongKeTheoMayTinh.UseVisualStyleBackColor = true;
+            this.btnThongKeTheoMayTinh.Click += new System.EventHandler(this.btnThongKeTheoMayTinh_Click);
             // 
-            // button8
+            // btnHeThong
             // 
-            this.button8.Location = new System.Drawing.Point(657, 248);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(129, 72);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "Hệ thống";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnHeThong.Location = new System.Drawing.Point(657, 248);
+            this.btnHeThong.Name = "btnHeThong";
+            this.btnHeThong.Size = new System.Drawing.Size(129, 72);
+            this.btnHeThong.TabIndex = 0;
+            this.btnHeThong.Text = "Hệ thống";
+            this.btnHeThong.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnNhatKyDieuChinhGiaVe
             // 
-            this.button9.Location = new System.Drawing.Point(442, 366);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(129, 72);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "Nhật ký điều chỉnh giá vé";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(442, 366);
+            this.btnNhatKyDieuChinhGiaVe.Name = "btnNhatKyDieuChinhGiaVe";
+            this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(129, 72);
+            this.btnNhatKyDieuChinhGiaVe.TabIndex = 0;
+            this.btnNhatKyDieuChinhGiaVe.Text = "Nhật ký điều chỉnh giá vé";
+            this.btnNhatKyDieuChinhGiaVe.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnThongKeTheoNhanVien
             // 
-            this.button10.Location = new System.Drawing.Point(227, 366);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(129, 72);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "Thống kê theo nhân viên";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(227, 366);
+            this.btnThongKeTheoNhanVien.Name = "btnThongKeTheoNhanVien";
+            this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(129, 72);
+            this.btnThongKeTheoNhanVien.TabIndex = 0;
+            this.btnThongKeTheoNhanVien.Text = "Thống kê theo nhân viên";
+            this.btnThongKeTheoNhanVien.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnNhatKyDangNhap
             // 
-            this.button11.Location = new System.Drawing.Point(442, 248);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(129, 72);
-            this.button11.TabIndex = 0;
-            this.button11.Text = "Nhật ký đăng nhập";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(442, 248);
+            this.btnNhatKyDangNhap.Name = "btnNhatKyDangNhap";
+            this.btnNhatKyDangNhap.Size = new System.Drawing.Size(129, 72);
+            this.btnNhatKyDangNhap.TabIndex = 0;
+            this.btnNhatKyDangNhap.Text = "Nhật ký đăng nhập";
+            this.btnNhatKyDangNhap.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnNhatKyXuLyVeThang
             // 
-            this.button12.Location = new System.Drawing.Point(442, 130);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(129, 72);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "Nhật ký xử lý vé tháng";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(442, 130);
+            this.btnNhatKyXuLyVeThang.Name = "btnNhatKyXuLyVeThang";
+            this.btnNhatKyXuLyVeThang.Size = new System.Drawing.Size(129, 72);
+            this.btnNhatKyXuLyVeThang.TabIndex = 0;
+            this.btnNhatKyXuLyVeThang.Text = "Nhật ký xử lý vé tháng";
+            this.btnNhatKyXuLyVeThang.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btnThongKeChiTiet
             // 
-            this.button13.Location = new System.Drawing.Point(227, 130);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(129, 72);
-            this.button13.TabIndex = 0;
-            this.button13.Text = "Thống kê chi tiết";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnThongKeChiTiet.Location = new System.Drawing.Point(227, 130);
+            this.btnThongKeChiTiet.Name = "btnThongKeChiTiet";
+            this.btnThongKeChiTiet.Size = new System.Drawing.Size(129, 72);
+            this.btnThongKeChiTiet.TabIndex = 0;
+            this.btnThongKeChiTiet.Text = "Thống kê chi tiết";
+            this.btnThongKeChiTiet.UseVisualStyleBackColor = true;
             // 
-            // btnThongKe
+            // btnThongKeTongQuat
             // 
-            this.btnThongKe.Location = new System.Drawing.Point(227, 12);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(129, 72);
-            this.btnThongKe.TabIndex = 0;
-            this.btnThongKe.Text = "Thống kê tổng quát";
-            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKeTongQuat.Location = new System.Drawing.Point(227, 12);
+            this.btnThongKeTongQuat.Name = "btnThongKeTongQuat";
+            this.btnThongKeTongQuat.Size = new System.Drawing.Size(129, 72);
+            this.btnThongKeTongQuat.TabIndex = 0;
+            this.btnThongKeTongQuat.Text = "Thống kê tổng quát";
+            this.btnThongKeTongQuat.UseVisualStyleBackColor = true;
             // 
             // btnNhatKyMatThe
             // 
@@ -198,22 +202,23 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnNhatKyVeLuot);
             this.Controls.Add(this.btnNhatKyMatThe);
-            this.Controls.Add(this.btnThongKe);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnThongKeTongQuat);
+            this.Controls.Add(this.btnThongKeChiTiet);
+            this.Controls.Add(this.btnNhatKyXuLyVeThang);
+            this.Controls.Add(this.btnNhatKyDangNhap);
+            this.Controls.Add(this.btnThongKeTheoNhanVien);
+            this.Controls.Add(this.btnNhatKyDieuChinhGiaVe);
+            this.Controls.Add(this.btnHeThong);
+            this.Controls.Add(this.btnThongKeTheoMayTinh);
+            this.Controls.Add(this.btnNguoiDung);
+            this.Controls.Add(this.btnThongKeTheoKhoangThoiGian);
             this.Controls.Add(this.btnVeLuot);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnTraCuuXeVaoRa);
             this.Controls.Add(this.btnVeThang);
             this.Controls.Add(this.btnThe);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
+            this.Load += new System.EventHandler(this.MenuForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -222,18 +227,18 @@
 
         private System.Windows.Forms.Button btnThe;
         private System.Windows.Forms.Button btnVeThang;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTraCuuXeVaoRa;
         private System.Windows.Forms.Button btnVeLuot;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button btnThongKe;
+        private System.Windows.Forms.Button btnThongKeTheoKhoangThoiGian;
+        private System.Windows.Forms.Button btnNguoiDung;
+        private System.Windows.Forms.Button btnThongKeTheoMayTinh;
+        private System.Windows.Forms.Button btnHeThong;
+        private System.Windows.Forms.Button btnNhatKyDieuChinhGiaVe;
+        private System.Windows.Forms.Button btnThongKeTheoNhanVien;
+        private System.Windows.Forms.Button btnNhatKyDangNhap;
+        private System.Windows.Forms.Button btnNhatKyXuLyVeThang;
+        private System.Windows.Forms.Button btnThongKeChiTiet;
+        private System.Windows.Forms.Button btnThongKeTongQuat;
         private System.Windows.Forms.Button btnNhatKyMatThe;
         private System.Windows.Forms.Button btnNhatKyVeLuot;
     }

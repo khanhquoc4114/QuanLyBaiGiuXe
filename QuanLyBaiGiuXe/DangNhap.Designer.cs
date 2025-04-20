@@ -61,6 +61,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(191, 20);
             this.tbUsername.TabIndex = 0;
+            this.tbUsername.Text = "admin";
             // 
             // tbPassword
             // 
@@ -69,13 +70,14 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(191, 20);
             this.tbPassword.TabIndex = 1;
+            this.tbPassword.Text = "123456";
             // 
             // btnDangNhap
             // 
             this.btnDangNhap.Location = new System.Drawing.Point(128, 88);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
-            this.btnDangNhap.TabIndex = 2;
+            this.btnDangNhap.TabIndex = 0;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -103,6 +105,8 @@
             this.Controls.Add(this.label1);
             this.Name = "DangNhap";
             this.Text = "Đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DangNhap_FormClosing);
+            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

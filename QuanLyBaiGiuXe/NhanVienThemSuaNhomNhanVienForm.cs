@@ -115,7 +115,7 @@ namespace QuanLyBaiGiuXe
             var result = MessageBox.Show($"Bạn có chắc chắn muốn sửa thông tin của nhóm {TenNhom} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                bool isUpdated = manager.CapNhatNhomNhanVien(maNhomNhanVien, TenNhom,ThongTinKhac);
+                bool isUpdated = manager.CapNhatNhomNhanVien(maNhomNhanVien, TenNhom, ThongTinKhac);
 
                 if (isUpdated)
                 {
@@ -154,6 +154,11 @@ namespace QuanLyBaiGiuXe
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void NhanVienThemSuaNhomNhanVienForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

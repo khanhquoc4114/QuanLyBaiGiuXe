@@ -1,19 +1,13 @@
-﻿using QuanLyBaiGiuXe.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using QuanLyBaiGiuXe.DataAccess;
+using QuanLyBaiGiuXe.Helper;
 
 namespace QuanLyBaiGiuXe
 {
     public partial class DangNhap : Form
     {
+        string MaNhanVien = "";
         LoginManager loginManager = new LoginManager();
 
         public DangNhap()
@@ -30,34 +24,22 @@ namespace QuanLyBaiGiuXe
             }
             try
             {
-                object dt = loginManager.UserCheck(tbUsername.Text, tbPassword.Text);
-                MessageBox.Show(dt.ToString(), "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (dt.ToString() == "quanli")
+                MaNhanVien = loginManager.GetMaNhanVien(tbUsername.Text, tbPassword.Text);
+                if (!string.IsNullOrEmpty(MaNhanVien))
                 {
+                    Session.MaNhanVien = MaNhanVien;
+                    string name = loginManager.GetTen(tbUsername.Text, tbPassword.Text);
+                    string role = loginManager.GetVaiTro(tbUsername.Text, tbPassword.Text);
+                    loginManager.CheckIn(MaNhanVien.ToString(),DateTime.Now);
+                    MessageBox.Show($"Xin chào {name} - {role}", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.Hide();
-                    //formMain form = new formMain();
-                    //form.Show();
-                }
-                else if (dt.ToString() == "nguoidung")
+                    MenuForm menu = new MenuForm(role);
+                    menu.ShowDialog();
+                    this.Show();
+                } else
                 {
-                    string id = loginManager.GetID(tbUsername.Text, tbPassword.Text).ToString().Trim();
-                    this.Hide();
-                    //formCustomerMain form = new formCustomerMain(id);
-                    //form.Show();
-                }
-                else if (dt.ToString() == "nhanvien")
-                {
-                    string id = loginManager.GetID(tbUsername.Text, tbPassword.Text).ToString().Trim();
-                    this.Hide();
-                    //formAttendantMain form = new formAttendantMain(id);
-                    //form.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Thông tin đăng nhập không chính xác. Mời nhập lại!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tbUsername.Clear();
-                    tbPassword.Clear();
-                    tbUsername.Focus();
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -69,6 +51,17 @@ namespace QuanLyBaiGiuXe
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+            string tenMayTinh = Environment.MachineName;
+            Session.MayTinhXuLy = tenMayTinh;
+        }
+
+        private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            loginManager.CheckOut(MaNhanVien.ToString(), DateTime.Now);
         }
     }
 }
