@@ -121,7 +121,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(401, 15);
+            this.btnTimKiem.Location = new System.Drawing.Point(397, 15);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 30);
             this.btnTimKiem.TabIndex = 3;
@@ -132,7 +132,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 20);
+            this.label2.Location = new System.Drawing.Point(201, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 17);
@@ -142,7 +142,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Location = new System.Drawing.Point(13, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 17);
@@ -152,7 +152,7 @@
             // dtpDen
             // 
             this.dtpDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDen.Location = new System.Drawing.Point(239, 16);
+            this.dtpDen.Location = new System.Drawing.Point(259, 18);
             this.dtpDen.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDen.Name = "dtpDen";
             this.dtpDen.Size = new System.Drawing.Size(114, 25);
@@ -161,7 +161,7 @@
             // dtpTu
             // 
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTu.Location = new System.Drawing.Point(47, 16);
+            this.dtpTu.Location = new System.Drawing.Point(63, 18);
             this.dtpTu.Margin = new System.Windows.Forms.Padding(4);
             this.dtpTu.Name = "dtpTu";
             this.dtpTu.Size = new System.Drawing.Size(114, 25);

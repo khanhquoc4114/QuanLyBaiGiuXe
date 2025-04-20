@@ -16,22 +16,29 @@ namespace QuanLyBaiGiuXe
     {
         string option = "Thêm nhóm";
         public bool ThemSuaThanhCong = false;
+        string MaNhom = null;
         string TenNhomHienTai = null;
         string ThongTinKhacHienTai = null;
-        public VeThangThemSuaNhom(string option, string TenNhomHienTai = null, string ThongTinKhacHienTai=null)
+        public VeThangThemSuaNhom(string option, string MaNhom=null)
         {
             InitializeComponent();
             this.option = option;
-            this.TenNhomHienTai = TenNhomHienTai;
-            this.ThongTinKhacHienTai = ThongTinKhacHienTai;
+            this.MaNhom = MaNhom;
             LoadData();
         }
 
         void LoadData()
         {
-            if (option == "Sửa nhóm")
+            if (option == "Sửa nhóm" )
             {
                 btnDongYTiepTuc.Enabled = false;
+                DataTable dt = manager.GetNhomByID(MaNhom);
+
+                if (dt.Rows.Count > 0)
+                {
+                    TenNhomHienTai = dt.Rows[0]["TenNhom"].ToString();
+                    ThongTinKhacHienTai = dt.Rows[0]["ThongTinKhac"].ToString();
+                }
                 tbTen.Text = TenNhomHienTai;
                 tbThongTinKhac.Text = ThongTinKhacHienTai;
             }
@@ -57,7 +64,7 @@ namespace QuanLyBaiGiuXe
             var result = MessageBox.Show($"Bạn có chắc chắn muốn sửa nhóm {TenNhomHienTai} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                bool isUpdated = manager.CapNhatNhom(TenNhomHienTai, TenNhomMoi, ThongTinKhacMoi);
+                bool isUpdated = manager.CapNhatNhom(MaNhom, TenNhomMoi, ThongTinKhacMoi);
 
                 if (isUpdated)
                 {

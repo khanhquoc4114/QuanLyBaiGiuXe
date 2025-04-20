@@ -12,19 +12,17 @@ namespace QuanLyBaiGiuXe
     {
         Manager manager = new Manager();
         string option="Sửa";
-        string BienSo= "";
-        int MaVeThang = -1;
+        string MaVeThang = null;
         public bool ThemSuaThanhCong = false;
 
-        public VeThangThemSuaForm(string option, string BienSo=null)
+        public VeThangThemSuaForm(string option, string MaVeThang=null)
         {
             InitializeComponent();
             LoadUI();
             this.option = option;
-            this.BienSo = BienSo;
             if (option == "Sửa")
             {
-                this.MaVeThang = manager.GetMaVeThangByBienSo(BienSo);
+                this.MaVeThang = MaVeThang;
                 LoadData();
                 btnDongYTiepTuc.Enabled = false;
             }

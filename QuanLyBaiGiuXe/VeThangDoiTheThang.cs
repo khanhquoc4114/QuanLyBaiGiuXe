@@ -15,14 +15,14 @@ namespace QuanLyBaiGiuXe
 {
     public partial class VeThangDoiTheThang: Form
     {
-        int MaVeThang = -1;
+        string MaVeThang = null;
         public bool DoiTheThanhCong = false;
         Manager manager = new Manager();
 
-        public VeThangDoiTheThang(string BienSo)
+        public VeThangDoiTheThang(string MaVeThang)
         {
             InitializeComponent();
-            this.MaVeThang = manager.GetMaVeThangByBienSo(BienSo);
+            this.MaVeThang = MaVeThang;
         }
 
         private bool DoiThe(string BienSo)

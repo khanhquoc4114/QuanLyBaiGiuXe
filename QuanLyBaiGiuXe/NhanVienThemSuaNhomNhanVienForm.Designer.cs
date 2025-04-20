@@ -175,6 +175,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "NhanVienThemSuaNhomNhanVienForm";
             this.Text = "Thêm nhóm Nhân Viên";
+            this.Load += new System.EventHandler(this.NhanVienThemSuaNhomNhanVienForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

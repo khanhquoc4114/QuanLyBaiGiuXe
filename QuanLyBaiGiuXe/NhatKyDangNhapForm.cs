@@ -16,5 +16,10 @@ namespace QuanLyBaiGiuXe
         {
             InitializeComponent();
         }
+
+        private void NhatKyDangNhapForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
