@@ -16,7 +16,8 @@ namespace QuanLyBaiGiuXe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NhatKyXuLyTheThangForm());
+            Application.Run(new ThongKeChiTietForm());
+            //Application.Run(new DangNhap());
         }
     }
 }

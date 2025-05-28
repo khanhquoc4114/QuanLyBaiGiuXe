@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using OfficeOpenXml.LoadFunctions.Params;
 using QuanLyBaiGiuXe.Models;
 using System;
 using System.Collections.Generic;
@@ -13,37 +14,29 @@ using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class VeLuotMainForm: Form
+    public partial class NhatKyXuLyVeThangForm: Form
     {
         Manager manager = new Manager();
-        public VeLuotMainForm()
+        public NhatKyXuLyVeThangForm()
         {
             InitializeComponent();
             LoadData();
         }
 
-        public void LoadData()
+        private void LoadData()
         {
-            try
-            {
-                this.dtgVeLuot.DataSource = manager.GetAllVeLuot();
-                this.dtgTong.DataSource = manager.GetTongVeLuot();
-                try
-                {
-                    dtgTong.Columns["SoLuong"].HeaderText = "Số lượng";
-                    dtgTong.Columns["TongTien"].HeaderText = "Tổng tiền (VNĐ)";
-                } catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi cập nhật tiêu đề cột: " + ex.Message);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Không lấy được nội dung trong table");
-            }
+            dtgXuLyVeThang.DataSource = manager.GetAllXuLyVeThang();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DateTime tgTu = dtpTu.Value;
+            DateTime tgDen = dtpDen.Value;
+
+            this.dtgXuLyVeThang.DataSource = manager.TimKiemNhatKyXuLyVeThang(tgTu, tgDen);
+        }
+
+        private void NhatKyXuLyVeThangForm_Load(object sender, EventArgs e)
         {
 
         }
@@ -54,7 +47,7 @@ namespace QuanLyBaiGiuXe
             {
                 sfd.Filter = "Excel files (*.xlsx)|*.xlsx";
                 DateTime now = DateTime.Now;
-                sfd.FileName = $"DuLieuVeLuot_{now:ddMMyyyy}.xlsx";
+                sfd.FileName = $"ThongKeXuLyVeThang_{now:ddMMyyyy}.xlsx";
 
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 if (sfd.ShowDialog() == DialogResult.OK)
@@ -64,17 +57,17 @@ namespace QuanLyBaiGiuXe
                         ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
 
                         // Xuất tiêu đề cột
-                        for (int col = 0; col < dtgVeLuot.Columns.Count; col++)
+                        for (int col = 0; col < dtgXuLyVeThang.Columns.Count; col++)
                         {
-                            worksheet.Cells[1, col + 1].Value = dtgVeLuot.Columns[col].HeaderText;
+                            worksheet.Cells[1, col + 1].Value = dtgXuLyVeThang.Columns[col].HeaderText;
                         }
 
                         // Xuất dữ liệu từ DataGridView
-                        for (int row = 0; row < dtgVeLuot.Rows.Count; row++)
+                        for (int row = 0; row < dtgXuLyVeThang.Rows.Count; row++)
                         {
-                            for (int col = 0; col < dtgVeLuot.Columns.Count; col++)
+                            for (int col = 0; col < dtgXuLyVeThang.Columns.Count; col++)
                             {
-                                worksheet.Cells[row + 2, col + 1].Value = dtgVeLuot.Rows[row].Cells[col].Value?.ToString();
+                                worksheet.Cells[row + 2, col + 1].Value = dtgXuLyVeThang.Rows[row].Cells[col].Value?.ToString();
                             }
                         }
 

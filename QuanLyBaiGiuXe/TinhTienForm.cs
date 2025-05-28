@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyBaiGiuXe.Models;
 
 namespace QuanLyBaiGiuXe
 {
     public partial class TinhTienForm: Form
     {
+        Manager manager = new Manager();
         public TinhTienForm()
         {
             InitializeComponent();
@@ -60,6 +62,60 @@ namespace QuanLyBaiGiuXe
         private void trbChuKy_Scroll(object sender, EventArgs e)
         {
             tbChuKy.Text = trbChuKy.Value.ToString();
+        }
+
+        private void TinhTienForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        private void LoadData()
+        {
+            dtgLoaiXe.DataSource = manager.GetAllLoaiXe();
+
+        }
+
+        private void dtgTien_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgLoaiXe_SelectionChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dtgLoaiXe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Đảm bảo không phải tiêu đề
+            {
+                int maLoaiXe = Convert.ToInt32(dtgLoaiXe.Rows[e.RowIndex].Cells["MaLoaiXe"].Value);
+
+                DataTable dt = manager.GetTinhTienCongVanByID(maLoaiXe.ToString());
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    cbThuTienTruoc.Checked = row.Field<bool>("ThuTienTruoc");
+                    trbTu.Value = row.Field<byte>("DemTu");
+                    trbDen.Value = row.Field<byte>("DemDen");
+                    trbKhoangGiao.Value = row.Field<byte>("GioGiaoNgayDem");
+                    nupGiaThuong.Value = row.Field<int>("GiaThuong");
+                    nupGiaDem.Value = row.Field<int>("GiaDem");
+                    nupGiaNgayDem.Value = row.Field<int>("GiaNgayDem");
+                    nupGiaPhuThu.Value = row.Field<int>("GiaPhuThu");
+                    trbPhuThuTu.Value = row.Field<byte>("PhuThuTu");
+                    trbPhuThuDen.Value = row.Field<byte>("PhuThuDen");
+                }
+                DataTable dt2 = manager.GetTinhTienLuyTienByID(maLoaiXe.ToString());
+                if (dt2 != null && dt2.Rows.Count > 0)
+                {
+                    DataRow row = dt2.Rows[0];
+                    trbMoc1.Value = row.Field<byte>("Moc1");
+                    nupGiaMoc1.Value = row.Field<int>("GiaMoc1");
+                    trbMoc2.Value = row.Field<byte>("Moc2");
+                    nupGiaMoc2.Value = row.Field<int>("GiaMoc2");
+                    trbChuKy.Value = row.Field<byte>("ChuKy");
+                    nupGiaVuotMoc.Value = row.Field<int>("GiaVuotMoc");
+                }
+            }
         }
     }
 }

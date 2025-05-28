@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using QuanLyBaiGiuXe.Models;
 
@@ -58,25 +59,38 @@ namespace QuanLyBaiGiuXe.DataAccess
             }
         }
 
-        public bool CheckOut(string MaNhanVien, DateTime checkout)
+        public bool CheckOut(string maNhanVien, DateTime checkout)
         {
             try
             {
                 db.OpenConnection();
-                using (SqlCommand cmd = new SqlCommand(@"
+                using (SqlConnection conn = db.GetConnection())
+                {
+                    string query = @"
                         UPDATE NhatKyDangNhap 
                         SET ThoiGianDangXuat = @TgRa
-                        WHERE MaNhanVien = @MaNV AND ThoiGianDangXuat IS NULL", db.GetConnection()))
-                {
-                    cmd.Parameters.AddWithValue("@TgRa", checkout);
-                    cmd.Parameters.AddWithValue("@MaNV", MaNhanVien);
+                        WHERE MaNhanVien = @MaNV 
+                          AND ThoiGianDangXuat IS NULL
+                          AND ThoiGianDangNhap = (
+                              SELECT TOP 1 ThoiGianDangNhap
+                              FROM NhatKyDangNhap
+                              WHERE MaNhanVien = @MaNV AND ThoiGianDangXuat IS NULL
+                              ORDER BY ThoiGianDangNhap DESC
+                          )";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.Add("@TgRa", SqlDbType.DateTime).Value = checkout;
+                        cmd.Parameters.Add("@MaNV", SqlDbType.VarChar).Value = maNhanVien;
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine("Checkout Error: " + ex.Message);
                 return false;
             }
         }

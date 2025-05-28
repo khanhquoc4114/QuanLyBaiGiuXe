@@ -146,6 +146,11 @@
             // 
             // updGiaVe
             // 
+            this.updGiaVe.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.updGiaVe.Location = new System.Drawing.Point(424, 266);
             this.updGiaVe.Name = "updGiaVe";
             this.updGiaVe.Size = new System.Drawing.Size(166, 23);
@@ -167,6 +172,7 @@
             this.tbMaThe.Name = "tbMaThe";
             this.tbMaThe.Size = new System.Drawing.Size(166, 23);
             this.tbMaThe.TabIndex = 3;
+            this.tbMaThe.Text = "T006";
             // 
             // tbDienThoai
             // 
@@ -175,6 +181,7 @@
             this.tbDienThoai.Name = "tbDienThoai";
             this.tbDienThoai.Size = new System.Drawing.Size(166, 23);
             this.tbDienThoai.TabIndex = 4;
+            this.tbDienThoai.Text = "khanhquoc";
             // 
             // tbEmail
             // 
@@ -183,6 +190,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(166, 23);
             this.tbEmail.TabIndex = 5;
+            this.tbEmail.Text = "khanhquoc";
             // 
             // tbNhanHieu
             // 
@@ -191,6 +199,7 @@
             this.tbNhanHieu.Name = "tbNhanHieu";
             this.tbNhanHieu.Size = new System.Drawing.Size(166, 23);
             this.tbNhanHieu.TabIndex = 7;
+            this.tbNhanHieu.Text = "khanhquoc";
             // 
             // tbBienSo
             // 
@@ -199,6 +208,7 @@
             this.tbBienSo.Name = "tbBienSo";
             this.tbBienSo.Size = new System.Drawing.Size(166, 23);
             this.tbBienSo.TabIndex = 6;
+            this.tbBienSo.Text = "khanhquoc";
             // 
             // tbDiaChi
             // 
@@ -207,6 +217,7 @@
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(166, 23);
             this.tbDiaChi.TabIndex = 2;
+            this.tbDiaChi.Text = "khanhquoc";
             // 
             // tbChuXe
             // 
@@ -215,6 +226,7 @@
             this.tbChuXe.Name = "tbChuXe";
             this.tbChuXe.Size = new System.Drawing.Size(166, 23);
             this.tbChuXe.TabIndex = 1;
+            this.tbChuXe.Text = "khanhquoc";
             // 
             // cbLoaiXe
             // 

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBaiGiuXe
 {
-    partial class NhatKyXuLyTheThangForm
+    partial class NhatKyXuLyVeThangForm
     {
         /// <summary>
         /// Required designer variable.
@@ -80,14 +80,18 @@
             // dtgXuLyVeThang
             // 
             this.dtgXuLyVeThang.AllowUserToAddRows = false;
+            this.dtgXuLyVeThang.AllowUserToDeleteRows = false;
+            this.dtgXuLyVeThang.AllowUserToResizeRows = false;
             this.dtgXuLyVeThang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgXuLyVeThang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgXuLyVeThang.Location = new System.Drawing.Point(0, 0);
-            this.dtgXuLyVeThang.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgXuLyVeThang.MultiSelect = false;
             this.dtgXuLyVeThang.Name = "dtgXuLyVeThang";
+            this.dtgXuLyVeThang.ReadOnly = true;
+            this.dtgXuLyVeThang.RowHeadersVisible = false;
             this.dtgXuLyVeThang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgXuLyVeThang.Size = new System.Drawing.Size(984, 272);
-            this.dtgXuLyVeThang.TabIndex = 0;
+            this.dtgXuLyVeThang.TabIndex = 2;
             // 
             // panel4
             // 
@@ -113,6 +117,7 @@
             this.btnXuatExcel.TabIndex = 4;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnTimKiem
             // 
@@ -162,14 +167,15 @@
             this.dtpTu.Size = new System.Drawing.Size(114, 23);
             this.dtpTu.TabIndex = 0;
             // 
-            // NhatKyXuLyTheThangForm
+            // NhatKyXuLyVeThangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 334);
             this.Controls.Add(this.panel1);
-            this.Name = "NhatKyXuLyTheThangForm";
+            this.Name = "NhatKyXuLyVeThangForm";
             this.Text = "NhatKyXuLyTheThang";
+            this.Load += new System.EventHandler(this.NhatKyXuLyVeThangForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -185,7 +191,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dtgXuLyVeThang;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Button btnTimKiem;
@@ -193,5 +198,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpDen;
         private System.Windows.Forms.DateTimePicker dtpTu;
+        private System.Windows.Forms.DataGridView dtgXuLyVeThang;
     }
 }

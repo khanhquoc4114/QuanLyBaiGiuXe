@@ -74,7 +74,6 @@ namespace QuanLyBaiGiuXe
         }
         #endregion
 
-
         private void VeThangThemSuaForm_Load(object sender, EventArgs e)
         {
         }
@@ -103,6 +102,7 @@ namespace QuanLyBaiGiuXe
                 ngayHetHan, bienSo, nhanHieu, loaiXe, giaVe, ghiChu);
             return result;
         }
+
         private bool SuaVeThang()
         {
             string tenNhom = cbNhom.SelectedItem?.ToString();
@@ -128,7 +128,8 @@ namespace QuanLyBaiGiuXe
         {
             List<string> groups = manager.GetDanhSachNhom();
             cbNhom.DataSource = groups;
-            cbLoaiXe.Items.AddRange(new string[] { "Xe máy", "Ô tô", "Chung" });
+            List<string> groupsXe = manager.GetDanhSachXe();
+            cbLoaiXe.DataSource = groupsXe;
             cbNhom.SelectedIndex = 0;
             cbLoaiXe.SelectedIndex = 0;
             updGiaVe.Maximum = 10000000;
