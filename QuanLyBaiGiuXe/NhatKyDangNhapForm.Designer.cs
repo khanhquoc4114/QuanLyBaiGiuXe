@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dtgVeLuot = new System.Windows.Forms.DataGridView();
+            this.dtgNhatKyDangNhap = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgVeLuot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhatKyDangNhap)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dtgVeLuot);
+            this.panel5.Controls.Add(this.dtgNhatKyDangNhap);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 62);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
@@ -77,17 +77,17 @@
             this.panel5.Size = new System.Drawing.Size(861, 286);
             this.panel5.TabIndex = 1;
             // 
-            // dtgVeLuot
+            // dtgNhatKyDangNhap
             // 
-            this.dtgVeLuot.AllowUserToAddRows = false;
-            this.dtgVeLuot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgVeLuot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgVeLuot.Location = new System.Drawing.Point(0, 0);
-            this.dtgVeLuot.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgVeLuot.Name = "dtgVeLuot";
-            this.dtgVeLuot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVeLuot.Size = new System.Drawing.Size(861, 286);
-            this.dtgVeLuot.TabIndex = 0;
+            this.dtgNhatKyDangNhap.AllowUserToAddRows = false;
+            this.dtgNhatKyDangNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgNhatKyDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgNhatKyDangNhap.Location = new System.Drawing.Point(0, 0);
+            this.dtgNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgNhatKyDangNhap.Name = "dtgNhatKyDangNhap";
+            this.dtgNhatKyDangNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgNhatKyDangNhap.Size = new System.Drawing.Size(861, 286);
+            this.dtgNhatKyDangNhap.TabIndex = 0;
             // 
             // panel4
             // 
@@ -107,26 +107,28 @@
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(544, 13);
+            this.btnXuatExcel.Location = new System.Drawing.Point(596, 15);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(101, 30);
             this.btnXuatExcel.TabIndex = 4;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(400, 13);
+            this.btnTimKiem.Location = new System.Drawing.Point(458, 15);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(121, 30);
             this.btnTimKiem.TabIndex = 3;
             this.btnTimKiem.Text = "Tìm kiếm lịch sử";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(202, 20);
+            this.label2.Location = new System.Drawing.Point(209, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 17);
@@ -136,7 +138,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Location = new System.Drawing.Point(13, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 17);
@@ -145,20 +147,19 @@
             // 
             // dtpDen
             // 
-            this.dtpDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDen.Location = new System.Drawing.Point(263, 17);
+            this.dtpDen.Location = new System.Drawing.Point(255, 19);
             this.dtpDen.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDen.Name = "dtpDen";
-            this.dtpDen.Size = new System.Drawing.Size(114, 23);
+            this.dtpDen.Size = new System.Drawing.Size(151, 23);
             this.dtpDen.TabIndex = 1;
             // 
             // dtpTu
             // 
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTu.Location = new System.Drawing.Point(65, 17);
+            this.dtpTu.Location = new System.Drawing.Point(50, 19);
             this.dtpTu.Margin = new System.Windows.Forms.Padding(4);
             this.dtpTu.Name = "dtpTu";
-            this.dtpTu.Size = new System.Drawing.Size(114, 23);
+            this.dtpTu.Size = new System.Drawing.Size(151, 23);
             this.dtpTu.TabIndex = 0;
             // 
             // NhatKyDangNhapForm
@@ -173,7 +174,7 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgVeLuot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhatKyDangNhap)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -185,7 +186,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dtgVeLuot;
+        private System.Windows.Forms.DataGridView dtgNhatKyDangNhap;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Button btnTimKiem;

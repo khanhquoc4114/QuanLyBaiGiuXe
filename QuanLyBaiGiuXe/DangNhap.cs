@@ -29,7 +29,7 @@ namespace QuanLyBaiGiuXe
                 {
                     Session.MaNhanVien = MaNhanVien;
                     string name = loginManager.GetTen(tbUsername.Text, tbPassword.Text);
-                    string role = loginManager.GetVaiTro(tbUsername.Text, tbPassword.Text);
+                    string role = Session.VaiTro = loginManager.GetVaiTro(tbUsername.Text, tbPassword.Text);
                     loginManager.CheckIn(MaNhanVien.ToString(),DateTime.Now);
                     MessageBox.Show($"Xin chào {name} - {role}", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

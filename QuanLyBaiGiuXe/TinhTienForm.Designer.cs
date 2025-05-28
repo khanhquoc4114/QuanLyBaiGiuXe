@@ -38,10 +38,10 @@
             this.tbKhoangGiao = new System.Windows.Forms.TextBox();
             this.tbDen = new System.Windows.Forms.TextBox();
             this.tbTu = new System.Windows.Forms.TextBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaPhuThu = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaNgayDem = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaDem = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaThuong = new System.Windows.Forms.NumericUpDown();
             this.trbKhoangGiao = new System.Windows.Forms.TrackBar();
             this.trbPhuThuDen = new System.Windows.Forms.TrackBar();
             this.trbDen = new System.Windows.Forms.TrackBar();
@@ -63,15 +63,15 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaVuotMoc = new System.Windows.Forms.NumericUpDown();
             this.tbChuKy = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.trbChuKy = new System.Windows.Forms.TrackBar();
             this.tbMoc2 = new System.Windows.Forms.TextBox();
             this.tbMoc1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaMoc2 = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaMoc1 = new System.Windows.Forms.NumericUpDown();
             this.trbMoc2 = new System.Windows.Forms.TrackBar();
             this.trbMoc1 = new System.Windows.Forms.TrackBar();
             this.label11 = new System.Windows.Forms.Label();
@@ -82,27 +82,27 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaVeThang = new System.Windows.Forms.NumericUpDown();
+            this.nupGiaMienPhi = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Huy = new System.Windows.Forms.Button();
             this.btnDongYSua = new System.Windows.Forms.Button();
             this.btnDongYThem = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnKhoiPhuc = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.dtgLoaiXe = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaPhuThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaNgayDem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaDem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaThuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbKhoangGiao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbPhuThuDen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDen)).BeginInit();
@@ -110,19 +110,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.trbTu)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaVuotMoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbChuKy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaMoc2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaMoc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbMoc2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbMoc1)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaVeThang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaMienPhi)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgLoaiXe)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -168,10 +168,10 @@
             this.tabPage1.Controls.Add(this.tbKhoangGiao);
             this.tabPage1.Controls.Add(this.tbDen);
             this.tabPage1.Controls.Add(this.tbTu);
-            this.tabPage1.Controls.Add(this.numericUpDown4);
-            this.tabPage1.Controls.Add(this.numericUpDown2);
-            this.tabPage1.Controls.Add(this.numericUpDown3);
-            this.tabPage1.Controls.Add(this.numericUpDown1);
+            this.tabPage1.Controls.Add(this.nupGiaPhuThu);
+            this.tabPage1.Controls.Add(this.nupGiaNgayDem);
+            this.tabPage1.Controls.Add(this.nupGiaDem);
+            this.tabPage1.Controls.Add(this.nupGiaThuong);
             this.tabPage1.Controls.Add(this.trbKhoangGiao);
             this.tabPage1.Controls.Add(this.trbPhuThuDen);
             this.tabPage1.Controls.Add(this.trbDen);
@@ -257,37 +257,77 @@
             this.tbTu.Size = new System.Drawing.Size(75, 25);
             this.tbTu.TabIndex = 4;
             // 
-            // numericUpDown4
+            // nupGiaPhuThu
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(402, 388);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown4.TabIndex = 3;
+            this.nupGiaPhuThu.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaPhuThu.Location = new System.Drawing.Point(402, 388);
+            this.nupGiaPhuThu.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaPhuThu.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaPhuThu.Name = "nupGiaPhuThu";
+            this.nupGiaPhuThu.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaPhuThu.TabIndex = 3;
             // 
-            // numericUpDown2
+            // nupGiaNgayDem
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(180, 388);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown2.TabIndex = 3;
+            this.nupGiaNgayDem.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaNgayDem.Location = new System.Drawing.Point(180, 388);
+            this.nupGiaNgayDem.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaNgayDem.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaNgayDem.Name = "nupGiaNgayDem";
+            this.nupGiaNgayDem.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaNgayDem.TabIndex = 3;
             // 
-            // numericUpDown3
+            // nupGiaDem
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(402, 318);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown3.TabIndex = 3;
+            this.nupGiaDem.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaDem.Location = new System.Drawing.Point(402, 318);
+            this.nupGiaDem.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaDem.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaDem.Name = "nupGiaDem";
+            this.nupGiaDem.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaDem.TabIndex = 3;
             // 
-            // numericUpDown1
+            // nupGiaThuong
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(180, 318);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown1.TabIndex = 3;
+            this.nupGiaThuong.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaThuong.Location = new System.Drawing.Point(180, 318);
+            this.nupGiaThuong.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaThuong.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaThuong.Name = "nupGiaThuong";
+            this.nupGiaThuong.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaThuong.TabIndex = 3;
             // 
             // trbKhoangGiao
             // 
@@ -339,6 +379,7 @@
             // 
             // trbTu
             // 
+            this.trbTu.AllowDrop = true;
             this.trbTu.LargeChange = 1;
             this.trbTu.Location = new System.Drawing.Point(180, 98);
             this.trbTu.Margin = new System.Windows.Forms.Padding(4);
@@ -463,8 +504,8 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.tbMoc2);
             this.tabPage2.Controls.Add(this.tbMoc1);
-            this.tabPage2.Controls.Add(this.numericUpDown6);
-            this.tabPage2.Controls.Add(this.numericUpDown7);
+            this.tabPage2.Controls.Add(this.nupGiaMoc2);
+            this.tabPage2.Controls.Add(this.nupGiaMoc1);
             this.tabPage2.Controls.Add(this.trbMoc2);
             this.tabPage2.Controls.Add(this.trbMoc1);
             this.tabPage2.Controls.Add(this.label11);
@@ -485,7 +526,7 @@
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.numericUpDown8);
+            this.groupBox1.Controls.Add(this.nupGiaVuotMoc);
             this.groupBox1.Controls.Add(this.tbChuKy);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label16);
@@ -530,13 +571,23 @@
             this.radioButton1.Text = "Không cộng";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown8
+            // nupGiaVuotMoc
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(157, 38);
-            this.numericUpDown8.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown8.TabIndex = 15;
+            this.nupGiaVuotMoc.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaVuotMoc.Location = new System.Drawing.Point(157, 38);
+            this.nupGiaVuotMoc.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaVuotMoc.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaVuotMoc.Name = "nupGiaVuotMoc";
+            this.nupGiaVuotMoc.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaVuotMoc.TabIndex = 15;
             // 
             // tbChuKy
             // 
@@ -600,21 +651,41 @@
             this.tbMoc1.Size = new System.Drawing.Size(75, 25);
             this.tbMoc1.TabIndex = 19;
             // 
-            // numericUpDown6
+            // nupGiaMoc2
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(201, 305);
-            this.numericUpDown6.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown6.TabIndex = 17;
+            this.nupGiaMoc2.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaMoc2.Location = new System.Drawing.Point(201, 305);
+            this.nupGiaMoc2.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaMoc2.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaMoc2.Name = "nupGiaMoc2";
+            this.nupGiaMoc2.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaMoc2.TabIndex = 17;
             // 
-            // numericUpDown7
+            // nupGiaMoc1
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(201, 162);
-            this.numericUpDown7.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown7.TabIndex = 16;
+            this.nupGiaMoc1.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaMoc1.Location = new System.Drawing.Point(201, 162);
+            this.nupGiaMoc1.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaMoc1.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaMoc1.Name = "nupGiaMoc1";
+            this.nupGiaMoc1.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaMoc1.TabIndex = 16;
             // 
             // trbMoc2
             // 
@@ -685,8 +756,8 @@
             this.panel7.Controls.Add(this.comboBox1);
             this.panel7.Controls.Add(this.label19);
             this.panel7.Controls.Add(this.label18);
-            this.panel7.Controls.Add(this.numericUpDown9);
-            this.panel7.Controls.Add(this.numericUpDown5);
+            this.panel7.Controls.Add(this.nupGiaVeThang);
+            this.panel7.Controls.Add(this.nupGiaMienPhi);
             this.panel7.Controls.Add(this.label12);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel7.Location = new System.Drawing.Point(626, 55);
@@ -721,21 +792,36 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Giá vé tháng:";
             // 
-            // numericUpDown9
+            // nupGiaVeThang
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(44, 386);
-            this.numericUpDown9.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown9.TabIndex = 17;
+            this.nupGiaVeThang.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nupGiaVeThang.Location = new System.Drawing.Point(44, 386);
+            this.nupGiaVeThang.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaVeThang.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nupGiaVeThang.Name = "nupGiaVeThang";
+            this.nupGiaVeThang.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaVeThang.TabIndex = 17;
             // 
-            // numericUpDown5
+            // nupGiaMienPhi
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(44, 306);
-            this.numericUpDown5.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(99, 25);
-            this.numericUpDown5.TabIndex = 17;
+            this.nupGiaMienPhi.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nupGiaMienPhi.Location = new System.Drawing.Point(44, 306);
+            this.nupGiaMienPhi.Margin = new System.Windows.Forms.Padding(4);
+            this.nupGiaMienPhi.Name = "nupGiaMienPhi";
+            this.nupGiaMienPhi.Size = new System.Drawing.Size(99, 25);
+            this.nupGiaMienPhi.TabIndex = 17;
             // 
             // label12
             // 
@@ -765,7 +851,7 @@
             this.Huy.Name = "Huy";
             this.Huy.Size = new System.Drawing.Size(88, 30);
             this.Huy.TabIndex = 0;
-            this.Huy.Text = "Thêm";
+            this.Huy.Text = "Huỷ";
             this.Huy.UseVisualStyleBackColor = true;
             // 
             // btnDongYSua
@@ -775,7 +861,7 @@
             this.btnDongYSua.Name = "btnDongYSua";
             this.btnDongYSua.Size = new System.Drawing.Size(88, 30);
             this.btnDongYSua.TabIndex = 0;
-            this.btnDongYSua.Text = "Thêm";
+            this.btnDongYSua.Text = "Đồng Ý Sửa";
             this.btnDongYSua.UseVisualStyleBackColor = true;
             // 
             // btnDongYThem
@@ -785,12 +871,12 @@
             this.btnDongYThem.Name = "btnDongYThem";
             this.btnDongYThem.Size = new System.Drawing.Size(88, 30);
             this.btnDongYThem.TabIndex = 0;
-            this.btnDongYThem.Text = "Thêm";
+            this.btnDongYThem.Text = "Đồng Ý Thêm";
             this.btnDongYThem.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dtgLoaiXe);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -798,16 +884,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(310, 743);
             this.panel3.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 55);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(310, 688);
-            this.dataGridView1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -852,6 +928,24 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             // 
+            // dtgLoaiXe
+            // 
+            this.dtgLoaiXe.AllowUserToAddRows = false;
+            this.dtgLoaiXe.AllowUserToDeleteRows = false;
+            this.dtgLoaiXe.AllowUserToResizeRows = false;
+            this.dtgLoaiXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgLoaiXe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgLoaiXe.Location = new System.Drawing.Point(0, 55);
+            this.dtgLoaiXe.MultiSelect = false;
+            this.dtgLoaiXe.Name = "dtgLoaiXe";
+            this.dtgLoaiXe.ReadOnly = true;
+            this.dtgLoaiXe.RowHeadersVisible = false;
+            this.dtgLoaiXe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgLoaiXe.Size = new System.Drawing.Size(310, 688);
+            this.dtgLoaiXe.TabIndex = 2;
+            this.dtgLoaiXe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgLoaiXe_CellClick);
+            this.dtgLoaiXe.SelectionChanged += new System.EventHandler(this.dtgLoaiXe_SelectionChanged);
+            // 
             // TinhTienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -862,15 +956,16 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TinhTienForm";
             this.Text = "Tính tiền";
+            this.Load += new System.EventHandler(this.TinhTienForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaPhuThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaNgayDem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaDem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaThuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbKhoangGiao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbPhuThuDen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDen)).EndInit();
@@ -880,20 +975,20 @@
             this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaVuotMoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbChuKy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaMoc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaMoc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbMoc2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbMoc1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaVeThang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupGiaMienPhi)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgLoaiXe)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -912,7 +1007,6 @@
         private System.Windows.Forms.Button Huy;
         private System.Windows.Forms.Button btnDongYSua;
         private System.Windows.Forms.Button btnDongYThem;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnKhoiPhuc;
         private System.Windows.Forms.Button btnThem;
@@ -925,10 +1019,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nupGiaPhuThu;
+        private System.Windows.Forms.NumericUpDown nupGiaNgayDem;
+        private System.Windows.Forms.NumericUpDown nupGiaDem;
+        private System.Windows.Forms.NumericUpDown nupGiaThuong;
         private System.Windows.Forms.TrackBar trbKhoangGiao;
         private System.Windows.Forms.TrackBar trbDen;
         private System.Windows.Forms.TrackBar trbTu;
@@ -946,15 +1040,15 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.NumericUpDown nupGiaVuotMoc;
         private System.Windows.Forms.TextBox tbChuKy;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TrackBar trbChuKy;
         private System.Windows.Forms.TextBox tbMoc2;
         private System.Windows.Forms.TextBox tbMoc1;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.NumericUpDown nupGiaMoc2;
+        private System.Windows.Forms.NumericUpDown nupGiaMoc1;
         private System.Windows.Forms.TrackBar trbMoc2;
         private System.Windows.Forms.TrackBar trbMoc1;
         private System.Windows.Forms.Label label11;
@@ -964,8 +1058,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown nupGiaVeThang;
+        private System.Windows.Forms.NumericUpDown nupGiaMienPhi;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dtgLoaiXe;
     }
 }
