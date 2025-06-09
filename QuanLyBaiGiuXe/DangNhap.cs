@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using QuanLyBaiGiuXe.DataAccess;
 using QuanLyBaiGiuXe.Helper;
@@ -9,6 +11,8 @@ namespace QuanLyBaiGiuXe
     {
         string MaNhanVien = "";
         LoginManager loginManager = new LoginManager();
+        bool isLoggedIn = false;
+        Process process = new Process();
 
         public DangNhap()
         {
@@ -30,11 +34,14 @@ namespace QuanLyBaiGiuXe
                     Session.MaNhanVien = MaNhanVien;
                     string name = loginManager.GetTen(tbUsername.Text, tbPassword.Text);
                     string role = Session.VaiTro = loginManager.GetVaiTro(tbUsername.Text, tbPassword.Text);
-                    loginManager.CheckIn(MaNhanVien.ToString(),DateTime.Now);
-                    MessageBox.Show($"Xin chào {name} - {role}", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide();
-                    MenuForm menu = new MenuForm(role);
+                    MenuForm menu = new MenuForm(name);
+                    isLoggedIn = true;
+                    if (isLoggedIn)
+                    {
+                        loginManager.CheckIn(MaNhanVien.ToString(),DateTime.Now);
+                    }
                     menu.ShowDialog();
                     this.Show();
                 } else
@@ -55,13 +62,56 @@ namespace QuanLyBaiGiuXe
 
         private void DangNhap_Load(object sender, EventArgs e)
         {
-            string tenMayTinh = Environment.MachineName;
-            Session.MayTinhXuLy = tenMayTinh;
+            Session.MayTinhXuLy = Environment.MachineName;
+            LoadModel();
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            loginManager.CheckOut(MaNhanVien.ToString(), DateTime.Now);
+            if (process != null)
+            {
+                try
+                {
+                    if (!process.HasExited)
+                    {
+                        process.Kill();
+                        process.WaitForExit();
+                    }
+                }
+                catch { }
+
+                process.Dispose();
+                MessageBox.Show("Đã dừng quá trình nhận diện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (isLoggedIn == true)
+            { 
+                loginManager.CheckOut(Session.MaNhanVien, DateTime.Now);
+            }
+        }
+
+        private void LoadModel()
+        {
+            process.StartInfo.FileName = "python";
+            process.StartInfo.Arguments = "-u main_tcp.py";
+            process.StartInfo.WorkingDirectory = Path.Combine(Application.StartupPath, "python-server");
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+
+            process.OutputDataReceived += (sender, e) => {
+                if (!string.IsNullOrEmpty(e.Data))
+                    Console.WriteLine("[Python STDOUT] " + e.Data);
+            };
+
+            process.ErrorDataReceived += (sender, e) => {
+                if (!string.IsNullOrEmpty(e.Data))
+                    Console.WriteLine("[Python STDERR] " + e.Data);
+            };
+
+            process.Start();
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
         }
     }
 }

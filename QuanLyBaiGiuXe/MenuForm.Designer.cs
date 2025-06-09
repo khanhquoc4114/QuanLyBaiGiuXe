@@ -41,14 +41,19 @@
             this.btnNhatKyDangNhap = new System.Windows.Forms.Button();
             this.btnNhatKyXuLyVeThang = new System.Windows.Forms.Button();
             this.btnThongKeChiTiet = new System.Windows.Forms.Button();
-            this.btnThongKeTongQuat = new System.Windows.Forms.Button();
+            this.btnMainForm = new System.Windows.Forms.Button();
             this.btnNhatKyMatThe = new System.Windows.Forms.Button();
             this.btnNhatKyVeLuot = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbXinChao = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnThe
             // 
-            this.btnThe.Location = new System.Drawing.Point(12, 12);
+            this.btnThe.Location = new System.Drawing.Point(14, 16);
             this.btnThe.Name = "btnThe";
             this.btnThe.Size = new System.Drawing.Size(129, 72);
             this.btnThe.TabIndex = 0;
@@ -58,7 +63,7 @@
             // 
             // btnVeThang
             // 
-            this.btnVeThang.Location = new System.Drawing.Point(12, 130);
+            this.btnVeThang.Location = new System.Drawing.Point(14, 134);
             this.btnVeThang.Name = "btnVeThang";
             this.btnVeThang.Size = new System.Drawing.Size(129, 72);
             this.btnVeThang.TabIndex = 0;
@@ -68,16 +73,17 @@
             // 
             // btnTraCuuXeVaoRa
             // 
-            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(659, 130);
+            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(659, 134);
             this.btnTraCuuXeVaoRa.Name = "btnTraCuuXeVaoRa";
             this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(129, 72);
             this.btnTraCuuXeVaoRa.TabIndex = 0;
             this.btnTraCuuXeVaoRa.Text = "Tra cứu xe vào, ra";
             this.btnTraCuuXeVaoRa.UseVisualStyleBackColor = true;
+            this.btnTraCuuXeVaoRa.Click += new System.EventHandler(this.btnTraCuuXeVaoRa_Click);
             // 
             // btnVeLuot
             // 
-            this.btnVeLuot.Location = new System.Drawing.Point(12, 248);
+            this.btnVeLuot.Location = new System.Drawing.Point(14, 252);
             this.btnVeLuot.Name = "btnVeLuot";
             this.btnVeLuot.Size = new System.Drawing.Size(129, 72);
             this.btnVeLuot.TabIndex = 0;
@@ -87,16 +93,17 @@
             // 
             // btnThongKeTheoKhoangThoiGian
             // 
-            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(227, 248);
+            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(229, 252);
             this.btnThongKeTheoKhoangThoiGian.Name = "btnThongKeTheoKhoangThoiGian";
             this.btnThongKeTheoKhoangThoiGian.Size = new System.Drawing.Size(129, 72);
             this.btnThongKeTheoKhoangThoiGian.TabIndex = 0;
             this.btnThongKeTheoKhoangThoiGian.Text = "Thống kê theo khoảng thời gian";
             this.btnThongKeTheoKhoangThoiGian.UseVisualStyleBackColor = true;
+            this.btnThongKeTheoKhoangThoiGian.Click += new System.EventHandler(this.btnThongKeTheoKhoangThoiGian_Click);
             // 
             // btnNguoiDung
             // 
-            this.btnNguoiDung.Location = new System.Drawing.Point(657, 366);
+            this.btnNguoiDung.Location = new System.Drawing.Point(659, 370);
             this.btnNguoiDung.Name = "btnNguoiDung";
             this.btnNguoiDung.Size = new System.Drawing.Size(129, 72);
             this.btnNguoiDung.TabIndex = 0;
@@ -106,7 +113,7 @@
             // 
             // btnThongKeTheoMayTinh
             // 
-            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(12, 366);
+            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(14, 370);
             this.btnThongKeTheoMayTinh.Name = "btnThongKeTheoMayTinh";
             this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(129, 72);
             this.btnThongKeTheoMayTinh.TabIndex = 0;
@@ -116,109 +123,150 @@
             // 
             // btnHeThong
             // 
-            this.btnHeThong.Location = new System.Drawing.Point(657, 248);
+            this.btnHeThong.Location = new System.Drawing.Point(659, 252);
             this.btnHeThong.Name = "btnHeThong";
             this.btnHeThong.Size = new System.Drawing.Size(129, 72);
             this.btnHeThong.TabIndex = 0;
             this.btnHeThong.Text = "Hệ thống";
             this.btnHeThong.UseVisualStyleBackColor = true;
+            this.btnHeThong.Click += new System.EventHandler(this.btnHeThong_Click);
             // 
             // btnNhatKyDieuChinhGiaVe
             // 
-            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(442, 366);
+            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(444, 370);
             this.btnNhatKyDieuChinhGiaVe.Name = "btnNhatKyDieuChinhGiaVe";
             this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(129, 72);
             this.btnNhatKyDieuChinhGiaVe.TabIndex = 0;
             this.btnNhatKyDieuChinhGiaVe.Text = "Nhật ký điều chỉnh giá vé";
             this.btnNhatKyDieuChinhGiaVe.UseVisualStyleBackColor = true;
+            this.btnNhatKyDieuChinhGiaVe.Click += new System.EventHandler(this.btnNhatKyDieuChinhGiaVe_Click);
             // 
             // btnThongKeTheoNhanVien
             // 
-            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(227, 366);
+            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(229, 370);
             this.btnThongKeTheoNhanVien.Name = "btnThongKeTheoNhanVien";
             this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(129, 72);
             this.btnThongKeTheoNhanVien.TabIndex = 0;
             this.btnThongKeTheoNhanVien.Text = "Thống kê theo nhân viên";
             this.btnThongKeTheoNhanVien.UseVisualStyleBackColor = true;
+            this.btnThongKeTheoNhanVien.Click += new System.EventHandler(this.btnThongKeTheoNhanVien_Click);
             // 
             // btnNhatKyDangNhap
             // 
-            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(442, 248);
+            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(444, 252);
             this.btnNhatKyDangNhap.Name = "btnNhatKyDangNhap";
             this.btnNhatKyDangNhap.Size = new System.Drawing.Size(129, 72);
             this.btnNhatKyDangNhap.TabIndex = 0;
             this.btnNhatKyDangNhap.Text = "Nhật ký đăng nhập";
             this.btnNhatKyDangNhap.UseVisualStyleBackColor = true;
+            this.btnNhatKyDangNhap.Click += new System.EventHandler(this.btnNhatKyDangNhap_Click);
             // 
             // btnNhatKyXuLyVeThang
             // 
-            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(442, 130);
+            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(444, 134);
             this.btnNhatKyXuLyVeThang.Name = "btnNhatKyXuLyVeThang";
             this.btnNhatKyXuLyVeThang.Size = new System.Drawing.Size(129, 72);
             this.btnNhatKyXuLyVeThang.TabIndex = 0;
             this.btnNhatKyXuLyVeThang.Text = "Nhật ký xử lý vé tháng";
             this.btnNhatKyXuLyVeThang.UseVisualStyleBackColor = true;
+            this.btnNhatKyXuLyVeThang.Click += new System.EventHandler(this.btnNhatKyXuLyVeThang_Click);
             // 
             // btnThongKeChiTiet
             // 
-            this.btnThongKeChiTiet.Location = new System.Drawing.Point(227, 130);
+            this.btnThongKeChiTiet.Location = new System.Drawing.Point(229, 134);
             this.btnThongKeChiTiet.Name = "btnThongKeChiTiet";
             this.btnThongKeChiTiet.Size = new System.Drawing.Size(129, 72);
             this.btnThongKeChiTiet.TabIndex = 0;
             this.btnThongKeChiTiet.Text = "Thống kê chi tiết";
             this.btnThongKeChiTiet.UseVisualStyleBackColor = true;
+            this.btnThongKeChiTiet.Click += new System.EventHandler(this.btnThongKeChiTiet_Click);
             // 
-            // btnThongKeTongQuat
+            // btnMainForm
             // 
-            this.btnThongKeTongQuat.Location = new System.Drawing.Point(227, 12);
-            this.btnThongKeTongQuat.Name = "btnThongKeTongQuat";
-            this.btnThongKeTongQuat.Size = new System.Drawing.Size(129, 72);
-            this.btnThongKeTongQuat.TabIndex = 0;
-            this.btnThongKeTongQuat.Text = "Thống kê tổng quát";
-            this.btnThongKeTongQuat.UseVisualStyleBackColor = true;
+            this.btnMainForm.Location = new System.Drawing.Point(229, 16);
+            this.btnMainForm.Name = "btnMainForm";
+            this.btnMainForm.Size = new System.Drawing.Size(129, 72);
+            this.btnMainForm.TabIndex = 0;
+            this.btnMainForm.Text = "Form chính";
+            this.btnMainForm.UseVisualStyleBackColor = true;
+            this.btnMainForm.Click += new System.EventHandler(this.btnThongKeTongQuat_Click);
             // 
             // btnNhatKyMatThe
             // 
-            this.btnNhatKyMatThe.Location = new System.Drawing.Point(442, 12);
+            this.btnNhatKyMatThe.Location = new System.Drawing.Point(444, 16);
             this.btnNhatKyMatThe.Name = "btnNhatKyMatThe";
             this.btnNhatKyMatThe.Size = new System.Drawing.Size(129, 72);
             this.btnNhatKyMatThe.TabIndex = 0;
             this.btnNhatKyMatThe.Text = "Nhật ký xử lý mất thẻ";
             this.btnNhatKyMatThe.UseVisualStyleBackColor = true;
+            this.btnNhatKyMatThe.Click += new System.EventHandler(this.btnNhatKyMatThe_Click);
             // 
             // btnNhatKyVeLuot
             // 
-            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(657, 12);
+            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(659, 16);
             this.btnNhatKyVeLuot.Name = "btnNhatKyVeLuot";
             this.btnNhatKyVeLuot.Size = new System.Drawing.Size(129, 72);
             this.btnNhatKyVeLuot.TabIndex = 0;
             this.btnNhatKyVeLuot.Text = "Nhật ký vé lượt";
             this.btnNhatKyVeLuot.UseVisualStyleBackColor = true;
+            this.btnNhatKyVeLuot.Click += new System.EventHandler(this.btnNhatKyVeLuot_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbXinChao);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(796, 42);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnNhatKyMatThe);
+            this.panel2.Controls.Add(this.btnNhatKyVeLuot);
+            this.panel2.Controls.Add(this.btnHeThong);
+            this.panel2.Controls.Add(this.btnThe);
+            this.panel2.Controls.Add(this.btnNhatKyDieuChinhGiaVe);
+            this.panel2.Controls.Add(this.btnVeThang);
+            this.panel2.Controls.Add(this.btnThongKeTheoMayTinh);
+            this.panel2.Controls.Add(this.btnMainForm);
+            this.panel2.Controls.Add(this.btnThongKeTheoNhanVien);
+            this.panel2.Controls.Add(this.btnTraCuuXeVaoRa);
+            this.panel2.Controls.Add(this.btnNguoiDung);
+            this.panel2.Controls.Add(this.btnThongKeChiTiet);
+            this.panel2.Controls.Add(this.btnNhatKyDangNhap);
+            this.panel2.Controls.Add(this.btnVeLuot);
+            this.panel2.Controls.Add(this.btnThongKeTheoKhoangThoiGian);
+            this.panel2.Controls.Add(this.btnNhatKyXuLyVeThang);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 42);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(796, 469);
+            this.panel2.TabIndex = 2;
+            // 
+            // lbXinChao
+            // 
+            this.lbXinChao.AutoSize = true;
+            this.lbXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbXinChao.Location = new System.Drawing.Point(21, 9);
+            this.lbXinChao.Name = "lbXinChao";
+            this.lbXinChao.Size = new System.Drawing.Size(61, 16);
+            this.lbXinChao.TabIndex = 0;
+            this.lbXinChao.Text = "Xin chào,";
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnNhatKyVeLuot);
-            this.Controls.Add(this.btnNhatKyMatThe);
-            this.Controls.Add(this.btnThongKeTongQuat);
-            this.Controls.Add(this.btnThongKeChiTiet);
-            this.Controls.Add(this.btnNhatKyXuLyVeThang);
-            this.Controls.Add(this.btnNhatKyDangNhap);
-            this.Controls.Add(this.btnThongKeTheoNhanVien);
-            this.Controls.Add(this.btnNhatKyDieuChinhGiaVe);
-            this.Controls.Add(this.btnHeThong);
-            this.Controls.Add(this.btnThongKeTheoMayTinh);
-            this.Controls.Add(this.btnNguoiDung);
-            this.Controls.Add(this.btnThongKeTheoKhoangThoiGian);
-            this.Controls.Add(this.btnVeLuot);
-            this.Controls.Add(this.btnTraCuuXeVaoRa);
-            this.Controls.Add(this.btnVeThang);
-            this.Controls.Add(this.btnThe);
+            this.ClientSize = new System.Drawing.Size(796, 511);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
             this.Load += new System.EventHandler(this.MenuForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -238,8 +286,11 @@
         private System.Windows.Forms.Button btnNhatKyDangNhap;
         private System.Windows.Forms.Button btnNhatKyXuLyVeThang;
         private System.Windows.Forms.Button btnThongKeChiTiet;
-        private System.Windows.Forms.Button btnThongKeTongQuat;
+        private System.Windows.Forms.Button btnMainForm;
         private System.Windows.Forms.Button btnNhatKyMatThe;
         private System.Windows.Forms.Button btnNhatKyVeLuot;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbXinChao;
+        private System.Windows.Forms.Panel panel2;
     }
 }

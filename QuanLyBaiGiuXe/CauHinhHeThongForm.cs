@@ -16,5 +16,11 @@ namespace QuanLyBaiGiuXe
         {
             InitializeComponent();
         }
+
+        private void btnTinhTien_Click(object sender, EventArgs e)
+        {
+            var form = new TinhTienForm();
+            form.ShowDialog();
+        }
     }
 }

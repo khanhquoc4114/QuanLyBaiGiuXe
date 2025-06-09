@@ -58,86 +58,29 @@
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
-      <HintPath>packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
-      <HintPath>packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
-      <HintPath>packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
+    <Reference Include="Aqua, Version=5.4.0.0, Culture=neutral, PublicKeyToken=82d6c51b67e8b655, processorArchitecture=MSIL">
+      <HintPath>packages\aqua-core.5.4.2\lib\netstandard2.0\Aqua.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV, Version=4.10.0.5680, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <HintPath>packages\Emgu.CV.4.10.0.5680\lib\netstandard2.0\Emgu.CV.dll</HintPath>
+    <Reference Include="Aqua.Newtonsoft.Json, Version=5.4.0.0, Culture=neutral, PublicKeyToken=82d6c51b67e8b655, processorArchitecture=MSIL">
+      <HintPath>packages\aqua-core-newtonsoft-json.5.4.2\lib\netstandard2.0\Aqua.Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=7.7.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>packages\EPPlus.7.7.0\lib\net462\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=7.7.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.7.2\lib\net462\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus.Interfaces, Version=7.7.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
-      <HintPath>packages\EPPlus.Interfaces.7.7.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    <Reference Include="EPPlus.Interfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.8.0.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus.System.Drawing, Version=7.7.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
-      <HintPath>packages\EPPlus.System.Drawing.7.7.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf, Version=3.23.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>packages\Google.Protobuf.3.23.0\lib\net45\Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Core.Api, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>packages\Grpc.Core.Api.2.62.0\lib\net462\Grpc.Core.Api.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Net.Client, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>packages\Grpc.Net.Client.2.62.0\lib\net462\Grpc.Net.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Net.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>packages\Grpc.Net.Common.2.62.0\lib\netstandard2.0\Grpc.Net.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="IronSoftware.Abstractions, Version=2025.2.0.6, Culture=neutral, PublicKeyToken=3bd0119b776a4800, processorArchitecture=MSIL">
-      <HintPath>packages\IronSoftware.Abstractions.2025.2.6\lib\netstandard2.0\IronSoftware.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="IronSoftware.Drawing.Abstractions, Version=2025.2.0.6, Culture=neutral, PublicKeyToken=3bd0119b776a4800, processorArchitecture=MSIL">
-      <HintPath>packages\IronSoftware.Drawing.Abstractions.2025.2.6\lib\netstandard2.0\IronSoftware.Drawing.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="IronSoftware.Drawing.Common, Version=2025.3.0.5, Culture=neutral, PublicKeyToken=8d7e55c97b3e9835, processorArchitecture=MSIL">
-      <HintPath>packages\IronSoftware.System.Drawing.2025.3.5\lib\netstandard2.0\IronSoftware.Drawing.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="IronSoftware.Logger, Version=2025.2.0.3, Culture=neutral, PublicKeyToken=c0ab8f6e415e2702, processorArchitecture=MSIL">
-      <HintPath>packages\IronSoftware.Common.2025.2.3\lib\netstandard2.0\IronSoftware.Logger.dll</HintPath>
-    </Reference>
-    <Reference Include="IronSoftware.Shared, Version=2025.2.0.3, Culture=neutral, PublicKeyToken=c0ab8f6e415e2702, processorArchitecture=MSIL">
-      <HintPath>packages\IronSoftware.Common.2025.2.3\lib\netstandard2.0\IronSoftware.Shared.dll</HintPath>
+    <Reference Include="EPPlus.System.Drawing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.8.0.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Configuration, Version=6.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Configuration.6.0.2\lib\net461\Microsoft.Extensions.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.6.0.1\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Configuration.Binder.6.0.1\lib\net461\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Configuration.FileExtensions.6.0.1\lib\net461\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Configuration.Json.6.0.1\lib\net461\Microsoft.Extensions.Configuration.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.FileProviders.Abstractions.6.0.1\lib\net461\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.FileProviders.Physical.6.0.1\lib\net461\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.FileSystemGlobbing.6.0.0\lib\net461\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.4, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.6.0.4\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Extensions.Primitives.6.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
@@ -148,18 +91,12 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
-      <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    <Reference Include="Remote.Linq, Version=7.2.0.0, Culture=neutral, PublicKeyToken=82d6c51b67e8b655, processorArchitecture=MSIL">
+      <HintPath>packages\Remote.Linq.7.2.2\lib\netstandard2.0\Remote.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
-      <HintPath>packages\SixLabors.ImageSharp.2.1.10\lib\net472\SixLabors.ImageSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="SixLabors.ImageSharp.Drawing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
-      <HintPath>packages\SixLabors.ImageSharp.Drawing.1.0.0\lib\net472\SixLabors.ImageSharp.Drawing.dll</HintPath>
+    <Reference Include="Remote.Linq.Newtonsoft.Json, Version=7.2.0.0, Culture=neutral, PublicKeyToken=82d6c51b67e8b655, processorArchitecture=MSIL">
+      <HintPath>packages\Remote.Linq.Newtonsoft.Json.7.2.2\lib\netstandard2.0\Remote.Linq.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
@@ -181,6 +118,9 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.9.0.1\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
       <Private>True</Private>
@@ -199,9 +139,6 @@
       <HintPath>packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
-    <Reference Include="System.Net.Http.WinHttpHandler, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Net.Http.WinHttpHandler.7.0.0\lib\net462\System.Net.Http.WinHttpHandler.dll</HintPath>
-    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
@@ -223,11 +160,6 @@
     <Reference Include="System.Security.AccessControl, Version=6.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.AccessControl.6.0.1\lib\net461\System.Security.AccessControl.dll</HintPath>
     </Reference>
-    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
       <Private>True</Private>
@@ -237,6 +169,9 @@
       <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=8.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Xml.8.0.2\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Permissions, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.Permissions.6.0.1\lib\net461\System.Security.Permissions.dll</HintPath>
@@ -261,6 +196,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -270,9 +206,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tesseract, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Tesseract.5.2.0\lib\net48\Tesseract.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +214,12 @@
     </Compile>
     <Compile Include="A-Test.Designer.cs">
       <DependentUpon>A-Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CauHinhMayChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CauHinhMayChu.Designer.cs">
+      <DependentUpon>CauHinhMayChu.cs</DependentUpon>
     </Compile>
     <Compile Include="CauHinhNguoiDungForm.cs">
       <SubType>Form</SubType>
@@ -303,7 +242,8 @@
       <DependentUpon>CauHinhHeThongForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\Session.cs" />
-    <Compile Include="Helper\VeLuotManager.cs" />
+    <Compile Include="Helper\TinhTienManager.cs" />
+    <Compile Include="Helper\VeManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,54 +257,56 @@
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\Manager.cs" />
-    <Compile Include="NhanVienThemSuaNhanVienForm.cs">
+    <Compile Include="Models\LoaiXe.cs" />
+    <Compile Include="Models\VeLuotInfo.cs" />
+    <Compile Include="NhanVien\NhanVienThemSuaNhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhanVienThemSuaNhanVienForm.Designer.cs">
+    <Compile Include="NhanVien\NhanVienThemSuaNhanVienForm.Designer.cs">
       <DependentUpon>NhanVienThemSuaNhanVienForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVienThemSuaNhomNhanVienForm.cs">
+    <Compile Include="NhanVien\NhanVienThemSuaNhomNhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhanVienThemSuaNhomNhanVienForm.Designer.cs">
+    <Compile Include="NhanVien\NhanVienThemSuaNhomNhanVienForm.Designer.cs">
       <DependentUpon>NhanVienThemSuaNhomNhanVienForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKyDangNhapForm.cs">
+    <Compile Include="NhatKy\NhatKyDangNhapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhatKyDangNhapForm.Designer.cs">
+    <Compile Include="NhatKy\NhatKyDangNhapForm.Designer.cs">
       <DependentUpon>NhatKyDangNhapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKyDieuChinhGiaVeForm.cs">
+    <Compile Include="NhatKy\NhatKyDieuChinhGiaVeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhatKyDieuChinhGiaVeForm.Designer.cs">
+    <Compile Include="NhatKy\NhatKyDieuChinhGiaVeForm.Designer.cs">
       <DependentUpon>NhatKyDieuChinhGiaVeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKyVeLuotForm.cs">
+    <Compile Include="NhatKy\NhatKyVeLuotForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhatKyVeLuotForm.Designer.cs">
+    <Compile Include="NhatKy\NhatKyVeLuotForm.Designer.cs">
       <DependentUpon>NhatKyVeLuotForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKyXuLyMatTheForm.cs">
+    <Compile Include="NhatKy\NhatKyXuLyMatTheForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhatKyXuLyMatTheForm.Designer.cs">
+    <Compile Include="NhatKy\NhatKyXuLyMatTheForm.Designer.cs">
       <DependentUpon>NhatKyXuLyMatTheForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKyXuLyVeThangForm.cs">
+    <Compile Include="NhatKy\NhatKyXuLyVeThangForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhatKyXuLyVeThangForm.Designer.cs">
+    <Compile Include="NhatKy\NhatKyXuLyVeThangForm.Designer.cs">
       <DependentUpon>NhatKyXuLyVeThangForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NhanVienMainForm.cs">
+    <Compile Include="NhanVien\NhanVienMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhanVienMainForm.Designer.cs">
+    <Compile Include="NhanVien\NhanVienMainForm.Designer.cs">
       <DependentUpon>NhanVienMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TheMainForm.cs">
@@ -373,41 +315,47 @@
     <Compile Include="TheMainForm.Designer.cs">
       <DependentUpon>TheMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKeChiTietForm.cs">
+    <Compile Include="ThemXeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThongKeChiTietForm.Designer.cs">
+    <Compile Include="ThemXeForm.Designer.cs">
+      <DependentUpon>ThemXeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ThongKeChiTietForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ThongKeChiTietForm.Designer.cs">
       <DependentUpon>ThongKeChiTietForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKeTheoKhoangThoiGianForm.cs">
+    <Compile Include="ThongKe\ThongKeTheoKhoangThoiGianForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThongKeTheoKhoangThoiGianForm.Designer.cs">
+    <Compile Include="ThongKe\ThongKeTheoKhoangThoiGianForm.Designer.cs">
       <DependentUpon>ThongKeTheoKhoangThoiGianForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKeTheoMayTinhForm.cs">
+    <Compile Include="ThongKe\ThongKeTheoMayTinhForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThongKeTheoMayTinhForm.Designer.cs">
+    <Compile Include="ThongKe\ThongKeTheoMayTinhForm.Designer.cs">
       <DependentUpon>ThongKeTheoMayTinhForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKeTheoNhanVienForm.cs">
+    <Compile Include="ThongKe\ThongKeTheoNhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThongKeTheoNhanVienForm.Designer.cs">
+    <Compile Include="ThongKe\ThongKeTheoNhanVienForm.Designer.cs">
       <DependentUpon>ThongKeTheoNhanVienForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ThongKeTongQuatForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThongKeTongQuatForm.Designer.cs">
-      <DependentUpon>ThongKeTongQuatForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TinhTienForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TinhTienForm.Designer.cs">
       <DependentUpon>TinhTienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToastForm.Designer.cs">
+      <DependentUpon>ToastForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TraCuuXeVaoRaForm.cs">
       <SubType>Form</SubType>
@@ -421,41 +369,50 @@
     <Compile Include="VeLuotMainForm.Designer.cs">
       <DependentUpon>VeLuotMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangDoiTheThang.cs">
+    <Compile Include="VeThang\VeThangDoiTheThang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangDoiTheThang.Designer.cs">
+    <Compile Include="VeThang\VeThangDoiTheThang.Designer.cs">
       <DependentUpon>VeThangDoiTheThang.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangGiaHanForm.cs">
+    <Compile Include="VeThang\VeThangGiaHanForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangGiaHanForm.Designer.cs">
+    <Compile Include="VeThang\VeThangGiaHanForm.Designer.cs">
       <DependentUpon>VeThangGiaHanForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangMainForm.cs">
+    <Compile Include="VeThang\VeThangMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangMainForm.Designer.cs">
+    <Compile Include="VeThang\VeThangMainForm.Designer.cs">
       <DependentUpon>VeThangMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangThemSuaNhom.cs">
+    <Compile Include="VeThang\VeThangThemSuaNhom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangThemSuaNhom.Designer.cs">
+    <Compile Include="VeThang\VeThangThemSuaNhom.Designer.cs">
       <DependentUpon>VeThangThemSuaNhom.cs</DependentUpon>
     </Compile>
-    <Compile Include="VeThangThemSuaForm.cs">
+    <Compile Include="VeThang\VeThangThemSuaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VeThangThemSuaForm.Designer.cs">
+    <Compile Include="VeThang\VeThangThemSuaForm.Designer.cs">
       <DependentUpon>VeThangThemSuaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XuLyMatThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XuLyMatThe.Designer.cs">
+      <DependentUpon>XuLyMatThe.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="A-Test.resx">
       <DependentUpon>A-Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CauHinhHeThongForm.resx">
       <DependentUpon>CauHinhHeThongForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CauHinhMayChu.resx">
+      <DependentUpon>CauHinhMayChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
@@ -466,16 +423,19 @@
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienThemSuaNhanVienForm.resx">
+    <EmbeddedResource Include="NhanVien\NhanVienThemSuaNhanVienForm.resx">
       <DependentUpon>NhanVienThemSuaNhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienThemSuaNhomNhanVienForm.resx">
+    <EmbeddedResource Include="NhanVien\NhanVienThemSuaNhomNhanVienForm.resx">
       <DependentUpon>NhanVienThemSuaNhomNhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhatKyDangNhapForm.resx">
+    <EmbeddedResource Include="NhatKy\NhatKyDangNhapForm.resx">
       <DependentUpon>NhatKyDangNhapForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhatKyXuLyVeThangForm.resx">
+    <EmbeddedResource Include="NhatKy\NhatKyVeLuotForm.resx">
+      <DependentUpon>NhatKyVeLuotForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhatKy\NhatKyXuLyVeThangForm.resx">
       <DependentUpon>NhatKyXuLyVeThangForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -487,41 +447,53 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="NhanVienMainForm.resx">
+    <EmbeddedResource Include="NhanVien\NhanVienMainForm.resx">
       <DependentUpon>NhanVienMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TheMainForm.resx">
       <DependentUpon>TheMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKeChiTietForm.resx">
+    <EmbeddedResource Include="ThemXeForm.resx">
+      <DependentUpon>ThemXeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ThongKeChiTietForm.resx">
       <DependentUpon>ThongKeChiTietForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKeTheoMayTinhForm.resx">
+    <EmbeddedResource Include="ThongKe\ThongKeTheoKhoangThoiGianForm.resx">
+      <DependentUpon>ThongKeTheoKhoangThoiGianForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ThongKeTheoMayTinhForm.resx">
       <DependentUpon>ThongKeTheoMayTinhForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKeTheoNhanVienForm.resx">
+    <EmbeddedResource Include="ThongKe\ThongKeTheoNhanVienForm.resx">
       <DependentUpon>ThongKeTheoNhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TinhTienForm.resx">
       <DependentUpon>TinhTienForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ToastForm.resx">
+      <DependentUpon>ToastForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VeLuotMainForm.resx">
       <DependentUpon>VeLuotMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangDoiTheThang.resx">
+    <EmbeddedResource Include="VeThang\VeThangDoiTheThang.resx">
       <DependentUpon>VeThangDoiTheThang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangGiaHanForm.resx">
+    <EmbeddedResource Include="VeThang\VeThangGiaHanForm.resx">
       <DependentUpon>VeThangGiaHanForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangMainForm.resx">
+    <EmbeddedResource Include="VeThang\VeThangMainForm.resx">
       <DependentUpon>VeThangMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangThemSuaNhom.resx">
+    <EmbeddedResource Include="VeThang\VeThangThemSuaNhom.resx">
       <DependentUpon>VeThangThemSuaNhom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VeThangThemSuaForm.resx">
+    <EmbeddedResource Include="VeThang\VeThangThemSuaForm.resx">
       <DependentUpon>VeThangThemSuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XuLyMatThe.resx">
+      <DependentUpon>XuLyMatThe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -539,11 +511,4 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="packages\Tesseract.5.2.0\build\Tesseract.targets" Condition="Exists('packages\Tesseract.5.2.0\build\Tesseract.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\Tesseract.5.2.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Tesseract.5.2.0\build\Tesseract.targets'))" />
-  </Target>
 </Project>

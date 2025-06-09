@@ -5,13 +5,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuanLyBaiGiuXe.Helper;
 
 
 namespace QuanLyBaiGiuXe.DataAccess
 {
     public class Connector : IDisposable
     {
-        private readonly string connectionString = "Data Source= localhost;Initial Catalog=testdoxe;Integrated Security=True";
+        private readonly string connectionString = Session.connectionString;
         private SqlConnection connection;
 
         public Connector()

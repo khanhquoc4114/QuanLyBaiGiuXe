@@ -1,20 +1,11 @@
 ﻿using QuanLyBaiGiuXe.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Management;
-using System.IO.Ports;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Xml.Serialization;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class TheMainForm: Form
+    public partial class TheMainForm : Form
     {
         Manager manager = new Manager();
 
@@ -22,7 +13,8 @@ namespace QuanLyBaiGiuXe
         {
             InitializeComponent();
         }
-        #region TheFunction
+
+        #region Chức năng chính của thẻ
         private void btnXoaThe_Click(object sender, EventArgs e)
         {
             if (dtgThe.SelectedRows.Count > 0)
@@ -37,7 +29,7 @@ namespace QuanLyBaiGiuXe
 
                     if (isDeleted)
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ShowMessage("Xoá thẻ thành công!");
                         LoadData();
                     }
                     else
@@ -57,23 +49,19 @@ namespace QuanLyBaiGiuXe
             var result = MessageBox.Show($"Bạn có chắc chắn muốn thêm thẻ {MaThe} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                bool isAdded = manager.ThemThe(MaThe,"Tháng",DateTime.Now);
+                bool isAdded = manager.ThemThe(MaThe, "Chung", DateTime.Now);
 
                 if (isAdded)
                 {
-                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowMessage("Thêm thẻ thành công!");
                     LoadData();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         #endregion
-
         private void TheMainForm_Load(object sender, EventArgs e)
         {
+            tbMaThe.Enabled = false;
             LoadData();
             LoadDevice();
         }
@@ -82,6 +70,7 @@ namespace QuanLyBaiGiuXe
             try
             {
                 this.dtgThe.DataSource = manager.GetAllThe();
+                this.dtgCountThe.DataSource = manager.GetCountThe();
             }
             catch
             {
@@ -90,16 +79,6 @@ namespace QuanLyBaiGiuXe
         }
         private void LoadDevice()
         {
-            //using (var searcher = new ManagementObjectSearcher(@"SELECT * FROM Win32_PnPEntity WHERE PNPClass = 'USB'"))
-            //{
-            //    foreach (ManagementObject device in searcher.Get())
-            //    {
-            //        Console.WriteLine($"Tên thiết bị: {device["Name"]}");
-            //        Console.WriteLine($"ID phần cứng: {device["DeviceID"]}");
-            //        Console.WriteLine("===================================");
-            //        richTextBox1.Text += $"Tên thiết bị: {device["Name"]} + {device["DeviceID"]} \n";
-            //    }
-            //}
         }
         private void tbMaThe_KeyDown(object sender, KeyEventArgs e)
         {
@@ -123,6 +102,41 @@ namespace QuanLyBaiGiuXe
                 tbMaThe.Enabled = false;
                 tbMaThe.ReadOnly = true;
             }
+        }
+        private void btnKhoiPhucThe_Click(object sender, EventArgs e)
+        {
+            KhoiPhucThe();
+        }
+        private void KhoiPhucThe()
+        {
+            if (dtgThe.SelectedRows.Count > 0)
+            {
+                int r = dtgThe.CurrentCell.RowIndex;
+                string MaThe = dtgThe.Rows[r].Cells[0].Value.ToString();
+                var result = MessageBox.Show($"Bạn có chắc chắn muốn khôi phục thẻ {MaThe} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    bool isRestored = manager.KhoiPhucThe(MaThe);
+                    if (isRestored)
+                    {
+                        MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khôi phục thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để khôi phục!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ShowMessage(string mes)
+        {
+            new ToastForm(mes,this,3000).Show();
         }
     }
 }

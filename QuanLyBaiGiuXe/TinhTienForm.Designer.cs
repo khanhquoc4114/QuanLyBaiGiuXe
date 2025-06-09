@@ -47,7 +47,7 @@
             this.trbDen = new System.Windows.Forms.TrackBar();
             this.trbPhuThuTu = new System.Windows.Forms.TrackBar();
             this.trbTu = new System.Windows.Forms.TrackBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTen = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -60,9 +60,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdb2 = new System.Windows.Forms.RadioButton();
+            this.rdb1 = new System.Windows.Forms.RadioButton();
+            this.rdb0 = new System.Windows.Forms.RadioButton();
             this.nupGiaVuotMoc = new System.Windows.Forms.NumericUpDown();
             this.tbChuKy = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -88,13 +88,12 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.Huy = new System.Windows.Forms.Button();
             this.btnDongYSua = new System.Windows.Forms.Button();
-            this.btnDongYThem = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnKhoiPhuc = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.dtgLoaiXe = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnTrangThai = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -121,8 +120,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupGiaMienPhi)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLoaiXe)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -142,10 +142,10 @@
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(310, 0);
+            this.panel4.Location = new System.Drawing.Point(204, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(829, 743);
+            this.panel4.Size = new System.Drawing.Size(935, 743);
             this.panel4.TabIndex = 2;
             // 
             // tabControl1
@@ -157,7 +157,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(626, 688);
+            this.tabControl1.Size = new System.Drawing.Size(732, 688);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -177,7 +177,7 @@
             this.tabPage1.Controls.Add(this.trbDen);
             this.tabPage1.Controls.Add(this.trbPhuThuTu);
             this.tabPage1.Controls.Add(this.trbTu);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.tbTen);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label10);
@@ -192,7 +192,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(618, 658);
+            this.tabPage1.Size = new System.Drawing.Size(724, 658);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Công thức tính tiền theo công văn";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -340,6 +340,7 @@
             this.trbKhoangGiao.TabIndex = 2;
             this.trbKhoangGiao.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbKhoangGiao.Scroll += new System.EventHandler(this.trbKhoangGiao_Scroll);
+            this.trbKhoangGiao.ValueChanged += new System.EventHandler(this.trbKhoangGiao_ValueChanged);
             // 
             // trbPhuThuDen
             // 
@@ -352,6 +353,7 @@
             this.trbPhuThuDen.TabIndex = 2;
             this.trbPhuThuDen.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbPhuThuDen.Scroll += new System.EventHandler(this.trbPhuThuDen_Scroll);
+            this.trbPhuThuDen.ValueChanged += new System.EventHandler(this.trbPhuThuDen_ValueChanged);
             // 
             // trbDen
             // 
@@ -364,6 +366,7 @@
             this.trbDen.TabIndex = 2;
             this.trbDen.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbDen.Scroll += new System.EventHandler(this.trbDen_Scroll);
+            this.trbDen.ValueChanged += new System.EventHandler(this.trbDen_ValueChanged);
             // 
             // trbPhuThuTu
             // 
@@ -376,6 +379,7 @@
             this.trbPhuThuTu.TabIndex = 2;
             this.trbPhuThuTu.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbPhuThuTu.Scroll += new System.EventHandler(this.trbPhuThuTu_Scroll);
+            this.trbPhuThuTu.ValueChanged += new System.EventHandler(this.trbPhuThuTu_ValueChanged);
             // 
             // trbTu
             // 
@@ -389,15 +393,16 @@
             this.trbTu.TabIndex = 2;
             this.trbTu.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbTu.Scroll += new System.EventHandler(this.trbTu_Scroll);
+            this.trbTu.ValueChanged += new System.EventHandler(this.trbTu_ValueChanged);
             // 
-            // textBox1
+            // tbTen
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(180, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 25);
-            this.textBox1.TabIndex = 1;
+            this.tbTen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTen.Location = new System.Drawing.Point(180, 38);
+            this.tbTen.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTen.Name = "tbTen";
+            this.tbTen.Size = new System.Drawing.Size(255, 25);
+            this.tbTen.TabIndex = 1;
             // 
             // label8
             // 
@@ -516,16 +521,16 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(618, 658);
+            this.tabPage2.Size = new System.Drawing.Size(724, 658);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Công thức tính tiền theo luỹ tiến";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rdb2);
+            this.groupBox1.Controls.Add(this.rdb1);
+            this.groupBox1.Controls.Add(this.rdb0);
             this.groupBox1.Controls.Add(this.nupGiaVuotMoc);
             this.groupBox1.Controls.Add(this.tbChuKy);
             this.groupBox1.Controls.Add(this.label13);
@@ -538,38 +543,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vượt 2 mốc";
             // 
-            // radioButton3
+            // rdb2
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(303, 141);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(97, 21);
-            this.radioButton3.TabIndex = 22;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Cộng 2 mốc";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdb2.AutoSize = true;
+            this.rdb2.Location = new System.Drawing.Point(303, 141);
+            this.rdb2.Name = "rdb2";
+            this.rdb2.Size = new System.Drawing.Size(97, 21);
+            this.rdb2.TabIndex = 22;
+            this.rdb2.TabStop = true;
+            this.rdb2.Text = "Cộng 2 mốc";
+            this.rdb2.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdb1
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(181, 141);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(97, 21);
-            this.radioButton2.TabIndex = 22;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Cộng 1 mốc";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdb1.AutoSize = true;
+            this.rdb1.Location = new System.Drawing.Point(181, 141);
+            this.rdb1.Name = "rdb1";
+            this.rdb1.Size = new System.Drawing.Size(97, 21);
+            this.rdb1.TabIndex = 22;
+            this.rdb1.TabStop = true;
+            this.rdb1.Text = "Cộng 1 mốc";
+            this.rdb1.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdb0
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(63, 141);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 21);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Không cộng";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdb0.AutoSize = true;
+            this.rdb0.Location = new System.Drawing.Point(63, 141);
+            this.rdb0.Name = "rdb0";
+            this.rdb0.Size = new System.Drawing.Size(97, 21);
+            this.rdb0.TabIndex = 22;
+            this.rdb0.TabStop = true;
+            this.rdb0.Text = "Không cộng";
+            this.rdb0.UseVisualStyleBackColor = true;
             // 
             // nupGiaVuotMoc
             // 
@@ -630,6 +635,7 @@
             this.trbChuKy.TabIndex = 14;
             this.trbChuKy.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbChuKy.Scroll += new System.EventHandler(this.trbChuKy_Scroll);
+            this.trbChuKy.ValueChanged += new System.EventHandler(this.trbChuKy_ValueChanged);
             // 
             // tbMoc2
             // 
@@ -698,6 +704,7 @@
             this.trbMoc2.TabIndex = 13;
             this.trbMoc2.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbMoc2.Scroll += new System.EventHandler(this.trbMoc2_Scroll);
+            this.trbMoc2.ValueChanged += new System.EventHandler(this.trbMoc2_ValueChanged);
             // 
             // trbMoc1
             // 
@@ -710,6 +717,7 @@
             this.trbMoc1.TabIndex = 12;
             this.trbMoc1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbMoc1.Scroll += new System.EventHandler(this.trbMoc1_Scroll);
+            this.trbMoc1.ValueChanged += new System.EventHandler(this.trbMoc1_ValueChanged);
             // 
             // label11
             // 
@@ -760,7 +768,7 @@
             this.panel7.Controls.Add(this.nupGiaMienPhi);
             this.panel7.Controls.Add(this.label12);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(626, 55);
+            this.panel7.Location = new System.Drawing.Point(732, 55);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(203, 688);
@@ -802,7 +810,7 @@
             this.nupGiaVeThang.Location = new System.Drawing.Point(44, 386);
             this.nupGiaVeThang.Margin = new System.Windows.Forms.Padding(4);
             this.nupGiaVeThang.Maximum = new decimal(new int[] {
-            1000000,
+            999999999,
             0,
             0,
             0});
@@ -836,97 +844,53 @@
             // 
             this.panel6.Controls.Add(this.Huy);
             this.panel6.Controls.Add(this.btnDongYSua);
-            this.panel6.Controls.Add(this.btnDongYThem);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(829, 55);
+            this.panel6.Size = new System.Drawing.Size(935, 55);
             this.panel6.TabIndex = 0;
             // 
             // Huy
             // 
-            this.Huy.Location = new System.Drawing.Point(196, 16);
+            this.Huy.Location = new System.Drawing.Point(104, 13);
             this.Huy.Margin = new System.Windows.Forms.Padding(4);
             this.Huy.Name = "Huy";
             this.Huy.Size = new System.Drawing.Size(88, 30);
             this.Huy.TabIndex = 0;
             this.Huy.Text = "Huỷ";
             this.Huy.UseVisualStyleBackColor = true;
+            this.Huy.Click += new System.EventHandler(this.Huy_Click);
             // 
             // btnDongYSua
             // 
-            this.btnDongYSua.Location = new System.Drawing.Point(102, 16);
+            this.btnDongYSua.Location = new System.Drawing.Point(8, 13);
             this.btnDongYSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnDongYSua.Name = "btnDongYSua";
             this.btnDongYSua.Size = new System.Drawing.Size(88, 30);
             this.btnDongYSua.TabIndex = 0;
             this.btnDongYSua.Text = "Đồng Ý Sửa";
             this.btnDongYSua.UseVisualStyleBackColor = true;
-            // 
-            // btnDongYThem
-            // 
-            this.btnDongYThem.Location = new System.Drawing.Point(7, 16);
-            this.btnDongYThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDongYThem.Name = "btnDongYThem";
-            this.btnDongYThem.Size = new System.Drawing.Size(88, 30);
-            this.btnDongYThem.TabIndex = 0;
-            this.btnDongYThem.Text = "Đồng Ý Thêm";
-            this.btnDongYThem.UseVisualStyleBackColor = true;
+            this.btnDongYSua.Click += new System.EventHandler(this.btnDongYSua_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dtgLoaiXe);
+            this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(310, 743);
+            this.panel3.Size = new System.Drawing.Size(204, 743);
             this.panel3.TabIndex = 1;
             // 
-            // panel2
+            // panel5
             // 
-            this.panel2.Controls.Add(this.btnXoa);
-            this.panel2.Controls.Add(this.btnKhoiPhuc);
-            this.panel2.Controls.Add(this.btnThem);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(310, 55);
-            this.panel2.TabIndex = 0;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(114, 13);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(77, 30);
-            this.btnXoa.TabIndex = 1;
-            this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnKhoiPhuc
-            // 
-            this.btnKhoiPhuc.Location = new System.Drawing.Point(215, 13);
-            this.btnKhoiPhuc.Margin = new System.Windows.Forms.Padding(4);
-            this.btnKhoiPhuc.Name = "btnKhoiPhuc";
-            this.btnKhoiPhuc.Size = new System.Drawing.Size(77, 30);
-            this.btnKhoiPhuc.TabIndex = 1;
-            this.btnKhoiPhuc.Text = "Khôi phục";
-            this.btnKhoiPhuc.UseVisualStyleBackColor = true;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(13, 14);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(77, 30);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.panel5.Controls.Add(this.dtgLoaiXe);
+            this.panel5.Location = new System.Drawing.Point(0, 55);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(204, 688);
+            this.panel5.TabIndex = 4;
             // 
             // dtgLoaiXe
             // 
@@ -935,16 +899,47 @@
             this.dtgLoaiXe.AllowUserToResizeRows = false;
             this.dtgLoaiXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgLoaiXe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgLoaiXe.Location = new System.Drawing.Point(0, 55);
+            this.dtgLoaiXe.Location = new System.Drawing.Point(0, 0);
             this.dtgLoaiXe.MultiSelect = false;
             this.dtgLoaiXe.Name = "dtgLoaiXe";
             this.dtgLoaiXe.ReadOnly = true;
             this.dtgLoaiXe.RowHeadersVisible = false;
+            this.dtgLoaiXe.RowHeadersWidth = 51;
             this.dtgLoaiXe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgLoaiXe.Size = new System.Drawing.Size(310, 688);
+            this.dtgLoaiXe.Size = new System.Drawing.Size(204, 688);
             this.dtgLoaiXe.TabIndex = 2;
             this.dtgLoaiXe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgLoaiXe_CellClick);
-            this.dtgLoaiXe.SelectionChanged += new System.EventHandler(this.dtgLoaiXe_SelectionChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnTrangThai);
+            this.panel2.Controls.Add(this.btnThem);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(204, 55);
+            this.panel2.TabIndex = 3;
+            // 
+            // btnTrangThai
+            // 
+            this.btnTrangThai.Location = new System.Drawing.Point(100, 13);
+            this.btnTrangThai.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTrangThai.Name = "btnTrangThai";
+            this.btnTrangThai.Size = new System.Drawing.Size(88, 30);
+            this.btnTrangThai.TabIndex = 0;
+            this.btnTrangThai.Text = "Xoá";
+            this.btnTrangThai.UseVisualStyleBackColor = true;
+            this.btnTrangThai.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(4, 13);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(88, 30);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // TinhTienForm
             // 
@@ -987,8 +982,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupGiaMienPhi)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgLoaiXe)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -999,17 +995,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button Huy;
         private System.Windows.Forms.Button btnDongYSua;
-        private System.Windows.Forms.Button btnDongYThem;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnKhoiPhuc;
-        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -1018,7 +1009,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTen;
         private System.Windows.Forms.NumericUpDown nupGiaPhuThu;
         private System.Windows.Forms.NumericUpDown nupGiaNgayDem;
         private System.Windows.Forms.NumericUpDown nupGiaDem;
@@ -1037,9 +1028,9 @@
         private System.Windows.Forms.TrackBar trbPhuThuDen;
         private System.Windows.Forms.TrackBar trbPhuThuTu;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdb2;
+        private System.Windows.Forms.RadioButton rdb1;
+        private System.Windows.Forms.RadioButton rdb0;
         private System.Windows.Forms.NumericUpDown nupGiaVuotMoc;
         private System.Windows.Forms.TextBox tbChuKy;
         private System.Windows.Forms.Label label13;
@@ -1062,5 +1053,9 @@
         private System.Windows.Forms.NumericUpDown nupGiaMienPhi;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dtgLoaiXe;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnTrangThai;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Panel panel5;
     }
 }
