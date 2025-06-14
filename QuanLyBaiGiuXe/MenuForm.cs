@@ -1,15 +1,25 @@
-﻿using System;
+﻿using QuanLyBaiGiuXe.DataAccess;
+using System;
 using System.Windows.Forms;
+using QuanLyBaiGiuXe.Helper;
 
 namespace QuanLyBaiGiuXe
 {
     public partial class MenuForm: Form
     {
-        public MenuForm(string name)
+        LoginManager loginManager = new LoginManager();
+        public MenuForm(string name = "Just Wuoc")
         {
             InitializeComponent();
+            name = loginManager.GetHoTenByMaNhanVien(Session.MaNhanVien);
             lbXinChao.Text = "Xin chào, " + name;
         }
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Button region
 
         private void btnVeThang_Click(object sender, EventArgs e)
         {
@@ -17,10 +27,6 @@ namespace QuanLyBaiGiuXe
             veThangMainForm.Show();
         }
 
-        private void MenuForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnThe_Click(object sender, EventArgs e)
         {
@@ -96,7 +102,7 @@ namespace QuanLyBaiGiuXe
 
         private void btnHeThong_Click(object sender, EventArgs e)
         {
-            var form = new CauHinhHeThongForm();
+            var form = new CauHinhNguoiDungForm();
             form.Show();
         }
 
@@ -110,6 +116,33 @@ namespace QuanLyBaiGiuXe
         {
             var form = new NhatKyDieuChinhGiaVeForm();
             form.Show();
+        }
+        #endregion
+
+        private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Properties.Settings.Default.RememberMe == false)
+            {
+                loginManager.CheckOut(Session.MaNhanVien, DateTime.Now);
+            }
+            Program.KillModelProcess();
+            Application.Exit();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }            
+            loginManager.CheckOut(Session.MaNhanVien, DateTime.Now);
+
+            Properties.Settings.Default.RememberMe = false;
+            Properties.Settings.Default.SavedUsername = "";
+            Properties.Settings.Default.SavedPassword = "";
+            Properties.Settings.Default.Save();
+
+            Application.Restart();
         }
     }
 }

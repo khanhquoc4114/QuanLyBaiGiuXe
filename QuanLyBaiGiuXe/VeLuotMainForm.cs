@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using QuanLyBaiGiuXe.Helper;
 using QuanLyBaiGiuXe.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ namespace QuanLyBaiGiuXe
         public VeLuotMainForm()
         {
             InitializeComponent();
-            LoadData();
         }
 
         public void LoadData()
@@ -28,24 +28,37 @@ namespace QuanLyBaiGiuXe
             {
                 this.dtgVeLuot.DataSource = manager.GetAllVeLuot();
                 this.dtgTong.DataSource = manager.GetTongVeLuot();
-                try
-                {
-                    dtgTong.Columns["SoLuong"].HeaderText = "Số lượng";
-                    dtgTong.Columns["TongTien"].HeaderText = "Tổng tiền (VNĐ)";
-                } catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi cập nhật tiêu đề cột: " + ex.Message);
-                }
             }
             catch
             {
                 MessageBox.Show("Không lấy được nội dung trong table");
             }
+
+            dtpTu.Format = DateTimePickerFormat.Custom;
+            dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTu.Value = DateTime.Now.AddDays(-7);
+            dtpDen.Format = DateTimePickerFormat.Custom;
+            dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            DateTime tgTu = dtpTu.Value;
+            DateTime tgDen = dtpDen.Value;
+            if (tgTu > tgDen)
+            {
+                ToastService.Show("Thời gian bắt đầu không được lớn hơn thời gian kết thúc.", this);
+                return;
+            }
+            try
+            {
+                this.dtgVeLuot.DataSource = manager.GetAllVeLuot(tgTu, tgDen);
+                dtgTong.DataSource = manager.GetTongVeLuot(tgTu, tgDen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -84,6 +97,11 @@ namespace QuanLyBaiGiuXe
                     }
                 }
             }
+        }
+
+        private void VeLuotMainForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

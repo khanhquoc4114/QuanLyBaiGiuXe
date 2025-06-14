@@ -66,10 +66,10 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(165, 0);
+            this.panel3.Location = new System.Drawing.Point(190, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(768, 519);
+            this.panel3.Size = new System.Drawing.Size(743, 519);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -79,7 +79,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 49);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(768, 470);
+            this.panel5.Size = new System.Drawing.Size(743, 470);
             this.panel5.TabIndex = 1;
             // 
             // dtgThe
@@ -87,7 +87,7 @@
             this.dtgThe.AllowUserToAddRows = false;
             this.dtgThe.AllowUserToDeleteRows = false;
             this.dtgThe.AllowUserToResizeRows = false;
-            this.dtgThe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgThe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgThe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgThe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgThe.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,12 +98,14 @@
             this.dtgThe.Name = "dtgThe";
             this.dtgThe.ReadOnly = true;
             this.dtgThe.RowHeadersVisible = false;
+            this.dtgThe.RowHeadersWidth = 51;
             this.dtgThe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgThe.Size = new System.Drawing.Size(768, 470);
+            this.dtgThe.Size = new System.Drawing.Size(743, 470);
             this.dtgThe.TabIndex = 4;
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.cbSoThe);
             this.panel4.Controls.Add(this.tbMaThe);
             this.panel4.Controls.Add(this.btnKhoiPhucThe);
@@ -114,7 +116,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(768, 49);
+            this.panel4.Size = new System.Drawing.Size(743, 49);
             this.panel4.TabIndex = 0;
             // 
             // cbSoThe
@@ -122,7 +124,7 @@
             this.cbSoThe.AutoSize = true;
             this.cbSoThe.Location = new System.Drawing.Point(221, 16);
             this.cbSoThe.Name = "cbSoThe";
-            this.cbSoThe.Size = new System.Drawing.Size(15, 14);
+            this.cbSoThe.Size = new System.Drawing.Size(18, 17);
             this.cbSoThe.TabIndex = 4;
             this.cbSoThe.UseVisualStyleBackColor = true;
             this.cbSoThe.CheckedChanged += new System.EventHandler(this.cbSoThe_CheckedChanged);
@@ -132,7 +134,7 @@
             this.tbMaThe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbMaThe.Location = new System.Drawing.Point(302, 11);
             this.tbMaThe.Name = "tbMaThe";
-            this.tbMaThe.Size = new System.Drawing.Size(100, 23);
+            this.tbMaThe.Size = new System.Drawing.Size(100, 27);
             this.tbMaThe.TabIndex = 3;
             this.tbMaThe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMaThe_KeyDown);
             // 
@@ -164,17 +166,17 @@
             this.label5.Location = new System.Drawing.Point(243, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
+            this.label5.Size = new System.Drawing.Size(58, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "Số thẻ: ";
             // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(545, 0);
+            this.panel6.Location = new System.Drawing.Point(518, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(223, 49);
+            this.panel6.Size = new System.Drawing.Size(223, 47);
             this.panel6.TabIndex = 0;
             // 
             // panel2
@@ -184,7 +186,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 519);
+            this.panel2.Size = new System.Drawing.Size(190, 519);
             this.panel2.TabIndex = 0;
             // 
             // dtgCountThe
@@ -192,7 +194,7 @@
             this.dtgCountThe.AllowUserToAddRows = false;
             this.dtgCountThe.AllowUserToDeleteRows = false;
             this.dtgCountThe.AllowUserToResizeRows = false;
-            this.dtgCountThe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgCountThe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgCountThe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgCountThe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCountThe.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,20 +205,21 @@
             this.dtgCountThe.Name = "dtgCountThe";
             this.dtgCountThe.ReadOnly = true;
             this.dtgCountThe.RowHeadersVisible = false;
+            this.dtgCountThe.RowHeadersWidth = 51;
             this.dtgCountThe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgCountThe.Size = new System.Drawing.Size(165, 519);
+            this.dtgCountThe.Size = new System.Drawing.Size(190, 519);
             this.dtgCountThe.TabIndex = 3;
             // 
             // TheMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "TheMainForm";
-            this.Text = "TheMainForm";
+            this.Text = "Thẻ";
             this.Load += new System.EventHandler(this.TheMainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

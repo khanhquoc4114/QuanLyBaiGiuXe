@@ -1,10 +1,12 @@
-﻿using QuanLyBaiGiuXe.Models;
+﻿using QuanLyBaiGiuXe.Helper;
+using QuanLyBaiGiuXe.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
 {
-    public partial class NhanVienMainForm: Form
+    public partial class NhanVienMainForm : Form
     {
         Manager manager = new Manager();
 
@@ -17,13 +19,23 @@ namespace QuanLyBaiGiuXe
         {
             try
             {
-                this.dtgNhanVien.DataSource = manager.GetAllNhanVien();
-                this.dtgNhomNhanVien.DataSource = manager.GetAllNhomNhanVien();
-                dtgNhomNhanVien.Columns[0].Visible = false;
+                var dtNhanVien = manager.GetAllNhanVien();
+                dtgNhanVien.DataSource = dtNhanVien;
+                if (dtNhanVien != null && dtNhanVien.Columns.Contains("MaNhanVien"))
+                {
+                    dtgNhanVien.Columns["MaNhanVien"].Visible = false;
+                }
+
+                var dtNhomNhanVien = manager.GetAllNhomNhanVien();
+                dtgNhomNhanVien.DataSource = dtNhomNhanVien;
+                if (dtNhomNhanVien != null && dtNhomNhanVien.Columns.Contains("MaNhomNhanVien"))
+                {
+                    dtgNhomNhanVien.Columns["MaNhomNhanVien"].Visible = false;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Không lấy được nội dung trong table");
+                MessageBox.Show("Không lấy được nội dung trong table: " + ex.Message);
             }
         }
 
@@ -75,12 +87,12 @@ namespace QuanLyBaiGiuXe
 
                     if (isDeleted)
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ToastService.Show("Xoá nhóm thành công!", this);
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ToastService.Show("Xoá nhóm thất bại!", this);
                     }
                 }
             }
@@ -116,12 +128,12 @@ namespace QuanLyBaiGiuXe
 
                     if (isDeleted)
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ToastService.Show("Xoá nhân viên thành công!", this);
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ToastService.Show("Xoá nhân viên thất bại!", this);
                     }
                 }
             }
@@ -161,6 +173,58 @@ namespace QuanLyBaiGiuXe
                 LoadData();
             }
         }
+
+        private void dtgNhanVien_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dtgNhanVien.CurrentRow != null)
+            {
+                var row = dtgNhanVien.CurrentRow;
+                string trangThai = Convert.ToString(row.Cells["Trạng Thái"].Value);
+
+                if (trangThai == "Sử dụng")
+                {
+                    btnKhoiPhuc.Text = "Khoá";
+                    btnKhoiPhuc.BackColor = Color.LightCoral;
+                }
+                else if (trangThai == "Khoá")
+                {
+                    btnKhoiPhuc.Text = "Khôi phục";
+                    btnKhoiPhuc.BackColor = Color.LightGreen;
+                }
+            }
+        }
         #endregion
+
+        private void btnKhoiPhuc_Click(object sender, EventArgs e)
+        {
+            string TrangThai = btnKhoiPhuc.Text == "Khoá" ? "Khoá" : "Sử dụng";
+            if (dtgNhanVien.SelectedRows.Count > 0)
+            {
+                int rowIndex = dtgNhanVien.CurrentCell.RowIndex;
+                var maNhanVien = dtgNhanVien.Rows[rowIndex].Cells[0].Value.ToString();
+                bool isUpdated = false;
+                if (TrangThai == "Khoá")
+                {
+                    isUpdated = manager.CapNhatTrangThaiNhanVien(maNhanVien, "Khoá");
+                }
+                else if (TrangThai == "Sử dụng")
+                {
+                    isUpdated = manager.CapNhatTrangThaiNhanVien(maNhanVien, "Sử dụng");
+                }
+                else
+                {
+                    ToastService.Show("Vui lòng chọn một nhân viên để cập nhật!", this);
+                }
+                if (isUpdated)
+                {
+                    ToastService.Show($"Cập nhật trạng thái nhân viên thành công!", this);
+                    LoadData();
+                }
+                else
+                {
+                    ToastService.Show($"Cập nhật trạng thái nhân viên thất bại!", this);
+                }
+            }
+        }
     }
 }

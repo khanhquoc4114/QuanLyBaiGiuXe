@@ -1,4 +1,5 @@
-﻿using QuanLyBaiGiuXe.Models;
+﻿using QuanLyBaiGiuXe.Helper;
+using QuanLyBaiGiuXe.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,6 +21,8 @@ namespace QuanLyBaiGiuXe
             this.option = option;
             if (option == "Sửa")
             {
+                this.Text = "Sửa Vé Tháng";
+                gbMain.Text = "Thông tin Vé Tháng";
                 this.MaVeThang = MaVeThang;
                 LoadData();
                 btnDongYTiepTuc.Enabled = false;
@@ -99,19 +102,20 @@ namespace QuanLyBaiGiuXe
             DateTime ngayHetHan = datePickerNgayHetHan.Value;
             string bienSo = tbBienSo.Text;
             string nhanHieu = tbNhanHieu.Text;
-            string loaiXe= (cbLoaiXe.SelectedIndex + 1).ToString();
-            string tenNhom = cbNhom.SelectedItem?.ToString();
+            string maloaiXe= cbLoaiXe.SelectedValue?.ToString();
+            string maNhom = cbNhom.SelectedValue?.ToString();
             decimal giaVe = updGiaVe.Value;
             string ghiChu = rtbGhiChu.Text;
-            if (manager.KiemTraVeThang(maThe)) return false;
-            bool result = manager.ThemVeThang(tenNhom, maThe, chuXe, dienThoai, diaChi, email, ngayKichHoat,
-                ngayHetHan, bienSo, nhanHieu, loaiXe, giaVe, ghiChu);
+            if (manager.KiemTraTheTrongVeThang(maThe)) return false;
+            MessageBox.Show($"Xe được chọn là {maloaiXe}");
+            bool result = manager.ThemVeThang(maNhom, maThe, chuXe, dienThoai, diaChi, email, ngayKichHoat,
+                ngayHetHan, bienSo, nhanHieu, maloaiXe, giaVe, ghiChu);
             return result;
         }
 
         private bool SuaVeThang()
         {
-            string tenNhom = cbNhom.SelectedItem?.ToString();
+            string maNhom = cbNhom.SelectedValue?.ToString();
             string maThe = tbMaThe.Text;
             string chuXe = tbChuXe.Text;
             string dienThoai = tbDienThoai.Text;
@@ -121,11 +125,10 @@ namespace QuanLyBaiGiuXe
             DateTime ngayHetHan = datePickerNgayHetHan.Value;
             string bienSo = tbBienSo.Text;
             string nhanHieu = tbNhanHieu.Text;
-            string maLoaiXe = Convert.ToInt32(cbLoaiXe.SelectedValue).ToString();
+            string maLoaiXe = cbLoaiXe.SelectedValue.ToString();
             decimal giaVe = updGiaVe.Value;
             string ghiChu = rtbGhiChu.Text;
-            if (manager.KiemTraVeThang(maThe)) return false;
-            bool result = manager.SuaVeThang( this.MaVeThang, tenNhom, maThe, chuXe, dienThoai, diaChi, email, ngayKichHoat,
+            bool result = manager.SuaVeThang( this.MaVeThang, maNhom, maThe, chuXe, dienThoai, diaChi, email, ngayKichHoat,
                 ngayHetHan, bienSo, nhanHieu, maLoaiXe, giaVe, ghiChu);
             return result;
         }
@@ -135,8 +138,7 @@ namespace QuanLyBaiGiuXe
             var groups = manager.GetDanhSachNhom();
             if (groups != null && groups.Count > 0)
             {
-                cbNhom.DataSource = groups;
-                cbNhom.SelectedIndex = 0;
+                LoadComboBox(cbNhom, groups, "nhóm", false);
             }
             else
             {
@@ -147,10 +149,7 @@ namespace QuanLyBaiGiuXe
             var danhSachXe = manager.GetDanhSachXe();
             if (danhSachXe != null && danhSachXe.Count > 0)
             {
-                cbLoaiXe.DataSource = danhSachXe;
-                cbLoaiXe.SelectedIndex = 0;
-                cbLoaiXe.DisplayMember = "TenLoaiXe";
-                cbLoaiXe.ValueMember = "MaLoaiXe";
+                LoadComboBox(cbLoaiXe, danhSachXe, "loại xe", false);
             }
             else
             {
@@ -158,9 +157,23 @@ namespace QuanLyBaiGiuXe
                 cbLoaiXe.Text = "-- Không có dữ liệu --";
             }
             updGiaVe.Maximum = 100000000;
-            updGiaVe.Minimum = 1000;
+            updGiaVe.Minimum = 0;
             dataPickerNgayKichHoat.Value = DateTime.Now;
             datePickerNgayHetHan.Value = DateTime.Now.AddMonths(1);
+        }
+
+        private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)
+        {
+            if (includeTatCa)
+            {
+                data.Insert(0, new ComboBoxItem { Value = -1, Text = "Tất cả" + " " + suffix });
+            }
+
+            comboBox.DataSource = null;
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Text";
+            comboBox.ValueMember = "Value";
+            comboBox.SelectedIndex = 0;
         }
 
         private void LoadData()
@@ -251,7 +264,7 @@ namespace QuanLyBaiGiuXe
         {
             if (option == "Thêm")
             {
-                string loaiXe = (cbLoaiXe.SelectedIndex + 1).ToString();
+                string loaiXe = cbLoaiXe.SelectedValue.ToString();
                 updGiaVe.Value = manager.GetGiaTienTheoLoaiXe(loaiXe);
             }
         }

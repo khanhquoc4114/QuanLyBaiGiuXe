@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using QuanLyBaiGiuXe.Models;
 using OfficeOpenXml;
 using System.IO;
+using QuanLyBaiGiuXe.Helper;
 
 namespace QuanLyBaiGiuXe
 {
@@ -24,16 +25,27 @@ namespace QuanLyBaiGiuXe
         {
             dtpTu.Format = DateTimePickerFormat.Custom;
             dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTu.Value = DateTime.Now.AddDays(-7);
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
-            List<LoaiXeItem> listXe = manager.GetDanhSachXe();
-            listXe.Insert(0, new LoaiXeItem { MaLoaiXe = 0, TenLoaiXe = "Tất cả xe" });
-            cbLoaiXe.DataSource = listXe;
-            cbLoaiXe.DisplayMember = "TenLoaiXe";  // hiển thị tên
-            cbLoaiXe.ValueMember = "MaLoaiXe";     // lấy mã khi cần
+            List<ComboBoxItem> listXe = manager.GetDanhSachXe();
+            LoadComboBox(cbLoaiXe, listXe, "loại xe");
 
             List<string> groupsVe = new List<string> { "Tất cả loại vé", "Vé tháng", "Vé lượt" };
             cbLoaiVe.DataSource = groupsVe;
+        }
+        private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)
+        {
+            if (includeTatCa)
+            {
+                data.Insert(0, new ComboBoxItem { Value = -1, Text = "Tất cả" + " " + suffix });
+            }
+
+            comboBox.DataSource = null;
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Text";
+            comboBox.ValueMember = "Value";
+            comboBox.SelectedIndex = 0;
         }
         private void LoadData()
         {
@@ -52,14 +64,10 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Vui lòng chọn loại xe và loại vé!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string loaixe = cbLoaiXe.SelectedItem.ToString();
+            string loaixe = cbLoaiXe.SelectedValue.ToString();
             string loaive = cbLoaiVe.SelectedItem.ToString();
             if (cbLoaiVe.SelectedIndex == 0) {
                 loaive = "";
-            }
-            if(cbLoaiXe.SelectedIndex == 0)
-            {
-                loaixe = "";
             }
             dtgThongKe.DataSource = manager.GetThongKeTheoMayTinhByTimKiem(loaive, loaixe, dtpTu.Value, dtpDen.Value);
         }

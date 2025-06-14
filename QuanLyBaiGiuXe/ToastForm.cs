@@ -8,12 +8,11 @@ namespace QuanLyBaiGiuXe
     {
         private Timer timer;
 
-        public ToastForm(string message, Form ownerForm, int duration = 3000)
+        public ToastForm(string message, Form ownerForm, int duration = 1000)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.StartPosition = FormStartPosition.Manual;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.BackColor = Color.LightYellow;
             this.ShowInTaskbar = false;
             this.Size = new Size(280, 80);
@@ -28,6 +27,8 @@ namespace QuanLyBaiGiuXe
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Segoe UI", 10),
+                BorderStyle = BorderStyle.FixedSingle,
+
             };
             this.Controls.Add(lbl);
 

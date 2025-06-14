@@ -55,22 +55,29 @@
             this.tbBienSoVao = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.p2 = new System.Windows.Forms.Panel();
-            this.pb2 = new System.Windows.Forms.PictureBox();
+            this.pbRa = new System.Windows.Forms.PictureBox();
+            this.pbVao = new System.Windows.Forms.PictureBox();
             this.p1 = new System.Windows.Forms.Panel();
             this.pb1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnInfo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.p2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVao)).BeginInit();
             this.p1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lbStatus);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.cbLoaiXe);
             this.panel1.Controls.Add(this.txtMaThe);
@@ -88,7 +95,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(267, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 19);
+            this.label3.Size = new System.Drawing.Size(67, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Loại xe:";
             // 
@@ -97,7 +104,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(107, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 19);
+            this.label2.Size = new System.Drawing.Size(47, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Thẻ: ";
             // 
@@ -106,7 +113,7 @@
             this.cbLoaiXe.FormattingEnabled = true;
             this.cbLoaiXe.Location = new System.Drawing.Point(327, 17);
             this.cbLoaiXe.Name = "cbLoaiXe";
-            this.cbLoaiXe.Size = new System.Drawing.Size(121, 25);
+            this.cbLoaiXe.Size = new System.Drawing.Size(121, 31);
             this.cbLoaiXe.TabIndex = 3;
             // 
             // txtMaThe
@@ -114,7 +121,7 @@
             this.txtMaThe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMaThe.Location = new System.Drawing.Point(151, 17);
             this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(100, 25);
+            this.txtMaThe.Size = new System.Drawing.Size(100, 30);
             this.txtMaThe.TabIndex = 2;
             this.txtMaThe.Text = "T101";
             this.txtMaThe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaThe_KeyDown);
@@ -153,6 +160,7 @@
             // 
             // pnInfo
             // 
+            this.pnInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnInfo.Controls.Add(this.label7);
             this.pnInfo.Controls.Add(this.label8);
             this.pnInfo.Controls.Add(this.label4);
@@ -182,7 +190,7 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label7.Location = new System.Drawing.Point(31, 17);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 19);
+            this.label7.Size = new System.Drawing.Size(86, 23);
             this.label7.TabIndex = 10;
             this.label7.Text = "Ngày vào:";
             // 
@@ -192,7 +200,7 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label8.Location = new System.Drawing.Point(42, 52);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 19);
+            this.label8.Size = new System.Drawing.Size(72, 23);
             this.label8.TabIndex = 10;
             this.label8.Text = "Giờ vào:";
             // 
@@ -201,7 +209,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(756, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 19);
+            this.label4.Size = new System.Drawing.Size(72, 23);
             this.label4.TabIndex = 10;
             this.label4.Text = "Loại vé: ";
             // 
@@ -210,7 +218,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(756, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 19);
+            this.label1.Size = new System.Drawing.Size(87, 23);
             this.label1.TabIndex = 10;
             this.label1.Text = "Tổng tiền:";
             // 
@@ -219,7 +227,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(476, 17);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 19);
+            this.label9.Size = new System.Drawing.Size(74, 23);
             this.label9.TabIndex = 10;
             this.label9.Text = "Ngày ra:";
             // 
@@ -228,7 +236,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(487, 52);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 19);
+            this.label10.Size = new System.Drawing.Size(60, 23);
             this.label10.TabIndex = 10;
             this.label10.Text = "Giờ ra:";
             // 
@@ -237,7 +245,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(480, 87);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 19);
+            this.label11.Size = new System.Drawing.Size(69, 23);
             this.label11.TabIndex = 10;
             this.label11.Text = "Biển số:";
             // 
@@ -247,7 +255,7 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label6.Location = new System.Drawing.Point(45, 87);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 19);
+            this.label6.Size = new System.Drawing.Size(69, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "Biển số:";
             // 
@@ -258,7 +266,7 @@
             this.tbGioRa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbGioRa.Name = "tbGioRa";
             this.tbGioRa.ReadOnly = true;
-            this.tbGioRa.Size = new System.Drawing.Size(129, 25);
+            this.tbGioRa.Size = new System.Drawing.Size(129, 30);
             this.tbGioRa.TabIndex = 5;
             this.tbGioRa.Text = "null";
             // 
@@ -269,7 +277,7 @@
             this.tbLoaiVe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLoaiVe.Name = "tbLoaiVe";
             this.tbLoaiVe.ReadOnly = true;
-            this.tbLoaiVe.Size = new System.Drawing.Size(129, 25);
+            this.tbLoaiVe.Size = new System.Drawing.Size(129, 30);
             this.tbLoaiVe.TabIndex = 5;
             this.tbLoaiVe.Text = "null";
             // 
@@ -280,7 +288,7 @@
             this.tbTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTongTien.Name = "tbTongTien";
             this.tbTongTien.ReadOnly = true;
-            this.tbTongTien.Size = new System.Drawing.Size(129, 25);
+            this.tbTongTien.Size = new System.Drawing.Size(129, 30);
             this.tbTongTien.TabIndex = 5;
             this.tbTongTien.Text = "null";
             // 
@@ -291,7 +299,7 @@
             this.tbNgayRa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNgayRa.Name = "tbNgayRa";
             this.tbNgayRa.ReadOnly = true;
-            this.tbNgayRa.Size = new System.Drawing.Size(129, 25);
+            this.tbNgayRa.Size = new System.Drawing.Size(129, 30);
             this.tbNgayRa.TabIndex = 5;
             this.tbNgayRa.Text = "null";
             // 
@@ -303,7 +311,7 @@
             this.tbNgayVao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNgayVao.Name = "tbNgayVao";
             this.tbNgayVao.ReadOnly = true;
-            this.tbNgayVao.Size = new System.Drawing.Size(129, 25);
+            this.tbNgayVao.Size = new System.Drawing.Size(129, 30);
             this.tbNgayVao.TabIndex = 5;
             this.tbNgayVao.Text = "null";
             // 
@@ -315,7 +323,7 @@
             this.tbGioVao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbGioVao.Name = "tbGioVao";
             this.tbGioVao.ReadOnly = true;
-            this.tbGioVao.Size = new System.Drawing.Size(129, 25);
+            this.tbGioVao.Size = new System.Drawing.Size(129, 30);
             this.tbGioVao.TabIndex = 5;
             this.tbGioVao.Text = "null";
             // 
@@ -326,7 +334,7 @@
             this.tbBienSoRa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBienSoRa.Name = "tbBienSoRa";
             this.tbBienSoRa.ReadOnly = true;
-            this.tbBienSoRa.Size = new System.Drawing.Size(129, 25);
+            this.tbBienSoRa.Size = new System.Drawing.Size(129, 30);
             this.tbBienSoRa.TabIndex = 5;
             this.tbBienSoRa.Text = "null";
             // 
@@ -338,7 +346,7 @@
             this.tbBienSoVao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBienSoVao.Name = "tbBienSoVao";
             this.tbBienSoVao.ReadOnly = true;
-            this.tbBienSoVao.Size = new System.Drawing.Size(129, 25);
+            this.tbBienSoVao.Size = new System.Drawing.Size(129, 30);
             this.tbBienSoVao.TabIndex = 5;
             this.tbBienSoVao.Text = "null";
             // 
@@ -354,21 +362,35 @@
             // 
             // p2
             // 
-            this.p2.Controls.Add(this.pb2);
+            this.p2.Controls.Add(this.pbRa);
+            this.p2.Controls.Add(this.pbVao);
             this.p2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p2.Location = new System.Drawing.Point(536, 0);
             this.p2.Name = "p2";
             this.p2.Size = new System.Drawing.Size(536, 514);
             this.p2.TabIndex = 1;
             // 
-            // pb2
+            // pbRa
             // 
-            this.pb2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb2.Location = new System.Drawing.Point(0, 0);
-            this.pb2.Name = "pb2";
-            this.pb2.Size = new System.Drawing.Size(536, 514);
-            this.pb2.TabIndex = 0;
-            this.pb2.TabStop = false;
+            this.pbRa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbRa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbRa.Location = new System.Drawing.Point(0, 257);
+            this.pbRa.Name = "pbRa";
+            this.pbRa.Size = new System.Drawing.Size(536, 257);
+            this.pbRa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRa.TabIndex = 1;
+            this.pbRa.TabStop = false;
+            // 
+            // pbVao
+            // 
+            this.pbVao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbVao.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbVao.Location = new System.Drawing.Point(0, 0);
+            this.pbVao.Name = "pbVao";
+            this.pbVao.Size = new System.Drawing.Size(536, 257);
+            this.pbVao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbVao.TabIndex = 0;
+            this.pbVao.TabStop = false;
             // 
             // p1
             // 
@@ -381,6 +403,7 @@
             // 
             // pb1
             // 
+            this.pb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb1.Location = new System.Drawing.Point(0, 0);
             this.pb1.Name = "pb1";
@@ -388,9 +411,27 @@
             this.pb1.TabIndex = 0;
             this.pb1.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(531, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 23);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Model: ";
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Location = new System.Drawing.Point(604, 18);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(108, 23);
+            this.lbStatus.TabIndex = 4;
+            this.lbStatus.Text = "model status";
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 699);
             this.Controls.Add(this.panel3);
@@ -399,7 +440,7 @@
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.MainForm_LoadAsync);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -407,7 +448,8 @@
             this.pnInfo.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.p2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVao)).EndInit();
             this.p1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             this.ResumeLayout(false);
@@ -426,7 +468,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel p2;
         private System.Windows.Forms.Panel p1;
-        private System.Windows.Forms.PictureBox pb2;
+        private System.Windows.Forms.PictureBox pbVao;
         private System.Windows.Forms.PictureBox pb1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -446,5 +488,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbLoaiVe;
+        private System.Windows.Forms.PictureBox pbRa;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.Label label5;
     }
 }

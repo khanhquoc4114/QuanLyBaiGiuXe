@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 using QuanLyBaiGiuXe.DataAccess;
 using QuanLyBaiGiuXe.Helper;
@@ -9,10 +7,9 @@ namespace QuanLyBaiGiuXe
 {
     public partial class DangNhap : Form
     {
-        string MaNhanVien = "";
+        string MaNhanVien = null;
         LoginManager loginManager = new LoginManager();
         bool isLoggedIn = false;
-        Process process = new Process();
 
         public DangNhap()
         {
@@ -28,30 +25,44 @@ namespace QuanLyBaiGiuXe
             }
             try
             {
-                MaNhanVien = loginManager.GetMaNhanVien(tbUsername.Text, tbPassword.Text);
+                MaNhanVien = loginManager.GetMaNhanVien(tbUsername.Text, tbPassword.Text, out string ErrorMessage);
                 if (!string.IsNullOrEmpty(MaNhanVien))
                 {
                     Session.MaNhanVien = MaNhanVien;
                     string name = loginManager.GetTen(tbUsername.Text, tbPassword.Text);
                     string role = Session.VaiTro = loginManager.GetVaiTro(tbUsername.Text, tbPassword.Text);
 
-                    this.Hide();
-                    MenuForm menu = new MenuForm(name);
                     isLoggedIn = true;
                     if (isLoggedIn)
                     {
-                        loginManager.CheckIn(MaNhanVien.ToString(),DateTime.Now);
+                        loginManager.CheckIn(MaNhanVien.ToString(), DateTime.Now);
+                        if (cbRememberMe.Checked)
+                        {
+                            Properties.Settings.Default.SavedUsername = tbUsername.Text.Trim();
+                            Properties.Settings.Default.SavedPassword = tbPassword.Text.Trim();
+                            Properties.Settings.Default.RememberMe = true;
+                        }
+                        else
+                        {
+                            Properties.Settings.Default.SavedUsername = "";
+                            Properties.Settings.Default.SavedPassword = "";
+                            Properties.Settings.Default.RememberMe = false;
+                        }
+                        Properties.Settings.Default.Save();
                     }
+                    this.Hide();
+                    MenuForm menu = new MenuForm(name);
                     menu.ShowDialog();
                     this.Show();
-                } else
+                }
+                else
                 {
-                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ToastService.Show(ErrorMessage, this);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ToastService.Show("Lỗi đăng nhập: " + ex.Message, this);
             }
         }
 
@@ -63,55 +74,31 @@ namespace QuanLyBaiGiuXe
         private void DangNhap_Load(object sender, EventArgs e)
         {
             Session.MayTinhXuLy = Environment.MachineName;
-            LoadModel();
+            if (Properties.Settings.Default.RememberMe)
+            {
+                tbUsername.Text = Properties.Settings.Default.SavedUsername;
+                tbPassword.Text = Properties.Settings.Default.SavedPassword;
+                MessageBox.Show(Properties.Settings.Default.SavedUsername, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbRememberMe.Checked = true;
+            }
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (process != null)
-            {
-                try
-                {
-                    if (!process.HasExited)
-                    {
-                        process.Kill();
-                        process.WaitForExit();
-                    }
-                }
-                catch { }
-
-                process.Dispose();
-                MessageBox.Show("Đã dừng quá trình nhận diện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            if (isLoggedIn == true)
-            { 
-                loginManager.CheckOut(Session.MaNhanVien, DateTime.Now);
-            }
+            isLoggedIn = false;
         }
 
-        private void LoadModel()
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            process.StartInfo.FileName = "python";
-            process.StartInfo.Arguments = "-u main_tcp.py";
-            process.StartInfo.WorkingDirectory = Path.Combine(Application.StartupPath, "python-server");
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
+        }
 
-            process.OutputDataReceived += (sender, e) => {
-                if (!string.IsNullOrEmpty(e.Data))
-                    Console.WriteLine("[Python STDOUT] " + e.Data);
-            };
-
-            process.ErrorDataReceived += (sender, e) => {
-                if (!string.IsNullOrEmpty(e.Data))
-                    Console.WriteLine("[Python STDERR] " + e.Data);
-            };
-
-            process.Start();
-            process.BeginOutputReadLine();
-            process.BeginErrorReadLine();
+        private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnDangNhap.PerformClick();
+                e.Handled = true;
+            }
         }
     }
 }

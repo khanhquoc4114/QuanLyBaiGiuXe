@@ -1,14 +1,7 @@
 ﻿using OfficeOpenXml;
 using QuanLyBaiGiuXe.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
@@ -25,6 +18,12 @@ namespace QuanLyBaiGiuXe
         private void LoadData()
         {
             dtgXuLyVeLuot.DataSource = manager.GetXuLyVeLuot();
+
+            dtpTu.Format = DateTimePickerFormat.Custom;
+            dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTu.Value = DateTime.Now.AddDays(-7);
+            dtpDen.Format = DateTimePickerFormat.Custom;
+            dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
         }
 
         private void NhatKyVeLuotForm_Load(object sender, EventArgs e)

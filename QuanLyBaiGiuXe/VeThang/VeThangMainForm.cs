@@ -19,8 +19,19 @@ namespace QuanLyBaiGiuXe
             {
                 this.dtgVeThang.DataSource = manager.GetAllVeThang();
                 dtgVeThang.Columns["MaVeThang"].Visible = false;
-                this.dtgNhom.DataSource = manager.GetAllNhom();
+                dtgVeThang.ClearSelection();
+                if (dtgVeThang.Rows.Count > 0)
+                {
+                    dtgVeThang.Rows[0].Selected = true;
+                }
+
+                this.dtgNhom.DataSource = manager.GetAllNhomVeThang();
                 dtgNhom.Columns["MaNhom"].Visible = false;
+                dtgNhom.ClearSelection();
+                if (dtgNhom.Rows.Count > 0)
+                {
+                    dtgNhom.Rows[0].Selected = true;
+                }
             }
             catch
             {
@@ -49,16 +60,16 @@ namespace QuanLyBaiGiuXe
                 var result = MessageBox.Show($"Bạn có chắc chắn muốn xoá nhóm chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    bool isDeleted = manager.XoaNhomByID(MaNhom);
+                    bool isDeleted = manager.XoaNhomVeThangByID(MaNhom);
 
                     if (isDeleted)
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new ToastForm("Xóa nhóm thành công!", this).ShowDialog();
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        new ToastForm("Xóa nhóm thất bại!", this).ShowDialog();
                     }
                 }
             }
@@ -190,7 +201,6 @@ namespace QuanLyBaiGiuXe
                 }
             }
         }
-
 
         private void btnDoiThe_Click(object sender, EventArgs e)
         {

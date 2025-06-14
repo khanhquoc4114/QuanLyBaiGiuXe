@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using QuanLyBaiGiuXe.Helper;
 using QuanLyBaiGiuXe.Models;
 using System;
 using System.Collections.Generic;
@@ -72,16 +73,12 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Vui lòng chọn loại xe và loại vé!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string loaixe = cbLoaiXe.SelectedItem.ToString();
+            string loaixe = cbLoaiXe.SelectedValue.ToString();
             string loaive = cbLoaiVe.SelectedItem.ToString();
             string nhanvien = cbNhanVien.SelectedItem.ToString();
             if (cbLoaiVe.SelectedIndex == 0)
             {
                 loaive = null;
-            }
-            if (cbLoaiXe.SelectedIndex == 0)
-            {
-                loaixe = "";
             }
             if (cbNhanVien.SelectedIndex == 0)
             {
@@ -102,25 +99,40 @@ namespace QuanLyBaiGiuXe
         {
             dtpTu.Format = DateTimePickerFormat.Custom;
             dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTu.Value = DateTime.Now.AddDays(-7);
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
-            List<LoaiXeItem> listXe = manager.GetDanhSachXe();
-            listXe.Insert(0, new LoaiXeItem { MaLoaiXe = 0, TenLoaiXe = "Tất cả xe" });
-            cbLoaiXe.DataSource = listXe;
-            cbLoaiXe.DisplayMember = "TenLoaiXe";  // hiển thị tên
-            cbLoaiXe.ValueMember = "MaLoaiXe";
+
+            List<ComboBoxItem> listXe = manager.GetDanhSachXe();
+            LoadComboBox(cbLoaiXe, listXe, "loại xe");
+
             List<string> groupsVe = new List<string> { "Tất cả loại vé", "Vé tháng", "Vé lượt" };
             cbLoaiVe.DataSource = groupsVe;
             List<string> groupsTruyVan = new List<string> { "Tất cả xe", "Đã ra", "Chưa ra" };
             cbKhoangThoiGian.DataSource = groupsTruyVan;
             List<string> groupsKhoang = new List<string> { "Theo ngày", "Theo tuần", "Theo tháng", "Theo năm"};
             cbKhoangThoiGian.DataSource = groupsKhoang;
-            List<string> groupsNhanVien = manager.GetDanhSachNhomNhanVien();
-            groupsNhanVien.Insert(0, "Tất cả nhân viên");
-            cbNhanVien.DataSource = groupsNhanVien;
+
+            List<ComboBoxItem> groupsNhanVien = manager.GetDanhSachNhomNhanVien();
+            LoadComboBox(cbNhanVien, groupsNhanVien, "nhân viên");
         }
+
         private void LoadData() { 
             dtgThongKe.DataSource = manager.GetThongKeTheoKhoangThoiGian();
+        }
+
+        private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null,  bool includeTatCa = true)
+        {
+            if (includeTatCa)
+            {
+                data.Insert(0, new ComboBoxItem { Value = -1, Text = "Tất cả" + " " +suffix });
+            }
+
+            comboBox.DataSource = null;
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Text";
+            comboBox.ValueMember = "Value";
+            comboBox.SelectedIndex = 0;
         }
     }
 }

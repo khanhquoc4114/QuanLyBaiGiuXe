@@ -11,5 +11,7 @@ namespace QuanLyBaiGiuXe.Models
         public int TongTien { get; set; }
         public int MaLoaiXe { get; set; }
         public bool LaVeThang { get; set; }
+        public string AnhVaoPath{ get; set; }
+        public string AnhRaPath{ get; set; }
     }
 }

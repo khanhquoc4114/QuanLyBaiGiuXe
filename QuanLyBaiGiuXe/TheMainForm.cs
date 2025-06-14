@@ -1,7 +1,7 @@
-﻿using QuanLyBaiGiuXe.Models;
+﻿using QuanLyBaiGiuXe.Helper;
+using QuanLyBaiGiuXe.Models;
 using System;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace QuanLyBaiGiuXe
 {
@@ -29,7 +29,7 @@ namespace QuanLyBaiGiuXe
 
                     if (isDeleted)
                     {
-                        ShowMessage("Xoá thẻ thành công!");
+                        ToastService.Show("Xoá thẻ thành công!", this);
                         LoadData();
                     }
                     else
@@ -46,16 +46,12 @@ namespace QuanLyBaiGiuXe
         private void ThemThe()
         {
             string MaThe = tbMaThe.Text.Trim();
-            var result = MessageBox.Show($"Bạn có chắc chắn muốn thêm thẻ {MaThe} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
-            {
-                bool isAdded = manager.ThemThe(MaThe, "Chung", DateTime.Now);
+            bool isAdded = manager.ThemThe(MaThe, "Chung", DateTime.Now);
 
-                if (isAdded)
-                {
-                    ShowMessage("Thêm thẻ thành công!");
-                    LoadData();
-                }
+            if (isAdded)
+            {
+                ToastService.Show("Thêm thẻ thành công!", this);
+                LoadData();
             }
         }
         #endregion
@@ -63,7 +59,6 @@ namespace QuanLyBaiGiuXe
         {
             tbMaThe.Enabled = false;
             LoadData();
-            LoadDevice();
         }
         private void LoadData()
         {
@@ -77,9 +72,8 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Không lấy được nội dung trong table");
             }
         }
-        private void LoadDevice()
-        {
-        }
+
+        // Phương thức thêm thẻ
         private void tbMaThe_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -119,12 +113,12 @@ namespace QuanLyBaiGiuXe
                     bool isRestored = manager.KhoiPhucThe(MaThe);
                     if (isRestored)
                     {
-                        MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ToastService.Show("Khôi phục thẻ thành công!", this);
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Khôi phục thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ToastService.Show("Khôi phục thẻ thất bại!",this);
                     }
                 }
             }
@@ -132,11 +126,6 @@ namespace QuanLyBaiGiuXe
             {
                 MessageBox.Show("Vui lòng chọn một hàng để khôi phục!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void ShowMessage(string mes)
-        {
-            new ToastForm(mes,this,3000).Show();
         }
     }
 }

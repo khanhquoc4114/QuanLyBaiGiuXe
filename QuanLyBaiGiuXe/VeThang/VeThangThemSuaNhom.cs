@@ -12,6 +12,8 @@ namespace QuanLyBaiGiuXe
         string MaNhom = null;
         string TenNhomHienTai = null;
         string ThongTinKhacHienTai = null;
+        Manager manager = new Manager();
+
         public VeThangThemSuaNhom(string option, string MaNhom=null)
         {
             InitializeComponent();
@@ -24,8 +26,10 @@ namespace QuanLyBaiGiuXe
         {
             if (option == "Sửa nhóm" )
             {
+                lbTitle.Text = "Chỉnh sửa nhóm vé tháng";
+                this.Text = "Chỉnh sửa nhóm vé tháng";
                 btnDongYTiepTuc.Enabled = false;
-                DataTable dt = manager.GetNhomByID(MaNhom);
+                DataTable dt = manager.GetNhomVeThangByID(MaNhom);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -37,7 +41,6 @@ namespace QuanLyBaiGiuXe
             }
         }
 
-        Manager manager = new Manager();
 
         private bool checkNull()
         {
@@ -52,22 +55,22 @@ namespace QuanLyBaiGiuXe
             tbThongTinKhac.Clear();   
         }
 
+        #region Hàm chính Nhóm vé tháng
         private bool CapNhatNhom(string TenNhomMoi, string ThongTinKhacMoi)
         {
             var result = MessageBox.Show($"Bạn có chắc chắn muốn sửa nhóm {TenNhomHienTai} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                bool isUpdated = manager.CapNhatNhom(MaNhom, TenNhomMoi, ThongTinKhacMoi);
-
+                bool isUpdated = manager.CapNhatNhomVeThang(MaNhom, TenNhomMoi, ThongTinKhacMoi);
                 if (isUpdated)
                 {
-                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new ToastForm("Cập nhật nhóm thành công!", this).ShowDialog();
                     ThemSuaThanhCong = true;
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    new ToastForm("Cập nhật nhóm thất bại!", this).ShowDialog();
                     return false;
                 }
             }
@@ -79,28 +82,30 @@ namespace QuanLyBaiGiuXe
             var result = MessageBox.Show($"Bạn có chắc chắn muốn thêm nhóm {TenNhom} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                bool isAdded = manager.ThemNhom(TenNhom,ThongTinKhac);
+                bool isAdded = manager.ThemNhomVeThang(TenNhom,ThongTinKhac);
 
                 if (isAdded)
                 {
-                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new ToastForm("Thêm nhóm thành công!", this).ShowDialog();
                     ThemSuaThanhCong = true;
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    new ToastForm("Thêm nhóm thất bại!", this).ShowDialog();
                     return false;
                 }
             }
             return false;
         }
+        #endregion
 
         private void btnDongYDong_Click(object sender, EventArgs e)
         {
             if (!checkNull()) return;
             string TenNhom = tbTen.Text.Trim();
             string ThongTinKhac = tbThongTinKhac.Text.Trim();
+
             if (option == "Thêm nhóm")
             {
                 if (ThemNhom(TenNhom, ThongTinKhac))
@@ -132,12 +137,17 @@ namespace QuanLyBaiGiuXe
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Clear();
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void VeThangThemSuaNhom_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

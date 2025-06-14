@@ -25,6 +25,7 @@ namespace QuanLyBaiGiuXe
         {
             dtpTu.Format = DateTimePickerFormat.Custom;
             dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTu.Value = DateTime.Now.AddDays(-7);
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
         }

@@ -1,8 +1,6 @@
 ﻿using QuanLyBaiGiuXe.DataAccess;
 using QuanLyBaiGiuXe.Models;
-using Remote.Linq.SimpleQuery;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -45,38 +43,62 @@ namespace QuanLyBaiGiuXe.Helper
         #endregion
         public bool ThemVeLuot(string mathe, string bienso, DateTime tgVao, string maloaixe, string pathVao)
         {
-            if (manager.KiemTraTrangThaiTheConSuDung(mathe))
+            if (!manager.KiemTraTrangThaiTheConSuDung(mathe))
             {
-                MessageBox.Show("Thẻ đã hết hạn sử dụng hoặc đã mất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Thẻ không sử dụng hoặc đã mất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            int maVeThang = -1;
-            maVeThang = GetMaVeThangByInfo(mathe);
+
+            int maVeThang = -1; maVeThang = GetMaVeThangByInfo(mathe);
+
+            if (maVeThang != -1)
+            {
+                bool conHan = manager.KiemTraHanVeThang(mathe, out DateTime? ngayHetHan);
+                if (!conHan)
+                {
+                    var result = MessageBox.Show(
+                        $"Thẻ này đã có vé tháng nhưng đã hết hạn vào {ngayHetHan.Value:dd/MM/yyyy}.\n\nBạn có muốn tiếp tục sử dụng cho vé lượt không?",
+                        "Vé tháng hết hạn",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning,
+                        MessageBoxDefaultButton.Button2
+                    );
+
+                    if (result == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    maVeThang = -1;
+                }
+            }
+
             try
             {
                 GuiSession();
                 db.OpenConnection();
                 using (SqlCommand insertCmd = new SqlCommand(@"
-                    INSERT INTO VeLuot (MaThe, ThoiGianVao, MaNhanVien, MayTinhXuLy, CachTinhTien, BienSo, MaLoaiXe, MaVeThang, AnhVaoPath)
-                    VALUES (@MaThe, @ThoiGianVao, @MaNhanVien, @MayTinhXuLy, @CachTinhTien, @BienSo, @MaLoaiXe, @MaVeThang, @AnhVaoPath);
-                ", db.GetConnection()))
+                INSERT INTO VeLuot (MaThe, ThoiGianVao, MaNhanVien, MayTinhXuLy, CachTinhTien, BienSo, MaLoaiXe, MaVeThang, AnhVaoPath)
+                VALUES (@MaThe, @ThoiGianVao, @MaNhanVien, @MayTinhXuLy, @CachTinhTien, @BienSo, @MaLoaiXe, @MaVeThang, @AnhVaoPath);
+            ", db.GetConnection()))
                 {
                     insertCmd.Parameters.AddWithValue("@MaThe", mathe);
                     insertCmd.Parameters.AddWithValue("@ThoiGianVao", tgVao);
                     insertCmd.Parameters.AddWithValue("@MaNhanVien", Session.MaNhanVien);
                     insertCmd.Parameters.AddWithValue("@MayTinhXuLy", Session.VaiTro);
-                    insertCmd.Parameters.AddWithValue("@CachTinhTien", Session.cachtinhtien);
                     insertCmd.Parameters.AddWithValue("@BienSo", bienso);
                     insertCmd.Parameters.AddWithValue("@MaLoaiXe", maloaixe);
                     insertCmd.Parameters.AddWithValue("@AnhVaoPath", pathVao);
-                    if (maVeThang == -1)
+                    MessageBox.Show($"Mã vé tháng {maVeThang}");
+                    if (maVeThang == -1) 
                     {
+                        insertCmd.Parameters.AddWithValue("@CachTinhTien", AppConfig.HinhThucThuPhi);
                         insertCmd.Parameters.AddWithValue("@MaVeThang", DBNull.Value);
-                    } else
+                    }
+                    else
                     {
                         insertCmd.Parameters.AddWithValue("@MaVeThang", maVeThang);
+                        insertCmd.Parameters.AddWithValue("@CachTinhTien", -1);
                     }
-
 
                     int rowsInserted = insertCmd.ExecuteNonQuery();
                     return rowsInserted > 0;
@@ -84,7 +106,7 @@ namespace QuanLyBaiGiuXe.Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi thêm vé tháng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi thêm vé lượt: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -124,6 +146,7 @@ namespace QuanLyBaiGiuXe.Helper
             string CachTinhTien = "0";
             int maVeThang = -1;
             maVeThang = GetMaVeThangByInfo(mathe);
+            string anhVaoPath = string.Empty;
 
             VeLuotInfo veCapNhat = null;
 
@@ -132,15 +155,14 @@ namespace QuanLyBaiGiuXe.Helper
                 db.OpenConnection();
 
                 using (SqlCommand cmd = new SqlCommand(@"
-                        SELECT TOP 1 CachTinhTien, ThoiGianVao, MaLoaiXe
+                        SELECT TOP 1 CachTinhTien, ThoiGianVao, MaLoaiXe, AnhVaoPath
                         FROM VeLuot
                         WHERE MaThe = @mathe
                         AND TrangThai = N'Chưa Ra'
-                        AND BienSo = @bienso
                         ORDER BY ThoiGianVao DESC; ", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@mathe", mathe);
-                    cmd.Parameters.AddWithValue("@bienso", bienso);
+                    //cmd.Parameters.AddWithValue("@bienso", bienso);
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
@@ -152,8 +174,12 @@ namespace QuanLyBaiGiuXe.Helper
                             CachTinhTien = row["CachTinhTien"].ToString();
                             gioVao = Convert.ToDateTime(row["ThoiGianVao"]);
                             maLoaiXe = Convert.ToInt32(row["MaLoaiXe"]);
+                            anhVaoPath = row["AnhVaoPath"].ToString();
 
-                            tongtien = TinhTienManager.TinhTien(CachTinhTien, gioVao, tgRa, maLoaiXe);
+                            if (CachTinhTien != "-1") // -1 là miễn phí
+                            {
+                                tongtien = TinhTienManager.TinhTien(CachTinhTien, gioVao, tgRa, maLoaiXe);
+                            }
                         }
                         else
                         {
@@ -188,14 +214,16 @@ namespace QuanLyBaiGiuXe.Helper
                             ThoiGianRa = tgRa,
                             TongTien = tongtien,
                             MaLoaiXe = maLoaiXe,
-                            LaVeThang = maVeThang != -1 ? true : false
+                            LaVeThang = (maVeThang != -1) ? true : false,
+                            AnhRaPath = pathRa,
+                            AnhVaoPath = anhVaoPath
                         };
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi cập nhật vé lượt: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -204,6 +232,43 @@ namespace QuanLyBaiGiuXe.Helper
             }
 
             return veCapNhat;
+        }
+
+        public bool CapNhatVeLuotMatThe(string maVeLuot, string tongTien, string anhVaoPath, string anhRaPath)
+        {
+            try
+            {
+                db.OpenConnection();
+
+                using (SqlCommand cmd = new SqlCommand(@"
+                        UPDATE VeLuot  
+                        SET TrangThai = N'Mất Thẻ',
+                            TongTien = @TongTien,
+                            AnhRaPath = @AnhRaPath
+                        WHERE MaVeLuot = @MaVeLuot AND AnhVaoPath = @AnhVaoPath;", db.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@TongTien", tongTien);
+                    cmd.Parameters.AddWithValue("@AnhRaPath", anhRaPath);
+                    cmd.Parameters.AddWithValue("@MaVeLuot", maVeLuot);
+                    cmd.Parameters.AddWithValue("@AnhVaoPath", anhVaoPath);
+
+                    int rowsUpdated = cmd.ExecuteNonQuery();
+                    if (rowsUpdated > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy vé lượt phù hợp để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi cập nhật vé lượt mất thẻ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public bool KiemTraTrongBai(string mathe, string bienso)

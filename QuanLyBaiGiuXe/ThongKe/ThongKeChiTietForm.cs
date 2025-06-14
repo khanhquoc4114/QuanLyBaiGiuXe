@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using QuanLyBaiGiuXe.Models;
+using QuanLyBaiGiuXe.Helper;
 
 namespace QuanLyBaiGiuXe
 {
@@ -23,24 +24,36 @@ namespace QuanLyBaiGiuXe
         private void LoadUI() {
             dtpTu.Format = DateTimePickerFormat.Custom;
             dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTu.Value = DateTime.Now.AddDays(-7);
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
-            List<LoaiXeItem> listXe = manager.GetDanhSachXe();
-            listXe.Insert(0, new LoaiXeItem { MaLoaiXe = 0, TenLoaiXe = "Tất cả xe" });
-            cbLoaiXe.DataSource = listXe;
-            cbLoaiXe.DisplayMember = "TenLoaiXe";  // hiển thị tên
-            cbLoaiXe.ValueMember = "MaLoaiXe";
+
+            List<ComboBoxItem> listXe = manager.GetDanhSachXe();
+            LoadComboBox(cbLoaiXe, listXe, "loại xe");
+
             List<string> groupsVe = new List<string> { "Tất cả loại vé", "Vé tháng", "Vé lượt" };
             cbLoaiVe.DataSource = groupsVe;
             List<string> groupsTruyVan = new List<string> { "Tất cả xe", "Đã ra", "Chưa ra" };
             cbTruyVan.DataSource = groupsTruyVan;
+        }
+        private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)
+        {
+            if (includeTatCa)
+            {
+                data.Insert(0, new ComboBoxItem { Value = -1, Text = "Tất cả" + " " + suffix });
+            }
+
+            comboBox.DataSource = null;
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Text";
+            comboBox.ValueMember = "Value";
+            comboBox.SelectedIndex = 0;
         }
         private void LoadData()
         {
             dtgDienGiai.DataSource = manager.GetDienGiaiThongKeChiTiet();
             dtgThongKe.DataSource = manager.GetThongKeChiTiet();
         }
-
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             if (dtpTu.Value > dtpDen.Value)
@@ -71,7 +84,6 @@ namespace QuanLyBaiGiuXe
             dtgThongKe.DataSource = manager.GetThongKeChiTietByTimKiem(truyvan, loaive, loaixe, dtpTu.Value, dtpDen.Value);
             dtgDienGiai.DataSource = manager.GetDienGiaiThongKeChiTiet(truyvan, loaixe, dtpTu.Value, dtpDen.Value);
         }
-
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog())

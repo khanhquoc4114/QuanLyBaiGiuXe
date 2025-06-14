@@ -31,11 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnDong = new System.Windows.Forms.Button();
+            this.btnDongYDong = new System.Windows.Forms.Button();
             this.tbTenLoaiXe = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDongYDong = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -47,8 +47,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 155);
+            this.panel1.Size = new System.Drawing.Size(343, 191);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -59,36 +60,51 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.panel3.Location = new System.Drawing.Point(0, 42);
+            this.panel3.Location = new System.Drawing.Point(0, 52);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(257, 113);
+            this.panel3.Size = new System.Drawing.Size(343, 139);
             this.panel3.TabIndex = 1;
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(139, 63);
+            this.btnDong.Location = new System.Drawing.Point(185, 78);
+            this.btnDong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(100, 40);
+            this.btnDong.Size = new System.Drawing.Size(133, 49);
             this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // btnDongYDong
+            // 
+            this.btnDongYDong.Location = new System.Drawing.Point(21, 78);
+            this.btnDongYDong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDongYDong.Name = "btnDongYDong";
+            this.btnDongYDong.Size = new System.Drawing.Size(156, 49);
+            this.btnDongYDong.TabIndex = 3;
+            this.btnDongYDong.Text = "Đồng ý & Đóng";
+            this.btnDongYDong.UseVisualStyleBackColor = true;
+            this.btnDongYDong.Click += new System.EventHandler(this.btnDongYDong_Click);
+            // 
             // tbTenLoaiXe
             // 
             this.tbTenLoaiXe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTenLoaiXe.Location = new System.Drawing.Point(127, 26);
+            this.tbTenLoaiXe.Location = new System.Drawing.Point(169, 32);
+            this.tbTenLoaiXe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTenLoaiXe.Name = "tbTenLoaiXe";
-            this.tbTenLoaiXe.Size = new System.Drawing.Size(112, 25);
+            this.tbTenLoaiXe.Size = new System.Drawing.Size(149, 30);
             this.tbTenLoaiXe.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(28, 28);
+            this.label3.Location = new System.Drawing.Point(37, 34);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 19);
+            this.label3.Size = new System.Drawing.Size(94, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên loại xe:";
             // 
@@ -97,38 +113,31 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(257, 42);
+            this.panel2.Size = new System.Drawing.Size(343, 52);
             this.panel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 21);
+            this.label1.Size = new System.Drawing.Size(134, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thêm loại xe";
             // 
-            // btnDongYDong
-            // 
-            this.btnDongYDong.Location = new System.Drawing.Point(16, 63);
-            this.btnDongYDong.Name = "btnDongYDong";
-            this.btnDongYDong.Size = new System.Drawing.Size(117, 40);
-            this.btnDongYDong.TabIndex = 3;
-            this.btnDongYDong.Text = "Đồng ý & Đóng";
-            this.btnDongYDong.UseVisualStyleBackColor = true;
-            this.btnDongYDong.Click += new System.EventHandler(this.btnDongYDong_Click);
-            // 
             // ThemXeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 155);
+            this.ClientSize = new System.Drawing.Size(343, 191);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ThemXeForm";
-            this.Text = "ThemXeForm";
+            this.Text = "Thêm xe";
             this.Load += new System.EventHandler(this.ThemXeForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

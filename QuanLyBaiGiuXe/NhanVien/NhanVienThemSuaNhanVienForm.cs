@@ -1,4 +1,5 @@
-﻿using QuanLyBaiGiuXe.Models;
+﻿using QuanLyBaiGiuXe.Helper;
+using QuanLyBaiGiuXe.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,8 +27,22 @@ namespace QuanLyBaiGiuXe
 
         private void LoadUI()
         {
-            List<string> groups = manager.GetDanhSachNhomNhanVien();
-            cbNhom.DataSource = groups;
+            List<ComboBoxItem> groups = manager.GetDanhSachNhomNhanVien();
+            LoadComboBox(cbNhom, groups, includeTatCa: false);
+        }
+
+        private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)
+        {
+            if (includeTatCa)
+            {
+                data.Insert(0, new ComboBoxItem { Value = -1, Text = "Tất cả" + " " + suffix });
+            }
+
+            comboBox.DataSource = null;
+            comboBox.DataSource = data;
+            comboBox.DisplayMember = "Text";
+            comboBox.ValueMember = "Value";
+            comboBox.SelectedIndex = 0;
         }
 
         private void LoadData()
@@ -79,12 +94,13 @@ namespace QuanLyBaiGiuXe
             if (string.IsNullOrWhiteSpace(tbNhapLai.Text) || tbNhapLai.Text != tbMatKhau.Text)
             {
                 MessageBox.Show("Vui lòng nhập lại mật Khẩu đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbMatKhau.Focus();
+                tbNhapLai.Focus();
                 return false;
             }
             return true;
         }
 
+        #region Button Logic
         private void btnDongYDong_Click(object sender, EventArgs e)
         {
             if (!KiemTraThongTinNhap()) return;
@@ -94,7 +110,6 @@ namespace QuanLyBaiGiuXe
                 result = ThemNhanVien();
                 if (result)
                 {
-                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ThemSuaThanhCong = true;
                     this.Close();
                 }
@@ -104,7 +119,6 @@ namespace QuanLyBaiGiuXe
                 result = CapNhatNhanVien();
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ThemSuaThanhCong = true;
                     this.Close();
                 }
@@ -128,6 +142,7 @@ namespace QuanLyBaiGiuXe
         {
             Close();
         }
+        #endregion
 
         private void Clear()
         {
@@ -149,7 +164,30 @@ namespace QuanLyBaiGiuXe
             string tenDangNhap = tbTenDangNhap.Text.Trim();
             string matKhau = tbMatKhau.Text.Trim();
             string ghiChu = rtbGhiChu.Text.Trim();
-            return manager.ThemNhanVien(tenNhom, hoTen, maThe, tenDangNhap, matKhau, ghiChu);
+            bool isAdded = manager.ThemNhanVien(tenNhom, hoTen, maThe, tenDangNhap, matKhau, ghiChu, out bool isTonTaiThe, out bool isTonTaiTheChoNhanVien);
+            if (isAdded)
+            {
+                ToastService.Show("Thêm nhân viên thành công!", this);
+                return true;
+            }
+            else
+            {
+                if (!isTonTaiThe)
+                {
+                    ToastService.Show("Thẻ không tồn tại!", this);
+                    return false;
+                }
+                else if (isTonTaiTheChoNhanVien)
+                {
+                    ToastService.Show("Thẻ đã được sử dụng cho nhân viên khác!", this);
+                    return false;
+                }
+                else
+                {
+                    ToastService.Show("Thêm nhân viên thất bại", this);
+                    return false;
+                }
+            }
         }
         bool CapNhatNhanVien()
         {
@@ -159,7 +197,30 @@ namespace QuanLyBaiGiuXe
             string tenDangNhap = tbTenDangNhap.Text.Trim();
             string matKhau = tbMatKhau.Text.Trim();
             string ghiChu = rtbGhiChu.Text.Trim();
-            return manager.CapNhatNhanVien(MaNhanVien, tenNhom, hoTen, maThe, tenDangNhap, matKhau, ghiChu);
+            bool isUpdated = manager.CapNhatNhanVien(MaNhanVien, tenNhom, hoTen, maThe, tenDangNhap, matKhau, ghiChu, out bool isTonTaiThe, out bool isTonTaiTheChoNhanVien);
+            if (isUpdated)
+            {
+                ToastService.Show("Cập nhật nhân viên thành công!", this);
+                return true;
+            }
+            else
+            {
+                if (!isTonTaiThe)
+                {
+                    ToastService.Show("Thẻ không tồn tại!", this);
+                    return false;
+                }
+                else if (isTonTaiTheChoNhanVien)
+                {
+                    ToastService.Show("Thẻ đã được sử dụng cho nhân viên khác!", this);
+                    return false;
+                }
+                else
+                {
+                    ToastService.Show("Cập nhật nhân viên thất bại", this);
+                    return false;
+                }
+            }
         }
         #endregion
 

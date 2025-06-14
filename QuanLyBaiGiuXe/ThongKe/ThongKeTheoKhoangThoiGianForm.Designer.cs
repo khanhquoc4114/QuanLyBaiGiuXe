@@ -33,19 +33,19 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dtgThongKe = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbNhanVien = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpDen = new System.Windows.Forms.DateTimePicker();
             this.dtpTu = new System.Windows.Forms.DateTimePicker();
             this.cbLoaiXe = new System.Windows.Forms.ComboBox();
+            this.cbKhoangThoiGian = new System.Windows.Forms.ComboBox();
             this.cbLoaiVe = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
-            this.cbNhanVien = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbKhoangThoiGian = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -60,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1690, 554);
+            this.panel1.Size = new System.Drawing.Size(1124, 554);
             this.panel1.TabIndex = 2;
             // 
             // panel3
@@ -71,17 +71,17 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1690, 554);
+            this.panel3.Size = new System.Drawing.Size(1124, 554);
             this.panel3.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.dtgThongKe);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 62);
+            this.panel5.Location = new System.Drawing.Point(0, 121);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1690, 492);
+            this.panel5.Size = new System.Drawing.Size(1124, 433);
             this.panel5.TabIndex = 1;
             // 
             // dtgThongKe
@@ -89,6 +89,7 @@
             this.dtgThongKe.AllowUserToAddRows = false;
             this.dtgThongKe.AllowUserToDeleteRows = false;
             this.dtgThongKe.AllowUserToResizeRows = false;
+            this.dtgThongKe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgThongKe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgThongKe.Location = new System.Drawing.Point(0, 0);
@@ -98,7 +99,7 @@
             this.dtgThongKe.RowHeadersVisible = false;
             this.dtgThongKe.RowHeadersWidth = 51;
             this.dtgThongKe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgThongKe.Size = new System.Drawing.Size(1690, 492);
+            this.dtgThongKe.Size = new System.Drawing.Size(1124, 433);
             this.dtgThongKe.TabIndex = 2;
             // 
             // panel4
@@ -121,8 +122,26 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1690, 62);
+            this.panel4.Size = new System.Drawing.Size(1124, 121);
             this.panel4.TabIndex = 0;
+            // 
+            // cbNhanVien
+            // 
+            this.cbNhanVien.FormattingEnabled = true;
+            this.cbNhanVien.Location = new System.Drawing.Point(586, 68);
+            this.cbNhanVien.Name = "cbNhanVien";
+            this.cbNhanVien.Size = new System.Drawing.Size(152, 28);
+            this.cbNhanVien.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(489, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 20);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Nhân viên:";
             // 
             // label2
             // 
@@ -164,74 +183,10 @@
             // cbLoaiXe
             // 
             this.cbLoaiXe.FormattingEnabled = true;
-            this.cbLoaiXe.Location = new System.Drawing.Point(984, 15);
+            this.cbLoaiXe.Location = new System.Drawing.Point(328, 68);
             this.cbLoaiXe.Name = "cbLoaiXe";
             this.cbLoaiXe.Size = new System.Drawing.Size(152, 28);
             this.cbLoaiXe.TabIndex = 8;
-            // 
-            // cbLoaiVe
-            // 
-            this.cbLoaiVe.FormattingEnabled = true;
-            this.cbLoaiVe.Location = new System.Drawing.Point(746, 15);
-            this.cbLoaiVe.Name = "cbLoaiVe";
-            this.cbLoaiVe.Size = new System.Drawing.Size(152, 28);
-            this.cbLoaiVe.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(907, 19);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Loại xe:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(669, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Loại vé:";
-            // 
-            // btnXuatExcel
-            // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(1504, 14);
-            this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(109, 30);
-            this.btnXuatExcel.TabIndex = 4;
-            this.btnXuatExcel.Text = "Xuất Excel";
-            this.btnXuatExcel.UseVisualStyleBackColor = true;
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.Location = new System.Drawing.Point(1403, 14);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(92, 30);
-            this.btnThongKe.TabIndex = 3;
-            this.btnThongKe.Text = "Thống kê";
-            this.btnThongKe.UseVisualStyleBackColor = true;
-            // 
-            // cbNhanVien
-            // 
-            this.cbNhanVien.FormattingEnabled = true;
-            this.cbNhanVien.Location = new System.Drawing.Point(1242, 15);
-            this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Size = new System.Drawing.Size(152, 28);
-            this.cbNhanVien.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1145, 19);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Nhân viên:";
             // 
             // cbKhoangThoiGian
             // 
@@ -241,11 +196,59 @@
             this.cbKhoangThoiGian.Size = new System.Drawing.Size(141, 28);
             this.cbKhoangThoiGian.TabIndex = 9;
             // 
+            // cbLoaiVe
+            // 
+            this.cbLoaiVe.FormattingEnabled = true;
+            this.cbLoaiVe.Location = new System.Drawing.Point(90, 68);
+            this.cbLoaiVe.Name = "cbLoaiVe";
+            this.cbLoaiVe.Size = new System.Drawing.Size(152, 28);
+            this.cbLoaiVe.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(251, 72);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Loại xe:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 72);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Loại vé:";
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Location = new System.Drawing.Point(900, 12);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(111, 46);
+            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Location = new System.Drawing.Point(793, 12);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(101, 46);
+            this.btnThongKe.TabIndex = 3;
+            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
             // ThongKeTheoKhoangThoiGianForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1690, 554);
+            this.ClientSize = new System.Drawing.Size(1124, 554);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ThongKeTheoKhoangThoiGianForm";

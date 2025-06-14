@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dtgNhatKyDangNhap = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -38,12 +39,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpDen = new System.Windows.Forms.DateTimePicker();
             this.dtpTu = new System.Windows.Forms.DateTimePicker();
-            this.dtgNhatKyDangNhap = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgNhatKyDangNhap)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,8 +77,31 @@
             this.panel5.Size = new System.Drawing.Size(1148, 381);
             this.panel5.TabIndex = 1;
             // 
+            // dtgNhatKyDangNhap
+            // 
+            this.dtgNhatKyDangNhap.AllowUserToAddRows = false;
+            this.dtgNhatKyDangNhap.AllowUserToDeleteRows = false;
+            this.dtgNhatKyDangNhap.AllowUserToResizeRows = false;
+            this.dtgNhatKyDangNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgNhatKyDangNhap.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgNhatKyDangNhap.ColumnHeadersHeight = 29;
+            this.dtgNhatKyDangNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtgNhatKyDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgNhatKyDangNhap.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgNhatKyDangNhap.Location = new System.Drawing.Point(0, 0);
+            this.dtgNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgNhatKyDangNhap.MultiSelect = false;
+            this.dtgNhatKyDangNhap.Name = "dtgNhatKyDangNhap";
+            this.dtgNhatKyDangNhap.ReadOnly = true;
+            this.dtgNhatKyDangNhap.RowHeadersVisible = false;
+            this.dtgNhatKyDangNhap.RowHeadersWidth = 51;
+            this.dtgNhatKyDangNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgNhatKyDangNhap.Size = new System.Drawing.Size(1148, 381);
+            this.dtgNhatKyDangNhap.TabIndex = 5;
+            // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btnXuatExcel);
             this.panel4.Controls.Add(this.btnTimKiem);
             this.panel4.Controls.Add(this.label2);
@@ -95,7 +118,7 @@
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(792, 8);
+            this.btnXuatExcel.Location = new System.Drawing.Point(792, 7);
             this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(161, 28);
@@ -106,7 +129,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(601, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(601, 7);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(161, 28);
@@ -121,17 +144,17 @@
             this.label2.Location = new System.Drawing.Point(303, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.Size = new System.Drawing.Size(44, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Đến:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 14);
+            this.label1.Location = new System.Drawing.Point(13, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 17);
+            this.label1.Size = new System.Drawing.Size(33, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Từ:";
             // 
@@ -140,7 +163,7 @@
             this.dtpDen.Location = new System.Drawing.Point(371, 11);
             this.dtpDen.Margin = new System.Windows.Forms.Padding(5);
             this.dtpDen.Name = "dtpDen";
-            this.dtpDen.Size = new System.Drawing.Size(200, 23);
+            this.dtpDen.Size = new System.Drawing.Size(200, 26);
             this.dtpDen.TabIndex = 1;
             // 
             // dtpTu
@@ -149,28 +172,8 @@
             this.dtpTu.Location = new System.Drawing.Point(73, 11);
             this.dtpTu.Margin = new System.Windows.Forms.Padding(5);
             this.dtpTu.Name = "dtpTu";
-            this.dtpTu.Size = new System.Drawing.Size(200, 23);
+            this.dtpTu.Size = new System.Drawing.Size(200, 26);
             this.dtpTu.TabIndex = 0;
-            // 
-            // dtgNhatKyDangNhap
-            // 
-            this.dtgNhatKyDangNhap.AllowUserToAddRows = false;
-            this.dtgNhatKyDangNhap.AllowUserToDeleteRows = false;
-            this.dtgNhatKyDangNhap.AllowUserToResizeRows = false;
-            this.dtgNhatKyDangNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtgNhatKyDangNhap.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtgNhatKyDangNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dtgNhatKyDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgNhatKyDangNhap.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgNhatKyDangNhap.Location = new System.Drawing.Point(0, 0);
-            this.dtgNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgNhatKyDangNhap.MultiSelect = false;
-            this.dtgNhatKyDangNhap.Name = "dtgNhatKyDangNhap";
-            this.dtgNhatKyDangNhap.ReadOnly = true;
-            this.dtgNhatKyDangNhap.RowHeadersVisible = false;
-            this.dtgNhatKyDangNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgNhatKyDangNhap.Size = new System.Drawing.Size(1148, 381);
-            this.dtgNhatKyDangNhap.TabIndex = 5;
             // 
             // NhatKyDangNhapForm
             // 
@@ -180,14 +183,14 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NhatKyDangNhapForm";
-            this.Text = "NhatKyDangNhap";
+            this.Text = "Nhật ký đăng nhập";
             this.Load += new System.EventHandler(this.NhatKyDangNhapForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhatKyDangNhap)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgNhatKyDangNhap)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -35,8 +35,7 @@
             this.btnXoaNhom = new System.Windows.Forms.Button();
             this.tbContent = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.btnDoiMatKhau = new System.Windows.Forms.Button();
-            this.btnKhoiPhucNhanVien = new System.Windows.Forms.Button();
+            this.btnKhoiPhuc = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtgNhomNhanVien = new System.Windows.Forms.DataGridView();
             this.btnXoaNhanVien = new System.Windows.Forms.Button();
@@ -132,25 +131,16 @@
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // btnDoiMatKhau
+            // btnKhoiPhuc
             // 
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(524, 13);
-            this.btnDoiMatKhau.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Size = new System.Drawing.Size(120, 28);
-            this.btnDoiMatKhau.TabIndex = 4;
-            this.btnDoiMatKhau.Text = "Đổi mật khẩu";
-            this.btnDoiMatKhau.UseVisualStyleBackColor = true;
-            // 
-            // btnKhoiPhucNhanVien
-            // 
-            this.btnKhoiPhucNhanVien.Location = new System.Drawing.Point(395, 13);
-            this.btnKhoiPhucNhanVien.Margin = new System.Windows.Forms.Padding(4);
-            this.btnKhoiPhucNhanVien.Name = "btnKhoiPhucNhanVien";
-            this.btnKhoiPhucNhanVien.Size = new System.Drawing.Size(100, 28);
-            this.btnKhoiPhucNhanVien.TabIndex = 4;
-            this.btnKhoiPhucNhanVien.Text = "Khôi phục";
-            this.btnKhoiPhucNhanVien.UseVisualStyleBackColor = true;
+            this.btnKhoiPhuc.Location = new System.Drawing.Point(395, 13);
+            this.btnKhoiPhuc.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKhoiPhuc.Name = "btnKhoiPhuc";
+            this.btnKhoiPhuc.Size = new System.Drawing.Size(100, 28);
+            this.btnKhoiPhuc.TabIndex = 4;
+            this.btnKhoiPhuc.Text = "Khôi phục";
+            this.btnKhoiPhuc.UseVisualStyleBackColor = true;
+            this.btnKhoiPhuc.Click += new System.EventHandler(this.btnKhoiPhuc_Click);
             // 
             // panel2
             // 
@@ -168,8 +158,9 @@
             this.dtgNhomNhanVien.AllowUserToAddRows = false;
             this.dtgNhomNhanVien.AllowUserToDeleteRows = false;
             this.dtgNhomNhanVien.AllowUserToResizeRows = false;
-            this.dtgNhomNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgNhomNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgNhomNhanVien.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgNhomNhanVien.ColumnHeadersHeight = 29;
             this.dtgNhomNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgNhomNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgNhomNhanVien.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -179,6 +170,7 @@
             this.dtgNhomNhanVien.Name = "dtgNhomNhanVien";
             this.dtgNhomNhanVien.ReadOnly = true;
             this.dtgNhomNhanVien.RowHeadersVisible = false;
+            this.dtgNhomNhanVien.RowHeadersWidth = 51;
             this.dtgNhomNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgNhomNhanVien.Size = new System.Drawing.Size(463, 633);
             this.dtgNhomNhanVien.TabIndex = 4;
@@ -210,8 +202,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.tbContent);
             this.panel5.Controls.Add(this.btnTimKiem);
-            this.panel5.Controls.Add(this.btnDoiMatKhau);
-            this.panel5.Controls.Add(this.btnKhoiPhucNhanVien);
+            this.panel5.Controls.Add(this.btnKhoiPhuc);
             this.panel5.Controls.Add(this.btnSuaNhanVien);
             this.panel5.Controls.Add(this.btnXoaNhanVien);
             this.panel5.Controls.Add(this.btnThemNhanVien);
@@ -249,7 +240,7 @@
             this.dtgNhanVien.AllowUserToAddRows = false;
             this.dtgNhanVien.AllowUserToDeleteRows = false;
             this.dtgNhanVien.AllowUserToResizeRows = false;
-            this.dtgNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgNhanVien.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -260,9 +251,11 @@
             this.dtgNhanVien.Name = "dtgNhanVien";
             this.dtgNhanVien.ReadOnly = true;
             this.dtgNhanVien.RowHeadersVisible = false;
+            this.dtgNhanVien.RowHeadersWidth = 51;
             this.dtgNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgNhanVien.Size = new System.Drawing.Size(1045, 633);
             this.dtgNhanVien.TabIndex = 4;
+            this.dtgNhanVien.SelectionChanged += new System.EventHandler(this.dtgNhanVien_SelectionChanged);
             // 
             // panel1
             // 
@@ -305,8 +298,7 @@
         private System.Windows.Forms.Button btnXoaNhom;
         private System.Windows.Forms.TextBox tbContent;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnDoiMatKhau;
-        private System.Windows.Forms.Button btnKhoiPhucNhanVien;
+        private System.Windows.Forms.Button btnKhoiPhuc;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnXoaNhanVien;
         private System.Windows.Forms.Button btnThemNhanVien;

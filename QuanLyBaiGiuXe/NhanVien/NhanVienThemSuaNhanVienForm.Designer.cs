@@ -131,7 +131,7 @@
             this.rtbGhiChu.Margin = new System.Windows.Forms.Padding(4);
             this.rtbGhiChu.Name = "rtbGhiChu";
             this.rtbGhiChu.Size = new System.Drawing.Size(695, 144);
-            this.rtbGhiChu.TabIndex = 9;
+            this.rtbGhiChu.TabIndex = 6;
             this.rtbGhiChu.Text = "";
             // 
             // tbHoTen
@@ -141,7 +141,7 @@
             this.tbHoTen.Margin = new System.Windows.Forms.Padding(4);
             this.tbHoTen.Name = "tbHoTen";
             this.tbHoTen.Size = new System.Drawing.Size(221, 26);
-            this.tbHoTen.TabIndex = 3;
+            this.tbHoTen.TabIndex = 1;
             // 
             // tbTenDangNhap
             // 
@@ -150,7 +150,7 @@
             this.tbTenDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.tbTenDangNhap.Name = "tbTenDangNhap";
             this.tbTenDangNhap.Size = new System.Drawing.Size(221, 26);
-            this.tbTenDangNhap.TabIndex = 4;
+            this.tbTenDangNhap.TabIndex = 3;
             // 
             // tbNhapLai
             // 
@@ -168,8 +168,9 @@
             this.tbMatKhau.Location = new System.Drawing.Point(176, 169);
             this.tbMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.tbMatKhau.Name = "tbMatKhau";
+            this.tbMatKhau.PasswordChar = '*';
             this.tbMatKhau.Size = new System.Drawing.Size(221, 26);
-            this.tbMatKhau.TabIndex = 2;
+            this.tbMatKhau.TabIndex = 4;
             // 
             // tbMaThe
             // 
@@ -178,7 +179,7 @@
             this.tbMaThe.Margin = new System.Windows.Forms.Padding(4);
             this.tbMaThe.Name = "tbMaThe";
             this.tbMaThe.Size = new System.Drawing.Size(221, 26);
-            this.tbMaThe.TabIndex = 1;
+            this.tbMaThe.TabIndex = 2;
             // 
             // cbNhom
             // 
@@ -268,7 +269,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NhanVienThemSuaNhanVienForm";
-            this.Text = "NguoiDungThemNhanVienForm";
+            this.Text = "Thêm nhân viên mới";
             this.Load += new System.EventHandler(this.NhanVienThemSuaNhanVienForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

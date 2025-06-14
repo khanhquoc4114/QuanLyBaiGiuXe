@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
+using Microsoft.SqlServer.Server;
 using QuanLyBaiGiuXe.Models;
 
 namespace QuanLyBaiGiuXe.DataAccess
@@ -24,21 +26,44 @@ namespace QuanLyBaiGiuXe.DataAccess
             }
         }
 
-        public string GetMaNhanVien(string username, string password)
+        public string GetMaNhanVien(string username, string password, out string errorMessage)
         {
+            errorMessage = "";
             try
             {
                 db.OpenConnection();
-                using (SqlCommand cmd = new SqlCommand("SELECT MaNhanVien FROM NhanVien WHERE TenDangNhap = @username AND MatKhau = @password", db.GetConnection()))
+                using (SqlCommand cmd = new SqlCommand(@"
+                    SELECT MaNhanVien, TrangThai 
+                    FROM NhanVien 
+                    WHERE TenDangNhap = @username AND MatKhau = @password", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
 
-                    object result = cmd.ExecuteScalar();
-                    return result?.ToString();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string trangThai = reader["TrangThai"].ToString();
+                            if (trangThai == "Khoá")
+                            {
+                                errorMessage = "Tài khoản này đã bị khóa.";
+                                return "";
+                            }
+
+                            return reader["MaNhanVien"].ToString();
+                        }
+                        else
+                        {
+                            errorMessage = "Sai tên đăng nhập hoặc mật khẩu.";
+                            return "";
+                        }
+                    }
                 }
-            } catch
+            }
+            catch (Exception ex)
             {
+                errorMessage = "Lỗi kiểm tra đăng nhập hệ thống: " + ex.Message;
                 return "";
             }
         }
@@ -114,6 +139,17 @@ namespace QuanLyBaiGiuXe.DataAccess
             catch
             {
                 return false;
+            }
+        }
+
+        public string GetHoTenByMaNhanVien(string maNhanVien)
+        {
+            db.OpenConnection();
+            using (SqlCommand cmd = new SqlCommand("SELECT HoTen FROM NhanVien WHERE MaNhanVien = @MaNV", db.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("@MaNV", maNhanVien);
+                object result = cmd.ExecuteScalar();
+                return result?.ToString();
             }
         }
     }
