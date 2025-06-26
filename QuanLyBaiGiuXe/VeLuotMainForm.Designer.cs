@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VeLuotMainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -143,7 +144,7 @@
             this.label2.Location = new System.Drawing.Point(277, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 17);
+            this.label2.Size = new System.Drawing.Size(51, 28);
             this.label2.TabIndex = 7;
             this.label2.Text = "Đến:";
             // 
@@ -153,7 +154,7 @@
             this.label1.Location = new System.Drawing.Point(13, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 17);
+            this.label1.Size = new System.Drawing.Size(38, 28);
             this.label1.TabIndex = 8;
             this.label1.Text = "Từ:";
             // 
@@ -162,7 +163,7 @@
             this.dtpDen.Location = new System.Drawing.Point(330, 10);
             this.dtpDen.Margin = new System.Windows.Forms.Padding(5);
             this.dtpDen.Name = "dtpDen";
-            this.dtpDen.Size = new System.Drawing.Size(200, 25);
+            this.dtpDen.Size = new System.Drawing.Size(200, 33);
             this.dtpDen.TabIndex = 6;
             // 
             // dtpTu
@@ -171,7 +172,7 @@
             this.dtpTu.Location = new System.Drawing.Point(58, 10);
             this.dtpTu.Margin = new System.Windows.Forms.Padding(5);
             this.dtpTu.Name = "dtpTu";
-            this.dtpTu.Size = new System.Drawing.Size(200, 25);
+            this.dtpTu.Size = new System.Drawing.Size(200, 33);
             this.dtpTu.TabIndex = 5;
             // 
             // panel2
@@ -204,11 +205,12 @@
             // 
             // VeLuotMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 364);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VeLuotMainForm";
             this.Text = "Vé lượt";

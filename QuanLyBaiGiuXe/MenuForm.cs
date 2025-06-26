@@ -34,10 +34,11 @@ namespace QuanLyBaiGiuXe
             theMainForm.Show();
         }
 
-        private void btnNhanVien_Click(object sender, EventArgs e)
+        private void btnNguoiDung_Click(object sender, EventArgs e)
         {
             NhanVienMainForm nhanVienMainForm = new NhanVienMainForm();
             nhanVienMainForm.Show();
+
         }
 
         private void btnVeLuot_Click(object sender, EventArgs e)
@@ -136,6 +137,17 @@ namespace QuanLyBaiGiuXe
             Properties.Settings.Default.Save();
 
             Application.Restart();
+        }
+
+        private void btnMainForm_Click(object sender, EventArgs e)
+        {
+            var form = new MainForm();
+            form.Show();
+        }
+
+        private void btnNhatKyMatThe_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -234,7 +234,6 @@
     <Compile Include="A-Test.Designer.cs">
       <DependentUpon>A-Test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\HashHelper.cs" />
     <Compile Include="Helper\ToastService.cs" />
     <Compile Include="HeThong\CauHinhNguoiDungForm.cs">
       <SubType>Form</SubType>
@@ -305,6 +304,12 @@
     </Compile>
     <Compile Include="NhatKy\NhatKyVeLuotForm.Designer.cs">
       <DependentUpon>NhatKyVeLuotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhatKy\NhatKyXuLyMatTheForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhatKy\NhatKyXuLyMatTheForm.Designer.cs">
+      <DependentUpon>NhatKyXuLyMatTheForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NhatKy\NhatKyXuLyVeThangForm.cs">
       <SubType>Form</SubType>
@@ -425,6 +430,9 @@
     <EmbeddedResource Include="HeThong\CauHinhNguoiDungForm.resx">
       <DependentUpon>CauHinhNguoiDungForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NhatKy\NhatKyXuLyMatTheForm.resx">
+      <DependentUpon>NhatKyXuLyMatTheForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TraCuuRaVao\DieuChinhGiaVeForm.resx">
       <DependentUpon>DieuChinhGiaVeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,6 +546,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="icon\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

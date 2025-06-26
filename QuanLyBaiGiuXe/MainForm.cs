@@ -22,13 +22,48 @@ namespace QuanLyBaiGiuXe
         Manager manager = new Manager();
         VeManager veManager = new VeManager();
         private FilterInfoCollection videoDevices;
-        private VideoCaptureDevice videoSource;
+        private VideoCaptureDevice videoSource1;
+        private VideoCaptureDevice videoSource2;
         string MaSoXe = string.Empty;
+        private int selectedCameraIndex = 0;
 
         public MainForm()
         {
             InitializeComponent();
         }
+        private void UpdateCameraLabelStyle()
+        {
+            // Camera 0
+            lblCamera0.Font = selectedCameraIndex == 0
+                ? new Font(lblCamera0.Font, FontStyle.Bold)
+                : new Font(lblCamera0.Font, FontStyle.Regular);
+
+            lblCamera0.ForeColor = selectedCameraIndex == 0 ? Color.DarkBlue : Color.Gray;
+            lblCamera0.BackColor = selectedCameraIndex == 0 ? Color.LightCyan : SystemColors.Control;
+
+            // Camera 1
+            lblCamera1.Font = selectedCameraIndex == 1
+                ? new Font(lblCamera1.Font, FontStyle.Bold)
+                : new Font(lblCamera1.Font, FontStyle.Regular);
+
+            lblCamera1.ForeColor = selectedCameraIndex == 1 ? Color.DarkBlue : Color.Gray;
+            lblCamera1.BackColor = selectedCameraIndex == 1 ? Color.LightCyan : SystemColors.Control;
+        }
+
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (selectedCameraIndex == 1 && (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
+            {
+                selectedCameraIndex = 0;
+            }
+            else if (selectedCameraIndex == 0 && (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
+            {
+                selectedCameraIndex = 1;
+            }
+            UpdateCameraLabelStyle();
+        }
+
         private async void MainForm_LoadAsync(object sender, EventArgs e)
         {
             LoadData();
@@ -36,26 +71,59 @@ namespace QuanLyBaiGiuXe
             this.BeginInvoke(new Action(() => txtMaThe.Focus()));
             txtMaThe.Clear();
             txtMaThe.Focus();
+            UpdateCameraLabelStyle();
             ctsPingModel = new CancellationTokenSource();
             await PingModelUntilReadyAsync(ctsPingModel.Token);
         }
-
-        private void LoadData()
-        {
-            var danhSachXe = manager.GetDanhSachXe();
-            lbSoLuong.Text = $"SL: {manager.GetSoLuongXeChuaRa()}";
-            if (danhSachXe != null && danhSachXe.Count > 0)
-            {
-                LoadComboBox(cbLoaiXe, danhSachXe, includeTatCa: false);
-            }
-            else
-            {
-                cbLoaiXe.DataSource = null;
-                cbLoaiXe.Text = "-- Không có dữ liệu --";
-            }
-        }
-
         #region Nhận diện
+        //private void SendImageAndReceiveResult(string filePath)
+        //{
+        //    try
+        //    {
+        //        byte[] imageData = File.ReadAllBytes(filePath);
+        //        string serverIP = "127.0.0.1";
+
+        //        using (TcpClient client = new TcpClient(serverIP, 54321))
+        //        using (NetworkStream stream = client.GetStream())
+        //        {
+        //            client.ReceiveTimeout = 10000;
+        //            client.SendTimeout = 10000;
+        //            byte[] fileSizeBytes = BitConverter.GetBytes(imageData.Length);
+        //            if (BitConverter.IsLittleEndian)
+        //                Array.Reverse(fileSizeBytes);
+
+        //            stream.Write(fileSizeBytes, 0, 4);
+        //            stream.Write(imageData, 0, imageData.Length);
+
+        //            byte[] sizeBuffer = new byte[4];
+        //            stream.Read(sizeBuffer, 0, 4);
+        //            if (BitConverter.IsLittleEndian)
+        //                Array.Reverse(sizeBuffer);
+        //            int responseSize = BitConverter.ToInt32(sizeBuffer, 0);
+
+        //            byte[] responseData = new byte[responseSize];
+        //            int totalRead = 0;
+        //            while (totalRead < responseSize)
+        //            {
+        //                int bytesRead = stream.Read(responseData, totalRead, responseSize - totalRead);
+        //                if (bytesRead == 0) break;
+        //                totalRead += bytesRead;
+        //            }
+
+        //            string jsonResult = Encoding.UTF8.GetString(responseData);
+        //            Console.WriteLine("Response from server: " + jsonResult);
+        //            var json = JObject.Parse(jsonResult);
+        //            string plateText = json["plate_text"]?.ToString() ?? "unknown";
+        //            tbBienSoVao.Text = plateText;
+        //            MaSoXe = plateText;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi nhận kết quả từ model: " + ex.Message);
+        //    }
+        //}
+
         private void SendImageAndReceiveResult(string filePath)
         {
             try
@@ -118,39 +186,39 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Lỗi gửi/nhận từ server: " + ex.Message);
             }
         }
-        private void btnNhanDien_Click(object sender, EventArgs e)
-        {
-            if (pb1.Image != null)
-            {
-                string tempPath = Path.Combine(Application.StartupPath, "images/captured_image.jpg");
-                string imageDir = Path.Combine(Application.StartupPath, "images");
-                if (!Directory.Exists(imageDir))
-                {
-                    Directory.CreateDirectory(imageDir);
-                }
-                try
-                {
-                    if (File.Exists(tempPath))
-                    {
-                        File.Delete(tempPath);
-                    }
 
-                    using (Bitmap img = new Bitmap(pb1.Image))
-                    {
-                        img.Save(tempPath, ImageFormat.Jpeg);
-                    }
-                    SendImageAndReceiveResult(tempPath);
-                }
-                finally
-                {
-                    if (File.Exists(tempPath)) File.Delete(tempPath);
-                }
-            }
-            else
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Image selectedImage = selectedCameraIndex == 0 ? pb1.Image : pbCamera1.Image;
+            if (selectedImage == null)
             {
-                MessageBox.Show("Chưa có hình ảnh trong PictureBox!");
+                MessageBox.Show($"❌ Chưa có hình ảnh từ Camera {selectedCameraIndex}!");
+                return;
+            }
+
+            string tempPath = Path.Combine(Application.StartupPath, $"camera{selectedCameraIndex}_image.jpg");
+
+            try
+            {
+                if (File.Exists(tempPath)) File.Delete(tempPath);
+
+                using (Bitmap img = new Bitmap(selectedImage))
+                {
+                    img.Save(tempPath, ImageFormat.Jpeg);
+                }
+
+                SendImageAndReceiveResult(tempPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xử lý ảnh: " + ex.Message);
+            }
+            finally
+            {
+                if (File.Exists(tempPath)) File.Delete(tempPath);
             }
         }
+
         private void LoadCamera()
         {
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -160,51 +228,101 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Không tìm thấy camera!");
                 return;
             }
-            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.NewFrame += VideoSource_NewFrame;
-            videoSource.Start();
-        }
-        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            try
-            {
-                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
 
-                if (pb1.InvokeRequired)
-                {
-                    pb1.BeginInvoke(new Action(() =>
-                    {
-                        pb1.Image?.Dispose();
-                        pb1.Image = bitmap;
-                        pb1.SizeMode = PictureBoxSizeMode.Zoom;
-                    }));
-                }
-                else
+            // Camera 1 -> pb1
+            videoSource1 = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource1.NewFrame += VideoSource1_NewFrame;
+            videoSource1.Start();
+
+            // Camera 2 -> pbCamera1 (nếu có)
+            if (videoDevices.Count > 1)
+            {
+                videoSource2 = new VideoCaptureDevice(videoDevices[1].MonikerString);
+                videoSource2.NewFrame += VideoSource2_NewFrame;
+                videoSource2.Start();
+            }
+        }
+
+        private void VideoSource1_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            if (pb1.InvokeRequired)
+            {
+                pb1.BeginInvoke(new Action(() =>
                 {
                     pb1.Image?.Dispose();
                     pb1.Image = bitmap;
-                    pb1.SizeMode = PictureBoxSizeMode.Zoom;
-                }
+                }));
             }
-            catch { }
+            else
+            {
+                pb1.Image?.Dispose();
+                pb1.Image = bitmap;
+            }
         }
+
+        private void VideoSource2_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            if (pbCamera1.InvokeRequired)
+            {
+                pbCamera1.BeginInvoke(new Action(() =>
+                {
+                    pbCamera1.Image?.Dispose();
+                    pbCamera1.Image = bitmap;
+                }));
+            }
+            else
+            {
+                pbCamera1.Image?.Dispose();
+                pbCamera1.Image = bitmap;
+            }
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (videoSource != null)
+            if (videoSource1 != null)
             {
-                videoSource.SignalToStop();
-                videoSource.WaitForStop();
-                videoSource.NewFrame -= VideoSource_NewFrame;
-                videoSource = null;
+                videoSource1.SignalToStop();
+                videoSource1.WaitForStop();
+                videoSource1.NewFrame -= VideoSource1_NewFrame;
+                videoSource1 = null;
+            }
+
+            if (videoSource2 != null)
+            {
+                videoSource2.SignalToStop();
+                videoSource2.WaitForStop();
+                videoSource2.NewFrame -= VideoSource2_NewFrame;
+                videoSource2 = null;
             }
 
             pb1.Image?.Dispose();
             pb1.Image = null;
+
+            pbCamera1.Image?.Dispose();
+            pbCamera1.Image = null;
+
             ctsPingModel?.Cancel();
         }
+
         #endregion
 
         #region Vé Lượt
+        private void LoadData()
+        {
+            var danhSachXe = manager.GetDanhSachXe();
+            if (danhSachXe != null && danhSachXe.Count > 0)
+            {
+                LoadComboBox(cbLoaiXe, danhSachXe, includeTatCa: false);
+            }
+            else
+            {
+                cbLoaiXe.DataSource = null;
+                cbLoaiXe.Text = "-- Không có dữ liệu --";
+            }
+        }
+
         private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)
         {
             if (includeTatCa)
@@ -218,8 +336,21 @@ namespace QuanLyBaiGiuXe
             comboBox.ValueMember = "Value";
             comboBox.SelectedIndex = 0;
         }
+
         private void ThucHienRaVao()
         {
+            TextBox tbBienSoVao_Current = selectedCameraIndex == 0 ? tbBienSoVao : tbBienSoVao2;
+            TextBox tbBienSoRa_Current = selectedCameraIndex == 0 ? tbBienSoRa : tbBienSoRa2;
+            TextBox tbGioRa_Current = selectedCameraIndex == 0 ? tbGioRa : tbGioRa2;
+            TextBox tbGioVao_Current = selectedCameraIndex == 0 ? tbGioVao : tbGioVao2;
+            TextBox tbNgayRa_Current = selectedCameraIndex == 0 ? tbNgayRa : tbNgayRa2;
+            TextBox tbNgayVao_Current = selectedCameraIndex == 0 ? tbNgayVao : tbNgayVao2;
+            TextBox tbTongTien_Current = selectedCameraIndex == 0 ? tbTongTien : tbTongTien2;
+            TextBox tbLoaiVe_Current = selectedCameraIndex == 0 ? tbLoaiVe : tbLoaiVe2;
+
+            PictureBox pbVao_Current = selectedCameraIndex == 0 ? pbVao : pbVao1;
+            PictureBox pbRa_Current = selectedCameraIndex == 0 ? pbRa : pbRa1;
+
             string mathe = txtMaThe.Text.Trim();
             if (string.IsNullOrEmpty(mathe))
             {
@@ -227,34 +358,36 @@ namespace QuanLyBaiGiuXe
                 return;
             }
 
-            string bienso = tbBienSoVao.Text.Trim();
+            string bienso = tbBienSoVao_Current.Text.Trim();
             DateTime tgHienTai = DateTime.Now;
             string maloaixe = cbLoaiXe.SelectedValue.ToString();
 
             bool ktra = veManager.KiemTraTrongBai(mathe, bienso);
             if (ktra)
             {
-                // XE RA
+                // 🚗 XE RA
                 if (!XuLyPathAnh("ra", out string pathRa))
                 {
                     new ToastForm("Không thể lưu ảnh xe ra!", this).Show();
                     return;
                 }
+
                 var ve = veManager.CapNhatVeLuot(mathe, bienso, tgHienTai.AddHours(8), pathRa);
                 if (ve != null)
                 {
                     new ToastForm($"Xe ra thành công!\nTiền: {ve.TongTien:N0}đ", this).Show();
-                    tbBienSoVao.Text = ve.BienSo;
-                    tbGioRa.Text = ve.ThoiGianRa.ToString("HH:mm:ss");
-                    tbGioVao.Text = ve.ThoiGianVao.ToString("HH:mm:ss");
-                    tbTongTien.Text = ve.TongTien.ToString("N0") + "đ";
-                    tbNgayRa.Text = ve.ThoiGianRa.ToString("dd/MM/yyyy");
-                    tbNgayVao.Text = ve.ThoiGianVao.ToString("dd/MM/yyyy");
-                    tbBienSoRa.Text = MaSoXe;
-                    tbLoaiVe.Text = (ve.LaVeThang) ? "Vé tháng" : "Vé lượt";
-                    LoadImageToPictureBox(pbVao, ve.AnhVaoPath);
-                    LoadImageToPictureBox(pbRa, ve.AnhRaPath);
-                    LoadData();
+
+                    tbBienSoVao_Current.Text = ve.BienSo;
+                    tbGioRa_Current.Text = ve.ThoiGianRa.ToString("HH:mm:ss");
+                    tbGioVao_Current.Text = ve.ThoiGianVao.ToString("HH:mm:ss");
+                    tbTongTien_Current.Text = ve.TongTien.ToString("N0") + "đ";
+                    tbNgayRa_Current.Text = ve.ThoiGianRa.ToString("dd/MM/yyyy");
+                    tbNgayVao_Current.Text = ve.ThoiGianVao.ToString("dd/MM/yyyy");
+                    tbBienSoRa_Current.Text = MaSoXe;
+                    tbLoaiVe_Current.Text = (ve.LaVeThang) ? "Vé tháng" : "Vé lượt";
+
+                    LoadImageToPictureBox(pbVao_Current, ve.AnhVaoPath);
+                    LoadImageToPictureBox(pbRa_Current, ve.AnhRaPath);
                 }
                 else
                 {
@@ -263,28 +396,26 @@ namespace QuanLyBaiGiuXe
             }
             else
             {
-                // XE VÀO
-                if (manager.GetSoLuongXeChuaRa() >= AppConfig.SoLuongXeToiDa)
-                {
-                    new ToastForm("Bãi giữ xe đã đầy!", this).Show();
-                    return;
-                }
+                // 🚘 XE VÀO
                 if (!XuLyPathAnh("vao", out string pathVao))
                 {
                     new ToastForm("Không thể lưu ảnh xe vào!", this).Show();
                     return;
                 }
-                bool result = veManager.ThemVeLuot(mathe, bienso, tgHienTai, maloaixe,pathVao);
+
+                bool result = veManager.ThemVeLuot(mathe, bienso, tgHienTai, maloaixe, pathVao);
                 if (result)
                 {
                     new ToastForm("Xe vào thành công!", this).Show();
-                    tbBienSoVao.Text = bienso;
-                    tbGioVao.Text = tgHienTai.ToString("HH:mm:ss");
-                    tbNgayVao.Text = tgHienTai.ToString("dd/MM/yyyy");
-                    tbGioRa.Text = "null";
-                    tbNgayRa.Text = "null";
-                    tbTongTien.Text = "0đ";
-                    LoadData();
+
+                    tbBienSoVao_Current.Text = bienso;
+                    tbGioVao_Current.Text = tgHienTai.ToString("HH:mm:ss");
+                    tbNgayVao_Current.Text = tgHienTai.ToString("dd/MM/yyyy");
+                    tbGioRa_Current.Text = "null";
+                    tbNgayRa_Current.Text = "null";
+                    tbTongTien_Current.Text = "0đ";
+
+                    LoadImageToPictureBox(pbVao_Current, pathVao);
                 }
                 else
                 {
@@ -292,6 +423,7 @@ namespace QuanLyBaiGiuXe
                 }
             }
         }
+
         private bool XuLyPathAnh(string prefix, out string imagePath)
         {
             imagePath = string.Empty;
@@ -307,7 +439,15 @@ namespace QuanLyBaiGiuXe
                 string fileName = prefix + "_" + Guid.NewGuid().ToString("N").Substring(0, 9) + ".jpg";
                 imagePath = Path.Combine(imageDir, fileName);
 
-                using (Bitmap img = new Bitmap(pb1.Image))
+                PictureBox selectedBox = selectedCameraIndex == 0 ? pb1 : pbCamera1;
+
+                if (selectedBox.Image == null)
+                {
+                    MessageBox.Show("❌ Không có hình ảnh từ camera đang chọn!");
+                    return false;
+                }
+
+                using (Bitmap img = new Bitmap(selectedBox.Image))
                 {
                     img.Save(imagePath, ImageFormat.Jpeg);
                 }
@@ -320,6 +460,43 @@ namespace QuanLyBaiGiuXe
                 return false;
             }
         }
+        #endregion
+
+        private void txtMaThe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnNhanDien.PerformClick();
+                ThucHienRaVao();
+                txtMaThe.Clear();
+            }
+        }
+
+        public static void SaveImageToDateFolder(byte[] imageBytes, string baseFolder, string fileName)
+        {
+            string todayFolder = DateTime.Now.ToString("dd_MM_yyyy");
+
+            string fullPath = Path.Combine(baseFolder, todayFolder);
+
+            if (!Directory.Exists(fullPath))
+            {
+                Directory.CreateDirectory(fullPath);
+            }
+
+            string imagePath = Path.Combine(fullPath, fileName);
+
+            File.WriteAllBytes(imagePath, imageBytes);
+
+            Console.WriteLine("Đã lưu ảnh vào: " + imagePath);
+        }
+
+        private void btnMatThe_Click(object sender, EventArgs e)
+        {
+            var form = new TraCuuXeVaoRaForm();
+            form.ShowDialog();
+        }
+
         private void LoadImageToPictureBox(PictureBox picBox, string imagePath)
         {
             try
@@ -344,27 +521,8 @@ namespace QuanLyBaiGiuXe
                 picBox.Image = null;
             }
         }
-        #endregion
-
-        private void txtMaThe_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                btnNhanDien.PerformClick();
-                ThucHienRaVao();
-                txtMaThe.Clear();
-            }
-        }
-
-        private void btnMatThe_Click(object sender, EventArgs e)
-        {
-            var form = new TraCuuXeVaoRaForm();
-            form.ShowDialog();
-        }
 
 
-        // Cập nhật trạng thái mô hình nhận diện
         private CancellationTokenSource ctsPingModel = new CancellationTokenSource();
         public async Task PingModelUntilReadyAsync(CancellationToken cancellationToken)
         {
@@ -411,13 +569,18 @@ namespace QuanLyBaiGiuXe
                 }
                 try
                 {
-                await Task.Delay(2000, cancellationToken);
+                    await Task.Delay(2000, cancellationToken);
                 }
                 catch (TaskCanceledException)
                 {
                     break;
                 }
             }
+        }
+
+        private void txtMaThe_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

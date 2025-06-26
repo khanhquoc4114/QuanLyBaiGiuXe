@@ -1,4 +1,7 @@
-﻿namespace QuanLyBaiGiuXe
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace QuanLyBaiGiuXe
 {
     partial class MenuForm
     {
@@ -28,10 +31,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
+            this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.btnThe = new System.Windows.Forms.Button();
             this.btnVeThang = new System.Windows.Forms.Button();
-            this.btnTraCuuXeVaoRa = new System.Windows.Forms.Button();
             this.btnVeLuot = new System.Windows.Forms.Button();
+            this.btnTraCuuXeVaoRa = new System.Windows.Forms.Button();
             this.btnThongKeTheoKhoangThoiGian = new System.Windows.Forms.Button();
             this.btnNguoiDung = new System.Windows.Forms.Button();
             this.btnThongKeTheoMayTinh = new System.Windows.Forms.Button();
@@ -42,279 +48,398 @@
             this.btnNhatKyXuLyVeThang = new System.Windows.Forms.Button();
             this.btnThongKeChiTiet = new System.Windows.Forms.Button();
             this.btnMainForm = new System.Windows.Forms.Button();
+            this.btnNhatKyMatThe = new System.Windows.Forms.Button();
             this.btnNhatKyVeLuot = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbXinChao = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnTinhTien = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnThe
             // 
-            this.btnThe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThe.Location = new System.Drawing.Point(19, 20);
-            this.btnThe.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThe.Image = ((System.Drawing.Image)(resources.GetObject("btnThe.Image")));
+            this.btnThe.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThe.Location = new System.Drawing.Point(600, 5);
+            this.btnThe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThe.Name = "btnThe";
-            this.btnThe.Size = new System.Drawing.Size(172, 89);
+            this.btnThe.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnThe.Size = new System.Drawing.Size(290, 168);
             this.btnThe.TabIndex = 0;
             this.btnThe.Text = "Thẻ";
+            this.btnThe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tip.SetToolTip(this.btnThe, "Xem danh sách thẻ, đăng ký thẻ mới, cập nhật loại thẻ, xóa thẻ.");
             this.btnThe.UseVisualStyleBackColor = true;
             this.btnThe.Click += new System.EventHandler(this.btnThe_Click);
             // 
             // btnVeThang
             // 
-            this.btnVeThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVeThang.Location = new System.Drawing.Point(591, 20);
-            this.btnVeThang.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVeThang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVeThang.Image = ((System.Drawing.Image)(resources.GetObject("btnVeThang.Image")));
+            this.btnVeThang.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVeThang.Location = new System.Drawing.Point(302, 183);
+            this.btnVeThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVeThang.Name = "btnVeThang";
-            this.btnVeThang.Size = new System.Drawing.Size(172, 89);
+            this.btnVeThang.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnVeThang.Size = new System.Drawing.Size(290, 168);
             this.btnVeThang.TabIndex = 0;
             this.btnVeThang.Text = "Vé tháng";
+            this.btnVeThang.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVeThang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tip.SetToolTip(this.btnVeThang, "Thêm, xóa, sửa vé tháng, gia hạn vé tháng, tạo nhóm vé tháng.");
             this.btnVeThang.UseVisualStyleBackColor = true;
             this.btnVeThang.Click += new System.EventHandler(this.btnVeThang_Click);
             // 
-            // btnTraCuuXeVaoRa
-            // 
-            this.btnTraCuuXeVaoRa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(591, 455);
-            this.btnTraCuuXeVaoRa.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTraCuuXeVaoRa.Name = "btnTraCuuXeVaoRa";
-            this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(172, 89);
-            this.btnTraCuuXeVaoRa.TabIndex = 0;
-            this.btnTraCuuXeVaoRa.Text = "Tra cứu xe vào, ra";
-            this.btnTraCuuXeVaoRa.UseVisualStyleBackColor = true;
-            this.btnTraCuuXeVaoRa.Click += new System.EventHandler(this.btnTraCuuXeVaoRa_Click);
-            // 
             // btnVeLuot
             // 
-            this.btnVeLuot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVeLuot.Location = new System.Drawing.Point(305, 20);
-            this.btnVeLuot.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVeLuot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVeLuot.Image = ((System.Drawing.Image)(resources.GetObject("btnVeLuot.Image")));
+            this.btnVeLuot.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVeLuot.Location = new System.Drawing.Point(4, 183);
+            this.btnVeLuot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVeLuot.Name = "btnVeLuot";
-            this.btnVeLuot.Size = new System.Drawing.Size(172, 89);
+            this.btnVeLuot.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnVeLuot.Size = new System.Drawing.Size(290, 168);
             this.btnVeLuot.TabIndex = 0;
             this.btnVeLuot.Text = "Vé lượt";
+            this.btnVeLuot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVeLuot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tip.SetToolTip(this.btnVeLuot, "Xem danh sách vé lượt, xuất ra file excel.");
             this.btnVeLuot.UseVisualStyleBackColor = true;
             this.btnVeLuot.Click += new System.EventHandler(this.btnVeLuot_Click);
             // 
+            // btnTraCuuXeVaoRa
+            // 
+            this.btnTraCuuXeVaoRa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTraCuuXeVaoRa.Image = ((System.Drawing.Image)(resources.GetObject("btnTraCuuXeVaoRa.Image")));
+            this.btnTraCuuXeVaoRa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(4, 361);
+            this.btnTraCuuXeVaoRa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTraCuuXeVaoRa.Name = "btnTraCuuXeVaoRa";
+            this.btnTraCuuXeVaoRa.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(290, 168);
+            this.btnTraCuuXeVaoRa.TabIndex = 0;
+            this.btnTraCuuXeVaoRa.Text = "Tra cứu xe vào, ra";
+            this.btnTraCuuXeVaoRa.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTraCuuXeVaoRa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTraCuuXeVaoRa.UseVisualStyleBackColor = true;
+            this.btnTraCuuXeVaoRa.Click += new System.EventHandler(this.btnTraCuuXeVaoRa_Click);
+            // 
             // btnThongKeTheoKhoangThoiGian
             // 
-            this.btnThongKeTheoKhoangThoiGian.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(305, 310);
-            this.btnThongKeTheoKhoangThoiGian.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThongKeTheoKhoangThoiGian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongKeTheoKhoangThoiGian.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoKhoangThoiGian.Image")));
+            this.btnThongKeTheoKhoangThoiGian.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(600, 539);
+            this.btnThongKeTheoKhoangThoiGian.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThongKeTheoKhoangThoiGian.Name = "btnThongKeTheoKhoangThoiGian";
-            this.btnThongKeTheoKhoangThoiGian.Size = new System.Drawing.Size(172, 89);
+            this.btnThongKeTheoKhoangThoiGian.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnThongKeTheoKhoangThoiGian.Size = new System.Drawing.Size(290, 170);
             this.btnThongKeTheoKhoangThoiGian.TabIndex = 0;
             this.btnThongKeTheoKhoangThoiGian.Text = "Thống kê theo khoảng thời gian";
+            this.btnThongKeTheoKhoangThoiGian.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoKhoangThoiGian.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeTheoKhoangThoiGian.UseVisualStyleBackColor = true;
             this.btnThongKeTheoKhoangThoiGian.Click += new System.EventHandler(this.btnThongKeTheoKhoangThoiGian_Click);
             // 
             // btnNguoiDung
             // 
-            this.btnNguoiDung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNguoiDung.Location = new System.Drawing.Point(875, 455);
-            this.btnNguoiDung.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNguoiDung.Image = ((System.Drawing.Image)(resources.GetObject("btnNguoiDung.Image")));
+            this.btnNguoiDung.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNguoiDung.Location = new System.Drawing.Point(302, 5);
+            this.btnNguoiDung.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNguoiDung.Name = "btnNguoiDung";
-            this.btnNguoiDung.Size = new System.Drawing.Size(172, 89);
+            this.btnNguoiDung.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnNguoiDung.Size = new System.Drawing.Size(290, 168);
             this.btnNguoiDung.TabIndex = 0;
-            this.btnNguoiDung.Text = "Nhân viên";
+            this.btnNguoiDung.Text = "Người dùng";
+            this.btnNguoiDung.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNguoiDung.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNguoiDung.UseVisualStyleBackColor = true;
-            this.btnNguoiDung.Click += new System.EventHandler(this.btnNhanVien_Click);
+            this.btnNguoiDung.Click += new System.EventHandler(this.btnNguoiDung_Click);
             // 
             // btnThongKeTheoMayTinh
             // 
-            this.btnThongKeTheoMayTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(592, 310);
-            this.btnThongKeTheoMayTinh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThongKeTheoMayTinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongKeTheoMayTinh.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoMayTinh.Image")));
+            this.btnThongKeTheoMayTinh.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(898, 539);
+            this.btnThongKeTheoMayTinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThongKeTheoMayTinh.Name = "btnThongKeTheoMayTinh";
-            this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(172, 89);
+            this.btnThongKeTheoMayTinh.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(290, 170);
             this.btnThongKeTheoMayTinh.TabIndex = 0;
             this.btnThongKeTheoMayTinh.Text = "Thống kê theo máy tính";
+            this.btnThongKeTheoMayTinh.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoMayTinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeTheoMayTinh.UseVisualStyleBackColor = true;
             this.btnThongKeTheoMayTinh.Click += new System.EventHandler(this.btnThongKeTheoMayTinh_Click);
             // 
             // btnHeThong
             // 
-            this.btnHeThong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHeThong.Location = new System.Drawing.Point(305, 455);
-            this.btnHeThong.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHeThong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHeThong.Image = ((System.Drawing.Image)(resources.GetObject("btnHeThong.Image")));
+            this.btnHeThong.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnHeThong.Location = new System.Drawing.Point(898, 5);
+            this.btnHeThong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHeThong.Name = "btnHeThong";
-            this.btnHeThong.Size = new System.Drawing.Size(172, 89);
+            this.btnHeThong.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnHeThong.Size = new System.Drawing.Size(290, 168);
             this.btnHeThong.TabIndex = 0;
             this.btnHeThong.Text = "Hệ thống";
+            this.btnHeThong.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnHeThong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnHeThong.UseVisualStyleBackColor = true;
             this.btnHeThong.Click += new System.EventHandler(this.btnHeThong_Click);
             // 
             // btnNhatKyDieuChinhGiaVe
             // 
-            this.btnNhatKyDieuChinhGiaVe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(879, 165);
-            this.btnNhatKyDieuChinhGiaVe.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNhatKyDieuChinhGiaVe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhatKyDieuChinhGiaVe.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyDieuChinhGiaVe.Image")));
+            this.btnNhatKyDieuChinhGiaVe.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(600, 361);
+            this.btnNhatKyDieuChinhGiaVe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNhatKyDieuChinhGiaVe.Name = "btnNhatKyDieuChinhGiaVe";
-            this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(172, 89);
+            this.btnNhatKyDieuChinhGiaVe.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(290, 168);
             this.btnNhatKyDieuChinhGiaVe.TabIndex = 0;
             this.btnNhatKyDieuChinhGiaVe.Text = "Nhật ký điều chỉnh giá vé";
+            this.btnNhatKyDieuChinhGiaVe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyDieuChinhGiaVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyDieuChinhGiaVe.UseVisualStyleBackColor = true;
             this.btnNhatKyDieuChinhGiaVe.Click += new System.EventHandler(this.btnNhatKyDieuChinhGiaVe_Click);
             // 
             // btnThongKeTheoNhanVien
             // 
-            this.btnThongKeTheoNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(879, 310);
-            this.btnThongKeTheoNhanVien.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThongKeTheoNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongKeTheoNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoNhanVien.Image")));
+            this.btnThongKeTheoNhanVien.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(302, 539);
+            this.btnThongKeTheoNhanVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThongKeTheoNhanVien.Name = "btnThongKeTheoNhanVien";
-            this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(172, 89);
+            this.btnThongKeTheoNhanVien.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(290, 170);
             this.btnThongKeTheoNhanVien.TabIndex = 0;
             this.btnThongKeTheoNhanVien.Text = "Thống kê theo nhân viên";
+            this.btnThongKeTheoNhanVien.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeTheoNhanVien.UseVisualStyleBackColor = true;
             this.btnThongKeTheoNhanVien.Click += new System.EventHandler(this.btnThongKeTheoNhanVien_Click);
             // 
             // btnNhatKyDangNhap
             // 
-            this.btnNhatKyDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(305, 165);
-            this.btnNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNhatKyDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhatKyDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyDangNhap.Image")));
+            this.btnNhatKyDangNhap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(898, 361);
+            this.btnNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNhatKyDangNhap.Name = "btnNhatKyDangNhap";
-            this.btnNhatKyDangNhap.Size = new System.Drawing.Size(172, 89);
+            this.btnNhatKyDangNhap.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnNhatKyDangNhap.Size = new System.Drawing.Size(290, 168);
             this.btnNhatKyDangNhap.TabIndex = 0;
             this.btnNhatKyDangNhap.Text = "Nhật ký đăng nhập";
+            this.btnNhatKyDangNhap.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyDangNhap.UseVisualStyleBackColor = true;
             this.btnNhatKyDangNhap.Click += new System.EventHandler(this.btnNhatKyDangNhap_Click);
             // 
             // btnNhatKyXuLyVeThang
             // 
-            this.btnNhatKyXuLyVeThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(592, 165);
-            this.btnNhatKyXuLyVeThang.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNhatKyXuLyVeThang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhatKyXuLyVeThang.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyXuLyVeThang.Image")));
+            this.btnNhatKyXuLyVeThang.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(898, 183);
+            this.btnNhatKyXuLyVeThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNhatKyXuLyVeThang.Name = "btnNhatKyXuLyVeThang";
-            this.btnNhatKyXuLyVeThang.Size = new System.Drawing.Size(172, 89);
+            this.btnNhatKyXuLyVeThang.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnNhatKyXuLyVeThang.Size = new System.Drawing.Size(290, 168);
             this.btnNhatKyXuLyVeThang.TabIndex = 0;
             this.btnNhatKyXuLyVeThang.Text = "Nhật ký xử lý vé tháng";
+            this.btnNhatKyXuLyVeThang.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyXuLyVeThang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyXuLyVeThang.UseVisualStyleBackColor = true;
             this.btnNhatKyXuLyVeThang.Click += new System.EventHandler(this.btnNhatKyXuLyVeThang_Click);
             // 
             // btnThongKeChiTiet
             // 
-            this.btnThongKeChiTiet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKeChiTiet.Location = new System.Drawing.Point(19, 310);
-            this.btnThongKeChiTiet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThongKeChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThongKeChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeChiTiet.Image")));
+            this.btnThongKeChiTiet.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeChiTiet.Location = new System.Drawing.Point(4, 539);
+            this.btnThongKeChiTiet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThongKeChiTiet.Name = "btnThongKeChiTiet";
-            this.btnThongKeChiTiet.Size = new System.Drawing.Size(172, 89);
+            this.btnThongKeChiTiet.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnThongKeChiTiet.Size = new System.Drawing.Size(290, 170);
             this.btnThongKeChiTiet.TabIndex = 0;
             this.btnThongKeChiTiet.Text = "Thống kê chi tiết";
+            this.btnThongKeChiTiet.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeChiTiet.UseVisualStyleBackColor = true;
             this.btnThongKeChiTiet.Click += new System.EventHandler(this.btnThongKeChiTiet_Click);
             // 
             // btnMainForm
             // 
-            this.btnMainForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMainForm.Location = new System.Drawing.Point(877, 20);
-            this.btnMainForm.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMainForm.Image = ((System.Drawing.Image)(resources.GetObject("btnMainForm.Image")));
+            this.btnMainForm.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMainForm.Location = new System.Drawing.Point(4, 5);
+            this.btnMainForm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMainForm.Name = "btnMainForm";
-            this.btnMainForm.Size = new System.Drawing.Size(172, 89);
+            this.btnMainForm.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnMainForm.Size = new System.Drawing.Size(290, 168);
             this.btnMainForm.TabIndex = 0;
             this.btnMainForm.Text = "Form chính";
+            this.btnMainForm.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMainForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMainForm.UseVisualStyleBackColor = true;
-            this.btnMainForm.Click += new System.EventHandler(this.btnThongKeTongQuat_Click);
+            this.btnMainForm.Click += new System.EventHandler(this.btnMainForm_Click);
+            // 
+            // btnNhatKyMatThe
+            // 
+            this.btnNhatKyMatThe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhatKyMatThe.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyMatThe.Image")));
+            this.btnNhatKyMatThe.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyMatThe.Location = new System.Drawing.Point(302, 361);
+            this.btnNhatKyMatThe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNhatKyMatThe.Name = "btnNhatKyMatThe";
+            this.btnNhatKyMatThe.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnNhatKyMatThe.Size = new System.Drawing.Size(290, 168);
+            this.btnNhatKyMatThe.TabIndex = 0;
+            this.btnNhatKyMatThe.Text = "Nhật ký xử lý mất thẻ";
+            this.btnNhatKyMatThe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyMatThe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNhatKyMatThe.UseVisualStyleBackColor = true;
+            this.btnNhatKyMatThe.Click += new System.EventHandler(this.btnNhatKyMatThe_Click);
             // 
             // btnNhatKyVeLuot
             // 
-            this.btnNhatKyVeLuot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(19, 165);
-            this.btnNhatKyVeLuot.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNhatKyVeLuot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhatKyVeLuot.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyVeLuot.Image")));
+            this.btnNhatKyVeLuot.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(600, 183);
+            this.btnNhatKyVeLuot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNhatKyVeLuot.Name = "btnNhatKyVeLuot";
-            this.btnNhatKyVeLuot.Size = new System.Drawing.Size(172, 89);
+            this.btnNhatKyVeLuot.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.btnNhatKyVeLuot.Size = new System.Drawing.Size(290, 168);
             this.btnNhatKyVeLuot.TabIndex = 0;
             this.btnNhatKyVeLuot.Text = "Nhật ký vé lượt";
+            this.btnNhatKyVeLuot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyVeLuot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyVeLuot.UseVisualStyleBackColor = true;
             this.btnNhatKyVeLuot.Click += new System.EventHandler(this.btnNhatKyVeLuot_Click);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnDangXuat);
-            this.panel1.Controls.Add(this.lbXinChao);
+            this.panel1.ColumnCount = 2;
+            this.panel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95F));
+            this.panel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.panel1.Controls.Add(this.lbXinChao, 0, 0);
+            this.panel1.Controls.Add(this.btnDangXuat, 1, 0);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1061, 56);
+            this.panel1.RowCount = 1;
+            this.panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.panel1.Size = new System.Drawing.Size(1194, 70);
             this.panel1.TabIndex = 1;
-            // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.Location = new System.Drawing.Point(930, 5);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(119, 44);
-            this.btnDangXuat.TabIndex = 1;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = true;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // lbXinChao
             // 
             this.lbXinChao.AutoSize = true;
+            this.lbXinChao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbXinChao.Location = new System.Drawing.Point(15, 16);
+            this.lbXinChao.Location = new System.Drawing.Point(4, 0);
             this.lbXinChao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbXinChao.Name = "lbXinChao";
-            this.lbXinChao.Size = new System.Drawing.Size(67, 17);
+            this.lbXinChao.Size = new System.Drawing.Size(1124, 68);
             this.lbXinChao.TabIndex = 0;
             this.lbXinChao.Text = "Xin chào,";
+            this.lbXinChao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Red;
+            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
+            this.btnDangXuat.Location = new System.Drawing.Point(1135, 4);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(54, 60);
+            this.btnDangXuat.TabIndex = 1;
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnNhatKyVeLuot);
-            this.panel2.Controls.Add(this.btnTinhTien);
-            this.panel2.Controls.Add(this.btnHeThong);
-            this.panel2.Controls.Add(this.btnThe);
-            this.panel2.Controls.Add(this.btnNhatKyDieuChinhGiaVe);
-            this.panel2.Controls.Add(this.btnVeThang);
-            this.panel2.Controls.Add(this.btnThongKeTheoMayTinh);
-            this.panel2.Controls.Add(this.btnMainForm);
-            this.panel2.Controls.Add(this.btnThongKeTheoNhanVien);
-            this.panel2.Controls.Add(this.btnTraCuuXeVaoRa);
-            this.panel2.Controls.Add(this.btnNguoiDung);
-            this.panel2.Controls.Add(this.btnThongKeChiTiet);
-            this.panel2.Controls.Add(this.btnNhatKyDangNhap);
-            this.panel2.Controls.Add(this.btnVeLuot);
-            this.panel2.Controls.Add(this.btnThongKeTheoKhoangThoiGian);
-            this.panel2.Controls.Add(this.btnNhatKyXuLyVeThang);
+            this.panel2.ColumnCount = 4;
+            this.panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.Controls.Add(this.btnMainForm, 0, 0);
+            this.panel2.Controls.Add(this.btnNguoiDung, 1, 0);
+            this.panel2.Controls.Add(this.btnThe, 2, 0);
+            this.panel2.Controls.Add(this.btnHeThong, 3, 0);
+            this.panel2.Controls.Add(this.btnVeLuot, 0, 1);
+            this.panel2.Controls.Add(this.btnVeThang, 1, 1);
+            this.panel2.Controls.Add(this.btnNhatKyVeLuot, 2, 1);
+            this.panel2.Controls.Add(this.btnNhatKyXuLyVeThang, 3, 1);
+            this.panel2.Controls.Add(this.btnTraCuuXeVaoRa, 0, 2);
+            this.panel2.Controls.Add(this.btnNhatKyMatThe, 1, 2);
+            this.panel2.Controls.Add(this.btnNhatKyDieuChinhGiaVe, 2, 2);
+            this.panel2.Controls.Add(this.btnNhatKyDangNhap, 3, 2);
+            this.panel2.Controls.Add(this.btnThongKeChiTiet, 0, 3);
+            this.panel2.Controls.Add(this.btnThongKeTheoNhanVien, 1, 3);
+            this.panel2.Controls.Add(this.btnThongKeTheoKhoangThoiGian, 2, 3);
+            this.panel2.Controls.Add(this.btnThongKeTheoMayTinh, 3, 3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 56);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(0, 70);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1061, 573);
+            this.panel2.RowCount = 4;
+            this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.panel2.Size = new System.Drawing.Size(1194, 716);
             this.panel2.TabIndex = 2;
             // 
-            // btnTinhTien
+            // panel3
             // 
-            this.btnTinhTien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTinhTien.Location = new System.Drawing.Point(19, 455);
-            this.btnTinhTien.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTinhTien.Name = "btnTinhTien";
-            this.btnTinhTien.Size = new System.Drawing.Size(172, 89);
-            this.btnTinhTien.TabIndex = 0;
-            this.btnTinhTien.Text = "Cấu hình tính tiền";
-            this.btnTinhTien.UseVisualStyleBackColor = true;
-            this.btnTinhTien.Click += new System.EventHandler(this.btnHeThong_Click);
+            this.panel3.ColumnCount = 1;
+            this.panel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.RowCount = 2;
+            this.panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
+            this.panel3.Size = new System.Drawing.Size(200, 100);
+            this.panel3.TabIndex = 0;
             // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 629);
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.ClientSize = new System.Drawing.Size(1194, 786);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MenuForm";
-            this.Text = "Menu chính";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuForm_FormClosing);
-            this.Load += new System.EventHandler(this.MenuForm_Load);
+            this.Text = "MENU";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -338,11 +463,13 @@
         private System.Windows.Forms.Button btnNhatKyXuLyVeThang;
         private System.Windows.Forms.Button btnThongKeChiTiet;
         private System.Windows.Forms.Button btnMainForm;
+        private System.Windows.Forms.Button btnNhatKyMatThe;
         private System.Windows.Forms.Button btnNhatKyVeLuot;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel panel1;
         private System.Windows.Forms.Label lbXinChao;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel panel2;
         private System.Windows.Forms.Button btnDangXuat;
-        private System.Windows.Forms.Button btnTinhTien;
+        private System.Windows.Forms.TableLayoutPanel panel3;
+        private ToolTip tip;
     }
 }
