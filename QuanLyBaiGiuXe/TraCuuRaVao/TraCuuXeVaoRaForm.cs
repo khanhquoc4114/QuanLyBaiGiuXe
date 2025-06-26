@@ -28,22 +28,6 @@ namespace QuanLyBaiGiuXe
 
         private void LoadData()
         {
-            dtgThongKe.DataSource = manager.TraCuuRaVao();
-            if (dtgThongKe.Rows.Count > 0)
-            {
-                dtgThongKe.Columns["MaVeLuot"].Visible = false;
-                dtgThongKe.ClearSelection();
-                foreach (DataGridViewColumn col in dtgThongKe.Columns)
-                {
-                    if (col.Visible)
-                    {
-                        dtgThongKe.Rows[0].Selected = true;
-                        dtgThongKe.CurrentCell = dtgThongKe.Rows[0].Cells[col.Index];
-                        break;
-                    }
-                }
-            }
-
             List<ComboBoxItem> dsNhanVien = manager.GetDanhSachNhanVien();
             LoadComboBox(cbNhanVienVao, new List<ComboBoxItem>(dsNhanVien), "nhân viên");
             LoadComboBox(cbNhanVienRa, new List<ComboBoxItem>(dsNhanVien), "nhân viên");
@@ -61,9 +45,25 @@ namespace QuanLyBaiGiuXe
 
             dtpTu.Format = DateTimePickerFormat.Custom;
             dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
-            dtpDen.Value = DateTime.Now.AddMonths(-1);
+            dtpTu.Value = DateTime.Now.AddDays(-7);
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
+
+            dtgThongKe.DataSource = manager.TraCuuRaVao();
+            if (dtgThongKe.Rows.Count > 0)
+            {
+                dtgThongKe.Columns["MaVeLuot"].Visible = false;
+                dtgThongKe.ClearSelection();
+                foreach (DataGridViewColumn col in dtgThongKe.Columns)
+                {
+                    if (col.Visible)
+                    {
+                        dtgThongKe.Rows[0].Selected = true;
+                        dtgThongKe.CurrentCell = dtgThongKe.Rows[0].Cells[col.Index];
+                        break;
+                    }
+                }
+            }
         }
 
         private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)

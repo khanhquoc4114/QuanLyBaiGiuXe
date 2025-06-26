@@ -58,12 +58,6 @@ namespace QuanLyBaiGiuXe
             form.Show();
         }
 
-        private void btnNhatKyMatThe_Click(object sender, EventArgs e)
-        {
-            var form = new NhatKyXuLyMatTheForm();
-            form.Show();
-        }
-
         private void btnNhatKyVeLuot_Click(object sender, EventArgs e)
         {
             var form = new NhatKyVeLuotForm();
@@ -137,7 +131,6 @@ namespace QuanLyBaiGiuXe
             }            
             loginManager.CheckOut(Session.MaNhanVien, DateTime.Now);
 
-            Properties.Settings.Default.RememberMe = false;
             Properties.Settings.Default.SavedUsername = "";
             Properties.Settings.Default.SavedPassword = "";
             Properties.Settings.Default.Save();

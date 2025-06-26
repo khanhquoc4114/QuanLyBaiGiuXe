@@ -102,6 +102,7 @@
             // 
             // panel5
             // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.tbContent);
             this.panel5.Controls.Add(this.btnXuatExcel);
             this.panel5.Controls.Add(this.btnTimKiem);
@@ -249,6 +250,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btnSuaNhom);
             this.panel4.Controls.Add(this.btnXoaNhom);
             this.panel4.Controls.Add(this.btnThemNhom);

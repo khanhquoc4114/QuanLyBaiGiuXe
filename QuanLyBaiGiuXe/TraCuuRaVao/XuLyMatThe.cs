@@ -30,6 +30,7 @@ namespace QuanLyBaiGiuXe
             this.maveluot = maveluot;
         }
 
+        #region Button Logic
         private void btnChoRaKoTinhPhi_Click(object sender, EventArgs e)
         {
             bool raAnh = XuLyPathAnh("ra_", out string path);
@@ -39,24 +40,24 @@ namespace QuanLyBaiGiuXe
                 bool isKhoaThe = manager.SetTrangThaiSuDungThe(tbMaThe.Text, -1);
                 if (!isKhoaThe)
                 {
-                    new ToastForm("Không thể khóa thẻ!", this).ShowDialog();
+                    ToastService.Show("Không thể khóa thẻ!", this);
                     return;
                 } else
                 {
-                    new ToastForm("Khóa thẻ thành công!", this).ShowDialog();
+                    ToastService.Show("Khóa thẻ thành công!", this);
                 }
             }
-            bool result = manager.CapNhatMatTheVeLuot(maveluot,path, 0);
+            bool result = manager.CapNhatMatTheVeLuot(maveluot,path, 0, cbKhoaThe.Checked);
             if (result)
             {
-                new ToastForm("Cập nhật vé thành công!", this).ShowDialog();
+                ToastService.Show("Cập nhật vé thành công!, 0 đ", this);
                 isThanhCong = true;
                 LoadData();
                 StopCamera();
             }
             else
             {
-                new ToastForm("Cập nhật vé thất bại!", this).Show();
+                ToastService.Show("Cập nhật vé thất bại!", this);
             }
         }
 
@@ -69,25 +70,27 @@ namespace QuanLyBaiGiuXe
                 bool isKhoaThe = manager.SetTrangThaiSuDungThe(tbMaThe.Text, -1);
                 if (!isKhoaThe)
                 {
-                    new ToastForm("Không thể khóa thẻ!", this).ShowDialog();
+                    ToastService.Show("Không thể khóa thẻ!", this);
                     return;
                 }
                 else
                 {
-                    new ToastForm("Khóa thẻ thành công!", this).ShowDialog();
+                    ToastService.Show("Khóa thẻ thành công!", this);
                 }
             }
-            bool result = manager.CapNhatMatTheVeLuot(maveluot, path, Convert.ToInt32(tbGiaVe.Text));
+
+            int tien = Convert.ToInt32(tbGiaVe.Text) + AppConfig.TienPhatMatThe;
+            bool result = manager.CapNhatMatTheVeLuot(maveluot, path, tien , cbKhoaThe.Checked);
             if (result)
             {
-                new ToastForm("Cập nhật vé thành công!", this).ShowDialog();
+                ToastService.Show($"Cập nhật vé thành công!, {tien.ToString("N0")} đ", this);
                 isThanhCong = true;
                 StopCamera();
                 LoadData();
             }
             else
             {
-                new ToastForm("Cập nhật vé thất bại!", this).ShowDialog();
+                ToastService.Show("Cập nhật vé thất bại!", this);
             }
         }
 
@@ -95,14 +98,17 @@ namespace QuanLyBaiGiuXe
         {
             this.Close();
         }
+        #endregion
 
         private void XuLyMatThe_Load(object sender, EventArgs e)
         {
-            LoadData();
             LoadCamera();
+            LoadData();
         }
         private void LoadData()
         {
+            lbTienPhat.Text = "(+ " + AppConfig.TienPhatMatThe.ToString("N0") + " VNĐ)";
+
             try
             {
                 db.OpenConnection();
@@ -122,14 +128,26 @@ namespace QuanLyBaiGiuXe
                             tbThoiGianVao.Text = reader["ThoiGianVao"].ToString();
                             DateTime tgVao = Convert.ToDateTime(reader["ThoiGianVao"]);
                             DateTime tgRa = DateTime.Now;
-                            int maLoaiXe = Convert.ToInt32(reader["MaLoaiXe"]);
                             tbNhanVien.Text = reader["HoTen"].ToString();
                             tbMayTinh.Text = reader["MayTinhXuLy"].ToString();
                             string CachTinhTien = reader["CachTinhTien"].ToString();
+                            int maLoaiXe = Convert.ToInt32(reader["MaLoaiXe"]);
+                            string TongTienReal = reader["TongTien"].ToString();
                             string AnhVaoPath = reader["AnhVaoPath"].ToString();
                             string AnhRaPath = reader["AnhRaPath"].ToString();
-                            int tongtien = TinhTienManager.TinhTien(CachTinhTien, tgVao, tgRa, maLoaiXe);
-                            tbGiaVe.Text = tongtien.ToString();
+                            string TrangThai = reader["TrangThai"].ToString();
+                            if (TrangThai == "Chưa ra")
+                            {
+                                int tongtiengiasu = TinhTienManager.TinhTien(CachTinhTien, tgVao, tgRa, maLoaiXe);
+                                tbGiaVe.Text = tongtiengiasu.ToString();
+                            }
+                            else if (TrangThai == "Đã ra")
+                            {
+                                tbGiaVe.Text = TongTienReal;
+                                lbTienPhat.Text = "";
+                                StopCamera();
+                            }
+
                             LoadImageToPictureBox(pbVao, AnhVaoPath);
                             if (!string.IsNullOrEmpty(AnhRaPath))
                             {
@@ -179,45 +197,6 @@ namespace QuanLyBaiGiuXe
             }
         }
 
-        private void LoadCamera()
-        {
-            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            if (videoDevices.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy camera!");
-                return;
-            }
-            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.NewFrame += VideoSource_NewFrame;
-            videoSource.Start();
-        }
-
-        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            try
-            {
-                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-
-                if (pbRa.InvokeRequired)
-                {
-                    pbRa.BeginInvoke(new Action(() =>
-                    {
-                        pbRa.Image?.Dispose();
-                        pbRa.Image = bitmap;
-                        pbRa.SizeMode = PictureBoxSizeMode.Zoom;
-                    }));
-                }
-                else
-                {
-                    pbRa.Image?.Dispose();
-                    pbRa.Image = bitmap;
-                    pbRa.SizeMode = PictureBoxSizeMode.Zoom;
-                }
-            }
-            catch { }
-        }
-
         private bool XuLyPathAnh(string prefix, out string imagePath)
         {
             imagePath = string.Empty;
@@ -255,6 +234,43 @@ namespace QuanLyBaiGiuXe
             }
         }
 
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+                if (pbRa.InvokeRequired)
+                {
+                    pbRa.BeginInvoke(new Action(() =>
+                    {
+                        pbRa.Image?.Dispose();
+                        pbRa.Image = bitmap;
+                        pbRa.SizeMode = PictureBoxSizeMode.Zoom;
+                    }));
+                }
+                else
+                {
+                    pbRa.Image?.Dispose();
+                    pbRa.Image = bitmap;
+                    pbRa.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+            catch { }
+        }
+        private void LoadCamera()
+        {
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            if (videoDevices.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy camera!");
+                return;
+            }
+            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource.NewFrame += VideoSource_NewFrame;
+            videoSource.Start();
+        }
         private void StopCamera()
         {
             if (videoSource != null && videoSource.IsRunning)

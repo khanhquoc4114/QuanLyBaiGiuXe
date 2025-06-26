@@ -39,55 +39,23 @@ namespace QuanLyBaiGiuXe
             ctsPingModel = new CancellationTokenSource();
             await PingModelUntilReadyAsync(ctsPingModel.Token);
         }
+
+        private void LoadData()
+        {
+            var danhSachXe = manager.GetDanhSachXe();
+            lbSoLuong.Text = $"SL: {manager.GetSoLuongXeChuaRa()}";
+            if (danhSachXe != null && danhSachXe.Count > 0)
+            {
+                LoadComboBox(cbLoaiXe, danhSachXe, includeTatCa: false);
+            }
+            else
+            {
+                cbLoaiXe.DataSource = null;
+                cbLoaiXe.Text = "-- Không có dữ liệu --";
+            }
+        }
+
         #region Nhận diện
-        //private void SendImageAndReceiveResult(string filePath)
-        //{
-        //    try
-        //    {
-        //        byte[] imageData = File.ReadAllBytes(filePath);
-        //        string serverIP = "127.0.0.1";
-
-        //        using (TcpClient client = new TcpClient(serverIP, 54321))
-        //        using (NetworkStream stream = client.GetStream())
-        //        {
-        //            client.ReceiveTimeout = 10000;
-        //            client.SendTimeout = 10000;
-        //            byte[] fileSizeBytes = BitConverter.GetBytes(imageData.Length);
-        //            if (BitConverter.IsLittleEndian)
-        //                Array.Reverse(fileSizeBytes);
-
-        //            stream.Write(fileSizeBytes, 0, 4);
-        //            stream.Write(imageData, 0, imageData.Length);
-
-        //            byte[] sizeBuffer = new byte[4];
-        //            stream.Read(sizeBuffer, 0, 4);
-        //            if (BitConverter.IsLittleEndian)
-        //                Array.Reverse(sizeBuffer);
-        //            int responseSize = BitConverter.ToInt32(sizeBuffer, 0);
-
-        //            byte[] responseData = new byte[responseSize];
-        //            int totalRead = 0;
-        //            while (totalRead < responseSize)
-        //            {
-        //                int bytesRead = stream.Read(responseData, totalRead, responseSize - totalRead);
-        //                if (bytesRead == 0) break;
-        //                totalRead += bytesRead;
-        //            }
-
-        //            string jsonResult = Encoding.UTF8.GetString(responseData);
-        //            Console.WriteLine("Response from server: " + jsonResult);
-        //            var json = JObject.Parse(jsonResult);
-        //            string plateText = json["plate_text"]?.ToString() ?? "unknown";
-        //            tbBienSoVao.Text = plateText;
-        //            MaSoXe = plateText;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi nhận kết quả từ model: " + ex.Message);
-        //    }
-        //}
-
         private void SendImageAndReceiveResult(string filePath)
         {
             try
@@ -150,8 +118,7 @@ namespace QuanLyBaiGiuXe
                 MessageBox.Show("Lỗi gửi/nhận từ server: " + ex.Message);
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNhanDien_Click(object sender, EventArgs e)
         {
             if (pb1.Image != null)
             {
@@ -238,20 +205,6 @@ namespace QuanLyBaiGiuXe
         #endregion
 
         #region Vé Lượt
-        private void LoadData()
-        {
-            var danhSachXe = manager.GetDanhSachXe();
-            if (danhSachXe != null && danhSachXe.Count > 0)
-            {
-                LoadComboBox(cbLoaiXe, danhSachXe, includeTatCa: false);
-            }
-            else
-            {
-                cbLoaiXe.DataSource = null;
-                cbLoaiXe.Text = "-- Không có dữ liệu --";
-            }
-        }
-
         private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null, bool includeTatCa = true)
         {
             if (includeTatCa)
@@ -265,7 +218,6 @@ namespace QuanLyBaiGiuXe
             comboBox.ValueMember = "Value";
             comboBox.SelectedIndex = 0;
         }
-
         private void ThucHienRaVao()
         {
             string mathe = txtMaThe.Text.Trim();
@@ -302,6 +254,7 @@ namespace QuanLyBaiGiuXe
                     tbLoaiVe.Text = (ve.LaVeThang) ? "Vé tháng" : "Vé lượt";
                     LoadImageToPictureBox(pbVao, ve.AnhVaoPath);
                     LoadImageToPictureBox(pbRa, ve.AnhRaPath);
+                    LoadData();
                 }
                 else
                 {
@@ -311,6 +264,11 @@ namespace QuanLyBaiGiuXe
             else
             {
                 // XE VÀO
+                if (manager.GetSoLuongXeChuaRa() >= AppConfig.SoLuongXeToiDa)
+                {
+                    new ToastForm("Bãi giữ xe đã đầy!", this).Show();
+                    return;
+                }
                 if (!XuLyPathAnh("vao", out string pathVao))
                 {
                     new ToastForm("Không thể lưu ảnh xe vào!", this).Show();
@@ -326,6 +284,7 @@ namespace QuanLyBaiGiuXe
                     tbGioRa.Text = "null";
                     tbNgayRa.Text = "null";
                     tbTongTien.Text = "0đ";
+                    LoadData();
                 }
                 else
                 {
@@ -361,42 +320,6 @@ namespace QuanLyBaiGiuXe
                 return false;
             }
         }
-        #endregion
-
-        private void txtMaThe_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                btnNhanDien.PerformClick();
-                ThucHienRaVao();
-                txtMaThe.Clear();
-            }
-        }
-
-        public static void SaveImageToDateFolder(byte[] imageBytes, string baseFolder, string fileName)
-        {
-            string todayFolder = DateTime.Now.ToString("dd_MM_yyyy");
-
-            string fullPath = Path.Combine(baseFolder, todayFolder);
-
-            if (!Directory.Exists(fullPath))
-            {
-                Directory.CreateDirectory(fullPath);
-            }
-
-            string imagePath = Path.Combine(fullPath, fileName);
-
-            File.WriteAllBytes(imagePath, imageBytes);
-
-            Console.WriteLine("Đã lưu ảnh vào: " + imagePath);
-        }
-
-        private void btnMatThe_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadImageToPictureBox(PictureBox picBox, string imagePath)
         {
             try
@@ -421,8 +344,27 @@ namespace QuanLyBaiGiuXe
                 picBox.Image = null;
             }
         }
+        #endregion
+
+        private void txtMaThe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnNhanDien.PerformClick();
+                ThucHienRaVao();
+                txtMaThe.Clear();
+            }
+        }
+
+        private void btnMatThe_Click(object sender, EventArgs e)
+        {
+            var form = new TraCuuXeVaoRaForm();
+            form.ShowDialog();
+        }
 
 
+        // Cập nhật trạng thái mô hình nhận diện
         private CancellationTokenSource ctsPingModel = new CancellationTokenSource();
         public async Task PingModelUntilReadyAsync(CancellationToken cancellationToken)
         {
@@ -467,8 +409,14 @@ namespace QuanLyBaiGiuXe
                 catch
                 {
                 }
-
+                try
+                {
                 await Task.Delay(2000, cancellationToken);
+                }
+                catch (TaskCanceledException)
+                {
+                    break;
+                }
             }
         }
     }

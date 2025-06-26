@@ -52,6 +52,7 @@
             this.pbVao = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pbRa = new System.Windows.Forms.PictureBox();
+            this.lbTienPhat = new System.Windows.Forms.Label();
             this.pnInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // pnInfo
             // 
+            this.pnInfo.Controls.Add(this.lbTienPhat);
             this.pnInfo.Controls.Add(this.cbKhoaThe);
             this.pnInfo.Controls.Add(this.btnClose);
             this.pnInfo.Controls.Add(this.btnChoRaTinhPhi);
@@ -333,6 +335,15 @@
             this.pbRa.TabIndex = 0;
             this.pbRa.TabStop = false;
             // 
+            // lbTienPhat
+            // 
+            this.lbTienPhat.AutoSize = true;
+            this.lbTienPhat.Location = new System.Drawing.Point(804, 114);
+            this.lbTienPhat.Name = "lbTienPhat";
+            this.lbTienPhat.Size = new System.Drawing.Size(45, 19);
+            this.lbTienPhat.TabIndex = 13;
+            this.lbTienPhat.Text = "label5";
+            // 
             // XuLyMatThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -385,5 +396,6 @@
         private System.Windows.Forms.Button btnChoRaKoTinhPhi;
         private System.Windows.Forms.PictureBox pbVao;
         private System.Windows.Forms.PictureBox pbRa;
+        private System.Windows.Forms.Label lbTienPhat;
     }
 }

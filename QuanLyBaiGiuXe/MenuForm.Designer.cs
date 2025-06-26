@@ -42,18 +42,19 @@
             this.btnNhatKyXuLyVeThang = new System.Windows.Forms.Button();
             this.btnThongKeChiTiet = new System.Windows.Forms.Button();
             this.btnMainForm = new System.Windows.Forms.Button();
-            this.btnNhatKyMatThe = new System.Windows.Forms.Button();
             this.btnNhatKyVeLuot = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.lbXinChao = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnTinhTien = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnThe
             // 
+            this.btnThe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThe.Location = new System.Drawing.Point(19, 20);
             this.btnThe.Margin = new System.Windows.Forms.Padding(4);
             this.btnThe.Name = "btnThe";
@@ -65,7 +66,8 @@
             // 
             // btnVeThang
             // 
-            this.btnVeThang.Location = new System.Drawing.Point(19, 165);
+            this.btnVeThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVeThang.Location = new System.Drawing.Point(591, 20);
             this.btnVeThang.Margin = new System.Windows.Forms.Padding(4);
             this.btnVeThang.Name = "btnVeThang";
             this.btnVeThang.Size = new System.Drawing.Size(172, 89);
@@ -76,7 +78,8 @@
             // 
             // btnTraCuuXeVaoRa
             // 
-            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(879, 165);
+            this.btnTraCuuXeVaoRa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(591, 455);
             this.btnTraCuuXeVaoRa.Margin = new System.Windows.Forms.Padding(4);
             this.btnTraCuuXeVaoRa.Name = "btnTraCuuXeVaoRa";
             this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(172, 89);
@@ -87,7 +90,8 @@
             // 
             // btnVeLuot
             // 
-            this.btnVeLuot.Location = new System.Drawing.Point(19, 310);
+            this.btnVeLuot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVeLuot.Location = new System.Drawing.Point(305, 20);
             this.btnVeLuot.Margin = new System.Windows.Forms.Padding(4);
             this.btnVeLuot.Name = "btnVeLuot";
             this.btnVeLuot.Size = new System.Drawing.Size(172, 89);
@@ -98,6 +102,7 @@
             // 
             // btnThongKeTheoKhoangThoiGian
             // 
+            this.btnThongKeTheoKhoangThoiGian.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(305, 310);
             this.btnThongKeTheoKhoangThoiGian.Margin = new System.Windows.Forms.Padding(4);
             this.btnThongKeTheoKhoangThoiGian.Name = "btnThongKeTheoKhoangThoiGian";
@@ -109,18 +114,20 @@
             // 
             // btnNguoiDung
             // 
-            this.btnNguoiDung.Location = new System.Drawing.Point(879, 455);
+            this.btnNguoiDung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNguoiDung.Location = new System.Drawing.Point(875, 455);
             this.btnNguoiDung.Margin = new System.Windows.Forms.Padding(4);
             this.btnNguoiDung.Name = "btnNguoiDung";
             this.btnNguoiDung.Size = new System.Drawing.Size(172, 89);
             this.btnNguoiDung.TabIndex = 0;
-            this.btnNguoiDung.Text = "Người dùng";
+            this.btnNguoiDung.Text = "Nhân viên";
             this.btnNguoiDung.UseVisualStyleBackColor = true;
             this.btnNguoiDung.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // btnThongKeTheoMayTinh
             // 
-            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(19, 455);
+            this.btnThongKeTheoMayTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(592, 310);
             this.btnThongKeTheoMayTinh.Margin = new System.Windows.Forms.Padding(4);
             this.btnThongKeTheoMayTinh.Name = "btnThongKeTheoMayTinh";
             this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(172, 89);
@@ -131,7 +138,8 @@
             // 
             // btnHeThong
             // 
-            this.btnHeThong.Location = new System.Drawing.Point(879, 310);
+            this.btnHeThong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHeThong.Location = new System.Drawing.Point(305, 455);
             this.btnHeThong.Margin = new System.Windows.Forms.Padding(4);
             this.btnHeThong.Name = "btnHeThong";
             this.btnHeThong.Size = new System.Drawing.Size(172, 89);
@@ -142,7 +150,8 @@
             // 
             // btnNhatKyDieuChinhGiaVe
             // 
-            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(592, 455);
+            this.btnNhatKyDieuChinhGiaVe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(879, 165);
             this.btnNhatKyDieuChinhGiaVe.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhatKyDieuChinhGiaVe.Name = "btnNhatKyDieuChinhGiaVe";
             this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(172, 89);
@@ -153,7 +162,8 @@
             // 
             // btnThongKeTheoNhanVien
             // 
-            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(305, 455);
+            this.btnThongKeTheoNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(879, 310);
             this.btnThongKeTheoNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btnThongKeTheoNhanVien.Name = "btnThongKeTheoNhanVien";
             this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(172, 89);
@@ -164,7 +174,8 @@
             // 
             // btnNhatKyDangNhap
             // 
-            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(592, 310);
+            this.btnNhatKyDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(305, 165);
             this.btnNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhatKyDangNhap.Name = "btnNhatKyDangNhap";
             this.btnNhatKyDangNhap.Size = new System.Drawing.Size(172, 89);
@@ -175,6 +186,7 @@
             // 
             // btnNhatKyXuLyVeThang
             // 
+            this.btnNhatKyXuLyVeThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(592, 165);
             this.btnNhatKyXuLyVeThang.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhatKyXuLyVeThang.Name = "btnNhatKyXuLyVeThang";
@@ -186,7 +198,8 @@
             // 
             // btnThongKeChiTiet
             // 
-            this.btnThongKeChiTiet.Location = new System.Drawing.Point(305, 165);
+            this.btnThongKeChiTiet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongKeChiTiet.Location = new System.Drawing.Point(19, 310);
             this.btnThongKeChiTiet.Margin = new System.Windows.Forms.Padding(4);
             this.btnThongKeChiTiet.Name = "btnThongKeChiTiet";
             this.btnThongKeChiTiet.Size = new System.Drawing.Size(172, 89);
@@ -197,7 +210,8 @@
             // 
             // btnMainForm
             // 
-            this.btnMainForm.Location = new System.Drawing.Point(305, 20);
+            this.btnMainForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainForm.Location = new System.Drawing.Point(877, 20);
             this.btnMainForm.Margin = new System.Windows.Forms.Padding(4);
             this.btnMainForm.Name = "btnMainForm";
             this.btnMainForm.Size = new System.Drawing.Size(172, 89);
@@ -206,20 +220,10 @@
             this.btnMainForm.UseVisualStyleBackColor = true;
             this.btnMainForm.Click += new System.EventHandler(this.btnThongKeTongQuat_Click);
             // 
-            // btnNhatKyMatThe
-            // 
-            this.btnNhatKyMatThe.Location = new System.Drawing.Point(592, 20);
-            this.btnNhatKyMatThe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNhatKyMatThe.Name = "btnNhatKyMatThe";
-            this.btnNhatKyMatThe.Size = new System.Drawing.Size(172, 89);
-            this.btnNhatKyMatThe.TabIndex = 0;
-            this.btnNhatKyMatThe.Text = "Nhật ký xử lý mất thẻ";
-            this.btnNhatKyMatThe.UseVisualStyleBackColor = true;
-            this.btnNhatKyMatThe.Click += new System.EventHandler(this.btnNhatKyMatThe_Click);
-            // 
             // btnNhatKyVeLuot
             // 
-            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(879, 20);
+            this.btnNhatKyVeLuot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(19, 165);
             this.btnNhatKyVeLuot.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhatKyVeLuot.Name = "btnNhatKyVeLuot";
             this.btnNhatKyVeLuot.Size = new System.Drawing.Size(172, 89);
@@ -257,15 +261,15 @@
             this.lbXinChao.Location = new System.Drawing.Point(15, 16);
             this.lbXinChao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbXinChao.Name = "lbXinChao";
-            this.lbXinChao.Size = new System.Drawing.Size(78, 20);
+            this.lbXinChao.Size = new System.Drawing.Size(67, 17);
             this.lbXinChao.TabIndex = 0;
             this.lbXinChao.Text = "Xin chào,";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnNhatKyMatThe);
             this.panel2.Controls.Add(this.btnNhatKyVeLuot);
+            this.panel2.Controls.Add(this.btnTinhTien);
             this.panel2.Controls.Add(this.btnHeThong);
             this.panel2.Controls.Add(this.btnThe);
             this.panel2.Controls.Add(this.btnNhatKyDieuChinhGiaVe);
@@ -286,6 +290,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1061, 573);
             this.panel2.TabIndex = 2;
+            // 
+            // btnTinhTien
+            // 
+            this.btnTinhTien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTinhTien.Location = new System.Drawing.Point(19, 455);
+            this.btnTinhTien.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTinhTien.Name = "btnTinhTien";
+            this.btnTinhTien.Size = new System.Drawing.Size(172, 89);
+            this.btnTinhTien.TabIndex = 0;
+            this.btnTinhTien.Text = "Cấu hình tính tiền";
+            this.btnTinhTien.UseVisualStyleBackColor = true;
+            this.btnTinhTien.Click += new System.EventHandler(this.btnHeThong_Click);
             // 
             // MenuForm
             // 
@@ -322,11 +338,11 @@
         private System.Windows.Forms.Button btnNhatKyXuLyVeThang;
         private System.Windows.Forms.Button btnThongKeChiTiet;
         private System.Windows.Forms.Button btnMainForm;
-        private System.Windows.Forms.Button btnNhatKyMatThe;
         private System.Windows.Forms.Button btnNhatKyVeLuot;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbXinChao;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDangXuat;
+        private System.Windows.Forms.Button btnTinhTien;
     }
 }

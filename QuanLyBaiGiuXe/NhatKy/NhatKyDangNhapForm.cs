@@ -17,8 +17,8 @@ namespace QuanLyBaiGiuXe
 
         private void NhatKyDangNhapForm_Load(object sender, EventArgs e)
         {
-            LoadData();
             LoadUI();
+            LoadData();
         }
 
         private void LoadUI()
@@ -33,7 +33,7 @@ namespace QuanLyBaiGiuXe
         private void LoadData() {
             try
             {
-                this.dtgNhatKyDangNhap.DataSource = manager.GetNhatKyDangNhap();
+                btnTimKiem.PerformClick();
             }
             catch
             {
@@ -84,7 +84,7 @@ namespace QuanLyBaiGiuXe
             DateTime tgTu = dtpTu.Value;
             DateTime tgDen = dtpDen.Value;
 
-            this.dtgNhatKyDangNhap.DataSource = manager.TimKiemNhatKyDangNhap(tgTu, tgDen);
+            this.dtgNhatKyDangNhap.DataSource = manager.GetNhatKyDangNhap(tgTu, tgDen);
         }
     }
 }

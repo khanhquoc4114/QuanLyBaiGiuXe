@@ -82,7 +82,7 @@
             this.dtgNhatKy.AllowUserToAddRows = false;
             this.dtgNhatKy.AllowUserToDeleteRows = false;
             this.dtgNhatKy.AllowUserToResizeRows = false;
-            this.dtgNhatKy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgNhatKy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dtgNhatKy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgNhatKy.ColumnHeadersHeight = 29;
             this.dtgNhatKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;

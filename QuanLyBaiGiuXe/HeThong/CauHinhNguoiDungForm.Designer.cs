@@ -74,6 +74,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btnPath);
             this.panel1.Controls.Add(this.btnTinhTienForm);
@@ -106,9 +107,9 @@
             // 
             // btnTinhTienForm
             // 
-            this.btnTinhTienForm.Location = new System.Drawing.Point(126, 12);
+            this.btnTinhTienForm.Location = new System.Drawing.Point(154, 12);
             this.btnTinhTienForm.Name = "btnTinhTienForm";
-            this.btnTinhTienForm.Size = new System.Drawing.Size(127, 31);
+            this.btnTinhTienForm.Size = new System.Drawing.Size(151, 31);
             this.btnTinhTienForm.TabIndex = 0;
             this.btnTinhTienForm.Text = "Cấu hình tính tiền";
             this.btnTinhTienForm.UseVisualStyleBackColor = true;
@@ -126,7 +127,7 @@
             // 
             this.btnLuu.Location = new System.Drawing.Point(12, 12);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(108, 31);
+            this.btnLuu.Size = new System.Drawing.Size(136, 31);
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu cấu hình";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -271,7 +272,7 @@
             this.rbKhongChoVao.AutoSize = true;
             this.rbKhongChoVao.Location = new System.Drawing.Point(19, 127);
             this.rbKhongChoVao.Name = "rbKhongChoVao";
-            this.rbKhongChoVao.Size = new System.Drawing.Size(134, 20);
+            this.rbKhongChoVao.Size = new System.Drawing.Size(131, 20);
             this.rbKhongChoVao.TabIndex = 2;
             this.rbKhongChoVao.TabStop = true;
             this.rbKhongChoVao.Text = "Không cho xe vào";
@@ -282,7 +283,7 @@
             this.rbPhiVeLuot.AutoSize = true;
             this.rbPhiVeLuot.Location = new System.Drawing.Point(19, 39);
             this.rbPhiVeLuot.Name = "rbPhiVeLuot";
-            this.rbPhiVeLuot.Size = new System.Drawing.Size(141, 20);
+            this.rbPhiVeLuot.Size = new System.Drawing.Size(138, 20);
             this.rbPhiVeLuot.TabIndex = 0;
             this.rbPhiVeLuot.TabStop = true;
             this.rbPhiVeLuot.Text = "Tính phí như vé lượt";
@@ -293,7 +294,7 @@
             this.rbCanhBao.AutoSize = true;
             this.rbCanhBao.Location = new System.Drawing.Point(19, 83);
             this.rbCanhBao.Name = "rbCanhBao";
-            this.rbCanhBao.Size = new System.Drawing.Size(152, 20);
+            this.rbCanhBao.Size = new System.Drawing.Size(149, 20);
             this.rbCanhBao.TabIndex = 1;
             this.rbCanhBao.TabStop = true;
             this.rbCanhBao.Text = "Chỉ cảnh báo hết hạn";
@@ -317,7 +318,7 @@
             this.rbLuyTien.AutoSize = true;
             this.rbLuyTien.Location = new System.Drawing.Point(35, 127);
             this.rbLuyTien.Name = "rbLuyTien";
-            this.rbLuyTien.Size = new System.Drawing.Size(116, 20);
+            this.rbLuyTien.Size = new System.Drawing.Size(113, 20);
             this.rbLuyTien.TabIndex = 2;
             this.rbLuyTien.TabStop = true;
             this.rbLuyTien.Text = "Thu phí luỹ tiến";
@@ -328,7 +329,7 @@
             this.rbMienPhi.AutoSize = true;
             this.rbMienPhi.Location = new System.Drawing.Point(35, 39);
             this.rbMienPhi.Name = "rbMienPhi";
-            this.rbMienPhi.Size = new System.Drawing.Size(118, 20);
+            this.rbMienPhi.Size = new System.Drawing.Size(115, 20);
             this.rbMienPhi.TabIndex = 0;
             this.rbMienPhi.TabStop = true;
             this.rbMienPhi.Text = "Giữ xe miễn phí";
@@ -339,7 +340,7 @@
             this.rbCongVan.AutoSize = true;
             this.rbCongVan.Location = new System.Drawing.Point(35, 83);
             this.rbCongVan.Name = "rbCongVan";
-            this.rbCongVan.Size = new System.Drawing.Size(159, 20);
+            this.rbCongVan.Size = new System.Drawing.Size(156, 20);
             this.rbCongVan.TabIndex = 1;
             this.rbCongVan.TabStop = true;
             this.rbCongVan.Text = "Thu phí theo công văn";

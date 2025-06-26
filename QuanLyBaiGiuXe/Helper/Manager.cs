@@ -132,23 +132,28 @@ namespace QuanLyBaiGiuXe.Models
         /// <param name="AnhRaPath"></param>
         /// <param name="sotien"></param>
         /// <returns></returns>
-        public bool CapNhatMatTheVeLuot(string maveluot, string AnhRaPath ,int sotien = 0)
+        public bool CapNhatMatTheVeLuot(string maveluot, string AnhRaPath ,int sotien = 0, bool XacNhanMatThe = false)
         {
             try
             {
                 db.OpenConnection();
                 GuiSession();
-
+                string status = "Đã ra";
+                if (XacNhanMatThe)
+                {
+                    status = "Mất thẻ";
+                }
                 using (SqlCommand cmd = new SqlCommand(@"
                     UPDATE VeLuot 
                     SET 
                         TongTien = @sotien, 
                         ThoiGianRa = @tgRa, 
                         AnhRaPath = @anhrapath,
-                        TrangThai = 'Mất thẻ'
+                        TrangThai = @TrangThai
                     WHERE MaVeLuot = @maveluot", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@maveluot", maveluot);
+                    cmd.Parameters.AddWithValue("@TrangThai", status);
                     cmd.Parameters.AddWithValue("@sotien", sotien);
                     cmd.Parameters.AddWithValue("@tgRa", DateTime.Now);
                     cmd.Parameters.AddWithValue("@anhrapath", AnhRaPath ?? (object)DBNull.Value);
@@ -161,6 +166,25 @@ namespace QuanLyBaiGiuXe.Models
             {
                 MessageBox.Show("Lỗi khi cập nhật giá vé lượt: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        public int GetSoLuongXeChuaRa()
+        {
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT COUNT(*) FROM VeLuot WHERE TrangThai = N'Chưa ra'", db.GetConnection()))
+                {
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy số lượng xe chưa ra: " + ex.Message);
+                return -1;
             }
         }
 
@@ -698,16 +722,17 @@ namespace QuanLyBaiGiuXe.Models
             {
                 db.OpenConnection();
 
-                using (SqlCommand cmd = new SqlCommand("Update The Set TrangThaiThe = N'Sử dụng' WHERE MaThe = @mathe", db.GetConnection()))
+                using (SqlCommand cmd = new SqlCommand("Update The Set TrangThaiThe = N'Sử dụng', NgayCapNhatThe = @tgCapNhat WHERE MaThe = @mathe", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@mathe", MaThe);
+                    cmd.Parameters.AddWithValue("@tgCapNhat", DateTime.Now);
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi kiểm tra thẻ: " + ex.Message);
+                MessageBox.Show("Lỗi khi khôi phục thẻ: " + ex.Message);
                 return false;
             }
         }
@@ -1223,14 +1248,25 @@ namespace QuanLyBaiGiuXe.Models
         #endregion
 
         #region Nhật Ký
-        public DataTable GetNhatKyDangNhap()
+        public DataTable GetNhatKyDangNhap(DateTime? tgTu = null, DateTime? tgDen = null)
         {
             DataTable dtbNhatKyDangNhap = new DataTable();
             try
             {
                 db.OpenConnection();
-                using (SqlCommand cmd = new SqlCommand(@"exec sp_nhatkydangnhap", db.GetConnection()))
+                using (SqlCommand cmd = new SqlCommand(@"sp_nhatkydangnhap", db.GetConnection()))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@tgTu", SqlDbType.DateTime)
+                    {
+                        Value = tgTu.HasValue ? (object)tgTu.Value : DBNull.Value
+                    });
+
+                    cmd.Parameters.Add(new SqlParameter("@tgDen", SqlDbType.DateTime)
+                    {
+                        Value = tgDen.HasValue ? (object)tgDen.Value : DBNull.Value
+                    });
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         adapter.Fill(dtbNhatKyDangNhap);
@@ -1304,7 +1340,7 @@ namespace QuanLyBaiGiuXe.Models
             return dtbNhatKyDangNhap;
         }
 
-        public DataTable GetXuLyVeLuot(DateTime? tgTu = null, DateTime? tgDen = null)
+        public DataTable GetXuLyVeLuot(string hanhdong = null, DateTime? tgTu = null, DateTime? tgDen = null)
         {
             DataTable dtgNhatKy = new DataTable();
 
@@ -1323,6 +1359,11 @@ namespace QuanLyBaiGiuXe.Models
                     cmd.Parameters.Add(new SqlParameter("@tgDen", SqlDbType.DateTime)
                     {
                         Value = tgDen.HasValue ? (object)tgDen.Value : DBNull.Value
+                    });
+
+                    cmd.Parameters.Add(new SqlParameter("@HanhDong", SqlDbType.NVarChar, 50)
+                    {
+                        Value = string.IsNullOrEmpty(hanhdong) ? (object)DBNull.Value : hanhdong
                     });
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
@@ -1576,11 +1617,15 @@ namespace QuanLyBaiGiuXe.Models
                     {
                         Value = string.IsNullOrEmpty(KieuThongKe) ? (object)DBNull.Value : KieuThongKe
                     });
-
                     // @LoaiXe
                     cmd.Parameters.Add(new SqlParameter("@LoaiXe", SqlDbType.NVarChar, 50)
                     {
                         Value = string.IsNullOrEmpty(loaixe) ? (object)DBNull.Value : loaixe
+                    });
+
+                    cmd.Parameters.Add(new SqlParameter("@LoaiVe", SqlDbType.NVarChar, 50)
+                    {
+                        Value = string.IsNullOrEmpty(loaive) ? (object)DBNull.Value : loaive
                     });
 
                     cmd.Parameters.Add(new SqlParameter("@MaNhanVien", SqlDbType.NVarChar, 50)
@@ -1588,17 +1633,16 @@ namespace QuanLyBaiGiuXe.Models
                         Value = string.IsNullOrEmpty(nhanvien) ? (object)DBNull.Value : nhanvien
                     });
 
-                    // @tgTu
                     cmd.Parameters.Add(new SqlParameter("@tgTu", SqlDbType.DateTime)
                     {
                         Value = tgTu.HasValue ? (object)tgTu.Value : DBNull.Value
                     });
 
-                    // @tgDen
                     cmd.Parameters.Add(new SqlParameter("@tgDen", SqlDbType.DateTime)
                     {
                         Value = tgDen.HasValue ? (object)tgDen.Value : DBNull.Value
                     });
+
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         adapter.Fill(dtbThongKe);
@@ -1854,16 +1898,27 @@ namespace QuanLyBaiGiuXe.Models
         #endregion
 
         #region Loại Xe
-        public bool ThemLoaiXe(string Tenloaixe)
+        public bool ThemLoaiXe(string Tenloaixe, out string maloaixe)
         {
+            maloaixe = null;
             try
             {
                 db.OpenConnection();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO LoaiXe (TenLoaiXe) VALUES (@TenLoaiXe)", db.GetConnection()))
+                using (SqlCommand cmd = new SqlCommand(@"
+                    INSERT INTO LoaiXe (TenLoaiXe)
+                    VALUES (@TenLoaiXe);
+                    SELECT SCOPE_IDENTITY();", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@TenLoaiXe", Tenloaixe);
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        maloaixe = result.ToString();
+                        return true;
+                    }
+
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -1871,7 +1926,12 @@ namespace QuanLyBaiGiuXe.Models
                 MessageBox.Show("Lỗi khi thêm loại xe: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            finally
+            {
+                db.CloseConnection();
+            }
         }
+
         public bool XoaLoaiXe(string maloaixe)
         {
             try
@@ -1892,8 +1952,8 @@ namespace QuanLyBaiGiuXe.Models
         }
         #endregion
 
-        public DataTable TraCuuRaVao(string loaiTruyVan=null, string loaiVe = null, string maLoaiXe = null, DateTime? tgTu=null,
-            DateTime? tgDen=null, string soThe = null, string bienSo = null,string maThe = null, string maNhanVienVao = null, string maNhanVienRa = null)
+        public DataTable TraCuuRaVao(string loaiTruyVan = null, string loaiVe = null, string maLoaiXe = null, DateTime? tgTu = null,
+            DateTime? tgDen = null, string soThe = null, string bienSo = null, string maThe = null, string maNhanVienVao = null, string maNhanVienRa = null)
         {
             DataTable dtbThongKe = new DataTable();
             try
@@ -1906,7 +1966,7 @@ namespace QuanLyBaiGiuXe.Models
                     cmd.Parameters.AddWithValue("@LoaiVe", loaiVe);
                     cmd.Parameters.AddWithValue("@MaLoaiXe", string.IsNullOrEmpty(maLoaiXe) ? -1 : int.Parse(maLoaiXe));
                     cmd.Parameters.AddWithValue("@tgTu", tgTu);
-                    cmd.Parameters.AddWithValue("@tgden", tgDen);
+                    cmd.Parameters.AddWithValue("@tgDen", tgDen);
                     cmd.Parameters.AddWithValue("@SoThe", string.IsNullOrEmpty(soThe) ? DBNull.Value : (object)soThe);
                     cmd.Parameters.AddWithValue("@BienSo", string.IsNullOrEmpty(bienSo) ? DBNull.Value : (object)bienSo);
                     cmd.Parameters.AddWithValue("@MaThe", string.IsNullOrEmpty(maThe) ? DBNull.Value : (object)maThe);
@@ -1924,6 +1984,5 @@ namespace QuanLyBaiGiuXe.Models
             }
             return dtbThongKe;
         }
-
     }
 }

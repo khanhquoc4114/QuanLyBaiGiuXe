@@ -111,6 +111,7 @@
             // 
             // panel5
             // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.btnDieuChinhGiaVe);
             this.panel5.Controls.Add(this.btnXuLyMatThe);
             this.panel5.Controls.Add(this.btnXuatExcel);

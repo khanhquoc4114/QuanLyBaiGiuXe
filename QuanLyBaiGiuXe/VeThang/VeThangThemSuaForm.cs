@@ -107,7 +107,6 @@ namespace QuanLyBaiGiuXe
             decimal giaVe = updGiaVe.Value;
             string ghiChu = rtbGhiChu.Text;
             if (manager.KiemTraTheTrongVeThang(maThe)) return false;
-            MessageBox.Show($"Xe được chọn là {maloaiXe}");
             bool result = manager.ThemVeThang(maNhom, maThe, chuXe, dienThoai, diaChi, email, ngayKichHoat,
                 ngayHetHan, bienSo, nhanHieu, maloaiXe, giaVe, ghiChu);
             return result;

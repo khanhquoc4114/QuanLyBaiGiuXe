@@ -93,7 +93,7 @@ namespace QuanLyBaiGiuXe
             }
             if (string.IsNullOrWhiteSpace(tbNhapLai.Text) || tbNhapLai.Text != tbMatKhau.Text)
             {
-                MessageBox.Show("Vui lòng nhập lại mật Khẩu đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập lại mật khẩu đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tbNhapLai.Focus();
                 return false;
             }
@@ -144,16 +144,6 @@ namespace QuanLyBaiGiuXe
         }
         #endregion
 
-        private void Clear()
-        {
-            cbNhom.SelectedIndex = -1;
-            tbHoTen.Clear();
-            tbMaThe.Clear();
-            tbTenDangNhap.Clear();
-            tbMatKhau.Clear();
-            tbNhapLai.Clear();
-            rtbGhiChu.Clear();
-        }
 
         #region Main Function
         bool ThemNhanVien()
@@ -162,7 +152,11 @@ namespace QuanLyBaiGiuXe
             string hoTen = tbHoTen.Text.Trim();
             string maThe = tbMaThe.Text.Trim();
             string tenDangNhap = tbTenDangNhap.Text.Trim();
-            string matKhau = tbMatKhau.Text.Trim();
+            string matKhau = tbNhapLai.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(matKhau))
+            {
+                matKhau = HashHelper.ComputeSHA256Hash(matKhau);
+            }
             string ghiChu = rtbGhiChu.Text.Trim();
             bool isAdded = manager.ThemNhanVien(tenNhom, hoTen, maThe, tenDangNhap, matKhau, ghiChu, out bool isTonTaiThe, out bool isTonTaiTheChoNhanVien);
             if (isAdded)
@@ -189,13 +183,18 @@ namespace QuanLyBaiGiuXe
                 }
             }
         }
+
         bool CapNhatNhanVien()
         {
             string tenNhom = cbNhom.SelectedItem.ToString();
             string hoTen = tbHoTen.Text.Trim();
             string maThe = tbMaThe.Text.Trim();
             string tenDangNhap = tbTenDangNhap.Text.Trim();
-            string matKhau = tbMatKhau.Text.Trim();
+            string matKhau = tbNhapLai.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(matKhau))
+            {
+                matKhau = HashHelper.ComputeSHA256Hash(matKhau);
+            }
             string ghiChu = rtbGhiChu.Text.Trim();
             bool isUpdated = manager.CapNhatNhanVien(MaNhanVien, tenNhom, hoTen, maThe, tenDangNhap, matKhau, ghiChu, out bool isTonTaiThe, out bool isTonTaiTheChoNhanVien);
             if (isUpdated)
@@ -223,6 +222,16 @@ namespace QuanLyBaiGiuXe
             }
         }
         #endregion
+        private void Clear()
+        {
+            cbNhom.SelectedIndex = -1;
+            tbHoTen.Clear();
+            tbMaThe.Clear();
+            tbTenDangNhap.Clear();
+            tbMatKhau.Clear();
+            tbNhapLai.Clear();
+            rtbGhiChu.Clear();
+        }
 
         private void NhanVienThemSuaNhanVienForm_Load(object sender, EventArgs e)
         {

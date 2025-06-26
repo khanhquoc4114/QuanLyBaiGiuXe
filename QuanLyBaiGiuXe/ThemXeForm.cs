@@ -1,12 +1,5 @@
 ﻿using QuanLyBaiGiuXe.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
@@ -14,6 +7,7 @@ namespace QuanLyBaiGiuXe
     public partial class ThemXeForm: Form
     {
         Manager manager = new Manager();
+        public bool isSuccess = false; 
         public ThemXeForm()
         {
             InitializeComponent();
@@ -31,9 +25,23 @@ namespace QuanLyBaiGiuXe
             {
                 new ToastForm("Vui lòng nhập tên loại xe", this).Show();
             }
-            if (manager.ThemLoaiXe(tenloaixe))
+            if (manager.ThemLoaiXe(tenloaixe, out string maLoaiXe))
             {
                 new ToastForm("Thêm loại xe thành công", this).Show();
+                isSuccess = true;
+                manager.UpsertTinhTienLuyTien(
+                    maLoaiXe,
+                    0, 0, 0, 0, 0, 0, 0
+                );
+
+                manager.UpsertTinhTienCongVan(
+                    maLoaiXe,
+                    false, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                );
+                manager.UpsertGiaVeThang(
+                    maLoaiXe,
+                    "0", "0"
+                );
                 this.Close();
             }
         }

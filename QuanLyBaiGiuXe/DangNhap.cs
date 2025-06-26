@@ -25,7 +25,13 @@ namespace QuanLyBaiGiuXe
             }
             try
             {
-                MaNhanVien = loginManager.GetMaNhanVien(tbUsername.Text, tbPassword.Text, out string ErrorMessage);
+                string matKhau = tbPassword.Text.Trim();
+                string username = tbUsername.Text.Trim();
+                if (!string.IsNullOrWhiteSpace(matKhau))
+                {
+                    matKhau = HashHelper.ComputeSHA256Hash(matKhau);
+                }
+                MaNhanVien = loginManager.GetMaNhanVien(username, matKhau, out string ErrorMessage);
                 if (!string.IsNullOrEmpty(MaNhanVien))
                 {
                     Session.MaNhanVien = MaNhanVien;
@@ -78,8 +84,12 @@ namespace QuanLyBaiGiuXe
             {
                 tbUsername.Text = Properties.Settings.Default.SavedUsername;
                 tbPassword.Text = Properties.Settings.Default.SavedPassword;
-                MessageBox.Show(Properties.Settings.Default.SavedUsername, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbRememberMe.Checked = true;
+            } else
+            {
+                cbRememberMe.Checked = false;
+                tbUsername.Text = "";
+                tbPassword.Text = "";
             }
         }
 

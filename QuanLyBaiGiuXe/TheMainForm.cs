@@ -106,7 +106,7 @@ namespace QuanLyBaiGiuXe
             if (dtgThe.SelectedRows.Count > 0)
             {
                 int r = dtgThe.CurrentCell.RowIndex;
-                string MaThe = dtgThe.Rows[r].Cells[0].Value.ToString();
+                string MaThe = dtgThe.Rows[r].Cells["Mã thẻ"].Value.ToString();
                 var result = MessageBox.Show($"Bạn có chắc chắn muốn khôi phục thẻ {MaThe} chứ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {

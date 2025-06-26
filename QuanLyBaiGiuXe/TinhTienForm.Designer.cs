@@ -79,8 +79,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.nupGiaVeThang = new System.Windows.Forms.NumericUpDown();
             this.nupGiaMienPhi = new System.Windows.Forms.NumericUpDown();
@@ -162,6 +160,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage1.Controls.Add(this.cbThuTienTruoc);
             this.tabPage1.Controls.Add(this.tbPhuThuDen);
             this.tabPage1.Controls.Add(this.tbPhuThuTu);
@@ -506,6 +505,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.tbMoc2);
             this.tabPage2.Controls.Add(this.tbMoc1);
@@ -761,8 +761,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.comboBox1);
-            this.panel7.Controls.Add(this.label19);
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label18);
             this.panel7.Controls.Add(this.nupGiaVeThang);
             this.panel7.Controls.Add(this.nupGiaMienPhi);
@@ -774,27 +773,10 @@
             this.panel7.Size = new System.Drawing.Size(203, 688);
             this.panel7.TabIndex = 1;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 226);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 25);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(44, 190);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 17);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Phím tắt:";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(44, 350);
+            this.label18.Location = new System.Drawing.Point(44, 344);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(84, 17);
             this.label18.TabIndex = 0;
@@ -807,7 +789,7 @@
             0,
             0,
             0});
-            this.nupGiaVeThang.Location = new System.Drawing.Point(44, 386);
+            this.nupGiaVeThang.Location = new System.Drawing.Point(44, 380);
             this.nupGiaVeThang.Margin = new System.Windows.Forms.Padding(4);
             this.nupGiaVeThang.Maximum = new decimal(new int[] {
             999999999,
@@ -825,7 +807,7 @@
             0,
             0,
             0});
-            this.nupGiaMienPhi.Location = new System.Drawing.Point(44, 306);
+            this.nupGiaMienPhi.Location = new System.Drawing.Point(44, 300);
             this.nupGiaMienPhi.Margin = new System.Windows.Forms.Padding(4);
             this.nupGiaMienPhi.Name = "nupGiaMienPhi";
             this.nupGiaMienPhi.Size = new System.Drawing.Size(99, 25);
@@ -834,7 +816,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(44, 270);
+            this.label12.Location = new System.Drawing.Point(44, 264);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(118, 17);
             this.label12.TabIndex = 0;
@@ -842,6 +824,7 @@
             // 
             // panel6
             // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.Huy);
             this.panel6.Controls.Add(this.btnDongYSua);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -912,6 +895,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnTrangThai);
             this.panel2.Controls.Add(this.btnThem);
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -1046,8 +1030,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nupGiaVeThang;
         private System.Windows.Forms.NumericUpDown nupGiaMienPhi;

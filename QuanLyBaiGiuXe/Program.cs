@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
 using System.Security.Principal;
 using System.Windows.Forms;
 
@@ -22,8 +20,6 @@ namespace QuanLyBaiGiuXe
         [STAThread]
         static void Main()
         {
-            //RestartAsAdmin();
-
             KillAllProcessesListeningOnPort(port);
             LoadModel();
 
@@ -40,35 +36,18 @@ namespace QuanLyBaiGiuXe
             {
                 string user = Properties.Settings.Default.SavedUsername;
                 string pass = Properties.Settings.Default.SavedPassword;
+                pass = HashHelper.ComputeSHA256Hash(pass);
 
                 string error;
                 string maNV = loginManager.GetMaNhanVien(user, pass, out error);
                 if (!string.IsNullOrEmpty(maNV))
                 {
                     Session.MaNhanVien = maNV;
-                    Application.Run(new MenuForm());
+                    Application.Run(new MenuForm()); // mặc định phải là MenuForm()
                     return;
                 }
             }
-
             Application.Run(new DangNhap());
-        }
-
-        public static void RestartAsAdmin()
-        {
-            var identity = WindowsIdentity.GetCurrent();
-            var principal = new WindowsPrincipal(identity);
-            if (!principal.IsInRole(WindowsBuiltInRole.Administrator))
-            {
-                var exeName = Process.GetCurrentProcess().MainModule.FileName;
-                var startInfo = new ProcessStartInfo(exeName)
-                {
-                    UseShellExecute = true,
-                    Verb = "runas"
-                };
-                Process.Start(startInfo);
-                Environment.Exit(0);
-            }
         }
 
         public static void KillAllProcessesListeningOnPort(int port)
@@ -112,17 +91,17 @@ namespace QuanLyBaiGiuXe
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Không thể kill PID {pid}: {ex.Message}");
+                            Console.WriteLine($"Khong the kill tien trinh {pid}: {ex.Message}");
                         }
                     }
 
                     if (pids.Count == 0)
-                        Console.WriteLine($"✅ Không có tiến trình nào dùng cổng {port}");
+                        Console.WriteLine($"Khong co tien trinh dung cong {port}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi kill port: " + ex.Message);
+                Console.WriteLine("Loi khi kill tien trinh TCP tren port: " + ex.Message);
             }
         }
 
@@ -130,7 +109,7 @@ namespace QuanLyBaiGiuXe
         {
             modelProcess = new Process();
             modelProcess.StartInfo.FileName = "python";
-            modelProcess.StartInfo.Arguments = "-u main_test.py";
+            modelProcess.StartInfo.Arguments = "-u main.py";
             modelProcess.StartInfo.WorkingDirectory = Path.Combine(Application.StartupPath, "python-server");
             modelProcess.StartInfo.UseShellExecute = false;
             modelProcess.StartInfo.CreateNoWindow = true;

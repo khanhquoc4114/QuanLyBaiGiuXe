@@ -76,10 +76,10 @@
             // 
             this.panel5.Controls.Add(this.dtgVeLuot);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 62);
+            this.panel5.Location = new System.Drawing.Point(0, 54);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1009, 302);
+            this.panel5.Size = new System.Drawing.Size(1009, 310);
             this.panel5.TabIndex = 1;
             // 
             // dtgVeLuot
@@ -96,11 +96,12 @@
             this.dtgVeLuot.RowHeadersVisible = false;
             this.dtgVeLuot.RowHeadersWidth = 51;
             this.dtgVeLuot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgVeLuot.Size = new System.Drawing.Size(1009, 302);
+            this.dtgVeLuot.Size = new System.Drawing.Size(1009, 310);
             this.dtgVeLuot.TabIndex = 2;
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btnXuatExcel);
             this.panel4.Controls.Add(this.btnTimKiem);
             this.panel4.Controls.Add(this.label2);
@@ -111,15 +112,15 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1009, 62);
+            this.panel4.Size = new System.Drawing.Size(1009, 54);
             this.panel4.TabIndex = 0;
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(790, 8);
+            this.btnXuatExcel.Location = new System.Drawing.Point(886, 12);
             this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(161, 40);
+            this.btnXuatExcel.Size = new System.Drawing.Size(114, 31);
             this.btnXuatExcel.TabIndex = 10;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
@@ -127,10 +128,10 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(639, 8);
+            this.btnTimKiem.Location = new System.Drawing.Point(764, 12);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(114, 40);
+            this.btnTimKiem.Size = new System.Drawing.Size(114, 31);
             this.btnTimKiem.TabIndex = 9;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -139,38 +140,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(320, 17);
+            this.label2.Location = new System.Drawing.Point(277, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 23);
+            this.label2.Size = new System.Drawing.Size(34, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Đến:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 17);
+            this.label1.Location = new System.Drawing.Point(13, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 23);
+            this.label1.Size = new System.Drawing.Size(26, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Từ:";
             // 
             // dtpDen
             // 
-            this.dtpDen.Location = new System.Drawing.Point(402, 14);
+            this.dtpDen.Location = new System.Drawing.Point(330, 10);
             this.dtpDen.Margin = new System.Windows.Forms.Padding(5);
             this.dtpDen.Name = "dtpDen";
-            this.dtpDen.Size = new System.Drawing.Size(200, 29);
+            this.dtpDen.Size = new System.Drawing.Size(200, 25);
             this.dtpDen.TabIndex = 6;
             // 
             // dtpTu
             // 
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTu.Location = new System.Drawing.Point(83, 14);
+            this.dtpTu.Location = new System.Drawing.Point(58, 10);
             this.dtpTu.Margin = new System.Windows.Forms.Padding(5);
             this.dtpTu.Name = "dtpTu";
-            this.dtpTu.Size = new System.Drawing.Size(200, 29);
+            this.dtpTu.Size = new System.Drawing.Size(200, 25);
             this.dtpTu.TabIndex = 5;
             // 
             // panel2
@@ -203,7 +204,7 @@
             // 
             // VeLuotMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 364);
             this.Controls.Add(this.panel1);

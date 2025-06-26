@@ -1,6 +1,7 @@
 ﻿using OfficeOpenXml;
 using QuanLyBaiGiuXe.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -12,23 +13,25 @@ namespace QuanLyBaiGiuXe
         public NhatKyVeLuotForm()
         {
             InitializeComponent();
-            LoadData();
         }
 
         private void LoadData()
         {
-            dtgXuLyVeLuot.DataSource = manager.GetXuLyVeLuot();
+            List<string> hanhdonglist = new List<string> { "Tất cả hành động", "Xử lý mất thẻ", "Thêm vé lượt", "Sửa vé lượt", "Cho xe ra (Miễn phí)", "Cho xe ra (Tính phí)" };
+            cbHanhDong.DataSource = hanhdonglist;
 
             dtpTu.Format = DateTimePickerFormat.Custom;
             dtpTu.CustomFormat = "dd/MM/yyyy HH:mm";
             dtpTu.Value = DateTime.Now.AddDays(-7);
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
+
+            btnTimKiem.PerformClick();
         }
 
         private void NhatKyVeLuotForm_Load(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -73,8 +76,8 @@ namespace QuanLyBaiGiuXe
         {
             DateTime tgTu = dtpTu.Value;
             DateTime tgDen = dtpDen.Value;
-
-            this.dtgXuLyVeLuot.DataSource = manager.GetXuLyVeLuot(tgTu, tgDen);
+            string hanhdong = cbHanhDong.Text;
+            this.dtgXuLyVeLuot.DataSource = manager.GetXuLyVeLuot(hanhdong, tgTu, tgDen);
         }
     }
 }

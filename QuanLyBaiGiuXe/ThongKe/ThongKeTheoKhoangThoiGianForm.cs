@@ -74,16 +74,8 @@ namespace QuanLyBaiGiuXe
                 return;
             }
             string loaixe = cbLoaiXe.SelectedValue.ToString();
-            string loaive = cbLoaiVe.SelectedItem.ToString();
-            string nhanvien = cbNhanVien.SelectedItem.ToString();
-            if (cbLoaiVe.SelectedIndex == 0)
-            {
-                loaive = null;
-            }
-            if (cbNhanVien.SelectedIndex == 0)
-            {
-                nhanvien = "";
-            }
+            string loaive = cbLoaiVe.Text.ToString().Trim();
+            string nhanvien = cbNhanVien.SelectedValue.ToString();
             string khoangThoiGian = cbKhoangThoiGian.SelectedItem.ToString();
             var tokens = khoangThoiGian.Trim().ToLower().Split(' ');
             var lastWord = tokens.Last();
@@ -113,12 +105,12 @@ namespace QuanLyBaiGiuXe
             List<string> groupsKhoang = new List<string> { "Theo ngày", "Theo tuần", "Theo tháng", "Theo năm"};
             cbKhoangThoiGian.DataSource = groupsKhoang;
 
-            List<ComboBoxItem> groupsNhanVien = manager.GetDanhSachNhomNhanVien();
+            List<ComboBoxItem> groupsNhanVien = manager.GetDanhSachNhanVien();
             LoadComboBox(cbNhanVien, groupsNhanVien, "nhân viên");
         }
 
-        private void LoadData() { 
-            dtgThongKe.DataSource = manager.GetThongKeTheoKhoangThoiGian();
+        private void LoadData() {
+            btnThongKe.PerformClick();
         }
 
         private void LoadComboBox(ComboBox comboBox, List<ComboBoxItem> data, string suffix = null,  bool includeTatCa = true)
@@ -133,6 +125,11 @@ namespace QuanLyBaiGiuXe
             comboBox.DisplayMember = "Text";
             comboBox.ValueMember = "Value";
             comboBox.SelectedIndex = 0;
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

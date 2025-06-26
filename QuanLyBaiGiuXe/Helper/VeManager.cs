@@ -53,22 +53,37 @@ namespace QuanLyBaiGiuXe.Helper
 
             if (maVeThang != -1)
             {
+                int XuLyVeThangHetHan = AppConfig.XuLyVeThangHetHan;
                 bool conHan = manager.KiemTraHanVeThang(mathe, out DateTime? ngayHetHan);
                 if (!conHan)
                 {
-                    var result = MessageBox.Show(
-                        $"Thẻ này đã có vé tháng nhưng đã hết hạn vào {ngayHetHan.Value:dd/MM/yyyy}.\n\nBạn có muốn tiếp tục sử dụng cho vé lượt không?",
-                        "Vé tháng hết hạn",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning,
-                        MessageBoxDefaultButton.Button2
-                    );
-
-                    if (result == DialogResult.No)
+                    string message = $"Thẻ tháng đã hết hạn vào ngày {ngayHetHan.Value:dd/MM/yyyy}";
+                    if (XuLyVeThangHetHan == 1)
                     {
+                        var result = MessageBox.Show(
+                            $"{message}.\n\nVé sẽ được sử dụng như vé lượt!!!",
+                            "Vé tháng hết hạn",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button3
+                        );
+                        maVeThang = -1;
+                    }else if (XuLyVeThangHetHan == 0)
+                    {
+                        MessageBox.Show($"{message}.\n\n CẢNH CÁO!!!!",
+                        "Vé tháng hết hạn",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning,
+                        MessageBoxDefaultButton.Button3);
+                    } else if (XuLyVeThangHetHan == -1)
+                    {
+                        MessageBox.Show($"{message}.\n\n KHÔNG CHO XE VÀO!!!",
+                        "Vé tháng hết hạn",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button3);
                         return false;
                     }
-                    maVeThang = -1;
                 }
             }
 
@@ -88,7 +103,6 @@ namespace QuanLyBaiGiuXe.Helper
                     insertCmd.Parameters.AddWithValue("@BienSo", bienso);
                     insertCmd.Parameters.AddWithValue("@MaLoaiXe", maloaixe);
                     insertCmd.Parameters.AddWithValue("@AnhVaoPath", pathVao);
-                    MessageBox.Show($"Mã vé tháng {maVeThang}");
                     if (maVeThang == -1) 
                     {
                         insertCmd.Parameters.AddWithValue("@CachTinhTien", AppConfig.HinhThucThuPhi);
@@ -158,11 +172,12 @@ namespace QuanLyBaiGiuXe.Helper
                         SELECT TOP 1 CachTinhTien, ThoiGianVao, MaLoaiXe, AnhVaoPath
                         FROM VeLuot
                         WHERE MaThe = @mathe
-                        AND TrangThai = N'Chưa Ra'
+                        AND TrangThai = N'Chưa ra'
+                        AND BienSo = @bienso
                         ORDER BY ThoiGianVao DESC; ", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@mathe", mathe);
-                    //cmd.Parameters.AddWithValue("@bienso", bienso);
+                    cmd.Parameters.AddWithValue("@bienso", bienso);
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
@@ -183,7 +198,7 @@ namespace QuanLyBaiGiuXe.Helper
                         }
                         else
                         {
-                            MessageBox.Show("Không tìm thấy thẻ với biến số xe");
+                            MessageBox.Show("Không tìm thấy vé với biến số xe");
                             return null;
                         }
                     }
@@ -225,10 +240,6 @@ namespace QuanLyBaiGiuXe.Helper
             {
                 MessageBox.Show("Lỗi cập nhật vé lượt: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
-            }
-            finally
-            {
-                db.CloseConnection();
             }
 
             return veCapNhat;
@@ -280,7 +291,7 @@ namespace QuanLyBaiGiuXe.Helper
                         SELECT TOP 1 1
                         FROM VeLuot
                         WHERE MaThe = @MaThe
-                          AND TrangThai = N'Chưa Ra'
+                          AND TrangThai = N'Chưa ra'
                         ORDER BY ThoiGianVao DESC;", db.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@MaThe", mathe);
