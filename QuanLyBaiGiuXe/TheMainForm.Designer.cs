@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TheMainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -76,10 +77,10 @@
             // 
             this.panel5.Controls.Add(this.dtgThe);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 49);
+            this.panel5.Location = new System.Drawing.Point(0, 61);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(743, 470);
+            this.panel5.Size = new System.Drawing.Size(743, 458);
             this.panel5.TabIndex = 1;
             // 
             // dtgThe
@@ -100,7 +101,7 @@
             this.dtgThe.RowHeadersVisible = false;
             this.dtgThe.RowHeadersWidth = 51;
             this.dtgThe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgThe.Size = new System.Drawing.Size(743, 470);
+            this.dtgThe.Size = new System.Drawing.Size(743, 458);
             this.dtgThe.TabIndex = 4;
             // 
             // panel4
@@ -116,15 +117,15 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(743, 49);
+            this.panel4.Size = new System.Drawing.Size(743, 61);
             this.panel4.TabIndex = 0;
             // 
             // cbSoThe
             // 
             this.cbSoThe.AutoSize = true;
-            this.cbSoThe.Location = new System.Drawing.Point(221, 16);
+            this.cbSoThe.Location = new System.Drawing.Point(264, 16);
             this.cbSoThe.Name = "cbSoThe";
-            this.cbSoThe.Size = new System.Drawing.Size(18, 17);
+            this.cbSoThe.Size = new System.Drawing.Size(22, 21);
             this.cbSoThe.TabIndex = 4;
             this.cbSoThe.UseVisualStyleBackColor = true;
             this.cbSoThe.CheckedChanged += new System.EventHandler(this.cbSoThe_CheckedChanged);
@@ -132,9 +133,9 @@
             // tbMaThe
             // 
             this.tbMaThe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbMaThe.Location = new System.Drawing.Point(302, 11);
+            this.tbMaThe.Location = new System.Drawing.Point(345, 11);
             this.tbMaThe.Name = "tbMaThe";
-            this.tbMaThe.Size = new System.Drawing.Size(100, 27);
+            this.tbMaThe.Size = new System.Drawing.Size(100, 31);
             this.tbMaThe.TabIndex = 3;
             this.tbMaThe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMaThe_KeyDown);
             // 
@@ -143,7 +144,7 @@
             this.btnKhoiPhucThe.Location = new System.Drawing.Point(114, 9);
             this.btnKhoiPhucThe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnKhoiPhucThe.Name = "btnKhoiPhucThe";
-            this.btnKhoiPhucThe.Size = new System.Drawing.Size(88, 27);
+            this.btnKhoiPhucThe.Size = new System.Drawing.Size(111, 33);
             this.btnKhoiPhucThe.TabIndex = 2;
             this.btnKhoiPhucThe.Text = "Khôi phục";
             this.btnKhoiPhucThe.UseVisualStyleBackColor = true;
@@ -154,7 +155,7 @@
             this.btnXoaThe.Location = new System.Drawing.Point(13, 9);
             this.btnXoaThe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnXoaThe.Name = "btnXoaThe";
-            this.btnXoaThe.Size = new System.Drawing.Size(88, 27);
+            this.btnXoaThe.Size = new System.Drawing.Size(88, 35);
             this.btnXoaThe.TabIndex = 1;
             this.btnXoaThe.Text = "Xoá";
             this.btnXoaThe.UseVisualStyleBackColor = true;
@@ -163,10 +164,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 15);
+            this.label5.Location = new System.Drawing.Point(286, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.Size = new System.Drawing.Size(72, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Số thẻ: ";
             // 
@@ -176,7 +177,7 @@
             this.panel6.Location = new System.Drawing.Point(518, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(223, 47);
+            this.panel6.Size = new System.Drawing.Size(223, 59);
             this.panel6.TabIndex = 0;
             // 
             // panel2
@@ -212,11 +213,12 @@
             // 
             // TheMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "TheMainForm";
             this.Text = "Thẻ";

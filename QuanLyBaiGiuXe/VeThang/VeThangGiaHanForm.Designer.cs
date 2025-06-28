@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VeThangGiaHanForm));
             this.label1 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.btnDongY = new System.Windows.Forms.Button();
@@ -38,25 +39,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 31);
+            this.label1.Location = new System.Drawing.Point(37, 39);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.Size = new System.Drawing.Size(120, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gia hạn đến:";
             // 
             // dtp
             // 
             this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp.Location = new System.Drawing.Point(163, 25);
+            this.dtp.Location = new System.Drawing.Point(165, 39);
             this.dtp.Margin = new System.Windows.Forms.Padding(4);
             this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(129, 25);
+            this.dtp.Size = new System.Drawing.Size(129, 33);
             this.dtp.TabIndex = 1;
             // 
             // btnDongY
             // 
-            this.btnDongY.Location = new System.Drawing.Point(30, 80);
+            this.btnDongY.Location = new System.Drawing.Point(326, 39);
             this.btnDongY.Margin = new System.Windows.Forms.Padding(4);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(88, 38);
@@ -67,10 +68,10 @@
             // 
             // btnGiaHan1Thang
             // 
-            this.btnGiaHan1Thang.Location = new System.Drawing.Point(140, 80);
+            this.btnGiaHan1Thang.Location = new System.Drawing.Point(30, 85);
             this.btnGiaHan1Thang.Margin = new System.Windows.Forms.Padding(4);
             this.btnGiaHan1Thang.Name = "btnGiaHan1Thang";
-            this.btnGiaHan1Thang.Size = new System.Drawing.Size(143, 38);
+            this.btnGiaHan1Thang.Size = new System.Drawing.Size(264, 38);
             this.btnGiaHan1Thang.TabIndex = 3;
             this.btnGiaHan1Thang.Text = "Gia hạn thêm 1 tháng";
             this.btnGiaHan1Thang.UseVisualStyleBackColor = true;
@@ -78,7 +79,7 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(308, 80);
+            this.btnDong.Location = new System.Drawing.Point(326, 85);
             this.btnDong.Margin = new System.Windows.Forms.Padding(4);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(88, 38);
@@ -89,18 +90,21 @@
             // 
             // VeThangGiaHanForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 142);
+            this.ClientSize = new System.Drawing.Size(459, 162);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnGiaHan1Thang);
             this.Controls.Add(this.btnDongY);
             this.Controls.Add(this.dtp);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "VeThangGiaHanForm";
-            this.Text = "VeThangGiaHanForm";
+            this.Text = "Gia hạn vé tháng";
             this.Load += new System.EventHandler(this.VeThangGiaHanForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

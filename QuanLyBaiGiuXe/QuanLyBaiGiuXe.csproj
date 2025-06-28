@@ -275,7 +275,7 @@
     <Compile Include="Helper\Manager.cs" />
     <Compile Include="Models\LoaiXe.cs" />
     <Compile Include="Models\VeLuotInfo.cs" />
-<Compile Include="Helper\HashHelper.cs" />
+    <Compile Include="Helper\HashHelper.cs" />
     <Compile Include="NhanVien\NhanVienThemSuaNhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -229,5 +229,10 @@ namespace QuanLyBaiGiuXe
             }
         }
         #endregion
+
+        private void btnKhoiPhucVeThang_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

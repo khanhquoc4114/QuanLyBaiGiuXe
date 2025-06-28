@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VeThangDoiTheThang));
             this.label1 = new System.Windows.Forms.Label();
             this.tbMaThe = new System.Windows.Forms.TextBox();
             this.btnDongY = new System.Windows.Forms.Button();
@@ -39,23 +40,23 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(63, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(92, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quét thẻ:";
             // 
             // tbMaThe
             // 
             this.tbMaThe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbMaThe.Location = new System.Drawing.Point(130, 30);
+            this.tbMaThe.Location = new System.Drawing.Point(161, 29);
             this.tbMaThe.Name = "tbMaThe";
-            this.tbMaThe.Size = new System.Drawing.Size(172, 25);
+            this.tbMaThe.Size = new System.Drawing.Size(172, 33);
             this.tbMaThe.TabIndex = 1;
             // 
             // btnDongY
             // 
-            this.btnDongY.Location = new System.Drawing.Point(66, 74);
+            this.btnDongY.Location = new System.Drawing.Point(121, 83);
             this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(75, 37);
+            this.btnDongY.Size = new System.Drawing.Size(112, 37);
             this.btnDongY.TabIndex = 2;
             this.btnDongY.Text = "Đồng ý";
             this.btnDongY.UseVisualStyleBackColor = true;
@@ -63,9 +64,9 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(227, 74);
+            this.btnDong.Location = new System.Drawing.Point(249, 83);
             this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(75, 37);
+            this.btnDong.Size = new System.Drawing.Size(86, 37);
             this.btnDong.TabIndex = 3;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
@@ -73,7 +74,7 @@
             // 
             // VeThangDoiTheThang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 144);
             this.Controls.Add(this.btnDong);
@@ -81,7 +82,10 @@
             this.Controls.Add(this.tbMaThe);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "VeThangDoiTheThang";
             this.Text = "Đổi thẻ tháng";
             this.ResumeLayout(false);

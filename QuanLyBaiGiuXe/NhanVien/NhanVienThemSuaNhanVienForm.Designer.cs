@@ -73,9 +73,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox1.Location = new System.Drawing.Point(19, 20);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(924, 601);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -108,20 +108,20 @@
             this.btnDongYTiepTuc.Location = new System.Drawing.Point(411, 514);
             this.btnDongYTiepTuc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDongYTiepTuc.Name = "btnDongYTiepTuc";
-            this.btnDongYTiepTuc.Size = new System.Drawing.Size(183, 49);
+            this.btnDongYTiepTuc.Size = new System.Drawing.Size(209, 49);
             this.btnDongYTiepTuc.TabIndex = 10;
-            this.btnDongYTiepTuc.Text = "Đồng ý & Tiếp tục";
+            this.btnDongYTiepTuc.Text = "Đồng ý và Tiếp tục";
             this.btnDongYTiepTuc.UseVisualStyleBackColor = true;
             this.btnDongYTiepTuc.Click += new System.EventHandler(this.btnDongYTiepTuc_Click);
             // 
             // btnDongYDong
             // 
-            this.btnDongYDong.Location = new System.Drawing.Point(198, 514);
+            this.btnDongYDong.Location = new System.Drawing.Point(175, 514);
             this.btnDongYDong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDongYDong.Name = "btnDongYDong";
-            this.btnDongYDong.Size = new System.Drawing.Size(166, 49);
+            this.btnDongYDong.Size = new System.Drawing.Size(189, 49);
             this.btnDongYDong.TabIndex = 10;
-            this.btnDongYDong.Text = "Đồng ý & Đóng";
+            this.btnDongYDong.Text = "Đồng ý và Đóng";
             this.btnDongYDong.UseVisualStyleBackColor = true;
             this.btnDongYDong.Click += new System.EventHandler(this.btnDongYDong_Click);
             // 
@@ -271,7 +271,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NhanVienThemSuaNhanVienForm";
-            this.Text = "Thêm nhân viên mới";
+            this.Text = "Thêm Nhân viên mới";
             this.Load += new System.EventHandler(this.NhanVienThemSuaNhanVienForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

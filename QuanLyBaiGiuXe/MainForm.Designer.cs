@@ -190,10 +190,11 @@ namespace QuanLyBaiGiuXe
             // 
             this.cbLoaiXe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbLoaiXe.FormattingEnabled = true;
-            this.cbLoaiXe.Location = new System.Drawing.Point(404, 22);
+            this.cbLoaiXe.Location = new System.Drawing.Point(404, 21);
             this.cbLoaiXe.Name = "cbLoaiXe";
             this.cbLoaiXe.Size = new System.Drawing.Size(231, 29);
             this.cbLoaiXe.TabIndex = 4;
+            this.cbLoaiXe.SelectedIndexChanged += new System.EventHandler(this.cbLoaiXe_SelectedIndexChanged);
             // 
             // lbStatus
             // 
@@ -817,14 +818,14 @@ namespace QuanLyBaiGiuXe
             this.Controls.Add(this.mainTableLayoutPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "Form chính";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_LoadAsync);
-            this.KeyPreview = true;
-            this.KeyDown += MainForm_KeyDown;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.mainTableLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

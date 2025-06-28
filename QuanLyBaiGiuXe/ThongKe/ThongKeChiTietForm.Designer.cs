@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKeChiTietForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -61,44 +62,28 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1556, 554);
-            this.panel1.TabIndex = 4;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5);
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1556, 554);
-            this.panel3.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panel2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 56);
-            this.panel5.Margin = new System.Windows.Forms.Padding(5);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1556, 498);
-            this.panel5.TabIndex = 1;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.dtgDienGiai);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(1209, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(347, 498);
-            this.panel6.TabIndex = 1;
             // 
             // dtgDienGiai
             // 
@@ -106,30 +91,20 @@
             this.dtgDienGiai.AllowUserToDeleteRows = false;
             this.dtgDienGiai.AllowUserToResizeRows = false;
             this.dtgDienGiai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgDienGiai.ColumnHeadersHeight = 29;
+            resources.ApplyResources(this.dtgDienGiai, "dtgDienGiai");
             this.dtgDienGiai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dtgDienGiai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgDienGiai.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgDienGiai.Location = new System.Drawing.Point(0, 0);
-            this.dtgDienGiai.Margin = new System.Windows.Forms.Padding(4);
             this.dtgDienGiai.MultiSelect = false;
             this.dtgDienGiai.Name = "dtgDienGiai";
             this.dtgDienGiai.ReadOnly = true;
             this.dtgDienGiai.RowHeadersVisible = false;
-            this.dtgDienGiai.RowHeadersWidth = 51;
             this.dtgDienGiai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgDienGiai.Size = new System.Drawing.Size(347, 498);
-            this.dtgDienGiai.TabIndex = 5;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dtgThongKe);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1209, 498);
-            this.panel2.TabIndex = 0;
             // 
             // dtgThongKe
             // 
@@ -137,20 +112,14 @@
             this.dtgThongKe.AllowUserToDeleteRows = false;
             this.dtgThongKe.AllowUserToResizeRows = false;
             this.dtgThongKe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgThongKe.ColumnHeadersHeight = 29;
+            resources.ApplyResources(this.dtgThongKe, "dtgThongKe");
             this.dtgThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dtgThongKe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgThongKe.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgThongKe.Location = new System.Drawing.Point(0, 0);
-            this.dtgThongKe.Margin = new System.Windows.Forms.Padding(4);
             this.dtgThongKe.MultiSelect = false;
             this.dtgThongKe.Name = "dtgThongKe";
             this.dtgThongKe.ReadOnly = true;
             this.dtgThongKe.RowHeadersVisible = false;
-            this.dtgThongKe.RowHeadersWidth = 51;
             this.dtgThongKe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgThongKe.Size = new System.Drawing.Size(1209, 498);
-            this.dtgThongKe.TabIndex = 5;
             // 
             // panel4
             // 
@@ -167,139 +136,84 @@
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(5);
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1556, 56);
-            this.panel4.TabIndex = 0;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(509, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Đến:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(273, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 17);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "từ:";
             // 
             // dtpDen
             // 
-            this.dtpDen.Location = new System.Drawing.Point(563, 14);
-            this.dtpDen.Margin = new System.Windows.Forms.Padding(5);
+            resources.ApplyResources(this.dtpDen, "dtpDen");
             this.dtpDen.Name = "dtpDen";
-            this.dtpDen.Size = new System.Drawing.Size(180, 23);
-            this.dtpDen.TabIndex = 15;
             // 
             // dtpTu
             // 
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTu.Location = new System.Drawing.Point(313, 14);
-            this.dtpTu.Margin = new System.Windows.Forms.Padding(5);
+            resources.ApplyResources(this.dtpTu, "dtpTu");
             this.dtpTu.Name = "dtpTu";
-            this.dtpTu.Size = new System.Drawing.Size(180, 23);
-            this.dtpTu.TabIndex = 14;
             // 
             // cbLoaiXe
             // 
             this.cbLoaiXe.FormattingEnabled = true;
-            this.cbLoaiXe.Location = new System.Drawing.Point(1074, 13);
-            this.cbLoaiXe.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.cbLoaiXe, "cbLoaiXe");
             this.cbLoaiXe.Name = "cbLoaiXe";
-            this.cbLoaiXe.Size = new System.Drawing.Size(160, 24);
-            this.cbLoaiXe.TabIndex = 5;
             // 
             // cbLoaiVe
             // 
             this.cbLoaiVe.FormattingEnabled = true;
-            this.cbLoaiVe.Location = new System.Drawing.Point(829, 13);
-            this.cbLoaiVe.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.cbLoaiVe, "cbLoaiVe");
             this.cbLoaiVe.Name = "cbLoaiVe";
-            this.cbLoaiVe.Size = new System.Drawing.Size(160, 24);
-            this.cbLoaiVe.TabIndex = 5;
             // 
             // cbTruyVan
             // 
             this.cbTruyVan.FormattingEnabled = true;
-            this.cbTruyVan.Location = new System.Drawing.Point(97, 13);
-            this.cbTruyVan.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.cbTruyVan, "cbTruyVan");
             this.cbTruyVan.Name = "cbTruyVan";
-            this.cbTruyVan.Size = new System.Drawing.Size(160, 24);
-            this.cbTruyVan.TabIndex = 5;
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Location = new System.Drawing.Point(1250, 7);
-            this.btnThongKe.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.btnThongKe, "btnThongKe");
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(135, 37);
-            this.btnThongKe.TabIndex = 4;
-            this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(1401, 7);
-            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.btnXuatExcel, "btnXuatExcel");
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(135, 37);
-            this.btnXuatExcel.TabIndex = 4;
-            this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
             this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1005, 17);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Loại xe";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(759, 17);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Loại vé";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Truy vấn:";
             // 
             // ThongKeChiTietForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1556, 554);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ThongKeChiTietForm";
-            this.Text = "ThongKeChiTietForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ThongKeChiTietForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

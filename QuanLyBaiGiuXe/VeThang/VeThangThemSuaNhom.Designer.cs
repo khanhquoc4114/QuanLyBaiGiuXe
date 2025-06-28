@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VeThangThemSuaNhom));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnDong = new System.Windows.Forms.Button();
@@ -52,7 +53,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(689, 360);
+            this.panel1.Size = new System.Drawing.Size(766, 360);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -69,14 +70,14 @@
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.panel3.Location = new System.Drawing.Point(0, 42);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(689, 318);
+            this.panel3.Size = new System.Drawing.Size(766, 318);
             this.panel3.TabIndex = 1;
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(551, 225);
+            this.btnDong.Location = new System.Drawing.Point(601, 225);
             this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(100, 40);
+            this.btnDong.Size = new System.Drawing.Size(94, 40);
             this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
@@ -84,7 +85,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(436, 225);
+            this.btnHuy.Location = new System.Drawing.Point(495, 225);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(100, 40);
             this.btnHuy.TabIndex = 4;
@@ -94,21 +95,21 @@
             // 
             // btnDongYTiepTuc
             // 
-            this.btnDongYTiepTuc.Location = new System.Drawing.Point(303, 225);
+            this.btnDongYTiepTuc.Location = new System.Drawing.Point(284, 225);
             this.btnDongYTiepTuc.Name = "btnDongYTiepTuc";
-            this.btnDongYTiepTuc.Size = new System.Drawing.Size(118, 40);
+            this.btnDongYTiepTuc.Size = new System.Drawing.Size(195, 40);
             this.btnDongYTiepTuc.TabIndex = 4;
-            this.btnDongYTiepTuc.Text = "Đồng ý & Tiếp tục";
+            this.btnDongYTiepTuc.Text = "Đồng ý và Tiếp tục";
             this.btnDongYTiepTuc.UseVisualStyleBackColor = true;
             this.btnDongYTiepTuc.Click += new System.EventHandler(this.btnDongYTiepTuc_Click);
             // 
             // btnDongYDong
             // 
-            this.btnDongYDong.Location = new System.Drawing.Point(171, 225);
+            this.btnDongYDong.Location = new System.Drawing.Point(37, 225);
             this.btnDongYDong.Name = "btnDongYDong";
-            this.btnDongYDong.Size = new System.Drawing.Size(117, 40);
+            this.btnDongYDong.Size = new System.Drawing.Size(230, 40);
             this.btnDongYDong.TabIndex = 3;
-            this.btnDongYDong.Text = "Đồng ý & Đóng";
+            this.btnDongYDong.Text = "Đồng ý và Đóng";
             this.btnDongYDong.UseVisualStyleBackColor = true;
             this.btnDongYDong.Click += new System.EventHandler(this.btnDongYDong_Click);
             // 
@@ -116,7 +117,7 @@
             // 
             this.tbThongTinKhac.Location = new System.Drawing.Point(188, 85);
             this.tbThongTinKhac.Name = "tbThongTinKhac";
-            this.tbThongTinKhac.Size = new System.Drawing.Size(444, 96);
+            this.tbThongTinKhac.Size = new System.Drawing.Size(507, 96);
             this.tbThongTinKhac.TabIndex = 2;
             this.tbThongTinKhac.Text = "";
             // 
@@ -125,7 +126,7 @@
             this.tbTen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbTen.Location = new System.Drawing.Point(188, 32);
             this.tbTen.Name = "tbTen";
-            this.tbTen.Size = new System.Drawing.Size(100, 30);
+            this.tbTen.Size = new System.Drawing.Size(150, 34);
             this.tbTen.TabIndex = 1;
             // 
             // label3
@@ -134,7 +135,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label3.Location = new System.Drawing.Point(32, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 23);
+            this.label3.Size = new System.Drawing.Size(45, 28);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên:";
             // 
@@ -144,7 +145,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label2.Location = new System.Drawing.Point(32, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 23);
+            this.label2.Size = new System.Drawing.Size(145, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông tin khác:";
             // 
@@ -154,7 +155,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(689, 42);
+            this.panel2.Size = new System.Drawing.Size(766, 42);
             this.panel2.TabIndex = 0;
             // 
             // lbTitle
@@ -163,17 +164,18 @@
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lbTitle.Location = new System.Drawing.Point(12, 9);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(201, 28);
+            this.lbTitle.Size = new System.Drawing.Size(241, 32);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Tạo nhóm Vé Tháng";
             // 
             // VeThangThemSuaNhom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 360);
+            this.ClientSize = new System.Drawing.Size(766, 360);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VeThangThemSuaNhom";
             this.Text = "Tạo nhóm vé tháng";
             this.Load += new System.EventHandler(this.VeThangThemSuaNhom_Load);

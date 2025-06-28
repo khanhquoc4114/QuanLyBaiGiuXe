@@ -52,7 +52,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 692);
             this.panel1.TabIndex = 3;
@@ -63,7 +63,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1200, 692);
             this.panel3.TabIndex = 1;
@@ -73,7 +73,7 @@
             this.panel5.Controls.Add(this.dtgNhatKy);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 58);
-            this.panel5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel5.Margin = new System.Windows.Forms.Padding(6);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1200, 634);
             this.panel5.TabIndex = 1;
@@ -112,7 +112,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1200, 58);
             this.panel4.TabIndex = 0;
@@ -126,6 +126,7 @@
             this.btnXuatExcel.TabIndex = 4;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnTimKiem
             // 
@@ -136,6 +137,7 @@
             this.btnTimKiem.TabIndex = 3;
             this.btnTimKiem.Text = "Tìm kiếm lịch sử";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // label2
             // 
@@ -160,7 +162,7 @@
             // dtpDen
             // 
             this.dtpDen.Location = new System.Drawing.Point(417, 14);
-            this.dtpDen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpDen.Margin = new System.Windows.Forms.Padding(6);
             this.dtpDen.Name = "dtpDen";
             this.dtpDen.Size = new System.Drawing.Size(224, 30);
             this.dtpDen.TabIndex = 1;
@@ -169,7 +171,7 @@
             // 
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTu.Location = new System.Drawing.Point(82, 14);
-            this.dtpTu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpTu.Margin = new System.Windows.Forms.Padding(6);
             this.dtpTu.Name = "dtpTu";
             this.dtpTu.Size = new System.Drawing.Size(224, 30);
             this.dtpTu.TabIndex = 0;

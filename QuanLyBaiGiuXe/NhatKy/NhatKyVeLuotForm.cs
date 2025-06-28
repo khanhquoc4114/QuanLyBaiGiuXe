@@ -40,7 +40,7 @@ namespace QuanLyBaiGiuXe
             {
                 sfd.Filter = "Excel files (*.xlsx)|*.xlsx";
                 DateTime now = DateTime.Now;
-                sfd.FileName = $"ThongKeXuLyVeThang_{now:ddMMyyyy}.xlsx";
+                sfd.FileName = $"ThongKeXuLyVeLuot_{now:ddMMyyyy}.xlsx";
 
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 if (sfd.ShowDialog() == DialogResult.OK)
@@ -78,6 +78,11 @@ namespace QuanLyBaiGiuXe
             DateTime tgDen = dtpDen.Value;
             string hanhdong = cbHanhDong.Text;
             this.dtgXuLyVeLuot.DataSource = manager.GetXuLyVeLuot(hanhdong, tgTu, tgDen);
+        }
+
+        private void cbHanhDong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

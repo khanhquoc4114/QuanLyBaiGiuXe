@@ -29,7 +29,7 @@ namespace QuanLyBaiGiuXe
             {
                 sfd.Filter = "Excel files (*.xlsx)|*.xlsx";
                 DateTime now = DateTime.Now;
-                sfd.FileName = $"ThongKeDangNhap_{now:ddMMyyyy}.xlsx";
+                sfd.FileName = $"ThongKeTheoKhoangThoiGian_{now:ddMMyyyy}.xlsx";
 
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 if (sfd.ShowDialog() == DialogResult.OK)

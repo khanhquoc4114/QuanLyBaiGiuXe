@@ -33,12 +33,16 @@ namespace QuanLyBaiGiuXe
             TheMainForm theMainForm = new TheMainForm();
             theMainForm.Show();
         }
-
-        private void btnNguoiDung_Click(object sender, EventArgs e)
+        private void btnNhanVien_Click(object sender, EventArgs e)
         {
             NhanVienMainForm nhanVienMainForm = new NhanVienMainForm();
             nhanVienMainForm.Show();
+        }
 
+        private void btnCauHinhTinhTien_Click(object sender, EventArgs e)
+        {
+            TinhTienForm tinhTienForm = new TinhTienForm();
+            tinhTienForm.Show();
         }
 
         private void btnVeLuot_Click(object sender, EventArgs e)
@@ -143,11 +147,6 @@ namespace QuanLyBaiGiuXe
         {
             var form = new MainForm();
             form.Show();
-        }
-
-        private void btnNhatKyMatThe_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -10,7 +10,7 @@ namespace QuanLyBaiGiuXe
         string MaNhanVien = null;
         LoginManager loginManager = new LoginManager();
         bool isLoggedIn = false;
-
+        private bool isPasswordVisible = false;
         public DangNhap()
         {
             InitializeComponent();
@@ -123,6 +123,11 @@ namespace QuanLyBaiGiuXe
         private void btnShowPassword_Click(object sender, EventArgs e)
         {
 
+            isPasswordVisible = !isPasswordVisible;
+            UpdatePasswordVisibility();
+        }
+        private void UpdatePasswordVisibility()
+        {
             if (btnShowPassword.Text == "Show")
             {
                 tbPassword.UseSystemPasswordChar = false;
@@ -134,5 +139,6 @@ namespace QuanLyBaiGiuXe
                 btnShowPassword.Text = "Show";
             }
         }
+
     }
 }

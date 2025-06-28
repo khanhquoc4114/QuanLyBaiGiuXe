@@ -94,9 +94,9 @@
             this.lbTienPhat.AutoSize = true;
             this.lbTienPhat.Location = new System.Drawing.Point(904, 142);
             this.lbTienPhat.Name = "lbTienPhat";
-            this.lbTienPhat.Size = new System.Drawing.Size(65, 28);
+            this.lbTienPhat.Size = new System.Drawing.Size(98, 28);
             this.lbTienPhat.TabIndex = 13;
-            this.lbTienPhat.Text = "label5";
+            this.lbTienPhat.Text = "Tiền phạt ";
             // 
             // cbKhoaThe
             // 
@@ -357,7 +357,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "XuLyMatThe";
-            this.Text = "XuLyMatThe";
+            this.Text = "Xử lý mất thẻ ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.XuLyMatThe_FormClosing);
             this.Load += new System.EventHandler(this.XuLyMatThe_Load);
             this.pnInfo.ResumeLayout(false);

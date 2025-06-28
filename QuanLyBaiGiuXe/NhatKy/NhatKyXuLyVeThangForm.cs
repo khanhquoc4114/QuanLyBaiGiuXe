@@ -41,7 +41,40 @@ namespace QuanLyBaiGiuXe
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel files (*.xlsx)|*.xlsx";
+                DateTime now = DateTime.Now;
+                sfd.FileName = $"ThongKeXuLyVeThang_{now:ddMMyyyy}.xlsx";
 
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                        // Xuất tiêu đề cột
+                        for (int col = 0; col < dtgXuLyVeThang.Columns.Count; col++)
+                        {
+                            worksheet.Cells[1, col + 1].Value = dtgXuLyVeThang.Columns[col].HeaderText;
+                        }
+
+                        // Xuất dữ liệu từ DataGridView
+                        for (int row = 0; row < dtgXuLyVeThang.Rows.Count; row++)
+                        {
+                            for (int col = 0; col < dtgXuLyVeThang.Columns.Count; col++)
+                            {
+                                worksheet.Cells[row + 2, col + 1].Value = dtgXuLyVeThang.Rows[row].Cells[col].Value?.ToString();
+                            }
+                        }
+
+                        File.WriteAllBytes(sfd.FileName, package.GetAsByteArray());
+
+                        MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
         }
     }
 }

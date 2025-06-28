@@ -44,7 +44,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.Size = new System.Drawing.Size(151, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập:";
             // 
@@ -53,24 +53,24 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(51, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.Size = new System.Drawing.Size(99, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mật khẩu:";
             // 
             // tbUsername
             // 
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbUsername.Location = new System.Drawing.Point(138, 20);
+            this.tbUsername.Location = new System.Drawing.Point(169, 20);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(365, 23);
+            this.tbUsername.Size = new System.Drawing.Size(385, 30);
             this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPassword.Location = new System.Drawing.Point(138, 60);
+            this.tbPassword.Location = new System.Drawing.Point(169, 60);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(304, 23);
+            this.tbPassword.Size = new System.Drawing.Size(313, 30);
             this.tbPassword.TabIndex = 1;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
@@ -80,7 +80,7 @@
             // 
             this.btnDangNhap.Location = new System.Drawing.Point(391, 120);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(112, 35);
+            this.btnDangNhap.Size = new System.Drawing.Size(163, 35);
             this.btnDangNhap.TabIndex = 5;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -102,7 +102,7 @@
             this.cbRememberMe.AutoSize = true;
             this.cbRememberMe.Location = new System.Drawing.Point(15, 128);
             this.cbRememberMe.Name = "cbRememberMe";
-            this.cbRememberMe.Size = new System.Drawing.Size(121, 21);
+            this.cbRememberMe.Size = new System.Drawing.Size(166, 29);
             this.cbRememberMe.TabIndex = 3;
             this.cbRememberMe.Text = "Giữ đăng nhập";
             this.cbRememberMe.UseVisualStyleBackColor = true;
@@ -110,9 +110,9 @@
             // btnShowPassword
             // 
             this.btnShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowPassword.Location = new System.Drawing.Point(448, 54);
+            this.btnShowPassword.Location = new System.Drawing.Point(488, 60);
             this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(55, 35);
+            this.btnShowPassword.Size = new System.Drawing.Size(66, 28);
             this.btnShowPassword.TabIndex = 2;
             this.btnShowPassword.Text = "Show";
             this.btnShowPassword.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             // 
             // DangNhap
             // 
-            this.ClientSize = new System.Drawing.Size(513, 179);
+            this.ClientSize = new System.Drawing.Size(595, 179);
             this.Controls.Add(this.btnShowPassword);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.cbRememberMe);
@@ -150,7 +150,6 @@
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.CheckBox cbRememberMe;
         private System.Windows.Forms.Button btnShowPassword;
-        private bool passwordVisible = false;
     }
 }
 

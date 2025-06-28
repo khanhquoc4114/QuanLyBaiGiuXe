@@ -226,5 +226,10 @@ namespace QuanLyBaiGiuXe
                 }
             }
         }
+
+        private void btnPhanQuyen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -777,7 +777,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(44, 344);
+            this.label18.Location = new System.Drawing.Point(19, 342);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(126, 28);
             this.label18.TabIndex = 0;
@@ -790,7 +790,7 @@
             0,
             0,
             0});
-            this.nupGiaVeThang.Location = new System.Drawing.Point(44, 380);
+            this.nupGiaVeThang.Location = new System.Drawing.Point(19, 378);
             this.nupGiaVeThang.Margin = new System.Windows.Forms.Padding(4);
             this.nupGiaVeThang.Maximum = new decimal(new int[] {
             999999999,
@@ -808,7 +808,7 @@
             0,
             0,
             0});
-            this.nupGiaMienPhi.Location = new System.Drawing.Point(44, 300);
+            this.nupGiaMienPhi.Location = new System.Drawing.Point(19, 298);
             this.nupGiaMienPhi.Margin = new System.Windows.Forms.Padding(4);
             this.nupGiaMienPhi.Name = "nupGiaMienPhi";
             this.nupGiaMienPhi.Size = new System.Drawing.Size(99, 33);
@@ -817,7 +817,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(44, 264);
+            this.label12.Location = new System.Drawing.Point(19, 262);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(178, 28);
             this.label12.TabIndex = 0;
@@ -837,10 +837,10 @@
             // 
             // Huy
             // 
-            this.Huy.Location = new System.Drawing.Point(104, 13);
+            this.Huy.Location = new System.Drawing.Point(156, 4);
             this.Huy.Margin = new System.Windows.Forms.Padding(4);
             this.Huy.Name = "Huy";
-            this.Huy.Size = new System.Drawing.Size(88, 30);
+            this.Huy.Size = new System.Drawing.Size(88, 39);
             this.Huy.TabIndex = 0;
             this.Huy.Text = "Huỷ";
             this.Huy.UseVisualStyleBackColor = true;
@@ -848,12 +848,12 @@
             // 
             // btnDongYSua
             // 
-            this.btnDongYSua.Location = new System.Drawing.Point(8, 13);
+            this.btnDongYSua.Location = new System.Drawing.Point(7, 5);
             this.btnDongYSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnDongYSua.Name = "btnDongYSua";
-            this.btnDongYSua.Size = new System.Drawing.Size(88, 30);
+            this.btnDongYSua.Size = new System.Drawing.Size(141, 41);
             this.btnDongYSua.TabIndex = 0;
-            this.btnDongYSua.Text = "Đồng Ý Sửa";
+            this.btnDongYSua.Text = "Đồng ý Sửa";
             this.btnDongYSua.UseVisualStyleBackColor = true;
             this.btnDongYSua.Click += new System.EventHandler(this.btnDongYSua_Click);
             // 
@@ -906,10 +906,10 @@
             // 
             // btnTrangThai
             // 
-            this.btnTrangThai.Location = new System.Drawing.Point(100, 13);
+            this.btnTrangThai.Location = new System.Drawing.Point(100, 8);
             this.btnTrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.btnTrangThai.Name = "btnTrangThai";
-            this.btnTrangThai.Size = new System.Drawing.Size(88, 30);
+            this.btnTrangThai.Size = new System.Drawing.Size(88, 35);
             this.btnTrangThai.TabIndex = 0;
             this.btnTrangThai.Text = "Xoá";
             this.btnTrangThai.UseVisualStyleBackColor = true;
@@ -917,10 +917,10 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(4, 13);
+            this.btnThem.Location = new System.Drawing.Point(4, 8);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(88, 30);
+            this.btnThem.Size = new System.Drawing.Size(88, 38);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;

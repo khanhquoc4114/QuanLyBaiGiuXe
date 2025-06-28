@@ -27,5 +27,15 @@ namespace QuanLyBaiGiuXe
             dtpDen.Format = DateTimePickerFormat.Custom;
             dtpDen.CustomFormat = "dd/MM/yyyy HH:mm";
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -467,7 +467,7 @@ namespace QuanLyBaiGiuXe
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                btnNhanDien.PerformClick();
+                //btnNhanDien.PerformClick();
                 ThucHienRaVao();
                 txtMaThe.Clear();
             }
@@ -579,6 +579,11 @@ namespace QuanLyBaiGiuXe
         }
 
         private void txtMaThe_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbLoaiXe_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
