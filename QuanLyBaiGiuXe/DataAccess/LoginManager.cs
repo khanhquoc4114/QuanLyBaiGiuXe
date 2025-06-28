@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web;
-using Microsoft.SqlServer.Server;
-using QuanLyBaiGiuXe.Models;
 
 namespace QuanLyBaiGiuXe.DataAccess
 {

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
-using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace QuanLyBaiGiuXe
@@ -32,14 +31,15 @@ namespace QuanLyBaiGiuXe
                 AppConfig.Load(conn);
             }
 
-            if (Properties.Settings.Default.RememberMe)
+            if (Properties.Settings.Default.RememberMe == true)
             {
                 string user = Properties.Settings.Default.SavedUsername;
                 string pass = Properties.Settings.Default.SavedPassword;
                 pass = HashHelper.ComputeSHA256Hash(pass);
 
-                string error;
+                string error = null;
                 string maNV = loginManager.GetMaNhanVien(user, pass, out error);
+                MessageBox.Show("Nhớ: " + Properties.Settings.Default.RememberMe.ToString() + "\n Mã nhân viên: " + maNV);
                 if (!string.IsNullOrEmpty(maNV))
                 {
                     Session.MaNhanVien = maNV;

@@ -63,15 +63,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnThe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThe.Image = ((System.Drawing.Image)(resources.GetObject("btnThe.Image")));
-            this.btnThe.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnThe.Location = new System.Drawing.Point(600, 5);
-            this.btnThe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnThe.Location = new System.Drawing.Point(399, 3);
             this.btnThe.Name = "btnThe";
-            this.btnThe.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnThe.Size = new System.Drawing.Size(290, 168);
+            this.btnThe.Size = new System.Drawing.Size(192, 109);
             this.btnThe.TabIndex = 0;
             this.btnThe.Text = "Thẻ";
-            this.btnThe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThe.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnThe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tip.SetToolTip(this.btnThe, "Xem danh sách thẻ, đăng ký thẻ mới, cập nhật loại thẻ, xóa thẻ.");
             this.btnThe.UseVisualStyleBackColor = true;
@@ -81,15 +78,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnVeThang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnVeThang.Image = ((System.Drawing.Image)(resources.GetObject("btnVeThang.Image")));
-            this.btnVeThang.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVeThang.Location = new System.Drawing.Point(302, 183);
-            this.btnVeThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVeThang.Location = new System.Drawing.Point(201, 118);
             this.btnVeThang.Name = "btnVeThang";
-            this.btnVeThang.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnVeThang.Size = new System.Drawing.Size(290, 168);
+            this.btnVeThang.Size = new System.Drawing.Size(192, 109);
             this.btnVeThang.TabIndex = 0;
             this.btnVeThang.Text = "Vé tháng";
-            this.btnVeThang.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVeThang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVeThang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tip.SetToolTip(this.btnVeThang, "Thêm, xóa, sửa vé tháng, gia hạn vé tháng, tạo nhóm vé tháng.");
             this.btnVeThang.UseVisualStyleBackColor = true;
@@ -99,15 +93,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnVeLuot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnVeLuot.Image = ((System.Drawing.Image)(resources.GetObject("btnVeLuot.Image")));
-            this.btnVeLuot.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVeLuot.Location = new System.Drawing.Point(4, 183);
-            this.btnVeLuot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVeLuot.Location = new System.Drawing.Point(3, 118);
             this.btnVeLuot.Name = "btnVeLuot";
-            this.btnVeLuot.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnVeLuot.Size = new System.Drawing.Size(290, 168);
+            this.btnVeLuot.Size = new System.Drawing.Size(192, 109);
             this.btnVeLuot.TabIndex = 0;
             this.btnVeLuot.Text = "Vé lượt";
-            this.btnVeLuot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVeLuot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVeLuot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tip.SetToolTip(this.btnVeLuot, "Xem danh sách vé lượt, xuất ra file excel.");
             this.btnVeLuot.UseVisualStyleBackColor = true;
@@ -117,15 +108,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnTraCuuXeVaoRa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTraCuuXeVaoRa.Image = ((System.Drawing.Image)(resources.GetObject("btnTraCuuXeVaoRa.Image")));
-            this.btnTraCuuXeVaoRa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(4, 361);
-            this.btnTraCuuXeVaoRa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTraCuuXeVaoRa.Location = new System.Drawing.Point(3, 233);
             this.btnTraCuuXeVaoRa.Name = "btnTraCuuXeVaoRa";
-            this.btnTraCuuXeVaoRa.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(290, 168);
+            this.btnTraCuuXeVaoRa.Size = new System.Drawing.Size(192, 109);
             this.btnTraCuuXeVaoRa.TabIndex = 0;
             this.btnTraCuuXeVaoRa.Text = "Tra cứu xe vào, ra";
-            this.btnTraCuuXeVaoRa.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTraCuuXeVaoRa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTraCuuXeVaoRa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnTraCuuXeVaoRa.UseVisualStyleBackColor = true;
             this.btnTraCuuXeVaoRa.Click += new System.EventHandler(this.btnTraCuuXeVaoRa_Click);
@@ -134,15 +122,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnThongKeTheoKhoangThoiGian.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThongKeTheoKhoangThoiGian.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoKhoangThoiGian.Image")));
-            this.btnThongKeTheoKhoangThoiGian.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(600, 539);
-            this.btnThongKeTheoKhoangThoiGian.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnThongKeTheoKhoangThoiGian.Location = new System.Drawing.Point(399, 348);
             this.btnThongKeTheoKhoangThoiGian.Name = "btnThongKeTheoKhoangThoiGian";
-            this.btnThongKeTheoKhoangThoiGian.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnThongKeTheoKhoangThoiGian.Size = new System.Drawing.Size(290, 170);
+            this.btnThongKeTheoKhoangThoiGian.Size = new System.Drawing.Size(192, 112);
             this.btnThongKeTheoKhoangThoiGian.TabIndex = 0;
             this.btnThongKeTheoKhoangThoiGian.Text = "Thống kê theo khoảng thời gian";
-            this.btnThongKeTheoKhoangThoiGian.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoKhoangThoiGian.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnThongKeTheoKhoangThoiGian.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeTheoKhoangThoiGian.UseVisualStyleBackColor = true;
             this.btnThongKeTheoKhoangThoiGian.Click += new System.EventHandler(this.btnThongKeTheoKhoangThoiGian_Click);
@@ -151,15 +136,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnNguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNguoiDung.Image = ((System.Drawing.Image)(resources.GetObject("btnNguoiDung.Image")));
-            this.btnNguoiDung.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNguoiDung.Location = new System.Drawing.Point(302, 5);
-            this.btnNguoiDung.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNguoiDung.Location = new System.Drawing.Point(201, 3);
             this.btnNguoiDung.Name = "btnNguoiDung";
-            this.btnNguoiDung.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnNguoiDung.Size = new System.Drawing.Size(290, 168);
+            this.btnNguoiDung.Size = new System.Drawing.Size(192, 109);
             this.btnNguoiDung.TabIndex = 0;
             this.btnNguoiDung.Text = "Người dùng";
-            this.btnNguoiDung.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNguoiDung.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNguoiDung.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNguoiDung.UseVisualStyleBackColor = true;
             this.btnNguoiDung.Click += new System.EventHandler(this.btnNguoiDung_Click);
@@ -168,15 +150,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnThongKeTheoMayTinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThongKeTheoMayTinh.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoMayTinh.Image")));
-            this.btnThongKeTheoMayTinh.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(898, 539);
-            this.btnThongKeTheoMayTinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnThongKeTheoMayTinh.Location = new System.Drawing.Point(597, 348);
             this.btnThongKeTheoMayTinh.Name = "btnThongKeTheoMayTinh";
-            this.btnThongKeTheoMayTinh.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(290, 170);
+            this.btnThongKeTheoMayTinh.Size = new System.Drawing.Size(194, 112);
             this.btnThongKeTheoMayTinh.TabIndex = 0;
             this.btnThongKeTheoMayTinh.Text = "Thống kê theo máy tính";
-            this.btnThongKeTheoMayTinh.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoMayTinh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnThongKeTheoMayTinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeTheoMayTinh.UseVisualStyleBackColor = true;
             this.btnThongKeTheoMayTinh.Click += new System.EventHandler(this.btnThongKeTheoMayTinh_Click);
@@ -185,15 +164,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnHeThong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHeThong.Image = ((System.Drawing.Image)(resources.GetObject("btnHeThong.Image")));
-            this.btnHeThong.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnHeThong.Location = new System.Drawing.Point(898, 5);
-            this.btnHeThong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnHeThong.Location = new System.Drawing.Point(597, 3);
             this.btnHeThong.Name = "btnHeThong";
-            this.btnHeThong.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnHeThong.Size = new System.Drawing.Size(290, 168);
+            this.btnHeThong.Size = new System.Drawing.Size(194, 109);
             this.btnHeThong.TabIndex = 0;
             this.btnHeThong.Text = "Hệ thống";
-            this.btnHeThong.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnHeThong.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHeThong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnHeThong.UseVisualStyleBackColor = true;
             this.btnHeThong.Click += new System.EventHandler(this.btnHeThong_Click);
@@ -202,15 +178,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnNhatKyDieuChinhGiaVe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNhatKyDieuChinhGiaVe.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyDieuChinhGiaVe.Image")));
-            this.btnNhatKyDieuChinhGiaVe.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(600, 361);
-            this.btnNhatKyDieuChinhGiaVe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNhatKyDieuChinhGiaVe.Location = new System.Drawing.Point(399, 233);
             this.btnNhatKyDieuChinhGiaVe.Name = "btnNhatKyDieuChinhGiaVe";
-            this.btnNhatKyDieuChinhGiaVe.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(290, 168);
+            this.btnNhatKyDieuChinhGiaVe.Size = new System.Drawing.Size(192, 109);
             this.btnNhatKyDieuChinhGiaVe.TabIndex = 0;
             this.btnNhatKyDieuChinhGiaVe.Text = "Nhật ký điều chỉnh giá vé";
-            this.btnNhatKyDieuChinhGiaVe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyDieuChinhGiaVe.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNhatKyDieuChinhGiaVe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyDieuChinhGiaVe.UseVisualStyleBackColor = true;
             this.btnNhatKyDieuChinhGiaVe.Click += new System.EventHandler(this.btnNhatKyDieuChinhGiaVe_Click);
@@ -219,15 +192,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnThongKeTheoNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThongKeTheoNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoNhanVien.Image")));
-            this.btnThongKeTheoNhanVien.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(302, 539);
-            this.btnThongKeTheoNhanVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnThongKeTheoNhanVien.Location = new System.Drawing.Point(201, 348);
             this.btnThongKeTheoNhanVien.Name = "btnThongKeTheoNhanVien";
-            this.btnThongKeTheoNhanVien.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(290, 170);
+            this.btnThongKeTheoNhanVien.Size = new System.Drawing.Size(192, 112);
             this.btnThongKeTheoNhanVien.TabIndex = 0;
             this.btnThongKeTheoNhanVien.Text = "Thống kê theo nhân viên";
-            this.btnThongKeTheoNhanVien.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeTheoNhanVien.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnThongKeTheoNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeTheoNhanVien.UseVisualStyleBackColor = true;
             this.btnThongKeTheoNhanVien.Click += new System.EventHandler(this.btnThongKeTheoNhanVien_Click);
@@ -236,15 +206,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnNhatKyDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNhatKyDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyDangNhap.Image")));
-            this.btnNhatKyDangNhap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(898, 361);
-            this.btnNhatKyDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNhatKyDangNhap.Location = new System.Drawing.Point(597, 233);
             this.btnNhatKyDangNhap.Name = "btnNhatKyDangNhap";
-            this.btnNhatKyDangNhap.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnNhatKyDangNhap.Size = new System.Drawing.Size(290, 168);
+            this.btnNhatKyDangNhap.Size = new System.Drawing.Size(194, 109);
             this.btnNhatKyDangNhap.TabIndex = 0;
             this.btnNhatKyDangNhap.Text = "Nhật ký đăng nhập";
-            this.btnNhatKyDangNhap.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyDangNhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNhatKyDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyDangNhap.UseVisualStyleBackColor = true;
             this.btnNhatKyDangNhap.Click += new System.EventHandler(this.btnNhatKyDangNhap_Click);
@@ -253,15 +220,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnNhatKyXuLyVeThang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNhatKyXuLyVeThang.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyXuLyVeThang.Image")));
-            this.btnNhatKyXuLyVeThang.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(898, 183);
-            this.btnNhatKyXuLyVeThang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNhatKyXuLyVeThang.Location = new System.Drawing.Point(597, 118);
             this.btnNhatKyXuLyVeThang.Name = "btnNhatKyXuLyVeThang";
-            this.btnNhatKyXuLyVeThang.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnNhatKyXuLyVeThang.Size = new System.Drawing.Size(290, 168);
+            this.btnNhatKyXuLyVeThang.Size = new System.Drawing.Size(194, 109);
             this.btnNhatKyXuLyVeThang.TabIndex = 0;
             this.btnNhatKyXuLyVeThang.Text = "Nhật ký xử lý vé tháng";
-            this.btnNhatKyXuLyVeThang.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyXuLyVeThang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNhatKyXuLyVeThang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyXuLyVeThang.UseVisualStyleBackColor = true;
             this.btnNhatKyXuLyVeThang.Click += new System.EventHandler(this.btnNhatKyXuLyVeThang_Click);
@@ -270,15 +234,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnThongKeChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThongKeChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeChiTiet.Image")));
-            this.btnThongKeChiTiet.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnThongKeChiTiet.Location = new System.Drawing.Point(4, 539);
-            this.btnThongKeChiTiet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnThongKeChiTiet.Location = new System.Drawing.Point(3, 348);
             this.btnThongKeChiTiet.Name = "btnThongKeChiTiet";
-            this.btnThongKeChiTiet.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnThongKeChiTiet.Size = new System.Drawing.Size(290, 170);
+            this.btnThongKeChiTiet.Size = new System.Drawing.Size(192, 112);
             this.btnThongKeChiTiet.TabIndex = 0;
             this.btnThongKeChiTiet.Text = "Thống kê chi tiết";
-            this.btnThongKeChiTiet.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnThongKeChiTiet.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnThongKeChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThongKeChiTiet.UseVisualStyleBackColor = true;
             this.btnThongKeChiTiet.Click += new System.EventHandler(this.btnThongKeChiTiet_Click);
@@ -287,15 +248,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMainForm.Image = ((System.Drawing.Image)(resources.GetObject("btnMainForm.Image")));
-            this.btnMainForm.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMainForm.Location = new System.Drawing.Point(4, 5);
-            this.btnMainForm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMainForm.Location = new System.Drawing.Point(3, 3);
             this.btnMainForm.Name = "btnMainForm";
-            this.btnMainForm.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnMainForm.Size = new System.Drawing.Size(290, 168);
+            this.btnMainForm.Size = new System.Drawing.Size(192, 109);
             this.btnMainForm.TabIndex = 0;
             this.btnMainForm.Text = "Form chính";
-            this.btnMainForm.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMainForm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMainForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMainForm.UseVisualStyleBackColor = true;
             this.btnMainForm.Click += new System.EventHandler(this.btnMainForm_Click);
@@ -304,15 +262,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnNhatKyMatThe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNhatKyMatThe.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyMatThe.Image")));
-            this.btnNhatKyMatThe.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNhatKyMatThe.Location = new System.Drawing.Point(302, 361);
-            this.btnNhatKyMatThe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNhatKyMatThe.Location = new System.Drawing.Point(201, 233);
             this.btnNhatKyMatThe.Name = "btnNhatKyMatThe";
-            this.btnNhatKyMatThe.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnNhatKyMatThe.Size = new System.Drawing.Size(290, 168);
+            this.btnNhatKyMatThe.Size = new System.Drawing.Size(192, 109);
             this.btnNhatKyMatThe.TabIndex = 0;
             this.btnNhatKyMatThe.Text = "Nhật ký xử lý mất thẻ";
-            this.btnNhatKyMatThe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyMatThe.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNhatKyMatThe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyMatThe.UseVisualStyleBackColor = true;
             this.btnNhatKyMatThe.Click += new System.EventHandler(this.btnNhatKyMatThe_Click);
@@ -321,15 +276,12 @@ namespace QuanLyBaiGiuXe
             // 
             this.btnNhatKyVeLuot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNhatKyVeLuot.Image = ((System.Drawing.Image)(resources.GetObject("btnNhatKyVeLuot.Image")));
-            this.btnNhatKyVeLuot.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(600, 183);
-            this.btnNhatKyVeLuot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNhatKyVeLuot.Location = new System.Drawing.Point(399, 118);
             this.btnNhatKyVeLuot.Name = "btnNhatKyVeLuot";
-            this.btnNhatKyVeLuot.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.btnNhatKyVeLuot.Size = new System.Drawing.Size(290, 168);
+            this.btnNhatKyVeLuot.Size = new System.Drawing.Size(192, 109);
             this.btnNhatKyVeLuot.TabIndex = 0;
             this.btnNhatKyVeLuot.Text = "Nhật ký vé lượt";
-            this.btnNhatKyVeLuot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnNhatKyVeLuot.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNhatKyVeLuot.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNhatKyVeLuot.UseVisualStyleBackColor = true;
             this.btnNhatKyVeLuot.Click += new System.EventHandler(this.btnNhatKyVeLuot_Click);
@@ -344,11 +296,10 @@ namespace QuanLyBaiGiuXe
             this.panel1.Controls.Add(this.btnDangXuat, 1, 0);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.RowCount = 1;
             this.panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panel1.Size = new System.Drawing.Size(1194, 70);
+            this.panel1.Size = new System.Drawing.Size(796, 46);
             this.panel1.TabIndex = 1;
             // 
             // lbXinChao
@@ -356,10 +307,9 @@ namespace QuanLyBaiGiuXe
             this.lbXinChao.AutoSize = true;
             this.lbXinChao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbXinChao.Location = new System.Drawing.Point(4, 0);
-            this.lbXinChao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbXinChao.Location = new System.Drawing.Point(3, 0);
             this.lbXinChao.Name = "lbXinChao";
-            this.lbXinChao.Size = new System.Drawing.Size(1124, 68);
+            this.lbXinChao.Size = new System.Drawing.Size(748, 44);
             this.lbXinChao.TabIndex = 0;
             this.lbXinChao.Text = "Xin chào,";
             this.lbXinChao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,10 +319,10 @@ namespace QuanLyBaiGiuXe
             this.btnDangXuat.BackColor = System.Drawing.Color.Red;
             this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
-            this.btnDangXuat.Location = new System.Drawing.Point(1135, 4);
-            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDangXuat.Location = new System.Drawing.Point(756, 3);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(54, 60);
+            this.btnDangXuat.Size = new System.Drawing.Size(36, 38);
             this.btnDangXuat.TabIndex = 1;
             this.btnDangXuat.UseVisualStyleBackColor = false;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
@@ -402,15 +352,14 @@ namespace QuanLyBaiGiuXe
             this.panel2.Controls.Add(this.btnThongKeTheoKhoangThoiGian, 2, 3);
             this.panel2.Controls.Add(this.btnThongKeTheoMayTinh, 3, 3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 70);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(0, 46);
             this.panel2.Name = "panel2";
             this.panel2.RowCount = 4;
             this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.panel2.Size = new System.Drawing.Size(1194, 716);
+            this.panel2.Size = new System.Drawing.Size(796, 465);
             this.panel2.TabIndex = 2;
             // 
             // panel3
@@ -428,18 +377,19 @@ namespace QuanLyBaiGiuXe
             // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(1194, 786);
+            this.ClientSize = new System.Drawing.Size(796, 511);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MenuForm";
             this.Text = "MENU";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuForm_FormClosing);
+            this.Load += new System.EventHandler(this.MenuForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -18,7 +18,7 @@ namespace QuanLyBaiGiuXe
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (tbUsername.Text.Trim() == string.Empty || tbPassword.Text.Trim() == string.Empty)
+            if (tbUsername.Text.Trim() == string.Empty || tbPassword.Text == string.Empty)
             {
                 MessageBox.Show("Hãy nhập đầy đủ thông tin đăng nhập!", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -45,7 +45,7 @@ namespace QuanLyBaiGiuXe
                         if (cbRememberMe.Checked)
                         {
                             Properties.Settings.Default.SavedUsername = tbUsername.Text.Trim();
-                            Properties.Settings.Default.SavedPassword = tbPassword.Text.Trim();
+                            Properties.Settings.Default.SavedPassword = matKhau;
                             Properties.Settings.Default.RememberMe = true;
                         }
                         else
@@ -85,11 +85,20 @@ namespace QuanLyBaiGiuXe
                 tbUsername.Text = Properties.Settings.Default.SavedUsername;
                 tbPassword.Text = Properties.Settings.Default.SavedPassword;
                 cbRememberMe.Checked = true;
-            } else
+            }
+            else
             {
                 cbRememberMe.Checked = false;
                 tbUsername.Text = "";
                 tbPassword.Text = "";
+            }
+            if (tbPassword.UseSystemPasswordChar == false)
+            {
+                btnShowPassword.Text = "Hide";
+            }
+            else
+            {
+                btnShowPassword.Text = "Show";
             }
         }
 
@@ -108,6 +117,21 @@ namespace QuanLyBaiGiuXe
             {
                 btnDangNhap.PerformClick();
                 e.Handled = true;
+            }
+        }
+
+        private void btnShowPassword_Click(object sender, EventArgs e)
+        {
+
+            if (btnShowPassword.Text == "Show")
+            {
+                tbPassword.UseSystemPasswordChar = false;
+                btnShowPassword.Text = "Hide";
+            }
+            else if (btnShowPassword.Text == "Hide")
+            {
+                tbPassword.UseSystemPasswordChar = true;
+                btnShowPassword.Text = "Show";
             }
         }
     }

@@ -82,5 +82,17 @@ namespace QuanLyBaiGiuXe.Properties {
                 this["RememberMe"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isExit {
+            get {
+                return ((bool)(this["isExit"]));
+            }
+            set {
+                this["isExit"] = value;
+            }
+        }
     }
 }
