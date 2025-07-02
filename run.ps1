@@ -1,67 +1,58 @@
-# ============================
+# move to the script directory
+Set-Location -Path $PSScriptRoot
+
 # Configuration
-# ============================
 $PROJECT_NAME = "QuanLyBaiGiuXe"
 $CONFIGURATION = "Debug"
-$OUTPUT_DIR = "$PROJECT_NAME\bin\$CONFIGURATION"
+$PROJECT_DIR = ".\$PROJECT_NAME"
+$OUTPUT_DIR = "$PROJECT_DIR\bin\$CONFIGURATION"
 $PYTHON_FOLDER = "python-server"
 
-Write-Host "Checking project structure..."
+Write-Host "`n=== Cleaning build ==="
+Remove-Item -Recurse -Force "$PROJECT_DIR/bin" -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force "$PROJECT_DIR/obj" -ErrorAction SilentlyContinue
 
-# ============================
-# Build project
-# ============================
-if (Test-Path "$PROJECT_NAME.sln") {
-    Write-Host "Building solution (.sln)..."
-    dotnet build "$PROJECT_NAME.sln" --configuration $CONFIGURATION
-} elseif (Test-Path "$PROJECT_NAME\$PROJECT_NAME.csproj") {
-    Write-Host "Building project (.csproj)..."
-    dotnet build "$PROJECT_NAME\$PROJECT_NAME.csproj" --configuration $CONFIGURATION
-} else {
-    Write-Host "Project file (.sln or .csproj) not found."
+Write-Host "`n=== Building project: $PROJECT_NAME ==="
+
+if (Test-Path "$PROJECT_DIR\$PROJECT_NAME.sln") {
+    dotnet build "$PROJECT_DIR\$PROJECT_NAME.sln" --configuration $CONFIGURATION
+}
+elseif (Test-Path "$PROJECT_DIR\$PROJECT_NAME.csproj") {
+    dotnet build "$PROJECT_DIR\$PROJECT_NAME.csproj" --configuration $CONFIGURATION
+}
+else {
+    Write-Error "No .sln or .csproj found in $PROJECT_DIR"
     exit 1
 }
 
-# ============================
-# Verify build success
-# ============================
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "Build failed."
+    Write-Error "Build failed."
     exit 1
 }
 
-# ============================
-# Copy python-server folder
-# ============================
-if (Test-Path $PYTHON_FOLDER) {
-    Write-Host "Copying python-server to output directory..."
+Write-Host "`n=== Copying python-server ==="
 
-    # Create output directory if it does not exist
-    if (!(Test-Path $OUTPUT_DIR)) {
-        New-Item -ItemType Directory -Path $OUTPUT_DIR | Out-Null
-    }
-
-    # Copy the entire python-server folder into output directory
-    Copy-Item -Recurse -Force $PYTHON_FOLDER "$OUTPUT_DIR\python-server"
-    Write-Host "python-server folder copied successfully."
-} else {
-    Write-Host "python-server folder not found."
-    exit 1
+$destPath = "$OUTPUT_DIR\python-server"
+if (Test-Path $destPath) {
+    Remove-Item -Recurse -Force $destPath
 }
+Copy-Item -Recurse -Force $PYTHON_FOLDER $destPath
+Write-Host "Copy complete to $destPath"
 
-# ============================
-# Run application
-# ============================
+Write-Host "`n=== Running application ==="
+
 $exePath = "$OUTPUT_DIR\$PROJECT_NAME.exe"
 $dllPath = "$OUTPUT_DIR\$PROJECT_NAME.dll"
 
-Write-Host "Running application..."
-
 if (Test-Path $exePath) {
     & $exePath
-} elseif (Test-Path $dllPath) {
+}
+elseif (Test-Path $dllPath) {
     dotnet $dllPath
-} else {
-    Write-Host "Executable file not found."
+}
+else {
+    Write-Error "Executable not found: $exePath or $dllPath"
     exit 1
 }
+
+Read-Host -Prompt "Press Enter to exit"
