@@ -145,6 +145,9 @@ namespace QuanLyBaiGiuXe
                             {
                                 tbGiaVe.Text = TongTienReal;
                                 lbTienPhat.Text = "";
+                                btnChoRaKoTinhPhi.Enabled = false;
+                                btnChoRaTinhPhi.Enabled = false;
+                                cbKhoaThe.Enabled = false;
                                 StopCamera();
                             }
 

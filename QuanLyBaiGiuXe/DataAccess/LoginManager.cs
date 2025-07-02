@@ -34,8 +34,8 @@ namespace QuanLyBaiGiuXe.DataAccess
                     FROM NhanVien 
                     WHERE TenDangNhap = @username AND MatKhau = @password", db.GetConnection()))
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                    cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

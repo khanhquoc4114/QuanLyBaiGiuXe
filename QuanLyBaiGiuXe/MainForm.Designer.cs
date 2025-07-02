@@ -168,9 +168,9 @@ namespace QuanLyBaiGiuXe
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(121, 25);
+            this.label2.Location = new System.Drawing.Point(121, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 21);
+            this.label2.Size = new System.Drawing.Size(34, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Thẻ:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,9 +178,9 @@ namespace QuanLyBaiGiuXe
             // txtMaThe
             // 
             this.txtMaThe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaThe.Location = new System.Drawing.Point(168, 21);
+            this.txtMaThe.Location = new System.Drawing.Point(168, 23);
             this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(171, 29);
+            this.txtMaThe.Size = new System.Drawing.Size(171, 25);
             this.txtMaThe.TabIndex = 2;
             this.txtMaThe.Text = "T101";
             this.txtMaThe.TextChanged += new System.EventHandler(this.txtMaThe_TextChanged);
@@ -190,9 +190,9 @@ namespace QuanLyBaiGiuXe
             // 
             this.cbLoaiXe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbLoaiXe.FormattingEnabled = true;
-            this.cbLoaiXe.Location = new System.Drawing.Point(404, 21);
+            this.cbLoaiXe.Location = new System.Drawing.Point(404, 24);
             this.cbLoaiXe.Name = "cbLoaiXe";
-            this.cbLoaiXe.Size = new System.Drawing.Size(231, 29);
+            this.cbLoaiXe.Size = new System.Drawing.Size(231, 25);
             this.cbLoaiXe.TabIndex = 4;
             this.cbLoaiXe.SelectedIndexChanged += new System.EventHandler(this.cbLoaiXe_SelectedIndexChanged);
             // 
@@ -200,9 +200,9 @@ namespace QuanLyBaiGiuXe
             // 
             this.lbStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(712, 25);
+            this.lbStatus.Location = new System.Drawing.Point(712, 26);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(99, 21);
+            this.lbStatus.Size = new System.Drawing.Size(88, 19);
             this.lbStatus.TabIndex = 6;
             this.lbStatus.Text = "model status";
             this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,9 +222,9 @@ namespace QuanLyBaiGiuXe
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(641, 25);
+            this.label5.Location = new System.Drawing.Point(641, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 21);
+            this.label5.Size = new System.Drawing.Size(51, 19);
             this.label5.TabIndex = 5;
             this.label5.Text = "Model:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,9 +233,9 @@ namespace QuanLyBaiGiuXe
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(345, 15);
+            this.label3.Location = new System.Drawing.Point(345, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 42);
+            this.label3.Size = new System.Drawing.Size(34, 38);
             this.label3.TabIndex = 3;
             this.label3.Text = "Loại xe:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,29 +458,29 @@ namespace QuanLyBaiGiuXe
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 17);
+            this.label7.Location = new System.Drawing.Point(3, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 21);
+            this.label7.Size = new System.Drawing.Size(70, 19);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ngày vào:";
             // 
             // tbNgayVao
             // 
             this.tbNgayVao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNgayVao.Location = new System.Drawing.Point(103, 13);
+            this.tbNgayVao.Location = new System.Drawing.Point(103, 15);
             this.tbNgayVao.Name = "tbNgayVao";
             this.tbNgayVao.ReadOnly = true;
-            this.tbNgayVao.Size = new System.Drawing.Size(186, 29);
+            this.tbNgayVao.Size = new System.Drawing.Size(186, 25);
             this.tbNgayVao.TabIndex = 1;
             this.tbNgayVao.Text = "null";
             // 
             // tbNgayRa
             // 
             this.tbNgayRa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNgayRa.Location = new System.Drawing.Point(395, 13);
+            this.tbNgayRa.Location = new System.Drawing.Point(395, 15);
             this.tbNgayRa.Name = "tbNgayRa";
             this.tbNgayRa.ReadOnly = true;
-            this.tbNgayRa.Size = new System.Drawing.Size(187, 29);
+            this.tbNgayRa.Size = new System.Drawing.Size(187, 25);
             this.tbNgayRa.TabIndex = 3;
             this.tbNgayRa.Text = "null";
             // 
@@ -488,29 +488,29 @@ namespace QuanLyBaiGiuXe
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 72);
+            this.label8.Location = new System.Drawing.Point(3, 73);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 21);
+            this.label8.Size = new System.Drawing.Size(59, 19);
             this.label8.TabIndex = 4;
             this.label8.Text = "Giờ vào:";
             // 
             // tbGioVao
             // 
             this.tbGioVao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbGioVao.Location = new System.Drawing.Point(103, 68);
+            this.tbGioVao.Location = new System.Drawing.Point(103, 70);
             this.tbGioVao.Name = "tbGioVao";
             this.tbGioVao.ReadOnly = true;
-            this.tbGioVao.Size = new System.Drawing.Size(186, 29);
+            this.tbGioVao.Size = new System.Drawing.Size(186, 25);
             this.tbGioVao.TabIndex = 5;
             this.tbGioVao.Text = "null";
             // 
             // tbGioRa
             // 
             this.tbGioRa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbGioRa.Location = new System.Drawing.Point(395, 68);
+            this.tbGioRa.Location = new System.Drawing.Point(395, 70);
             this.tbGioRa.Name = "tbGioRa";
             this.tbGioRa.ReadOnly = true;
-            this.tbGioRa.Size = new System.Drawing.Size(187, 29);
+            this.tbGioRa.Size = new System.Drawing.Size(187, 25);
             this.tbGioRa.TabIndex = 7;
             this.tbGioRa.Text = "null";
             // 
@@ -518,19 +518,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 127);
+            this.label6.Location = new System.Drawing.Point(3, 128);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 21);
+            this.label6.Size = new System.Drawing.Size(56, 19);
             this.label6.TabIndex = 8;
             this.label6.Text = "Biển số:";
             // 
             // tbBienSoVao
             // 
             this.tbBienSoVao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBienSoVao.Location = new System.Drawing.Point(103, 123);
+            this.tbBienSoVao.Location = new System.Drawing.Point(103, 125);
             this.tbBienSoVao.Name = "tbBienSoVao";
             this.tbBienSoVao.ReadOnly = true;
-            this.tbBienSoVao.Size = new System.Drawing.Size(186, 29);
+            this.tbBienSoVao.Size = new System.Drawing.Size(186, 25);
             this.tbBienSoVao.TabIndex = 9;
             this.tbBienSoVao.Text = "null";
             // 
@@ -538,19 +538,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(295, 127);
+            this.label11.Location = new System.Drawing.Point(295, 128);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 21);
+            this.label11.Size = new System.Drawing.Size(56, 19);
             this.label11.TabIndex = 10;
             this.label11.Text = "Biển số:";
             // 
             // tbBienSoRa
             // 
             this.tbBienSoRa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBienSoRa.Location = new System.Drawing.Point(395, 123);
+            this.tbBienSoRa.Location = new System.Drawing.Point(395, 125);
             this.tbBienSoRa.Name = "tbBienSoRa";
             this.tbBienSoRa.ReadOnly = true;
-            this.tbBienSoRa.Size = new System.Drawing.Size(187, 29);
+            this.tbBienSoRa.Size = new System.Drawing.Size(187, 25);
             this.tbBienSoRa.TabIndex = 11;
             this.tbBienSoRa.Text = "null";
             // 
@@ -558,19 +558,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 182);
+            this.label1.Location = new System.Drawing.Point(3, 183);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 21);
+            this.label1.Size = new System.Drawing.Size(70, 19);
             this.label1.TabIndex = 12;
             this.label1.Text = "Tổng tiền:";
             // 
             // tbTongTien
             // 
             this.tbTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTongTien.Location = new System.Drawing.Point(103, 178);
+            this.tbTongTien.Location = new System.Drawing.Point(103, 180);
             this.tbTongTien.Name = "tbTongTien";
             this.tbTongTien.ReadOnly = true;
-            this.tbTongTien.Size = new System.Drawing.Size(186, 29);
+            this.tbTongTien.Size = new System.Drawing.Size(186, 25);
             this.tbTongTien.TabIndex = 13;
             this.tbTongTien.Text = "null";
             // 
@@ -578,19 +578,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(295, 182);
+            this.label4.Location = new System.Drawing.Point(295, 183);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 21);
+            this.label4.Size = new System.Drawing.Size(55, 19);
             this.label4.TabIndex = 14;
             this.label4.Text = "Loại vé:";
             // 
             // tbLoaiVe
             // 
             this.tbLoaiVe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbLoaiVe.Location = new System.Drawing.Point(395, 178);
+            this.tbLoaiVe.Location = new System.Drawing.Point(395, 180);
             this.tbLoaiVe.Name = "tbLoaiVe";
             this.tbLoaiVe.ReadOnly = true;
-            this.tbLoaiVe.Size = new System.Drawing.Size(187, 29);
+            this.tbLoaiVe.Size = new System.Drawing.Size(187, 25);
             this.tbLoaiVe.TabIndex = 15;
             this.tbLoaiVe.Text = "null";
             // 
@@ -598,9 +598,9 @@ namespace QuanLyBaiGiuXe
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(295, 17);
+            this.label9.Location = new System.Drawing.Point(295, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 21);
+            this.label9.Size = new System.Drawing.Size(60, 19);
             this.label9.TabIndex = 2;
             this.label9.Text = "Ngày ra:";
             // 
@@ -608,9 +608,9 @@ namespace QuanLyBaiGiuXe
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(295, 72);
+            this.label10.Location = new System.Drawing.Point(295, 73);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 21);
+            this.label10.Size = new System.Drawing.Size(49, 19);
             this.label10.TabIndex = 6;
             this.label10.Text = "Giờ ra:";
             // 
@@ -652,19 +652,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 17);
+            this.label12.Location = new System.Drawing.Point(3, 18);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 21);
+            this.label12.Size = new System.Drawing.Size(70, 19);
             this.label12.TabIndex = 0;
             this.label12.Text = "Ngày vào:";
             // 
             // tbNgayVao2
             // 
             this.tbNgayVao2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNgayVao2.Location = new System.Drawing.Point(103, 13);
+            this.tbNgayVao2.Location = new System.Drawing.Point(103, 15);
             this.tbNgayVao2.Name = "tbNgayVao2";
             this.tbNgayVao2.ReadOnly = true;
-            this.tbNgayVao2.Size = new System.Drawing.Size(187, 29);
+            this.tbNgayVao2.Size = new System.Drawing.Size(187, 25);
             this.tbNgayVao2.TabIndex = 1;
             this.tbNgayVao2.Text = "null";
             // 
@@ -672,19 +672,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(296, 17);
+            this.label15.Location = new System.Drawing.Point(296, 18);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(68, 21);
+            this.label15.Size = new System.Drawing.Size(60, 19);
             this.label15.TabIndex = 2;
             this.label15.Text = "Ngày ra:";
             // 
             // tbNgayRa2
             // 
             this.tbNgayRa2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNgayRa2.Location = new System.Drawing.Point(396, 13);
+            this.tbNgayRa2.Location = new System.Drawing.Point(396, 15);
             this.tbNgayRa2.Name = "tbNgayRa2";
             this.tbNgayRa2.ReadOnly = true;
-            this.tbNgayRa2.Size = new System.Drawing.Size(187, 29);
+            this.tbNgayRa2.Size = new System.Drawing.Size(187, 25);
             this.tbNgayRa2.TabIndex = 3;
             this.tbNgayRa2.Text = "null";
             // 
@@ -692,19 +692,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 72);
+            this.label13.Location = new System.Drawing.Point(3, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 21);
+            this.label13.Size = new System.Drawing.Size(59, 19);
             this.label13.TabIndex = 4;
             this.label13.Text = "Giờ vào:";
             // 
             // tbGioVao2
             // 
             this.tbGioVao2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbGioVao2.Location = new System.Drawing.Point(103, 68);
+            this.tbGioVao2.Location = new System.Drawing.Point(103, 70);
             this.tbGioVao2.Name = "tbGioVao2";
             this.tbGioVao2.ReadOnly = true;
-            this.tbGioVao2.Size = new System.Drawing.Size(187, 29);
+            this.tbGioVao2.Size = new System.Drawing.Size(187, 25);
             this.tbGioVao2.TabIndex = 5;
             this.tbGioVao2.Text = "null";
             // 
@@ -712,19 +712,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(296, 72);
+            this.label16.Location = new System.Drawing.Point(296, 73);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 21);
+            this.label16.Size = new System.Drawing.Size(49, 19);
             this.label16.TabIndex = 6;
             this.label16.Text = "Giờ ra:";
             // 
             // tbGioRa2
             // 
             this.tbGioRa2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbGioRa2.Location = new System.Drawing.Point(396, 68);
+            this.tbGioRa2.Location = new System.Drawing.Point(396, 70);
             this.tbGioRa2.Name = "tbGioRa2";
             this.tbGioRa2.ReadOnly = true;
-            this.tbGioRa2.Size = new System.Drawing.Size(187, 29);
+            this.tbGioRa2.Size = new System.Drawing.Size(187, 25);
             this.tbGioRa2.TabIndex = 7;
             this.tbGioRa2.Text = "null";
             // 
@@ -732,19 +732,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 127);
+            this.label14.Location = new System.Drawing.Point(3, 128);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 21);
+            this.label14.Size = new System.Drawing.Size(56, 19);
             this.label14.TabIndex = 8;
             this.label14.Text = "Biển số:";
             // 
             // tbBienSoVao2
             // 
             this.tbBienSoVao2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBienSoVao2.Location = new System.Drawing.Point(103, 123);
+            this.tbBienSoVao2.Location = new System.Drawing.Point(103, 125);
             this.tbBienSoVao2.Name = "tbBienSoVao2";
             this.tbBienSoVao2.ReadOnly = true;
-            this.tbBienSoVao2.Size = new System.Drawing.Size(187, 29);
+            this.tbBienSoVao2.Size = new System.Drawing.Size(187, 25);
             this.tbBienSoVao2.TabIndex = 9;
             this.tbBienSoVao2.Text = "null";
             // 
@@ -752,19 +752,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(296, 127);
+            this.label17.Location = new System.Drawing.Point(296, 128);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 21);
+            this.label17.Size = new System.Drawing.Size(56, 19);
             this.label17.TabIndex = 10;
             this.label17.Text = "Biển số:";
             // 
             // tbBienSoRa2
             // 
             this.tbBienSoRa2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBienSoRa2.Location = new System.Drawing.Point(396, 123);
+            this.tbBienSoRa2.Location = new System.Drawing.Point(396, 125);
             this.tbBienSoRa2.Name = "tbBienSoRa2";
             this.tbBienSoRa2.ReadOnly = true;
-            this.tbBienSoRa2.Size = new System.Drawing.Size(187, 29);
+            this.tbBienSoRa2.Size = new System.Drawing.Size(187, 25);
             this.tbBienSoRa2.TabIndex = 11;
             this.tbBienSoRa2.Text = "null";
             // 
@@ -772,19 +772,19 @@ namespace QuanLyBaiGiuXe
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 182);
+            this.label18.Location = new System.Drawing.Point(3, 183);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 21);
+            this.label18.Size = new System.Drawing.Size(70, 19);
             this.label18.TabIndex = 12;
             this.label18.Text = "Tổng tiền:";
             // 
             // tbTongTien2
             // 
             this.tbTongTien2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTongTien2.Location = new System.Drawing.Point(103, 178);
+            this.tbTongTien2.Location = new System.Drawing.Point(103, 180);
             this.tbTongTien2.Name = "tbTongTien2";
             this.tbTongTien2.ReadOnly = true;
-            this.tbTongTien2.Size = new System.Drawing.Size(187, 29);
+            this.tbTongTien2.Size = new System.Drawing.Size(187, 25);
             this.tbTongTien2.TabIndex = 13;
             this.tbTongTien2.Text = "null";
             // 
@@ -792,25 +792,25 @@ namespace QuanLyBaiGiuXe
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(296, 182);
+            this.label19.Location = new System.Drawing.Point(296, 183);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 21);
+            this.label19.Size = new System.Drawing.Size(55, 19);
             this.label19.TabIndex = 14;
             this.label19.Text = "Loại vé:";
             // 
             // tbLoaiVe2
             // 
             this.tbLoaiVe2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbLoaiVe2.Location = new System.Drawing.Point(396, 178);
+            this.tbLoaiVe2.Location = new System.Drawing.Point(396, 180);
             this.tbLoaiVe2.Name = "tbLoaiVe2";
             this.tbLoaiVe2.ReadOnly = true;
-            this.tbLoaiVe2.Size = new System.Drawing.Size(187, 29);
+            this.tbLoaiVe2.Size = new System.Drawing.Size(187, 25);
             this.tbLoaiVe2.TabIndex = 15;
             this.tbLoaiVe2.Text = "null";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.HighlightText;

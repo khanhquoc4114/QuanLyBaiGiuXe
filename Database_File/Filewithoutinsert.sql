@@ -4,6 +4,8 @@
 --set dateformat ymd;
 --GO
 
+SELECT GETDATE();
+
 --Lấy toàn bộ database
 DECLARE @sql NVARCHAR(MAX) = '';
 SELECT @sql = @sql + 'SELECT * FROM ' + TABLE_NAME + '; ' 
@@ -234,7 +236,6 @@ BEGIN
 
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
     SELECT
 		ROW_NUMBER() OVER (ORDER BY MaNhatKyDangNhap DESC) AS STT,
@@ -253,6 +254,7 @@ END
 GO
 exec sp_nhatkydangnhap
 GO
+
 
 -- ============================================================== Bảng Vé Tháng - done
 CREATE TABLE VeThang (
@@ -337,7 +339,6 @@ BEGIN
 	SET NOCOUNT ON;
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 	select HanhDong as N'Hành động',
 	nv.HoTen N'Nhân viên xử lý',
 	ThoiGianXuLy as N'Thời gian xử lý',
@@ -539,7 +540,6 @@ BEGIN
     SET NOCOUNT ON;
 	SET @tgTu = ISNULL(@tgTu, '2000-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
     SELECT 
 		ROW_NUMBER() OVER (ORDER BY v.MaVeLuot DESC) AS STT,
@@ -641,7 +641,6 @@ BEGIN
 	SET NOCOUNT ON;
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
 	select 
 	ROW_NUMBER() OVER (ORDER BY nkvl.ThoiGianXuLy DESC) AS STT,
@@ -716,7 +715,6 @@ BEGIN
 
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
     SELECT 
         ROW_NUMBER() OVER (ORDER BY nk.ThoiGianXuLy DESC) AS STT,
         GiaVeCu AS N'Giá vé cũ',
@@ -912,7 +910,6 @@ BEGIN
 
     SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
     SELECT 
         ROW_NUMBER() OVER (ORDER BY vl.ThoiGianVao DESC) AS STT,
@@ -948,7 +945,6 @@ BEGIN
     SET NOCOUNT ON;
     SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
     SELECT 
 		N'Tổng' as N'Diễn giải',
@@ -971,7 +967,6 @@ BEGIN
 	SET NOCOUNT ON;
     SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
 	SELECT
 		vl.MayTinhXuLy as N'Máy tính',
@@ -1028,7 +1023,6 @@ BEGIN
 
     SET @tgTu = ISNULL(@tgTu, '1900-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
     -- CTE cho Vé lượt
     ;WITH VeLuotFiltered AS (
@@ -1090,7 +1084,6 @@ BEGIN
     -- Chuẩn hoá thời gian
     SET @tgTu = ISNULL(@tgTu, '2000-01-01');
     SET @tgDen = ISNULL(@tgDen, '3000-01-01');
-	SET @tgDen = DATEADD(SECOND, -1, DATEADD(DAY, 1, @tgDen));
 
     ;WITH VeGop AS (
         -- Vé lượt: vào
@@ -1385,22 +1378,6 @@ END
 
 GO
 
--- ============================================================== Phân quyền - not done
-CREATE TABLE ChucNang (
-    MaChucNang INT PRIMARY KEY,
-    TenChucNang NVARCHAR(100)
-);
-
-CREATE TABLE PhanQuyen (
-    MaNhomNhanVien INT,
-    MaChucNang INT,
-    CoQuyen BIT,
-    PRIMARY KEY (MaNhomNhanVien, MaChucNang),
-    FOREIGN KEY (MaNhomNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien),
-    FOREIGN KEY (MaChucNang) REFERENCES ChucNang(MaChucNang)
-);
-GO
-
 -- ============================================================== Cấu hình hệ thống
 CREATE TABLE CauHinhHeThong (
     TenCongTy NVARCHAR(255),
@@ -1416,17 +1393,32 @@ CREATE TABLE CauHinhHeThong (
 GO
 
 -- Thêm data cần thiết để chạy chương trình
-select * from TinhTienCongVan
-Go
-insert into The (MaThe, NgayTaoThe, NgayCapNhatThe) values ('T001', GETDATE(), GETDATE());
+
+INSERT INTO CauHinhHeThong (TenCongTy, DiaChi, Email, SoDienThoai, TienPhatMatThe, SoLuongXeToiDa, HanMucVeThang, HinhThucThuPhi, XuLyVeThangHetHan) 
+VALUES (N'Wuoc Company', N'UIT VNUHCM', N'22521212@gm.uit.edu.vn', N'02838220000', 50000, 200, 3, 1, 0);
+
+insert into The (MaThe, NgayTaoThe, NgayCapNhatThe) 
+values ('T001', GETDATE(), GETDATE()), ('T111', GETDATE(), GETDATE())
+;
 Go
 INSERT INTO NhomNhanVien (TenNhomNhanVien) VALUES (N'Quản trị viên');
 Go
 
 select * from NhanVien
 Insert into NhanVien (MaNhomNhanVien, HoTen, MaThe, TenDangNhap, MatKhau)
-values (1,N'Quốc','T001','admin','');
+values (1,N'Quốc','T001','admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 GO
+
+select * from LoaiXe
+insert into LoaiXe(TenLoaiXe)
+values ('Xe máy');
+GO
+
+INSERT INTO TinhTienLuyTien (Moc1, GiaMoc1, Moc2, GiaMoc2, GiaVuotMoc, ChuKy, CongMoc, MaLoaiXe) 
+VALUES (4, 5000, 8, 7000, 1000, 1, 2, 1);
+INSERT INTO TinhTienCongVan (ThuTienTruoc, DemTu, DemDen, GioGiaoNgayDem, GiaThuong, GiaDem, GiaNgayDem, GiaPhuThu, PhuThuTu, PhuThuDen, MaLoaiXe) 
+VALUES (0, 22, 5, 18, 3000, 5000, 7000, 2000, 6, 8, 1);
+
 
 -- lấy toàn bộ database
 DECLARE @sql NVARCHAR(MAX) = '';
@@ -1434,3 +1426,17 @@ SELECT @sql = @sql + 'SELECT * FROM ' + TABLE_NAME + '; '
 FROM INFORMATION_SCHEMA.TABLES 
 WHERE TABLE_TYPE = 'BASE TABLE';
 EXEC sp_executesql @sql;
+
+---- Xoá toàn bộ view (cẩn thận)
+--DECLARE @dropviewsql NVARCHAR(MAX) = N'';
+--SELECT @dropviewsql += N'DROP VIEW [' + SCHEMA_NAME(schema_id) + N'].[' + name + N'];'
+--FROM sys.views;
+--PRINT @dropviewsql;
+--EXEC sp_executesql @dropviewsql;
+
+---- Xoá toàn bộ bảng (cẩn thận)
+--DECLARE @dropSQL NVARCHAR(MAX) = '';
+--SELECT @dropSQL = @dropSQL + 'DROP TABLE [' + TABLE_SCHEMA + '].[' + TABLE_NAME + '];' + CHAR(13)
+--FROM INFORMATION_SCHEMA.TABLES
+--WHERE TABLE_TYPE = 'BASE TABLE';
+--EXEC sp_executesql @dropSQL;

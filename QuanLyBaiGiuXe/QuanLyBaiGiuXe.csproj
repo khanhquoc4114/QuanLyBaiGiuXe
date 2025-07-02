@@ -306,12 +306,6 @@
     <Compile Include="NhatKy\NhatKyVeLuotForm.Designer.cs">
       <DependentUpon>NhatKyVeLuotForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKy\NhatKyXuLyMatTheForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NhatKy\NhatKyXuLyMatTheForm.Designer.cs">
-      <DependentUpon>NhatKyXuLyMatTheForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="NhatKy\NhatKyXuLyVeThangForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,16 +320,16 @@
     <Compile Include="NhanVien\NhanVienMainForm.Designer.cs">
       <DependentUpon>NhanVienMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TheMainForm.cs">
+    <Compile Include="The\TheMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TheMainForm.Designer.cs">
+    <Compile Include="The\TheMainForm.Designer.cs">
       <DependentUpon>TheMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThemXeForm.cs">
+    <Compile Include="TinhTien\ThemXeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThemXeForm.Designer.cs">
+    <Compile Include="TinhTien\ThemXeForm.Designer.cs">
       <DependentUpon>ThemXeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ThongKe\ThongKeChiTietForm.cs">
@@ -362,10 +356,10 @@
     <Compile Include="ThongKe\ThongKeTheoNhanVienForm.Designer.cs">
       <DependentUpon>ThongKeTheoNhanVienForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TinhTienForm.cs">
+    <Compile Include="TinhTien\TinhTienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TinhTienForm.Designer.cs">
+    <Compile Include="TinhTien\TinhTienForm.Designer.cs">
       <DependentUpon>TinhTienForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ToastForm.cs">
@@ -431,9 +425,6 @@
     <EmbeddedResource Include="HeThong\CauHinhNguoiDungForm.resx">
       <DependentUpon>CauHinhNguoiDungForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhatKy\NhatKyXuLyMatTheForm.resx">
-      <DependentUpon>NhatKyXuLyMatTheForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TraCuuRaVao\DieuChinhGiaVeForm.resx">
       <DependentUpon>DieuChinhGiaVeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,10 +465,10 @@
     <EmbeddedResource Include="NhanVien\NhanVienMainForm.resx">
       <DependentUpon>NhanVienMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TheMainForm.resx">
+    <EmbeddedResource Include="The\TheMainForm.resx">
       <DependentUpon>TheMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThemXeForm.resx">
+    <EmbeddedResource Include="TinhTien\ThemXeForm.resx">
       <DependentUpon>ThemXeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\ThongKeChiTietForm.resx">
@@ -492,7 +483,7 @@
     <EmbeddedResource Include="ThongKe\ThongKeTheoNhanVienForm.resx">
       <DependentUpon>ThongKeTheoNhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TinhTienForm.resx">
+    <EmbeddedResource Include="TinhTien\TinhTienForm.resx">
       <DependentUpon>TinhTienForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToastForm.resx">

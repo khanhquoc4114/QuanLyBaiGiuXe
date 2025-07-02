@@ -27,7 +27,7 @@ namespace QuanLyBaiGiuXe
             {
                 string matKhau = tbPassword.Text.Trim();
                 string username = tbUsername.Text.Trim();
-                if (!string.IsNullOrWhiteSpace(matKhau))
+                if (!string.IsNullOrEmpty(matKhau))
                 {
                     matKhau = HashHelper.ComputeSHA256Hash(matKhau);
                 }
@@ -35,9 +35,10 @@ namespace QuanLyBaiGiuXe
                 if (!string.IsNullOrEmpty(MaNhanVien))
                 {
                     Session.MaNhanVien = MaNhanVien;
-                    string name = loginManager.GetTen(tbUsername.Text, tbPassword.Text);
-                    string role = Session.VaiTro = loginManager.GetVaiTro(tbUsername.Text, tbPassword.Text);
+                    string name = loginManager.GetTen(tbUsername.Text, matKhau);
+                    string role = Session.VaiTro = loginManager.GetVaiTro(tbUsername.Text, matKhau);
 
+                    MessageBox.Show($"Đăng nhập thành công!\nXin chào {name}!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     isLoggedIn = true;
                     if (isLoggedIn)
                     {
@@ -45,7 +46,7 @@ namespace QuanLyBaiGiuXe
                         if (cbRememberMe.Checked)
                         {
                             Properties.Settings.Default.SavedUsername = tbUsername.Text.Trim();
-                            Properties.Settings.Default.SavedPassword = matKhau;
+                            Properties.Settings.Default.SavedPassword = tbPassword.Text.Trim();
                             Properties.Settings.Default.RememberMe = true;
                         }
                         else
@@ -139,6 +140,5 @@ namespace QuanLyBaiGiuXe
                 btnShowPassword.Text = "Show";
             }
         }
-
     }
 }

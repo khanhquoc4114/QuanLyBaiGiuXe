@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace QuanLyBaiGiuXe
 {
@@ -31,6 +32,13 @@ namespace QuanLyBaiGiuXe
                 AppConfig.Load(conn);
             }
 
+
+            CultureInfo ci = new CultureInfo("vi-VN");
+            ci.DateTimeFormat.ShortTimePattern = "HH:mm";
+            ci.DateTimeFormat.LongTimePattern = "HH:mm:ss";
+            CultureInfo.DefaultThreadCurrentCulture = ci;
+            CultureInfo.DefaultThreadCurrentUICulture = ci;
+
             if (Properties.Settings.Default.RememberMe == true)
             {
                 string user = Properties.Settings.Default.SavedUsername;
@@ -39,7 +47,8 @@ namespace QuanLyBaiGiuXe
 
                 string error = null;
                 string maNV = loginManager.GetMaNhanVien(user, pass, out error);
-                MessageBox.Show("Nhớ: " + Properties.Settings.Default.RememberMe.ToString() + "\n Mã nhân viên: " + maNV);
+                string name = loginManager.GetTen(user, pass);
+                //MessageBox.Show("Nhớ: " + Properties.Settings.Default.RememberMe.ToString() + "\n Mã nhân viên: " + maNV +  error);
                 if (!string.IsNullOrEmpty(maNV))
                 {
                     Session.MaNhanVien = maNV;

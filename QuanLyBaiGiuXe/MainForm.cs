@@ -467,7 +467,7 @@ namespace QuanLyBaiGiuXe
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                //btnNhanDien.PerformClick();
+                btnNhanDien.PerformClick();
                 ThucHienRaVao();
                 txtMaThe.Clear();
             }

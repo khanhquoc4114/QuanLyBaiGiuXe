@@ -60,7 +60,14 @@ namespace QuanLyBaiGiuXe
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            DateTime tgTu = dtpTu.Value;
+            DateTime tgDen = dtpDen.Value;
+            if (tgTu > tgDen)
+            {
+                MessageBox.Show("Thời gian bắt đầu không được lớn hơn thời gian kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            dtgNhatKy.DataSource = manager.GetNhatKyDieuChinhGiaVe(tgTu, tgDen);
         }
 
         private void NhatKyDieuChinhGiaVeForm_Load(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace QuanLyBaiGiuXe
         private void CauHinhNguoiDungForm_Load(object sender, EventArgs e)
         {
             LoadData();
-            tbPath.Text = Properties.Settings.Default.ImagePath ?? string.Empty;
+            tbPath.Text = Settings.Default.ImagePath;
         }
         public void LoadData()
         {
