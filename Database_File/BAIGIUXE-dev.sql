@@ -1,10 +1,10 @@
 ﻿-- Tạo CSDL
-CREATE DATABASE testdoxe COLLATE Vietnamese_CI_AI;
-USE testdoxe;
-SET LANGUAGE British;
-SET Dateformat ymd;
+--CREATE DATABASE BAIGIUXE COLLATE Vietnamese_CI_AI;
+--USE BAIGIUXE;
+--set dateformat ymd;
+--GO
+
 SELECT GETDATE();
-GO
 
 --Lấy toàn bộ database
 DECLARE @sql NVARCHAR(MAX) = '';
@@ -20,11 +20,6 @@ CREATE TABLE LoaiXe (
 	TrangThai NVARCHAR(50) COLLATE Vietnamese_CI_AI Default N'Sử dụng'
 ); 
 Go
-INSERT INTO LoaiXe (TenLoaiXe, TrangThai)
-VALUES
-(N'Xe máy', N'Sử dụng'),
-(N'Xe oto', N'Sử dụng');
-GO
 -- sp bảng loai xe
 Create or alter procedure sp_bangloaixe
 AS
@@ -45,84 +40,24 @@ CREATE TABLE Nhom (
     ThongTinKhac NVARCHAR(255) COLLATE Vietnamese_CI_AI
 );
 Go
-INSERT INTO Nhom (TenNhom, ThongTinKhac)
-VALUES
-(N'Nhóm Thành Long', N'Nhóm cho xe máy'),
-(N'Nhóm Lý Hải', N'Nhóm cho ô tô'),
-(N'Nhóm Trấn Thành', N'Nhóm chung'),
-(N'Nhóm Lê Lợi', N'Khách VIP'),
-(N'Nhóm Bình Dương', N'Nhóm ưu đãi tháng này');
-select * from Nhom
-GO
+
 -- ============================================================== Bảng Thẻ 
 CREATE TABLE The (
     MaThe VARCHAR(20) PRIMARY KEY,
     SoThuTu INT,
     LoaiThe NVARCHAR(10) COLLATE Vietnamese_CI_AI DEFAULT N'Chung', 
-    NgayTaoThe DATETIME NOT NULL,sp_bangthe
-    NgayCapNhatThe DATETIME NOT NULL,
-    TrangThaiThe NVARCHAR(20) COLLATE Vietnamese_CI_AI
+    NgayTaoThe DATETIME2 NOT NULL,
+    NgayCapNhatThe DATETIME2 NOT NULL,
+    TrangThaiThe NVARCHAR(20) COLLATE Vietnamese_CI_AI default N'Sử dụng' CHECK (TrangThaiThe IN (N'Sử dụng', N'Không sử dụng', N'Mất thẻ'))-- Sử dụng, Không sử dụng, Mất thẻ
 );
 GO
-INSERT INTO The (MaThe, SoThuTu, LoaiThe, NgayTaoThe, NgayCapNhatThe, TrangThaiThe)
-VALUES
-('T122', 2, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T123', 3, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T124', 4, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T125', 5, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T126', 6, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T127', 7, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T128', 8, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T129', 9, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T130', 10, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T121', 11, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T101', 1, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T102', 2, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T103', 3, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T104', 4, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T105', 5, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T106', 6, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T107', 7, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T108', 8, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T109', 9, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T110', 10, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T111', 11, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T001', 1, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T002', 2, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T003', 3, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T004', 4, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T005', 5, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T006', 6, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T007', 7, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T008', 8, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T009', 9, N'Chung',  GETDATE(), GETDATE(), N'Sử dụng'),
-('T010', 10, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T011', 11, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T012', 12, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T013', 13, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T014', 14, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T015', 15, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T016', 16, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T017', 17, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T018', 18, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T019', 19, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T020', 20, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T021', 21, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T022', 22, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T023', 23, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T024', 24, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T025', 25, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T026', 26, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T027', 27, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T028', 28, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T029', 29, N'Chung', GETDATE(), GETDATE(), N'Sử dụng'),
-('T030', 30, N'Chung', GETDATE(), GETDATE(), N'Sử dụng');
-GO
--- sp bảng thẻ
-Create or alter procedure sp_bangthe
+-- sp hiện bảng thẻ
+Create or alter procedure sp_banghienthe
 AS
 BEGIN
-	select MaThe AS N'Mã thẻ', 
+	select 
+	ROW_NUMBER() OVER (ORDER BY NgayTaoThe) AS STT,
+	MaThe AS N'Mã thẻ', 
 	SoThuTu AS N'Số thứ tự', 
 	LoaiThe as N'Loại thẻ', 
 	NgayTaoThe as N'Ngày tạo thẻ', 
@@ -130,6 +65,7 @@ BEGIN
 	TrangThaiThe as N'Trạng thái thẻ'
 	from The
 END
+GO
 
 --sp đếm thẻ
 Create or Alter procedure sp_bangdemthe
@@ -157,15 +93,6 @@ CREATE TABLE NhomNhanVien (
     ThongTinKhac NVARCHAR(255) COLLATE Vietnamese_CI_AI
 );
 GO
-INSERT INTO NhomNhanVien (TenNhomNhanVien, SoLuongNhanVien, ThongTinKhac)
-VALUES
-(N'Bảo vệ', 0, N'Nhóm nhân viên bảo vệ khu vực'),
-(N'Kỹ thuật', 0, N'Nhóm kỹ thuật và sửa chữa'),
-(N'Kế toán', 0, N'Nhóm quản lý thu chi'),
-(N'Quản trị viên', 0, N'Nhóm đón tiếp khách hàng'),
-(N'Quản lý', 0, N'Nhóm quản lý cấp cao');
-select * from NhomNhanVien
-GO
 -- sp bảng đếm số nhân viên theo nhóm
 Create or Alter procedure sp_bangnhomnhanvien
 AS
@@ -189,8 +116,8 @@ CREATE TABLE NhanVien (
 	MaThe VARCHAR(20),
 	TenDangNhap VARCHAR(50) UNIQUE NOT NULL,
 	MatKhau VARCHAR(255) NOT NULL,
-	GhiChu NVARCHAR(500) COLLATE Vietnamese_CI_AI,
-	TrangThai NVarchar(20) COLLATE Vietnamese_CI_AI DEFAULT N'Sử dụng',
+	GhiChu NVARCHAR(255) COLLATE Vietnamese_CI_AI,
+	TrangThai NVARCHAR(20) COLLATE Vietnamese_CI_AI DEFAULT 1, -- 1 là sử dụng, 0 là khoá
 	FOREIGN KEY (MaNhomNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien),
 	FOREIGN KEY (MaThe) REFERENCES The(MaThe),
 	CONSTRAINT UQ_NhanVien_MaThe UNIQUE(MaThe)
@@ -260,13 +187,6 @@ END;
 GO
 -- Thêm Nhân Viên
 SET IDENTITY_INSERT NhanVien ON;
-INSERT INTO NhanVien (MaNhanVien, MaNhomNhanVien, HoTen, MaThe, TenDangNhap, MatKhau, GhiChu)
-VALUES
-(1, 1, N'Nguyễn Văn A', 'T006', 'admin', 'admin', N'Nhân viên phòng kỹ thuật'),
-(2, 2, N'Trần Thị B', 'T007', 'tranthib', 'matkhau123', N'Nhân viên phòng kinh doanh'),
-(3, 1, N'Lê Văn C', 'T008', 'levanc', 'matkhau123', N'Nhân viên phòng kỹ thuật'),
-(4, 3, N'Phạm Thị D', 'T009', 'phamthid', 'matkhau123', N'Nhân viên phòng kế toán'),
-(5, 2, N'Hoàng Văn E', 'T010', 'hoangvane', 'matkhau123', N'Nhân viên phòng kinh doanh');
 SET IDENTITY_INSERT NhanVien OFF;
 select * from NhanVien
 Go
@@ -283,6 +203,7 @@ BEGIN
         nv.TenDangNhap AS N'Tài khoản',
         nv.MatKhau AS N'Mật khẩu',
         nv.MaThe AS N'Mã thẻ',
+		nv.TrangThai AS N'Trạng thái',
         nv.GhiChu AS N'Ghi chú',
         nhom.TenNhomNhanVien AS N'Nhóm'
     FROM
@@ -293,35 +214,31 @@ BEGIN
         nv.HoTen LIKE N'%' + @TimKiem + N'%' OR @TimKiem IS NULL;
 END
 GO
-EXEC sp_bangnhanvien @TimKiem = N'Nguyễn'
+EXEC sp_bangnhanvien
 GO
--- ==============================================================
-
--- Nhập ký đăng nhập - done
+-- ============================================================== Nhập ký đăng nhập - done
 CREATE TABLE NhatKyDangNhap (
     MaNhatKyDangNhap INT IDENTITY(1,1) PRIMARY KEY, 
     MaNhanVien INT NOT NULL,
-    ThoiGianDangNhap DATETIME NOT NULL DEFAULT GETDATE(),
-    ThoiGianDangXuat DATETIME NULL,
+    ThoiGianDangNhap DATETIME2 NOT NULL DEFAULT GETDATE(),
+    ThoiGianDangXuat DATETIME2 NULL,
     TongThoiGian AS 
-        DATEDIFF(SECOND, ThoiGianDangNhap, ISNULL(ThoiGianDangXuat, GETDATE())),
-	FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien),
+        DATEDIFF(MINUTE, ThoiGianDangNhap, ISNULL(ThoiGianDangXuat, GETDATE())),
+	FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien)
 );
-select * from NhatKyDangNhap
 GO
-
 CREATE OR ALTER PROCEDURE sp_nhatkydangnhap
-    @tgTu Datetime = NULL,
-	@tgDen Datetime = NULL
+    @tgTu DATETIME = NULL,
+	@tgDen DATETIME = NULL
 AS
 BEGIN
     SET NOCOUNT ON;
 
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
-    SET @tgDen = ISNULL(@tgDen, '9999-12-31');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
 
     SELECT
-		ROW_NUMBER() OVER (ORDER BY MaNhatKyDangNhap) AS STT,
+		ROW_NUMBER() OVER (ORDER BY MaNhatKyDangNhap DESC) AS STT,
         nv.HoTen as N'Tên nhân viên',
 		nv.TenDangNhap as N'Tên đăng nhập',
 		nk.ThoiGianDangNhap as N'Đăng nhập',
@@ -338,7 +255,8 @@ GO
 exec sp_nhatkydangnhap
 GO
 
--- ============================================================== Bảng Vé Tháng - done(thiếu thêm ảnh)
+
+-- ============================================================== Bảng Vé Tháng - done
 CREATE TABLE VeThang (
 	MaVeThang INT IDENTITY(1,1) PRIMARY KEY,
 	MaNhom INT,
@@ -347,17 +265,17 @@ CREATE TABLE VeThang (
 	DienThoai VARCHAR(15),
 	DiaChi NVARCHAR(200) COLLATE Vietnamese_CI_AI,
 	Email VARCHAR(100),
-	NgayKichHoat DATETIME DEFAULT GETDATE() NOT NULL,
-	NgayHetHan DATETIME DEFAULT DATEADD(MONTH, 1, GETDATE()),
+	NgayKichHoat DATETIME2 DEFAULT GETDATE() NOT NULL,
+	NgayHetHan DATETIME2 DEFAULT DATEADD(MONTH, 1, GETDATE()),
 	BienSo VARCHAR(20),
 	NhanHieu VARCHAR(20) COLLATE Vietnamese_CI_AI,
 	MaLoaiXe INT,
 	GiaVe INT,
-	GhiChu NVARCHAR(500) COLLATE Vietnamese_CI_AI,
+	GhiChu NVARCHAR(255) COLLATE Vietnamese_CI_AI,
 	MaNhanVien INT,
 	MayTinhXuLy NVARCHAR(50),
 	LoaiVe NVARCHAR(20) COLLATE Vietnamese_CI_AI DEFAULT N'Vé tháng',
-	FOREIGN KEY (MaNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien),
+	TrangThai NVarchar(20) COLLATE Vietnamese_CI_AI Default N'Sử dụng' CHECK (TrangThai IN (N'Sử dụng', N'Hết hạn', N'Mất thẻ'))
 	FOREIGN KEY (MaThe) REFERENCES The(MaThe),
 	FOREIGN KEY (MaLoaiXe) REFERENCES LoaiXe(MaLoaiXe),
 	FOREIGN KEY (MaNhom) REFERENCES Nhom(MaNhom)
@@ -376,13 +294,13 @@ CREATE FUNCTION dbo.fn_GenThongTinVeThang (
     @DienThoai VARCHAR(15),
     @DiaChi NVARCHAR(200),
     @Email VARCHAR(100),
-    @NgayKichHoat DATETIME,
-    @NgayHetHan DATETIME,
+    @NgayKichHoat DATETIME2,
+    @NgayHetHan DATETIME2,
     @BienSo VARCHAR(20),
     @NhanHieu VARCHAR(20),
     @MaLoaiXe INT,
     @GiaVe INT,
-    @GhiChu NVARCHAR(500),
+    @GhiChu NVARCHAR(255),
     @MaNhanVien INT,
     @MayTinhXuLy NVARCHAR(50)
 )
@@ -406,20 +324,21 @@ CREATE TABLE NhatKyXuLyVeThang (
     MaVeThang INT NOT NULL,
     HanhDong NVARCHAR(20) NOT NULL,
     MaNhanVien INT,
+	FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien),
     MayTinhXuLy NVARCHAR(50) COLLATE Vietnamese_CI_AI,
     NoiDungCu NVARCHAR(500) COLLATE Vietnamese_CI_AI,
     NoiDungMoi NVARCHAR(500) COLLATE Vietnamese_CI_AI,
-    ThoiGianXuLy DATETIME DEFAULT GETDATE(),
+    ThoiGianXuLy DATETIME2 DEFAULT GETDATE(),
 );
 Go
 create or alter procedure sp_bangnhatkyvethang
-	@tgTu Datetime = NULL,
-	@tgDen Datetime = NULL
+	@tgTu DATETIME2 = NULL,
+	@tgDen DATETIME2 = NULL
 AS
 BEGIN
 	SET NOCOUNT ON;
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
-    SET @tgDen = ISNULL(@tgDen, '9999-12-31');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
 	select HanhDong as N'Hành động',
 	nv.HoTen N'Nhân viên xử lý',
 	ThoiGianXuLy as N'Thời gian xử lý',
@@ -515,28 +434,6 @@ BEGIN
 END
 GO
 
--- Thêm Vé Tháng
-INSERT INTO VeThang (MaNhom, MaThe, ChuXe, DienThoai, DiaChi, Email, NgayKichHoat, NgayHetHan, BienSo, NhanHieu, MaLoaiXe, GiaVe, GhiChu, MaNhanVien, MayTinhXuLy, LoaiVe)
-VALUES
-(1, 'T001', N'Nguyễn Văn A', '0909123456', N'123 Lê Lợi, Q1', 'a@example.com', '2025-05-01', '2025-06-01', '59A1-23456', N'Honda', 1, 120000, NULL, 2, 'PC01', N'Vé tháng'),
-(2, 'T002', N'Trần Thị B', '0911222333', N'456 Hai Bà Trưng, Q3', 'b@example.com', '2025-05-02', '2025-06-02', '51B2-34567', N'Toyota', 2, 800000, NULL, 3, 'PC02', N'Vé tháng'),
-(1, 'T003', N'Lê Văn C', '0933444555', N'789 Nguyễn Huệ, Q1', 'c@example.com', '2025-05-03', '2025-06-03', '60C3-11223', N'Yamaha', 1, 120000, N'Khách quen', 1, 'PC01', N'Vé tháng'),
-(3, 'T004', N'Phạm Thị D', '0988777666', N'321 Điện Biên Phủ, Q10', 'd@example.com', '2025-05-04', '2025-06-04', '62D4-33445', N'Ford', 2, 900000, NULL, 4, 'PC03', N'Vé tháng'),
-(2, 'T005', N'Ngô Văn E', '0966888999', N'654 Lý Tự Trọng, Q1', 'e@example.com', '2025-05-05', '2025-06-05', '59E5-55667', N'Honda', 1, 120000, NULL, 3, 'PC02', N'Vé tháng'),
-(1, 'T006', N'Võ Thị F', '0911666777', N'777 Lê Văn Sỹ, Q3', 'f@example.com', '2025-05-06', '2025-06-06', '51F6-77889', N'Yamaha', 1, 120000, NULL, 2, 'PC01', N'Vé tháng'),
-(3, 'T007', N'Phan Văn G', '0944555666', N'888 Nguyễn Trãi, Q5', 'g@example.com', '2025-05-07', '2025-06-07', '60G7-99001', N'Ford', 2, 900000, NULL, 4, 'PC03', N'Vé tháng'),
-(1, 'T008', N'Nguyễn Thị H', '0909777888', N'111 Nguyễn Thị Minh Khai, Q1', 'h@example.com', '2025-05-08', '2025-06-08', '59H8-11123', N'Honda', 1, 120000, NULL, 1, 'PC01', N'Vé tháng'),
-(2, 'T009', N'Lê Văn I', '0977555444', N'222 Lý Thường Kiệt, Q10', 'i@example.com', '2025-05-09', '2025-06-09', '51I9-23456', N'Toyota', 2, 800000, NULL, 3, 'PC02', N'Vé tháng'),
-(1, 'T010', N'Trần Thị J', '0922333444', N'333 Nguyễn Văn Cừ, Q5', 'j@example.com', '2025-05-10', '2025-06-10', '60J0-34567', N'Yamaha', 1, 120000, NULL, 1, 'PC01', N'Vé tháng'),
-(3, 'T011', N'Phạm Văn K', '0911999888', N'444 Điện Biên Phủ, Q3', 'k@example.com', '2025-05-11', '2025-06-11', '62K1-45678', N'Ford', 2, 900000, NULL, 4, 'PC03', N'Vé tháng'),
-(2, 'T012', N'Nguyễn Văn L', '0933222111', N'555 Lê Lai, Q1', 'l@example.com', '2025-05-12', '2025-06-12', '59L2-56789', N'Honda', 1, 120000, NULL, 3, 'PC02', N'Vé tháng'),
-(1, 'T013', N'Lê Thị M', '0909988777', N'666 Võ Văn Kiệt, Q5', 'm@example.com', '2025-05-13', '2025-06-13', '51M3-67890', N'Yamaha', 1, 120000, NULL, 2, 'PC01', N'Vé tháng'),
-(3, 'T014', N'Phan Văn N', '0988111222', N'777 Trần Hưng Đạo, Q1', 'n@example.com', '2025-05-14', '2025-06-14', '60N4-78901', N'Ford', 2, 900000, NULL, 4, 'PC03', N'Vé tháng'),
-(1, 'T015', N'Võ Thị O', '0912777333', N'888 Cách Mạng Tháng 8, Q10', 'o@example.com', '2025-05-15', '2025-06-15', '59O5-89012', N'Honda', 1, 120000, NULL, 1, 'PC01', N'Vé tháng');
-select * from veThang
-select * from NhatKyXuLyVeThang
-GO
-
 -- sp bảng vé tháng
 CREATE OR ALTER PROCEDURE sp_ve_thang
 	@TimKiem NVarChar(100) = NULL
@@ -545,7 +442,7 @@ BEGIN
     SET NOCOUNT ON;
 
     SELECT 
-		ROW_NUMBER() OVER (ORDER BY MaVeThang) AS STT,
+		ROW_NUMBER() OVER (ORDER BY vt.NgayHetHan) AS STT,
         MaVeThang,
         vt.MaThe AS N'Mã thẻ',
         BienSo AS N'Biển số',
@@ -607,66 +504,243 @@ CREATE TABLE VeLuot(
 	MaVeLuot INT IDENTITY(1,1) PRIMARY KEY,
     MaThe VARCHAR(20), -- temp NULL
 	MaNhom INT default null, 
-    ThoiGianVao DATETIME DEFAULT GETDATE() NOT NULL,
-	ThoiGianRa DATETIME DEFAULT NULL,
-	TrangThai NVARCHAR(20) COLLATE Vietnamese_CI_AI Default N'Chưa ra', -- TrangThai IN (N'Chưa ra', N'Đã ra')
+    ThoiGianVao DATETIME2 DEFAULT GETDATE() NOT NULL,
+	ThoiGianRa DATETIME2 DEFAULT NULL,
+	TrangThai NVARCHAR(20) COLLATE Vietnamese_CI_AI Default N'Chưa ra', 
 	MaNhanVien INT, -- temp
 	MayTinhXuLy NVARCHAR(50),
-	CachTinhTien int Default 0, -- 0 - Công văn, 1 - Luỹ tiến
+	CachTinhTien int Default 0, -- -1 - Miễn Phí, 0 - Công văn, 1 - Luỹ tiến
     TongTien INT CHECK (TongTien >= 0),
 	BienSo VARCHAR(20),
 	MaLoaiXe INT default 1,
 	LoaiVe NVARCHAR(20) COLLATE Vietnamese_CI_AI DEFAULT N'Vé lượt' CHECK (LoaiVe IN (N'Vé lượt', N'Vé tháng')),
 	LaVeThang BIT Default 0,
-	MaVeThang INT
+	MaVeThang INT,
+	AnhVaoPath NVARCHAR(255),
+	AnhRaPath NVARCHAR(255)
     FOREIGN KEY (MaLoaiXe) REFERENCES LoaiXe(MaLoaiXe),
-    FOREIGN KEY (MaNhom) REFERENCES Nhom(MaNhom),
-    FOREIGN KEY (MaNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien)
+    FOREIGN KEY (MaNhom) REFERENCES Nhom(MaNhom)
 );
 Go
-select * from veluot
-Go
+
+-- Hiện bảng tra cứu ra vào
+CREATE or alter PROCEDURE sp_TraCuuRaVao
+    @LoaiTruyVan NVARCHAR(100) = N'Tất cả xe',
+    @LoaiVe NVARCHAR(20) = N'Tất cả loại vé',
+    @MaLoaiXe INT = -1,
+    @tgTu DATETIME2 = NULL,
+    @tgDen DATETIME2 = NULL,
+    @SoThe NVARCHAR(50) = NULL,
+    @BienSo NVARCHAR(50) = NULL,
+    @MaThe NVARCHAR(50) = NULL,
+    @MaNhanVienVao INT = -1,
+    @MaNhanVienRa INT = -1
+AS
+BEGIN
+    SET NOCOUNT ON;
+	SET @tgTu = ISNULL(@tgTu, '2000-01-01');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
+
+    SELECT 
+		ROW_NUMBER() OVER (ORDER BY v.MaVeLuot DESC) AS STT,
+        v.MaVeLuot,
+        v.MaThe AS N'Mã thẻ',
+        v.BienSo AS N'Biển số',
+        lx.TenLoaiXe AS N'Loại xe',
+        ISNULL(vt.ChuXe, N'Vé lượt') AS N'Chủ xe',
+        ISNULL(nvt.TenNhom, N'Vé lượt') AS N'Nhóm',
+        v.LoaiVe AS N'Loại vé',
+        v.ThoiGianVao AS N'Thời gian vào',
+        v.ThoiGianRa AS N'Thời gian ra',
+        v.TrangThai AS N'Trạng thái',
+        nv.HoTen AS N'Nhân viên xử lý',
+        v.MayTinhXuLy AS N'Máy xử lý',
+        CASE v.CachTinhTien 
+            WHEN 0 THEN N'Công văn' 
+            WHEN 1 THEN N'Lũy tiến' 
+            ELSE N'Khác' 
+        END AS N'Cách tính tiền',
+        ISNULL(v.TongTien, 0) AS N'Tổng tiền',
+        v.AnhVaoPath AS N'Ảnh vào',
+        v.AnhRaPath AS N'Ảnh ra'
+    FROM VeLuot v
+    LEFT JOIN VeThang vt ON v.MaVeThang = vt.MaVeThang
+    LEFT JOIN Nhom nvt ON vt.MaNhom = nvt.MaNhom
+    LEFT JOIN LoaiXe lx ON v.MaLoaiXe = lx.MaLoaiXe
+    LEFT JOIN NhanVien nv ON v.MaNhanVien = nv.MaNhanVien
+    WHERE
+		v.ThoiGianVao between @tgTu and @tgDen
+        AND (@LoaiTruyVan = N'Tất cả xe' OR v.TrangThai = @LoaiTruyVan)
+        AND (@LoaiVe = N'Tất cả loại vé' OR v.LoaiVe = @LoaiVe)
+        AND (@MaLoaiXe = -1 OR v.MaLoaiXe = @MaLoaiXe)
+        AND (@SoThe IS NULL OR v.MaThe LIKE '%' + @SoThe + '%')
+        AND (@BienSo IS NULL OR v.BienSo LIKE '%' + @BienSo + '%')
+        AND (@MaThe IS NULL OR v.MaThe LIKE '%' + @MaThe + '%')
+        AND (@MaNhanVienVao = -1 OR v.MaNhanVien = @MaNhanVienVao)
+        AND (@MaNhanVienRa = -1 OR v.MaNhanVien = @MaNhanVienRa)
+    ORDER BY v.ThoiGianVao DESC;
+END
+GO
+EXEC sp_TraCuuRaVao
+    @LoaiTruyVan = N'Tất cả xe',
+    @LoaiVe = N'Vé tháng',
+    @MaLoaiXe = -1,
+    @tgTu = '2025-06-12',
+    @tgDen = '2025-06-19',
+    @SoThe = NULL,
+    @BienSo = NULL,
+    @MaThe = NULL,
+    @MaNhanVienVao = -1,
+    @MaNhanVienRa = -1;
+GO
+
 -- Tạo bảng Nhật ký xử lý Vé lượt
 CREATE TABLE NhatKyXuLyVeLuot (
     MaNhatKyXuLyVeLuot INT IDENTITY(1,1) PRIMARY KEY,
+	MaVeLuot int,
     HanhDong NVARCHAR(20) NOT NULL,
     MaNhanVien INT,
     MayTinhXuLy NVARCHAR(50) COLLATE Vietnamese_CI_AI,
     NoiDungCu NVARCHAR(500) COLLATE Vietnamese_CI_AI,
     NoiDungMoi NVARCHAR(500) COLLATE Vietnamese_CI_AI,
-    ThoiGianXuLy DATETIME DEFAULT GETDATE()
+    ThoiGianXuLy DATETIME2 DEFAULT GETDATE()
 );
 GO
-select * from NhatKyXuLyVeLuot
-select * from veluot
-select * from VeThang
-GO
 
--- bảng nhật ký vé lượt
+-- procedure hiển thị table mất thẻ
+create or alter procedure sp_xulymatthe
+@maveluot int = NULL
+as
+begin
+	select vl.BienSo,
+	vl.MaThe,
+	lx.TenLoaiXe,
+	ThoiGianVao,
+	nv.HoTen,
+	vl.MayTinhXuLy,
+	CachTinhTien,
+	vl.MaLoaiXe,
+	vl.TongTien,
+	vl.AnhVaoPath,
+	vl.AnhRaPath,
+	vl.TrangThai
+	from veluot vl
+	left join LoaiXe lx on lx.MaLoaiXe = vl.MaLoaiXe
+	left join nhanvien nv on nv.MaNhanVien = vl.MaNhanVien
+	where MaVeLuot = @maveluot
+end
+go
+
+-- procedure hiện nhật ký vé lượt
 create or alter procedure sp_bangnhatkyveluot
-	@tgTu Datetime = NULL,
-	@tgDen Datetime = NULL
+	@tgTu DATETIME2 = NULL,
+	@tgDen DATETIME2 = NULL,
+	@HanhDong NVarchar(20) = N'Tất cả hành động'
 AS
 BEGIN
 	SET NOCOUNT ON;
 	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
-    SET @tgDen = ISNULL(@tgDen, '9999-12-31');
-	select HanhDong as N'Hành động',
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
+
+	select 
+	ROW_NUMBER() OVER (ORDER BY nkvl.ThoiGianXuLy DESC) AS STT,
+	HanhDong as N'Hành động',
 	nv.HoTen N'Nhân viên xử lý',
 	ThoiGianXuLy as N'Thời gian xử lý',
-	MayTinhXuLy as N'Máy tính xử lý',
+	nkvl.MayTinhXuLy as N'Máy tính xử lý',
 	NoiDungCu as N'Nội dung cũ',
 	NoiDungMoi as N'Nội dung mới'
+
 	from NhatKyXuLyVeLuot nkvl
 	Left Join Nhanvien nv on nv.MaNhanVien = nkvl.MaNhanVien
-	where ThoiGianXuLy between @tgTu and @tgDen;
+	Left join Veluot lv on nkvl.MaVeLuot = lv.MaVeLuot
+	where ThoiGianXuLy between @tgTu and @tgDen
+	And (@HanhDong = N'Tất cả hành động' or HanhDong = @HanhDong);
 END
 GO
 exec sp_bangnhatkyveluot
 GO
 
-IF OBJECT_ID(N'dbo.fn_GenThongTinVeLuot', N'FN') IS NOT NULL
-    DROP FUNCTION dbo.fn_GenThongTinVeLuot;
+--Tạo bảng nhật ký điều chỉnh giá vé
+CREATE TABLE NhatKyDieuChinhVeLuot (
+    MaDieuChinh INT IDENTITY(1,1) PRIMARY KEY,
+    MaVeLuot INT NOT NULL,
+    GiaVeCu INT NOT NULL,
+    GiaVeMoi INT NOT NULL,
+    MaNhanVien INT NOT NULL,
+    MayTinhXuLy NVARCHAR(50),
+    ThoiGianXuLy DATETIME2 DEFAULT GETDATE(),
+    MaThe VARCHAR(20),
+    BienSo VARCHAR(20),
+    LoaiXe NVARCHAR(20),
+    LoaiVe NVARCHAR(20),
+    FOREIGN KEY (MaVeLuot) REFERENCES VeLuot(MaVeLuot),
+    FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien)
+);
+Go
+-- tạo trigger giá vé
+CREATE or alter TRIGGER trg_NhatKyDieuChinh
+ON VeLuot
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO NhatKyDieuChinhVeLuot (
+        MaVeLuot, GiaVeCu, GiaVeMoi, MaNhanVien, MayTinhXuLy, MaThe, BienSo, LoaiXe, LoaiVe
+    )
+    SELECT 
+        i.MaVeLuot,
+        d.TongTien AS GiaVeCu,
+        i.TongTien AS GiaVeMoi,
+        i.MaNhanVien,
+        i.MayTinhXuLy,
+        i.MaThe,
+        i.BienSo,
+        lx.TenLoaiXe,
+        i.LoaiVe
+    FROM inserted i
+    JOIN deleted d ON i.MaVeLuot = d.MaVeLuot
+    LEFT JOIN LoaiXe lx ON i.MaLoaiXe = lx.MaLoaiXe
+    WHERE i.TongTien <> d.TongTien;
+END;
+GO
+--procedure hiện bảng nhật ký điều chỉnh
+CREATE OR ALTER PROCEDURE sp_nhatkydieuchinh
+    @tgTu DATETIME2 = NULL,
+	@tgDen DATETIME2 = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY nk.ThoiGianXuLy DESC) AS STT,
+        GiaVeCu AS N'Giá vé cũ',
+        GiaVeMoi AS N'Giá vé mới',
+        nv.HoTen AS N'Nhân viên xử lý',
+        nk.MayTinhXuLy AS N'Máy tính xử lý',
+        nk.ThoiGianXuLy AS N'Thời gian xử lý',
+        nk.MaThe AS N'Mã thẻ',
+        nk.BienSo AS N'Biển số',
+        nk.LoaiXe AS N'Loại xe',
+        nk.LoaiVe AS N'Loại vé'
+    FROM 
+        NhatKyDieuChinhVeLuot nk
+    LEFT JOIN 
+        NhanVien nv ON nk.MaNhanVien = nv.MaNhanVien
+	    WHERE
+        nk.ThoiGianXuLy Between @tgTu and @tgDen
+    ORDER BY 
+        nk.ThoiGianXuLy DESC;
+END;
+GO
+exec sp_nhatkydieuchinh
+Go
+
+-- Tạo dữ liệu riêng thông tin vé lượt
+DROP FUNCTION IF EXISTS dbo.fn_GenThongTinVeLuot;
 GO
 CREATE FUNCTION dbo.fn_GenThongTinVeLuot (
     @MaVeLuot INT,
@@ -676,8 +750,8 @@ CREATE FUNCTION dbo.fn_GenThongTinVeLuot (
     @DienThoai VARCHAR(15),
     @DiaChi NVARCHAR(200),
     @Email VARCHAR(100),
-    @ThoiGianVao DATETIME,
-    @ThoiGianRa DATETIME,
+    @ThoiGianVao DATETIME2,
+    @ThoiGianRa DATETIME2,
     @BienSo VARCHAR(20),
     @NhanHieu NVARCHAR(50),
     @MaLoaiXe INT,
@@ -685,7 +759,9 @@ CREATE FUNCTION dbo.fn_GenThongTinVeLuot (
     @TrangThai NVARCHAR(20),
     @MaNhanVien INT,
     @MayTinhXuLy NVARCHAR(50),
-	@MaVeThang INT
+    @MaVeThang INT,
+    @AnhVaoPath NVARCHAR(255),
+    @AnhRaPath NVARCHAR(255)
 )
 RETURNS NVARCHAR(MAX)
 AS
@@ -707,7 +783,9 @@ BEGIN
         N' | Trạng thái: ', @TrangThai,
         N' | Máy tính xử lý: ', @MayTinhXuLy,
         N' | Mã nhân viên xử lý: ', @MaNhanVien,
-        N' | Mã vé tháng: ', @MaVeThang
+        N' | Mã vé tháng: ', @MaVeThang,
+        N' | Ảnh vào: ', @AnhVaoPath,
+        N' | Ảnh ra: ', @AnhRaPath
     );
 END;
 GO
@@ -730,8 +808,8 @@ BEGIN
         @MayTinhXuLy,
         dbo.fn_GenThongTinVeLuot(
             i.MaVeLuot, i.MaNhom, i.MaThe, NULL, NULL, NULL, NULL,
-            NULL, NULL, i.BienSo, NULL, i.MaLoaiXe, i.TongTien,
-            NULL, i.MaNhanVien, i.MayTinhXuLy, i.MaVeThang
+            i.ThoiGianVao, i.ThoiGianRa, i.BienSo, NULL, i.MaLoaiXe, i.TongTien,
+            i.TrangThai, i.MaNhanVien, i.MayTinhXuLy, i.MaVeThang, i.AnhVaoPath, i.AnhRaPath
         )
     FROM inserted i;
 END
@@ -750,18 +828,29 @@ BEGIN
         HanhDong, MaNhanVien, MayTinhXuLy, NoiDungCu, NoiDungMoi
     )
     SELECT 
-        N'Sửa vé lượt',
+        CASE 
+            WHEN d.TrangThai != i.TrangThai AND i.TrangThai = N'Mất thẻ' 
+                 THEN N'Xử lý mất thẻ'
+                 
+            WHEN d.TrangThai != i.TrangThai AND i.TrangThai = N'Đã ra'
+                 THEN 
+                     CASE 
+                         WHEN i.TongTien IS NULL OR i.TongTien = 0 THEN N'Cho xe ra (Miễn phí)'
+                         ELSE N'Cho xe ra (Tính phí)'
+                     END
+            ELSE N'Sửa vé lượt'
+        END AS HanhDong,
         @NguoiThucHien,
         @MayTinhXuLy,
         dbo.fn_GenThongTinVeLuot(
             d.MaVeLuot, d.MaNhom, d.MaThe, NULL, NULL, NULL, NULL,
             NULL, NULL, d.BienSo, NULL, d.MaLoaiXe, d.TongTien,
-            NULL, d.MaNhanVien, d.MayTinhXuLy, d.MaVeThang
+            NULL, d.MaNhanVien, d.MayTinhXuLy, d.MaVeThang, d.AnhVaoPath, d.AnhRaPath
         ),
         dbo.fn_GenThongTinVeLuot(
             i.MaVeLuot, i.MaNhom, i.MaThe, NULL, NULL, NULL, NULL,
             NULL, NULL, i.BienSo, NULL, i.MaLoaiXe, i.TongTien,
-            NULL, i.MaNhanVien, i.MayTinhXuLy, i.MaVeThang
+            NULL, i.MaNhanVien, i.MayTinhXuLy, i.MaVeThang, i.AnhVaoPath, i.AnhRaPath
         )
     FROM inserted i
     JOIN deleted d ON i.MaVeLuot = d.MaVeLuot;
@@ -787,7 +876,7 @@ BEGIN
         dbo.fn_GenThongTinVeLuot(
             d.MaVeLuot, d.MaNhom, d.MaThe, NULL, NULL, NULL, NULL,
             NULL, NULL, d.BienSo, NULL, d.MaLoaiXe, d.TongTien,
-            NULL, d.MaNhanVien, d.MayTinhXuLy, d.MaVeThang
+            NULL, d.MaNhanVien, d.MayTinhXuLy, d.MaVeThang, d.AnhVaoPath, d.AnhRaPath
         )
     FROM deleted d;
 END
@@ -811,27 +900,73 @@ BEGIN
 	ALTER TABLE VeLuot ENABLE TRIGGER trg_Update_VeLuot;
 END;
 Go
--- Mock dữ liệu cho bảng VeLuot
-INSERT INTO VeLuot (MaThe, ThoiGianVao, ThoiGianRa, MaNhanVien, MayTinhXuLy, CachTinhTien, BienSo, MaLoaiXe, MaVeThang)
-VALUES 
-('T003', '2025-06-01 08:00:00', NULL, 1, N'May1', 1, '59A1-12345', 1, 3),
 
-('T001', '2025-06-02 09:00:00', NULL, 2, N'May2', 0, '51C-67890', 2, NULL),
+CREATE OR ALTER PROCEDURE sp_hienbangveluot
+    @tgTu DATETIME2 = NULL,
+    @tgDen DATETIME2 = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-('T002', '2025-06-03 07:30:00', NULL, 1, N'May3', 1, '30F-45678', 1, NULL);
+    SET @tgTu = ISNULL(@tgTu, '1900-01-01');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
+
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY vl.ThoiGianVao DESC) AS STT,
+        vl.ThoiGianVao AS N'Thời gian vào',
+        vl.ThoiGianRa AS N'Thời gian ra',
+        vl.MayTinhXuLy AS N'Máy tính xử lý',
+        nv.HoTen AS N'Nhân viên xử lý',
+        vl.TongTien AS N'Tổng tiền',
+        vl.MaThe AS N'Mã thẻ',
+        vl.BienSo AS N'Biển số',
+        vl.LoaiVe AS N'Loại vé',
+        vl.TrangThai AS N'Trạng thái',
+        CASE vl.CachTinhTien
+            WHEN -1 THEN N'Miễn phí'
+            WHEN 0 THEN N'Công văn'
+            WHEN 1 THEN N'Lũy tiến'
+            ELSE N'Khác'
+        END AS N'Cách tính tiền',
+        vl.AnhVaoPath AS N'Ảnh vào',
+        vl.AnhRaPath AS N'Ảnh ra'
+    FROM VeLuot vl
+    LEFT JOIN NhanVien nv ON vl.MaNhanVien = nv.MaNhanVien
+    WHERE vl.ThoiGianVao >= @tgTu 
+	AND vl.ThoiGianVao <= @tgDen;
+END;
+
 GO
+CREATE OR ALTER PROCEDURE sp_tongveluot
+    @tgTu DATETIME2 = NULL,
+    @tgDen DATETIME2 = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET @tgTu = ISNULL(@tgTu, '1900-01-01');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
 
+    SELECT 
+		N'Tổng' as N'Diễn giải',
+        COUNT(*) AS N'Số lượng',
+        SUM(TongTien) AS N'Tổng tiền'
+    FROM VeLuot
+    WHERE ThoiGianVao BETWEEN @tgTu AND @tgDen;
+END
+Go
+exec sp_tongveluot
+Go
 -- ============================================================== F. Bảng thống kê theo máy tính
 CREATE Or Alter procedure sp_ThongKeTheoMayTinh 
 	@LoaiVe NVARCHAR(20) = NULL,
 	@LoaiXe NVARCHAR(20) = NULL,
-	@tgTu Datetime = NULL,
-	@tgDen Datetime = NULL
+	@tgTu DATETIME2 = NULL,
+	@tgDen DATETIME2 = NULL
 AS
 BEGIN
 	SET NOCOUNT ON;
     SET @tgTu = ISNULL(@tgTu, '1900-01-01');
-    SET @tgDen = ISNULL(@tgDen, '9999-12-31');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
 
 	SELECT
 		vl.MayTinhXuLy as N'Máy tính',
@@ -879,15 +1014,15 @@ Go
 -- ============================================================== H.2. Bảng diễn giải thống kê
 CREATE OR ALTER PROCEDURE sp_BangDienGiai
     @LoaiXe NVARCHAR(50) = NULL,
-    @tgTu DATETIME = NULL,
-    @tgDen DATETIME = NULL,
+    @tgTu DATETIME2 = NULL,
+    @tgDen DATETIME2 = NULL,
 	@TrangThai NVARCHAR(50) = NULL
 AS
 BEGIN
     SET NOCOUNT ON;
 
     SET @tgTu = ISNULL(@tgTu, '1900-01-01');
-    SET @tgDen = ISNULL(@tgDen, '9999-12-31');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
 
     -- CTE cho Vé lượt
     ;WITH VeLuotFiltered AS (
@@ -936,105 +1071,150 @@ GO
 
 -- ============================================================== I. Thống kê theo thời gian 
 CREATE OR ALTER PROCEDURE sp_ThongKeTheoThoiGian
-    @KieuThongKe NVARCHAR(10),   -- 'ngay', 'tuan', 'thang', 'nam'
-    @tgTu DATETIME = NULL,
-    @tgDen DATETIME = NULL,
-    @LoaiVe NVARCHAR(10) = NULL,
-    @LoaiXe NVARCHAR(50) = NULL,
-    @MaNhanVien NVARCHAR(20) = NULL
+    @KieuThongKe NVARCHAR(10),   -- 'ngày', 'tuan', 'thang', 'nam'
+    @tgTu DATETIME2 = NULL,
+    @tgDen DATETIME2 = NULL,
+    @LoaiVe NVARCHAR(20) = N'Tất cả loại vé', -- 'Vé lượt', 'Vé tháng'
+    @LoaiXe INT = -1,
+    @MaNhanVien INT = -1
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Normalize thời gian
+    -- Chuẩn hoá thời gian
     SET @tgTu = ISNULL(@tgTu, '2000-01-01');
-    SET @tgDen = ISNULL(@tgDen, GETDATE());
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
 
-    -- Tạm thời dùng bảng UNION giữa VeLuot và VeThang nếu muốn thống kê cả hai
-    SELECT
-        CONVERT(VARCHAR, 
-            CASE 
-				WHEN @KieuThongKe = N'ngày'	THEN FORMAT(Ve.ThoiGian, 'dd/MM/yyyy')
-				WHEN @KieuThongKe = N'tuần'	THEN CAST(DATEPART(WEEK, Ve.ThoiGian) AS NVARCHAR) + N' /' + CAST(YEAR(Ve.ThoiGian) AS NVARCHAR)
-				WHEN @KieuThongKe = N'tháng' THEN CAST(MONTH(Ve.ThoiGian) AS NVARCHAR) + N' /' + CAST(YEAR(Ve.ThoiGian) AS NVARCHAR)
-				WHEN @KieuThongKe = N'năm'	THEN CAST(YEAR(Ve.ThoiGian) AS NVARCHAR)
-            END, 103) AS N'Thời gian',
-        COUNT(CASE WHEN Ve.IsVao = 1 THEN 1 END) AS N'Số lượt vào',
-        COUNT(CASE WHEN Ve.IsVao = 0 THEN 1 END) AS N'Số lượt ra',
-        SUM(Ve.TongTien) AS TongTien
-    FROM (
-        -- Vé lượt
+    ;WITH VeGop AS (
+        -- Vé lượt: vào
         SELECT 
-            ThoiGianVao AS ThoiGian,
-            1 AS IsVao,
-            TongTien,
-            MaLoaiXe,
-            MaNhanVien
+            ThoiGianVao AS ThoiGian, 
+            1 AS IsVao, 
+            ISNULL(TongTien, 0) AS TongTien, 
+            MaLoaiXe, 
+            MaNhanVien, 
+            LoaiVe
         FROM VeLuot
-        WHERE @LoaiVe IS NULL OR LoaiVe = @LoaiVe
-        
-        UNION ALL
-
-        SELECT 
-            ThoiGianRa AS ThoiGian,
-            0 AS IsVao,
-            TongTien,
-            MaLoaiXe,
-            MaNhanVien
-        FROM VeLuot
-        WHERE @LoaiVe IS NULL OR LoaiVe = @LoaiVe
+        WHERE (@LoaiVe = N'Tất cả loại vé' OR LoaiVe = @LoaiVe)
 
         UNION ALL
 
+        -- Vé lượt: ra
         SELECT 
-            NgayKichHoat AS ThoiGian,
-            1 AS IsVao,
-            GiaVe AS TongTien,
-            MaLoaiXe,
-            MaNhanVien
+            ThoiGianRa AS ThoiGian, 
+            0 AS IsVao, 
+            ISNULL(TongTien, 0) AS TongTien, 
+            MaLoaiXe, 
+            MaNhanVien, 
+            LoaiVe
+        FROM VeLuot
+        WHERE (@LoaiVe = N'Tất cả loại vé' OR LoaiVe = @LoaiVe)
+
+        UNION ALL
+
+        -- Vé tháng: kích hoạt
+        SELECT 
+            NgayKichHoat AS ThoiGian, 
+            1 AS IsVao, 
+            ISNULL(GiaVe, 0) AS TongTien, 
+            MaLoaiXe, 
+            MaNhanVien, 
+            N'Vé tháng' AS LoaiVe
         FROM VeThang
-        WHERE @LoaiVe IS NULL OR @LoaiVe = N'Vé tháng'
-    ) Ve
-    JOIN LoaiXe lx ON Ve.MaLoaiXe = lx.MaLoaiXe
-    WHERE 
-        Ve.ThoiGian BETWEEN @tgTu AND @tgDen
-        AND (@LoaiXe IS NULL OR lx.TenLoaiXe = @LoaiXe)
-        AND (@MaNhanVien IS NULL OR Ve.MaNhanVien = @MaNhanVien)
-    GROUP BY 
-        CASE 
-				WHEN @KieuThongKe = N'ngày'	THEN FORMAT(Ve.ThoiGian, 'dd/MM/yyyy')
-				WHEN @KieuThongKe = N'tuần'	THEN CAST(DATEPART(WEEK, Ve.ThoiGian) AS NVARCHAR) + N' /' + CAST(YEAR(Ve.ThoiGian) AS NVARCHAR)
-				WHEN @KieuThongKe = N'tháng' THEN CAST(MONTH(Ve.ThoiGian) AS NVARCHAR) + N' /' + CAST(YEAR(Ve.ThoiGian) AS NVARCHAR)
-				WHEN @KieuThongKe = N'năm'	THEN CAST(YEAR(Ve.ThoiGian) AS NVARCHAR)
-        END
-    ORDER BY MIN(Ve.ThoiGian);
+        WHERE (@LoaiVe = N'Tất cả loại vé' OR @LoaiVe = N'Vé tháng')
+    ),
+    VeDaLoc AS (
+        SELECT 
+            v.ThoiGian,
+            v.IsVao,
+            v.TongTien,
+            v.MaLoaiXe,
+            v.MaNhanVien,
+            v.LoaiVe
+        FROM VeGop v
+        JOIN LoaiXe lx ON v.MaLoaiXe = lx.MaLoaiXe
+        WHERE 
+            v.ThoiGian BETWEEN @tgTu AND @tgDen
+            AND (@LoaiXe = -1 OR v.MaLoaiXe = @LoaiXe)
+            AND (@MaNhanVien = -1 OR v.MaNhanVien = @MaNhanVien)
+    ),
+    ThongKeCTE AS (
+        SELECT
+            CASE 
+                WHEN @KieuThongKe = N'ngày'  THEN CONVERT(CHAR(10), ThoiGian, 103)
+                WHEN @KieuThongKe = N'tuần'  THEN 
+                    RIGHT('00' + CAST(DATEPART(WEEK, ThoiGian) AS NVARCHAR), 2) + N' /' + CAST(YEAR(ThoiGian) AS NVARCHAR)
+                WHEN @KieuThongKe = N'tháng' THEN 
+                    RIGHT('00' + CAST(MONTH(ThoiGian) AS NVARCHAR), 2) + N' /' + CAST(YEAR(ThoiGian) AS NVARCHAR)
+                WHEN @KieuThongKe = N'năm'   THEN CAST(YEAR(ThoiGian) AS NVARCHAR)
+            END AS ThoiGianGroup,
+
+            MIN(ThoiGian) AS ThoiGianThuc,
+            COUNT(CASE WHEN IsVao = 1 THEN 1 END) AS SoLuotVao,
+            COUNT(CASE WHEN IsVao = 0 THEN 1 END) AS SoLuotRa,
+            SUM(ISNULL(TongTien, 0)) AS TongTien
+        FROM VeDaLoc
+        GROUP BY 
+            CASE 
+                WHEN @KieuThongKe = N'ngày'  THEN CONVERT(CHAR(10), ThoiGian, 103)
+                WHEN @KieuThongKe = N'tuần'  THEN 
+                    RIGHT('00' + CAST(DATEPART(WEEK, ThoiGian) AS NVARCHAR), 2) + N' /' + CAST(YEAR(ThoiGian) AS NVARCHAR)
+                WHEN @KieuThongKe = N'tháng' THEN 
+                    RIGHT('00' + CAST(MONTH(ThoiGian) AS NVARCHAR), 2) + N' /' + CAST(YEAR(ThoiGian) AS NVARCHAR)
+                WHEN @KieuThongKe = N'năm'   THEN CAST(YEAR(ThoiGian) AS NVARCHAR)
+            END
+    )
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY ThoiGianThuc DESC) AS STT,
+        ThoiGianGroup AS N'Thời gian',
+        SoLuotVao AS N'Số lượt vào',
+        SoLuotRa AS N'Số lượt ra',
+        TongTien AS N'Tổng tiền'
+    FROM ThongKeCTE
+    ORDER BY ThoiGianThuc DESC;
 END;
 Go
 EXEC sp_ThongKeTheoThoiGian 
-    @KieuThongKe = 'ngày',
+    @KieuThongKe = N'tuần',
     @tgTu = '2025-04-01',
-    @tgDen = '2025-05-30',
-    @LoaiVe = 'Vé tháng',
-    @LoaiXe = 'Xe máy',
-    @MaNhanVien = NULL;
+    @tgDen = '2025-06-30',
+    @LoaiVe = N'Vé tháng',
+    @LoaiXe = -1,
+    @MaNhanVien = 1;
 GO
 
 -- ============================================================== J. Bảng thống kê theo nhân viên
-CREATE Or Alter VIEW vw_ThongKeTheoNhanVien AS
-SELECT
-    nv.TenNhomNhanVien as N'Tên Nhân Viên',
-    lx.TenLoaiXe as N'Loại Xe',
-    vl.LoaiVe as N'Loại vé',
-    COUNT(*) AS N'Số lượt vào',
-    SUM(CASE WHEN vl.ThoiGianRa IS NOT NULL THEN 1 ELSE 0 END) AS N'Số lượt ra',
-    SUM(vl.TongTien) AS N'Tổng tiền'
-FROM VeLuot vl
-LEFT JOIN NhomNhanVien nv ON vl.MaNhanVien = nv.MaNhomNhanVien
-LEFT JOIN LoaiXe lx ON vl.MaLoaiXe = lx.MaLoaiXe
-GROUP BY nv.TenNhomNhanVien, lx.TenLoaiXe, vl.LoaiVe;
+CREATE OR ALTER PROCEDURE sp_ThongKeTheoNhanVien
+    @LoaiVe NVARCHAR(50) = N'Tất cả loại vé',
+    @MaLoaiXe INT = -1,
+    @tgTu DATETIME2 = NULL,
+    @tgDen DATETIME2 = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+	SET @tgTu = ISNULL(@tgTu, '1900-01-01');
+    SET @tgDen = ISNULL(@tgDen, '3000-01-01');
+    SELECT
+		ROW_NUMBER() OVER (ORDER BY nv.HoTen) AS N'STT',
+        nv.HoTen AS N'Tên Nhân Viên',
+        lx.TenLoaiXe AS N'Loại Xe',
+        vl.LoaiVe AS N'Loại vé',
+        COUNT(*) AS N'Số lượt vào',
+        SUM(CASE WHEN vl.ThoiGianRa IS NOT NULL THEN 1 ELSE 0 END) AS N'Số lượt ra',
+        SUM(ISNULL(vl.TongTien, 0)) AS N'Tổng tiền'
+    FROM VeLuot vl
+    LEFT JOIN NhanVien nv ON vl.MaNhanVien = nv.MaNhanVien
+    LEFT JOIN LoaiXe lx ON vl.MaLoaiXe = lx.MaLoaiXe
+    WHERE
+        (@LoaiVe = N'Tất cả loại vé' OR vl.LoaiVe = @LoaiVe)
+        AND (@MaLoaiXe = -1 OR vl.MaLoaiXe = @MaLoaiXe)
+        AND (@tgTu IS NULL OR vl.ThoiGianVao >= @tgTu)
+        AND (@tgDen IS NULL OR vl.ThoiGianVao <= @tgDen)
+    GROUP BY nv.Hoten, lx.TenLoaiXe, vl.LoaiVe
+END
 GO
-select * from vw_ThongKeTheoNhanVien
-Go
+EXEC sp_ThongKeTheoNhanVien 
+GO
 
 -- ============================================================== Bảng tính tiền tháng
 CREATE TABLE TinhTienThang (
@@ -1065,16 +1245,6 @@ BEGIN
         VALUES (source.GiaVeThang, source.MaLoaiXe, source.PhutMienPhi);
 END
 GO
-INSERT INTO TinhTienThang (GiaVeThang, MaLoaiXe, PhutMienPhi)
-VALUES
-(70000, 1, 15),    -- xe máy: 15 phút miễn phí
-(1000000, 2, 10);  -- ô tô: 10 phút miễn phí
-GO
-EXEC sp_upsertTinhTienThang @MaLoaiXe = 1, @GiaVeThang = 20000, @PhutMienPhi = 20;
-GO
-select * from TinhTienThang;
-Go
-
 
 -- ============================================================== Bảng tính tiền công văn
 CREATE TABLE TinhTienCongVan (
@@ -1149,31 +1319,6 @@ BEGIN
         );
 END;
 GO
-INSERT INTO TinhTienCongVan (
-    ThuTienTruoc, DemTu, DemDen, GioGiaoNgayDem,
-    GiaThuong, GiaDem, GiaNgayDem, GiaPhuThu,
-    PhuThuTu, PhuThuDen, MaLoaiXe
-)
-VALUES
-(    0,              -- Thu tiền sau
-    23, 6,          -- Khoảng đêm: 23:00 đến 06:00
-    10,             -- Giao ngày đêm: 10 giờ
-    3000,           -- Giá thường (giờ ban ngày): 3.000đ/giờ
-    5000,           -- Giá đêm: 5.000đ/giờ
-    8000,           -- Giá ngày đêm (trường hợp vượt ngưỡng 10 giờ): 8.000đ
-    2000,           -- Giá phụ thu
-    12, 13,         -- Phụ thu từ 12:00 đến 13:00 (trưa)
-    1 ),
-(    1,              -- Thu tiền trước
-    23, 6,          -- Khoảng đêm: 23:00 đến 06:00
-    10,             -- Giao ngày đêm: 10 giờ
-    20000,          -- Giá thường (giờ ban ngày): 20.000đ/giờ
-    30000,          -- Giá đêm: 30.000đ/giờ
-    50000,          -- Giá ngày đêm: 50.000đ
-    10000,          -- Giá phụ thu
-    17, 19,         -- Phụ thu từ 17:00 đến 19:00 (giờ cao điểm)
-    2);               -- Xe ô tô);
-GO
 select * from TinhTienCongVan
 Go
 
@@ -1232,108 +1377,96 @@ BEGIN
 END
 
 GO
-INSERT INTO TinhTienLuyTien (
-    Moc1, GiaMoc1, Moc2, GiaMoc2, GiaVuotMoc,
-    ChuKy, CongMoc, MaLoaiXe
-)
-VALUES
-(    2, 5000,            -- Mốc 1: 2h đầu giá 5.000đ
-    4, 8000,            -- Mốc 2: từ 2-4h giá thêm 8.000đ
-    3000, 1, 2,         -- Vượt mốc 2: mỗi chu kỳ 1h tính 3.000đ, cộng cả mốc 1 và 2
-    1),                   -- Xe máy
-(    1, 20000,           -- Mốc 1: 1h đầu giá 20.000đ
-    3, 30000,           -- Mốc 2: từ 1-3h giá thêm 30.000đ
-    15000, 1, 2,        -- Vượt mốc 2: mỗi chu kỳ 1h tính 15.000đ, cộng cả mốc 1 và 2
-    2);                   -- Xe ô tô
-GO
-select * from TinhTienLuyTien
-Go
 
--- ============================================================== Bảng phân quyền nếu rảnh
-
--- Phân quyền - not done
-CREATE TABLE ChucNang (
-    MaChucNang INT PRIMARY KEY,
-    TenChucNang NVARCHAR(100)
-);
-
-CREATE TABLE PhanQuyen (
-    MaNhomNhanVien INT,
-    MaChucNang INT,
-    CoQuyen BIT,
-    PRIMARY KEY (MaNhomNhanVien, MaChucNang),
-    FOREIGN KEY (MaNhomNhanVien) REFERENCES NhomNhanVien(MaNhomNhanVien),
-    FOREIGN KEY (MaChucNang) REFERENCES ChucNang(MaChucNang)
+-- ============================================================== Cấu hình hệ thống
+CREATE TABLE CauHinhHeThong (
+    TenCongTy NVARCHAR(255),
+    DiaChi NVARCHAR(255),
+    Email NVARCHAR(100),
+    SoDienThoai NVARCHAR(20), -- 
+    TienPhatMatThe INT, -- đồng 
+    SoLuongXeToiDa INT, -- chiếc
+    HanMucVeThang INT,	-- ngày
+    HinhThucThuPhi INT,      -- -1 - miễn phí, 0 công văn, 1 luỹ tiến
+    XuLyVeThangHetHan INT        -- -1 - không cho vào, 0 cảnh cáo, 1 như vé lượt
 );
 GO
 
--- Lấy tên của các database có trong máy
-SELECT name FROM sys.databases;
-GO
+-- Thêm init data để chạy chương trình
+INSERT INTO CauHinhHeThong (TenCongTy, DiaChi, Email, SoDienThoai, TienPhatMatThe, SoLuongXeToiDa, HanMucVeThang, HinhThucThuPhi, XuLyVeThangHetHan) 
+VALUES (N'Wuoc Company', N'UIT VNUHCM', N'22521212@gm.uit.edu.vn', N'02838220000', 50000, 200, 3, 1, 0);
 
--- Lấy toàn bộ thông tin của 1 bảng
-sp_help 'VeThang'
+insert into The (MaThe, NgayTaoThe, NgayCapNhatThe) 
+values ('T001', GETDATE(), GETDATE()), ('T111', GETDATE(), GETDATE())
+;
 Go
--- Kiểm tra điều kiện
-SELECT name, definition 
-FROM sys.check_constraints 
-WHERE parent_object_id = OBJECT_ID('dbo.The') AND name = 'CK__The__TrangThaiTh__4F47C5E3';
-
--- Toàn bộ trigger
-SELECT 
-    name AS TriggerName,
-    OBJECT_NAME(parent_id) AS TableName,
-    type_desc AS TriggerType,
-    create_date,
-    modify_date,
-    OBJECT_DEFINITION(object_id) AS TriggerDefinition
-FROM sys.triggers;
-
---  Toàn bộ khoá ngoại
-SELECT 
-    fk.name AS ForeignKeyName, 
-    tp.name AS ParentTable, 
-    cp.name AS ParentColumn, 
-    tr.name AS ReferencedTable, 
-    cr.name AS ReferencedColumn
-FROM sys.foreign_keys AS fk
-INNER JOIN sys.foreign_key_columns AS fkc ON fk.object_id = fkc.constraint_object_id
-INNER JOIN sys.tables AS tp ON fkc.parent_object_id = tp.object_id
-INNER JOIN sys.columns AS cp ON fkc.parent_object_id = cp.object_id AND fkc.parent_column_id = cp.column_id
-INNER JOIN sys.tables AS tr ON fkc.referenced_object_id = tr.object_id
-INNER JOIN sys.columns AS cr ON fkc.referenced_object_id = cr.object_id AND fkc.referenced_column_id = cr.column_id;
-
+INSERT INTO NhomNhanVien (TenNhomNhanVien) VALUES (N'Quản trị viên');
 Go
 
--- Xoá toàn bộ thông tin, giữ lại bảng
-DECLARE @deletesql NVARCHAR(MAX) = '';
-EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
-SELECT @deletesql = @deletesql + 'DELETE FROM [' + TABLE_SCHEMA + '].[' + TABLE_NAME + '];' + CHAR(13)
-FROM INFORMATION_SCHEMA.TABLES
-WHERE TABLE_TYPE = 'BASE TABLE';
-EXEC sp_executesql @deletesql;
-EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL';
-
--- Xoá toàn bộ view (cẩn thận)
-DECLARE @dropviewsql NVARCHAR(MAX) = N'';
-SELECT @dropviewsql += N'DROP VIEW [' + SCHEMA_NAME(schema_id) + N'].[' + name + N'];'
-FROM sys.views;
-PRINT @dropviewsql;
-EXEC sp_executesql @dropviewsql;
-
--- Xoá toàn bộ bảng (cẩn thận)
-DECLARE @dropSQL NVARCHAR(MAX) = '';
-SELECT @dropSQL = @dropSQL + 'DROP TABLE [' + TABLE_SCHEMA + '].[' + TABLE_NAME + '];' + CHAR(13)
-FROM INFORMATION_SCHEMA.TABLES
-WHERE TABLE_TYPE = 'BASE TABLE';
-EXEC sp_executesql @dropSQL;
-
--- lấy toàn bộ database
-DECLARE @sql NVARCHAR(MAX) = '';
-SELECT @sql = @sql + 'SELECT * FROM ' + TABLE_NAME + '; ' 
-FROM INFORMATION_SCHEMA.TABLES 
-WHERE TABLE_TYPE = 'BASE TABLE';
-EXEC sp_executesql @sql;
+select * from NhanVien
+Insert into NhanVien (MaNhomNhanVien, HoTen, MaThe, TenDangNhap, MatKhau)
+values (1,N'Quốc','T001','admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 GO
 
-sp_who2
+select * from LoaiXe
+insert into LoaiXe(TenLoaiXe)
+values ('Xe máy');
+GO
+
+INSERT INTO TinhTienLuyTien (Moc1, GiaMoc1, Moc2, GiaMoc2, GiaVuotMoc, ChuKy, CongMoc, MaLoaiXe) 
+VALUES (4, 5000, 8, 7000, 1000, 1, 2, 1);
+INSERT INTO TinhTienCongVan (ThuTienTruoc, DemTu, DemDen, GioGiaoNgayDem, GiaThuong, GiaDem, GiaNgayDem, GiaPhuThu, PhuThuTu, PhuThuDen, MaLoaiXe) 
+VALUES (0, 22, 5, 18, 3000, 5000, 7000, 2000, 6, 8, 1);
+
+
+---- lấy toàn bộ database
+--DECLARE @sql NVARCHAR(MAX) = '';
+--SELECT @sql = @sql + 'SELECT * FROM ' + TABLE_NAME + '; ' 
+--FROM INFORMATION_SCHEMA.TABLES 
+--WHERE TABLE_TYPE = 'BASE TABLE';
+--EXEC sp_executesql @sql;
+
+---- Xoá toàn bộ view (cẩn thận)
+--DECLARE @dropviewsql NVARCHAR(MAX) = N'';
+--SELECT @dropviewsql += N'DROP VIEW [' + SCHEMA_NAME(schema_id) + N'].[' + name + N'];'
+--FROM sys.views;
+--PRINT @dropviewsql;
+--EXEC sp_executesql @dropviewsql;
+
+---- Xoá toàn bộ bảng (cẩn thận)
+--DECLARE @dropSQL NVARCHAR(MAX) = '';
+--SELECT @dropSQL = @dropSQL + 'DROP TABLE [' + TABLE_SCHEMA + '].[' + TABLE_NAME + '];' + CHAR(13)
+--FROM INFORMATION_SCHEMA.TABLES
+--WHERE TABLE_TYPE = 'BASE TABLE';
+--EXEC sp_executesql @dropSQL;
+
+--SELECT 
+--    name AS [DatabaseName],
+--    physical_name AS [FilePath],
+--    type_desc AS [FileType]
+--FROM sys.master_files
+--WHERE database_id = DB_ID('BAIGIUXE');
+
+----  Toàn bộ khoá ngoại
+--SELECT 
+--    fk.name AS ForeignKeyName, 
+--    tp.name AS ParentTable, 
+--    cp.name AS ParentColumn, 
+--    tr.name AS ReferencedTable, 
+--    cr.name AS ReferencedColumn
+--FROM sys.foreign_keys AS fk
+--INNER JOIN sys.foreign_key_columns AS fkc ON fk.object_id = fkc.constraint_object_id
+--INNER JOIN sys.tables AS tp ON fkc.parent_object_id = tp.object_id
+--INNER JOIN sys.columns AS cp ON fkc.parent_object_id = cp.object_id AND fkc.parent_column_id = cp.column_id
+--INNER JOIN sys.tables AS tr ON fkc.referenced_object_id = tr.object_id
+--INNER JOIN sys.columns AS cr ON fkc.referenced_object_id = cr.object_id AND fkc.referenced_column_id = cr.column_id;
+
+---- Toàn bộ trigger
+--SELECT 
+--    name AS TriggerName,
+--    OBJECT_NAME(parent_id) AS TableName,
+--    type_desc AS TriggerType,
+--    create_date,
+--    modify_date,
+--    OBJECT_DEFINITION(object_id) AS TriggerDefinition
+--FROM sys.triggers;
